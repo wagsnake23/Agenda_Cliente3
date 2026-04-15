@@ -90,7 +90,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                     )}>
                       <div className={cn(
                         "flex flex-row items-center justify-center py-[2px] md:py-[4px] px-[8px] md:px-[10px] rounded-[6px] md:rounded-[8px] text-[11px] md:text-[13px] leading-[1.1] border-[0.5px] shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)] md:shadow-[inset_0_1px_4px_rgba(0,0,0,0.1)] shrink-0",
-                        !event.is_fixed && event.type === 'event' 
+                        !event.is_fixed && event.type === 'event' && !event.is_system
                           ? "bg-[#dbeafe] md:bg-gradient-to-b md:from-blue-400 md:to-blue-500 text-[#1e40af] md:text-white border-[#bfdbfe] md:border-white/30" 
                           : isInfoEvent ? "bg-[#e2e8f0] text-[#1e293b] border-[#cbd5e1]" : "bg-[#ef4444]/15 md:bg-gradient-to-b md:from-red-400 md:to-red-500 text-[#c62828] md:text-white border-[#fca5a5]/40 md:border-white/30"
                       )}>
