@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
-import { LogIn, LogOut, Users, Calendar as CalendarIcon, ChevronDown, Bell } from 'lucide-react';
+import { LogIn, LogOut, Users, CalendarDays, ClipboardList, ChevronDown, Bell } from 'lucide-react';
 import MobileMenu from './MobileMenu';
 import { useCalendarEventsContext } from '@/context/CalendarEventsContext';
 import { useAgendamentos } from '@/hooks/useAgendamentos';
@@ -31,9 +31,9 @@ export const UserMenu = () => {
         <div ref={ref} className="relative z-[102]">
             <button
                 onClick={() => setOpen(!open)}
-                className="flex items-center gap-3 px-[14px] py-[6px] rounded-xl bg-[#2d3f63] hover:bg-[#3a5585] transition-all duration-200 ease-in-out text-white border border-white/[0.08]"
+                className="flex items-center gap-3 px-[14px] py-[6px] rounded-xl bg-[#2d3f63] hover:bg-[#3a5585] transition-all duration-300 ease-in-out text-white border border-white/[0.08] group"
             >
-                <div className="w-[34px] h-[34px] rounded-full overflow-hidden border border-white/20">
+                <div className="w-[34px] h-[34px] rounded-full overflow-hidden border border-white/20 ring-2 ring-white/30 group-hover:ring-yellow-400 transition-all duration-300">
                     {profile?.foto_url ? (
                         <img src={profile.foto_url} alt={profile.nome} className="w-full h-full object-cover" />
                     ) : (
@@ -128,8 +128,8 @@ const Header = () => {
         <>
             {/* Barra de Título Institucional - Desktop Apenas */}
             <header 
-                className="hidden lg:flex fixed top-0 w-full h-[76px] bg-[#243552] items-center z-[100] select-none"
-                style={{ boxShadow: '0 4px 14px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(255,255,255,0.15)' }}
+                className="hidden lg:flex fixed top-0 w-full h-[76px] bg-[#243552] items-center z-[100] select-none border-b border-white/10"
+                style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 -1px 0 rgba(255,255,255,0.05)' }}
             >
                 <div className="w-full max-w-[1600px] mx-auto px-8 flex items-center justify-between">
                     <div onClick={() => navigate('/')} className="flex items-center gap-4 cursor-pointer relative">
@@ -167,42 +167,45 @@ const Header = () => {
                                         {isAdmin && (
                                             <button
                                                 onClick={() => navigate('/usuarios')}
-                                                className={`px-[14px] py-2 lg:py-2.5 rounded-lg text-[17px] font-semibold transition-all duration-300 ease-in-out relative group ${location.pathname.startsWith('/usuarios')
-                                                    ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]'
-                                                    : 'text-white hover:bg-white/[0.08]'
+                                                className={`px-3 py-2 rounded-lg text-[15.5px] font-semibold tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname.startsWith('/usuarios')
+                                                    ? 'text-white bg-white/10'
+                                                    : 'text-white/90 hover:bg-white/10 hover:text-white'
                                                     }`}
                                             >
-                                                Usuários
+                                                <Users size={18} strokeWidth={2.5} className="text-white" />
+                                                <span>Usuários</span>
                                                 {location.pathname.startsWith('/usuarios') && (
-                                                    <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#fef08a] to-transparent rounded-full shadow-[0_0_12px_rgba(254,240,138,0.5)] animate-in fade-in slide-in-from-bottom-1 duration-500" />
+                                                    <div className="absolute bottom-1 left-3 right-3 h-[2px] bg-[#fef08a] rounded-full shadow-[0_0_8px_rgba(254,240,138,0.6)]" />
                                                 )}
                                             </button>
                                         )}
 
                                         <button
                                             onClick={() => navigate('/admin/calendario')}
-                                            className={`px-[14px] py-2 lg:py-2.5 rounded-lg text-[17px] font-semibold transition-all duration-300 ease-in-out relative group ${location.pathname.startsWith('/admin/calendario')
-                                                ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]'
-                                                : 'text-white hover:bg-white/[0.08]'
+                                            className={`px-3 py-2 rounded-lg text-[15.5px] font-semibold tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname.startsWith('/admin/calendario')
+                                                ? 'text-white bg-white/10'
+                                                : 'text-white/90 hover:bg-white/10 hover:text-white'
                                                 }`}
                                         >
-                                            Feriados e Datas
+                                            <CalendarDays size={18} strokeWidth={2.5} className="text-white" />
+                                            <span>Feriados e Datas</span>
                                             {location.pathname.startsWith('/admin/calendario') && (
-                                                <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#fef08a] to-transparent rounded-full shadow-[0_0_12px_rgba(254,240,138,0.5)] animate-in fade-in slide-in-from-bottom-1 duration-500" />
+                                                <div className="absolute bottom-1 left-3 right-3 h-[2px] bg-[#fef08a] rounded-full shadow-[0_0_8px_rgba(254,240,138,0.6)]" />
                                             )}
                                         </button>
 
                                         {/* Agendamentos */}
                                         <button
                                             onClick={() => navigate('/agendamentos')}
-                                            className={`px-[14px] py-2 lg:py-2.5 rounded-lg text-[17px] font-semibold transition-all duration-300 ease-in-out relative group ${location.pathname === '/agendamentos'
-                                                ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]'
-                                                : 'text-white hover:bg-white/[0.08]'
+                                            className={`px-3 py-2 rounded-lg text-[15.5px] font-semibold tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname === '/agendamentos'
+                                                ? 'text-white bg-white/10'
+                                                : 'text-white/90 hover:bg-white/10 hover:text-white'
                                                 }`}
                                         >
-                                            Agendamentos
+                                            <ClipboardList size={18} strokeWidth={2.5} className="text-white" />
+                                            <span>Agendamentos</span>
                                             {location.pathname === '/agendamentos' && (
-                                                <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#fef08a] to-transparent rounded-full shadow-[0_0_12px_rgba(254,240,138,0.5)] animate-in fade-in slide-in-from-bottom-1 duration-500" />
+                                                <div className="absolute bottom-1 left-3 right-3 h-[2px] bg-[#fef08a] rounded-full shadow-[0_0_8px_rgba(254,240,138,0.6)]" />
                                             )}
                                         </button>
                                     </div>
@@ -210,9 +213,9 @@ const Header = () => {
                                     {/* Botão Agendar */}
                                     <button
                                         onClick={handleAgendar}
-                                        className="px-5 py-2 rounded-xl lg:rounded-2xl font-black uppercase text-sm text-[#0B1221] bg-gradient-to-b from-[#fef08a] to-[#facc15] shadow-md hover:brightness-110 transition-all duration-200 cursor-pointer flex items-center gap-2 border-none ring-0 outline-none"
+                                        className="px-6 py-2.5 rounded-xl lg:rounded-2xl font-black uppercase text-[13px] tracking-wider text-[#0B1221] bg-gradient-to-br from-[#fef08a] via-[#facc15] to-[#eab308] shadow-[0_4px_15px_rgba(234,179,8,0.35)] hover:shadow-[0_6px_20px_rgba(234,179,8,0.45)] hover:scale-[1.03] hover:brightness-110 active:scale-[0.98] transition-all duration-200 cursor-pointer flex items-center gap-2 border-none ring-0 outline-none"
                                     >
-                                        <span className="relative top-[-1px]">📝</span> Agendar
+                                        <span className="relative top-[-1px] text-[16px]">📝</span> Agendar
                                     </button>
 
                                     {/* Avatar Dropdown */}
