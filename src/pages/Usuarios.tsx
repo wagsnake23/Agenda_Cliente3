@@ -228,7 +228,7 @@ const UserModal: React.FC<{
 
     if (!open) return null;
     return (
-        <div className="fixed inset-0 z-[150] flex items-center justify-center p-2 md:p-4">
+        <div className="fixed inset-0 z-[150] flex items-center justify-center p-1 md:p-4">
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
             <div className="relative bg-gradient-to-br from-[#f8fbff] to-[#f0f7ff] rounded-[24px] shadow-2xl border-2 border-slate-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
                 <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#0f3c78] to-[#2f80ed]">
@@ -240,8 +240,8 @@ const UserModal: React.FC<{
                             {isEditing ? 'Editar Usuário' : 'Novo Usuário'}
                         </h3>
                     </div>
-                    <button onClick={onClose} className="w-7 h-7 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all">
-                        <X className="w-4 h-4 md:w-[22px] md:h-[22px]" strokeWidth={4} />
+                    <button onClick={onClose} className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all shrink-0">
+                        <X className="w-3.5 h-3.5 md:w-5 md:h-5" strokeWidth={5} />
                     </button>
                 </div>
 
@@ -253,39 +253,39 @@ const UserModal: React.FC<{
                     className="p-6 space-y-4"
                 >
                     <div>
-                        <label className="text-[13px] font-bold text-slate-500 ml-1 mb-1 block">Nome</label>
-                        <input {...form.register('nome')} type="text" className="w-full h-10 px-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-400 transition-all" />
+                        <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Nome</label>
+                        <input {...form.register('nome')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
                         {form.formState.errors.nome && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.nome.message}</p>}
                     </div>
 
                     <div>
-                        <label className="text-[13px] font-bold text-slate-500 ml-1 mb-1 block">Email</label>
-                        <input {...form.register('email')} type="email" autoComplete="off" readOnly={isEditing} className={`w-full h-10 px-3 rounded-xl border text-slate-700 text-sm focus:outline-none focus:border-blue-400 transition-all ${isEditing ? 'bg-slate-50 border-slate-100 text-slate-400 cursor-not-allowed' : 'border-slate-200'}`} />
+                        <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Email</label>
+                        <input {...form.register('email')} type="email" autoComplete="off" readOnly={isEditing} className={`w-full h-10 px-3 rounded-xl border text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all ${isEditing ? 'bg-slate-50 border-blue-200/30 text-slate-400 cursor-not-allowed' : 'border-blue-300/40'}`} />
                         {form.formState.errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.email.message}</p>}
                     </div>
 
                     {!isEditing && (
                         <div>
-                            <label className="text-[13px] font-bold text-slate-500 ml-1 mb-1 block">Senha</label>
-                            <input {...form.register('password')} type="password" autoComplete="new-password" className="w-full h-10 px-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-400 transition-all" />
+                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Senha</label>
+                            <input {...form.register('password')} type="password" autoComplete="new-password" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
                             {form.formState.errors.password && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.password.message}</p>}
                         </div>
                     )}
 
                     <div className="grid grid-cols-2 gap-3">
                         <div>
-                            <label className="text-[13px] font-bold text-slate-500 ml-1 mb-1 block">Cargo</label>
-                            <input {...form.register('cargo')} type="text" className="w-full h-10 px-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-400 transition-all" />
+                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Cargo</label>
+                            <input {...form.register('cargo')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
                         </div>
                         <div>
-                            <label className="text-[13px] font-bold text-slate-500 ml-1 mb-1 block">Matrícula</label>
-                            <input {...form.register('matricula')} type="text" className="w-full h-10 px-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-400 transition-all" />
+                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Matrícula</label>
+                            <input {...form.register('matricula')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
                         </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                         <div>
-                            <label className="text-[13px] font-bold text-slate-500 ml-1 mb-1 block">Perfil</label>
+                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Perfil</label>
                             <Controller
                                 name="perfil"
                                 control={form.control}
@@ -294,10 +294,10 @@ const UserModal: React.FC<{
                                         value={field.value} 
                                         onValueChange={field.onChange}
                                     >
-                                        <SelectTrigger className="w-full h-10 px-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:border-blue-400 transition-all bg-white">
+                                        <SelectTrigger className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:border-blue-400 transition-all bg-white">
                                             <SelectValue placeholder="Selecione o perfil" />
                                         </SelectTrigger>
-                                        <SelectContent className="rounded-xl border-slate-200 shadow-xl z-[250]">
+                                        <SelectContent className="rounded-xl border-blue-200 shadow-xl z-[250]">
                                             <SelectItem value="conferente" className="rounded-lg">Membro</SelectItem>
                                             <SelectItem value="administrador" className="rounded-lg">Administrador</SelectItem>
                                         </SelectContent>
@@ -306,7 +306,7 @@ const UserModal: React.FC<{
                             />
                         </div>
                         <div>
-                            <label className="text-[13px] font-bold text-slate-500 ml-1 mb-1 block">Status</label>
+                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Status</label>
                             <Controller
                                 name="ativo"
                                 control={form.control}
@@ -315,10 +315,10 @@ const UserModal: React.FC<{
                                         value={String(field.value)} 
                                         onValueChange={(v) => field.onChange(v === 'true')}
                                     >
-                                        <SelectTrigger className="w-full h-10 px-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:border-blue-400 transition-all bg-white">
+                                        <SelectTrigger className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:border-blue-400 transition-all bg-white">
                                             <SelectValue placeholder="Selecione o status" />
                                         </SelectTrigger>
-                                        <SelectContent className="rounded-xl border-slate-200 shadow-xl z-[250]">
+                                        <SelectContent className="rounded-xl border-blue-200 shadow-xl z-[250]">
                                             <SelectItem value="true" className="rounded-lg">Ativo</SelectItem>
                                             <SelectItem value="false" className="rounded-lg">Inativo</SelectItem>
                                         </SelectContent>
@@ -346,8 +346,8 @@ const UserModal: React.FC<{
                         )}
 
                         <div className="flex gap-3">
-                            <button type="button" onClick={onClose} className="flex-1 h-12 rounded-xl bg-slate-200 text-slate-700 font-bold text-[16px] md:text-base shadow-[0_4px_0_#CBD5E1] hover:bg-slate-300 active:translate-y-[2px] active:shadow-none transition-all">Cancelar</button>
-                            <button type="submit" disabled={form.formState.isSubmitting} className="flex-1 h-12 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-[16px] md:text-base shadow-[0_4px_0_#1E3A8A] hover:from-blue-500 hover:to-blue-600 active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-60 flex items-center justify-center gap-2">
+                            <button type="button" onClick={onClose} className="flex-1 h-12 rounded-xl bg-slate-200 text-slate-700 font-bold text-[17px] md:text-[18px] shadow-[0_3px_0_#CBD5E1] hover:bg-slate-300 active:translate-y-[2px] active:shadow-none transition-all">Cancelar</button>
+                            <button type="submit" disabled={form.formState.isSubmitting} className="flex-1 h-12 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-[17px] md:text-[18px] shadow-[0_3px_0_#1E3A8A] hover:from-blue-500 hover:to-blue-600 active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-60 flex items-center justify-center gap-2">
                                 {form.formState.isSubmitting ? <><Loader2 size={16} className="animate-spin" /> Salvando...</> : 'Salvar'}
                             </button>
                         </div>
