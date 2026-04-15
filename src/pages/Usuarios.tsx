@@ -293,11 +293,12 @@ const UserModal: React.FC<{
                                     <Select 
                                         value={field.value} 
                                         onValueChange={field.onChange}
+                                        {...{ modal: false } as any}
                                     >
                                         <SelectTrigger className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:border-blue-400 transition-all bg-white">
                                             <SelectValue placeholder="Selecione o perfil" />
                                         </SelectTrigger>
-                                        <SelectContent className="rounded-xl border-blue-200 shadow-xl z-[250]">
+                                        <SelectContent position="item-aligned" className="rounded-xl border-blue-200 shadow-xl z-[250]">
                                             <SelectItem value="conferente" className="rounded-lg">Membro</SelectItem>
                                             <SelectItem value="administrador" className="rounded-lg">Administrador</SelectItem>
                                         </SelectContent>
@@ -314,11 +315,12 @@ const UserModal: React.FC<{
                                     <Select 
                                         value={String(field.value)} 
                                         onValueChange={(v) => field.onChange(v === 'true')}
-                                    >
+                                        {...{ modal: false } as any}
+                                     >
                                         <SelectTrigger className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:border-blue-400 transition-all bg-white">
                                             <SelectValue placeholder="Selecione o status" />
                                         </SelectTrigger>
-                                        <SelectContent className="rounded-xl border-blue-200 shadow-xl z-[250]">
+                                        <SelectContent position="item-aligned" className="rounded-xl border-blue-200 shadow-xl z-[250]">
                                             <SelectItem value="true" className="rounded-lg">Ativo</SelectItem>
                                             <SelectItem value="false" className="rounded-lg">Inativo</SelectItem>
                                         </SelectContent>
