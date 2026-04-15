@@ -471,7 +471,7 @@ const AgendamentosPage: React.FC = () => {
                                                                                 })
                                                                             );
                                                                         }}
-                                                                        className="w-10 h-10 flex items-center justify-center rounded-lg text-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all border border-blue-50/50"
+                                                                        className="w-10 h-10 flex items-center justify-center rounded-lg text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-all border border-blue-200/60 shadow-sm"
                                                                         title="Editar Agendamento"
                                                                     >
                                                                         <SquarePen size={18} />
@@ -572,7 +572,7 @@ const AgendamentosPage: React.FC = () => {
                                                                 })
                                                             );
                                                         }}
-                                                        className="flex items-center justify-center p-1.5 px-2.5 rounded-lg text-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all border border-blue-100"
+                                                        className="flex items-center justify-center p-1.5 px-2.5 rounded-lg text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-all border border-blue-200 shadow-sm"
                                                     >
                                                         <SquarePen size={18} />
                                                     </button>

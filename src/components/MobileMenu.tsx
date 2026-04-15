@@ -69,7 +69,7 @@ const MobileMenu = () => {
                 )}
             >
                 {/* Topo / Header do Menu */}
-                <div className="px-5 py-6 bg-[#0B1221] flex flex-col relative">
+                <div className="px-5 py-6 bg-[#243552] flex flex-col relative">
                     <button
                         onClick={() => setIsOpen(false)}
                         className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center bg-red-600 text-white hover:bg-red-700 rounded-full transition-colors shadow-lg z-10"
@@ -106,7 +106,7 @@ const MobileMenu = () => {
                 </div>
 
                 {/* Lista de Itens - Sincronizado com o fundo da página */}
-                <div className="flex-1 overflow-y-auto py-3 px-3.5 flex flex-col gap-1.5 bg-gradient-to-b from-[#dbeafe] via-[#eef2ff] to-[#f8fafc]">
+                <div className="flex-1 overflow-y-auto py-3 px-3.5 flex flex-col gap-1.5 bg-gradient-to-t from-white via-[#fafbfe] to-[#f5f8ff]">
 
                     {/* Item 1: Escala */}
                     <div className="px-1 py-1">

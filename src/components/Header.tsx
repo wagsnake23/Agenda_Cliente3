@@ -142,16 +142,17 @@ const Header = () => {
                             }}
                         />
                         <h1
-                            className="md:font-extrabold font-black md:text-[1.35rem] tracking-wider uppercase leading-none inline-flex items-center pointer-events-auto select-none gap-2 relative z-10"
+                            className="md:font-bold font-black md:text-[1.35rem] tracking-wider uppercase leading-none inline-flex items-center pointer-events-auto select-none gap-2 relative z-10 antialiased"
                             style={{
-                                textShadow: `
-                                    0 1px 0 rgba(255,255,255,0.15),
-                                    0 2px 6px rgba(0,0,0,0.35)
-                                `
+                                color: 'rgba(255,255,255,0.95)',
+                                textShadow: '0 1px 1px rgba(0,0,0,0.25)',
+                                fontWeight: 700,
+                                WebkitFontSmoothing: 'antialiased',
+                                MozOsxFontSmoothing: 'grayscale'
                             }}
                         >
-                            <span style={{ color: '#ffffff' }}>CALENDÁRIO</span>
-                            <span style={{ color: '#ffffff' }}>AGENDA</span>
+                            <span>CALENDÁRIO</span>
+                            <span>AGENDA</span>
                         </h1>
                     </div>
 
