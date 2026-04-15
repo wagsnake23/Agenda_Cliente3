@@ -162,7 +162,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                     {/* Badge Única: Mês e Ano */}
                     <div
                         className={cn(
-                            "flex items-center justify-center transition-all duration-300 gap-2.5 antialiased rounded-[16px] md:rounded-full cursor-pointer",
+                            "flex items-center justify-center transition-all duration-300 gap-2.5 antialiased rounded-[14px] md:rounded-full cursor-pointer",
                             "active:scale-95 active:translate-y-0 active:brightness-[0.98]"
                         )}
                         style={{ 
