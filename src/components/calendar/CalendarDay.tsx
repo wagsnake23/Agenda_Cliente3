@@ -79,6 +79,12 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
   const handleMouseLeave = () => setIsHovered(false);
 
   const birthdayEmoji = dayData.isBirthday ? "🎂" : null;
+  const agendaDoDia = agendamentos.find(a => a.dataInicio === dateStr);
+  const rawTipo = agendaDoDia?.tipo || (temAgendamentoHoje ? "🏖️ Férias" : null);
+  const match = rawTipo?.match(/^([\p{Emoji}])/u);
+  const dynamicEmoji = match ? match[1] : (temAgendamentoHoje ? "🏖️" : null);
+  const isDoubleBirthday = birthdayEmoji === "🎂" && dynamicEmoji === "🎂";
+
   const renderBrasilFlagComponent = dayData.isHoliday && dayData.holidayName === "Independência do Brasil";
   // Emoji do feriado vem do banco (holidayEmoji), ou emoji especial
   const otherEmoji = dayData.isHoliday
@@ -136,27 +142,23 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
     >
       <div className="flex flex-col items-center justify-center relative">
-        {temAgendamentoHoje && (() => {
-          const agendaDoDia = agendamentos.find(a => a.dataInicio === dateStr);
-          const rawTipo = agendaDoDia?.tipo || "🏖️ Férias";
-          const match = rawTipo.match(/^([\p{Emoji}])/u);
-          const dynamicEmoji = match ? match[1] : "🏖️";
-
-          return (
-            <span
-              className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] md:text-[12px] leading-none animate-in zoom-in-50 duration-300 emoji-desktop-colorful"
-              title={rawTipo}
-            >
-              {dynamicEmoji}
-            </span>
-          )
-        })()}
+        {dynamicEmoji && (
+          <span
+            className={cn(
+              "absolute left-1/2 -translate-x-1/2 text-[10px] md:text-[12px] leading-none animate-in zoom-in-50 duration-300 emoji-desktop-colorful",
+              isDoubleBirthday ? "-top-[10px]" : "-top-3"
+            )}
+            title={rawTipo || ""}
+          >
+            {dynamicEmoji}
+          </span>
+        )}
         <span className="tracking-[0.3px]">
           {String(dayData.day).padStart(2, "0")}
         </span>
       </div>
 
-      {birthdayEmoji && (
+      {birthdayEmoji && !isDoubleBirthday && (
         <span className="absolute bottom-0.5 left-0.5 text-xs md:text-sm leading-none text-inherit emoji-desktop-colorful">
           {birthdayEmoji}
         </span>

@@ -593,10 +593,10 @@ const UsuariosPage: React.FC = () => {
                                                 <div className="flex items-center gap-2">
                                                     <button
                                                         onClick={() => { setEditingUser(u); setModalOpen(true); }}
-                                                        className="w-10 h-10 flex items-center justify-center rounded-lg text-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all border border-blue-50/50"
+                                                        className="w-10 h-10 flex items-center justify-center rounded-lg text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-all border border-blue-100/50"
                                                         title="Editar Usuário"
                                                     >
-                                                        <SquarePen size={18} />
+                                                        <SquarePen size={18} className="saturate-[1.5]" />
                                                     </button>
                                                     <button
                                                         onClick={() => setConfirmDelete(u.id)}
@@ -667,10 +667,10 @@ const UsuariosPage: React.FC = () => {
                                         <div className="flex flex-col gap-2 ml-3 shrink-0">
                                             <button
                                                 onClick={() => { setEditingUser(u); setModalOpen(true); }}
-                                                className="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-50 text-blue-600 active:scale-90 transition-all shadow-sm border border-blue-100"
+                                                className="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-50/80 text-blue-700 active:scale-90 transition-all shadow-sm border border-blue-200"
                                                 title="Editar"
                                             >
-                                                <SquarePen size={18} />
+                                                <SquarePen size={18} className="saturate-[1.5]" />
                                             </button>
                                             <button
                                                 onClick={() => setConfirmDelete(u.id)}
