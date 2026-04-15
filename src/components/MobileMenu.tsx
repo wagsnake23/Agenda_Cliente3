@@ -215,8 +215,6 @@ const MobileMenu = () => {
                                 <span className="font-bold text-sm">Meu Perfil</span>
                             </button>
 
-                            <div className="h-px w-full bg-slate-100 my-0.5" />
-
                             <div className="h-px w-full bg-blue-100/50 my-1 px-4" />
 
                             {/* Item 8: Sair */}
