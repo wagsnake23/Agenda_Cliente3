@@ -3,7 +3,7 @@
 import React, { useMemo } from 'react';
 import { MONTHS } from '@/utils/calendar-utils';
 import { cn } from '@/lib/utils';
-import { Cake } from 'lucide-react';
+import { Cake, CalendarDays } from 'lucide-react';
 import { getBirthdaysForMonth } from '@/hooks/use-calendar-events';
 import type { CalendarEvent } from '@/hooks/use-calendar-events';
 
@@ -46,15 +46,27 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
         {/* Conteúdo do Header */}
         <div className="relative flex items-center justify-between pl-1.5 pr-1.5 md:pl-6 md:pr-4 z-20 w-full">
           <div className="flex items-center gap-2">
-            <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none">🎂</span>
             <h4 className="font-semibold text-white text-[14px] lg:text-[17px] uppercase tracking-[0.5px]">
               Aniversariantes
             </h4>
           </div>
 
-          <div className="flex flex-row items-center justify-center py-[4px] md:py-[6px] px-[12px] rounded-[10px] md:rounded-[11px] text-[12px] md:text-[15px] bg-white/20 md:bg-slate-50 text-white md:text-amber-600 leading-[1.1] ml-auto border-[0.5px] border-white/30 md:border-amber-200 shadow-[inset_0_1px_4px_rgba(0,0,0,0.05)]">
-            <span className="font-bold uppercase tracking-wide">{MONTHS[month]?.substring(0, 3)}</span>
-            <span className="font-bold opacity-90 ml-[2px]">/{year}</span>
+          <div 
+            className={cn(
+              "flex flex-row items-center justify-center transition-all duration-300 ml-auto rounded-full cursor-pointer gap-1.5",
+              "py-[4px] px-[10px] md:py-[6px] md:px-[12px]",
+              "active:scale-95 active:translate-y-0"
+            )}
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(226,232,240,0.9))',
+              border: '1px solid rgba(59,130,246,0.15)',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8)',
+              lineHeight: '1.2'
+            }}
+          >
+            <CalendarDays size={16} className="text-[#1e3a8a] opacity-90" />
+            <span className="font-bold uppercase tracking-[0.2px] text-[#1e3a8a] text-[12px] md:text-[13px]">{MONTHS[month]?.substring(0, 3)}</span>
+            <span className="font-bold text-[12px] md:text-[13px]" style={{ color: 'rgba(185, 28, 28, 0.95)' }}>/{year}</span>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import type { CalendarMode } from '@/hooks/use-calendar-mode';
 import type { CalendarEvent } from '@/hooks/use-calendar-events';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { CalendarDays } from 'lucide-react';
 
 interface CalendarCardProps {
     month: number;
@@ -156,40 +157,34 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                     />
                 </div>
 
-                <div className="inline-flex items-center gap-2 relative z-10 md:-ml-2 -mt-[9px]">
-                    <img
-                        src="/logo.png"
-                        alt="Logo"
-                        className="hidden md:block w-8 h-8 md:w-[54px] md:h-[54px] object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]"
-                    />
-                    <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-wide flex flex-col items-start leading-tight m-0">
-                        {/* Badge Única: Mês e Ano */}
-                        <div
-                            className={cn(
-                                "hidden md:flex items-center justify-center px-[14px] py-0 transition-all duration-200 gap-2 antialiased",
-                                "shadow-[0_2px_0_rgba(0,0,0,0.06),0_4px_8px_rgba(0,0,0,0.1),inset_0_1.5px_1.5px_rgba(255,255,255,0.8)]",
-                                "cursor-pointer active:translate-y-[1px] active:shadow-[0_1px_0_rgba(0,0,0,0.05)] active:brightness-[0.98]"
-                            )}
-                            style={{
-                                background: season.style.bg,
-                                border: `0.5px solid ${season.style.border}`,
-                                borderBottom: `2.5px solid ${season.style.border}`,
-                                borderRadius: '14px',
-                            }}
-                        >
-                            <span className="text-[#D14343] font-extrabold text-base md:text-[18px] leading-none select-none tracking-[0.2px]" style={{ textShadow: 'none', WebkitFontSmoothing: 'antialiased' }}>
-                                {MONTHS[month]}
-                            </span>
-                            <span className="text-[#D14343] opacity-20 font-bold select-none">•</span>
-                            <span className="text-[#D14343] font-extrabold text-base md:text-[19px] leading-none select-none tracking-[0.2px]" style={{ textShadow: 'none', WebkitFontSmoothing: 'antialiased' }}>
-                                {year}
-                            </span>
-                        </div>
-                    </h3>
-                </div>
+                {/* Container Unificado para Badge e Estação */}
+                <div className="absolute top-[12px] left-[16px] right-[16px] z-20 flex items-center justify-between">
+                    {/* Badge Única: Mês e Ano */}
+                    <div
+                        className={cn(
+                            "flex items-center justify-center transition-all duration-300 gap-2.5 antialiased rounded-full cursor-pointer",
+                            "active:scale-95 active:translate-y-0 active:brightness-[0.98]"
+                        )}
+                        style={{ 
+                            background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(226,232,240,0.9))',
+                            border: '1px solid rgba(59,130,246,0.15)',
+                            boxShadow: '0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8)',
+                            padding: '7px 14px',
+                            lineHeight: '1.3',
+                            textShadow: 'none'
+                        }}
+                    >
+                        <CalendarDays size={20} className="text-[#1e3a8a] opacity-90 transform translate-y-[0.5px]" />
+                        <span className="text-[#1e3a8a] font-bold text-base md:text-[18px] select-none tracking-[0.2px]">
+                            {MONTHS[month]}
+                        </span>
+                        <span className="text-[#1e3a8a] opacity-20 font-bold select-none">•</span>
+                        <span className="font-bold text-base md:text-[19px] select-none tracking-[0.2px]" style={{ color: 'rgba(185, 28, 28, 0.95)' }}>
+                            {year}
+                        </span>
+                    </div>
 
-                {/* Badge da Estação (Desktop) com Tooltip */}
-                <div className="hidden md:flex absolute top-[12px] right-[14px] z-10">
+                    {/* Badge da Estação (Desktop) com Tooltip */}
                     <Tooltip delayDuration={300}>
                         <TooltipTrigger asChild>
                             <div
@@ -198,18 +193,18 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                                     padding: '4px',
                                     borderRadius: '12px',
                                     fontSize: '12.5px',
-                                    background: season.style.bg,
+                                    background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(226,232,240,0.9))',
                                     color: season.style.text,
                                     fontWeight: '800',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    border: `0.5px solid ${season.style.border}`,
-                                    width: '34px',
-                                    height: '34px'
+                                    border: `1px solid rgba(59,130,246,0.15)`,
+                                    width: '40px',
+                                    height: '40px'
                                 }}
                             >
-                                <span className="text-lg transform transition-transform group-hover/season:rotate-12">{season.emoji}</span>
+                                <span className="text-xl transform transition-transform group-hover/season:rotate-12">{season.emoji}</span>
                             </div>
                         </TooltipTrigger>
                         <TooltipContent
