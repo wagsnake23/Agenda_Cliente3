@@ -311,7 +311,7 @@ const AdminCalendario: React.FC = () => {
                         <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
                             <h1 className="text-[1.2rem] md:text-[1.7rem] font-black tracking-tight flex items-center justify-center md:justify-start gap-3">
                                 <div className="w-9 h-9 md:w-12 md:h-12 bg-gradient-to-br from-[#f0f7ff] via-[#e1effe] to-[#dbeafe] rounded-xl md:rounded-2xl border border-blue-200/50 shadow-[inset_0_1.5px_1.5px_white,0_2px_4px_rgba(37,99,235,0.06)] flex items-center justify-center shrink-0">
-                                    <span className="text-lg md:text-2xl">📅</span>
+                                    <span className="text-lg md:text-2xl emoji-desktop-colorful">📅</span>
                                 </div>
                                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900">Feriados e Datas</span>
                             </h1>
@@ -418,7 +418,7 @@ const AdminCalendario: React.FC = () => {
                                     <tbody className="divide-y divide-slate-100">
                                         {filtered.map(ev => (
                                             <tr key={ev.id} className={`transition-colors ${!ev.is_active ? 'opacity-50 bg-slate-50/50' : 'hover:bg-slate-50/50'}`}>
-                                                <td className="px-5 py-3.5 text-2xl">{ev.emoji || '📅'}</td>
+                                                <td className="px-5 py-3.5 text-2xl emoji-desktop-colorful">{ev.emoji || '📅'}</td>
                                                 <td className="px-5 py-3.5 font-semibold text-slate-800">{ev.title}</td>
                                                 <td className="px-5 py-3.5 font-semibold text-slate-800">{formatDisplayDate(ev.date, ev.is_fixed)}</td>
                                                 <td className="px-5 py-3.5">{typeBadge(ev.type)}</td>
@@ -466,7 +466,7 @@ const AdminCalendario: React.FC = () => {
 
                                             {/* EMOJI: Linha 1 e 2, Coluna 1 */}
                                             <div className="row-start-1 row-end-3 col-start-1 flex items-center justify-center bg-blue-100/80 rounded-xl h-full py-1 border border-blue-200/50 shadow-sm">
-                                                <span className="text-3xl" role="img" aria-label="emoji">
+                                                <span className="text-3xl emoji-desktop-colorful" role="img" aria-label="emoji">
                                                     {ev.emoji || '📅'}
                                                 </span>
                                             </div>

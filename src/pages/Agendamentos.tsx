@@ -220,7 +220,7 @@ const AgendamentosPage: React.FC = () => {
                         <div className="flex items-center justify-start gap-3 flex-1">
                             <h2 className="text-[1.2rem] md:text-[1.7rem] font-black tracking-tight flex items-center justify-center md:justify-start gap-3 flex-1 md:flex-none">
                                 <div className="w-9 h-9 md:w-12 md:h-12 bg-gradient-to-br from-[#f0f7ff] via-[#e1effe] to-[#dbeafe] rounded-xl md:rounded-2xl border border-blue-200/50 shadow-[inset_0_1.5px_1.5px_white,0_2px_4px_rgba(37,99,235,0.06)] flex items-center justify-center shrink-0">
-                                    <span className="text-lg md:text-2xl">📋</span>
+                                    <span className="text-lg md:text-2xl emoji-desktop-colorful">📋</span>
                                 </div>
                                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900">Agendamentos</span>
                             </h2>
@@ -358,7 +358,7 @@ const AgendamentosPage: React.FC = () => {
                     </div>
                 ) : filtrados.length === 0 ? (
                     <div className="premium-module-bg rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
-                        <span className="text-4xl mb-3 block">📋</span>
+                        <span className="text-4xl mb-3 block emoji-desktop-colorful">📋</span>
                         <p className="text-slate-400 font-medium">Nenhum agendamento encontrado</p>
                     </div>
                 ) : (

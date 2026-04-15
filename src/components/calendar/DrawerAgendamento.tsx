@@ -328,7 +328,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                 )}>
                     <div className="flex flex-row items-center gap-2.5 md:gap-3.5 pt-0.5 md:pt-0">
                         {(!modoEdicao && mode !== 'create') ? (
-                            <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none shrink-0">📋</span>
+                            <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none shrink-0 emoji-desktop-colorful">📋</span>
                         ) : (
                             <div className={cn(
                                 "w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-xl shrink-0 transition-all duration-300",
@@ -336,7 +336,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     ? "bg-yellow-50/90 shadow-[0_2px_0_#facc15/30,inset_0_1.5px_1px_white] border border-yellow-200/50"
                                     : "bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_2px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80"
                             )}>
-                                <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none text-blue-600">
+                                <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none text-blue-600 emoji-desktop-colorful">
                                     📝
                                 </span>
                             </div>
@@ -765,7 +765,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                             <img src={agenda.userPhoto} alt={agenda.userName} className="w-full h-full object-cover" />
                                                         ) : (
                                                             <div className="w-full h-full flex items-center justify-center bg-blue-50 text-blue-300">
-                                                                {isEventSpecial ? <span className="text-[1.8rem] md:text-[2.5rem] saturate-150 drop-shadow-sm">{emoji}</span> : <User className="w-4.5 h-4.5 md:w-[22px] md:h-[22px]" />}
+                                                                {isEventSpecial ? <span className="text-[1.8rem] md:text-[2.5rem] saturate-150 drop-shadow-sm emoji-desktop-colorful">{emoji}</span> : <User className="w-4.5 h-4.5 md:w-[22px] md:h-[22px]" />}
                                                             </div>
                                                         )}
                                                     </div>
@@ -777,7 +777,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 {/* COLUNA 2: CONTEÚDO */}
                                                 <div className="col-start-2 row-start-1 flex items-start justify-between md:justify-start gap-1.5 md:gap-2 py-0.5 -ml-1 md:ml-0 overflow-hidden pr-10 md:pr-0">
                                                     <div className="flex items-start gap-1.5 md:gap-2 overflow-hidden">
-                                                        {!isEventSpecial && <span className="text-[1rem] md:text-[1.1rem] drop-shadow-sm leading-none shrink-0 mt-0.5">{emoji}</span>}
+                                                        {!isEventSpecial && <span className="text-[1rem] md:text-[1.1rem] drop-shadow-sm leading-none shrink-0 mt-0.5 emoji-desktop-colorful">{emoji}</span>}
                                                         <span className={cn("text-[11.5px] md:text-[clamp(12px,0.85vw,13.5px)] font-black text-slate-900 uppercase tracking-tight whitespace-normal break-words leading-tight")}>
                                                             {tipoNome}
                                                         </span>
@@ -785,7 +785,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 </div>
                                                 <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 overflow-hidden -ml-1 md:ml-0 mt-0.5 pr-10 md:pr-0">
                                                     <div className="flex items-center gap-1 md:gap-1.5 overflow-hidden">
-                                                        {!isEventSpecial && <span className="text-[13px] md:text-[14px] leading-none opacity-70 shrink-0">📋</span>}
+                                                        {!isEventSpecial && <span className="text-[13px] md:text-[14px] leading-none opacity-70 shrink-0 emoji-desktop-colorful">📋</span>}
                                                         <span className={cn(
                                                             "text-[12px] md:text-[clamp(13px,0.9vw,14px)] font-bold text-slate-800 flex items-center gap-x-1 flex-wrap md:flex-nowrap", 
                                                             "whitespace-nowrap text-ellipsis"
@@ -793,7 +793,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                             <span>{renderPeriod()}</span>
                                                             {timeStr ? (
                                                                 <span className="inline-flex items-center gap-[3px] shrink-0 ml-[2px] md:ml-[6px]">
-                                                                    <span className="text-[13px] md:text-[14px] leading-none saturate-150 drop-shadow-sm ml-[2px]">🕗</span> {timeStr}
+                                                                    <span className="text-[13px] md:text-[14px] leading-none saturate-150 drop-shadow-sm ml-[2px] emoji-desktop-colorful">🕗</span> {timeStr}
                                                                 </span>
                                                             ) : null}
                                                         </span>

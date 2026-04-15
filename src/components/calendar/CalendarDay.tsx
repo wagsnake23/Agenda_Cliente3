@@ -144,7 +144,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
 
           return (
             <span
-              className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] md:text-[12px] leading-none animate-in zoom-in-50 duration-300"
+              className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] md:text-[12px] leading-none animate-in zoom-in-50 duration-300 emoji-desktop-colorful"
               title={rawTipo}
             >
               {dynamicEmoji}
@@ -157,7 +157,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       </div>
 
       {birthdayEmoji && (
-        <span className="absolute bottom-0.5 left-0.5 text-xs md:text-sm leading-none text-inherit">
+        <span className="absolute bottom-0.5 left-0.5 text-xs md:text-sm leading-none text-inherit emoji-desktop-colorful">
           {birthdayEmoji}
         </span>
       )}
@@ -168,7 +168,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         </span>
       ) : (
         otherEmoji && (
-          <span className="absolute bottom-0.5 right-0.5 text-xs md:text-sm leading-none text-inherit">
+          <span className="absolute bottom-0.5 right-0.5 text-xs md:text-sm leading-none text-inherit emoji-desktop-colorful">
             {otherEmoji}
           </span>
         )

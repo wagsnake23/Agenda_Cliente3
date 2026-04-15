@@ -55,7 +55,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 {/* Conteúdo do Header */}
                 <div className="relative flex items-center justify-between pl-1.5 pr-1.5 md:pl-6 md:pr-4 z-20 w-full">
                     <div className="flex items-center gap-2">
-                        <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none">📋</span>
+                        <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none emoji-desktop-colorful">📋</span>
                         <h4 className="font-semibold text-white text-[14px] lg:text-[17px] uppercase tracking-[0.5px]">
                             AGENDAMENTOS
                         </h4>
@@ -127,7 +127,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                             )}>
                                                 {emoji && (
                                                     <span className={cn(
-                                                        "text-base md:text-lg filter saturate-[1.3] brightness-[1.1] shrink-0",
+                                                        "text-base md:text-lg filter saturate-[1.3] brightness-[1.1] shrink-0 emoji-desktop-colorful",
                                                         !isEventSpecial && "pt-[1px]"
                                                     )}>
                                                         {emoji}
@@ -140,7 +140,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                                         </span>
                                                         {timeStr && (
                                                             <span className="shrink-0 whitespace-nowrap ml-1">
-                                                                - <span className="text-[13px] md:text-[14px] saturate-150 drop-shadow-sm mx-[1px]">🕗</span> {timeStr}
+                                                                - <span className="text-[13px] md:text-[14px] saturate-150 drop-shadow-sm mx-[1px] emoji-desktop-colorful">🕗</span> {timeStr}
                                                             </span>
                                                         )}
                                                     </span>

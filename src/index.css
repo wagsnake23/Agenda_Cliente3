@@ -134,6 +134,15 @@ All colors MUST be HSL.
     background-image: none;
     background-attachment: fixed;
   }
+
+  /* Utility to ensure original colorful emojis on desktop */
+  @media (min-width: 1024px) {
+    .emoji-desktop-colorful {
+      font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", sans-serif !important;
+      font-variant-emoji: emoji !important;
+      color: initial !important;
+    }
+  }
 }
 
 @media (min-width: 1024px) {
