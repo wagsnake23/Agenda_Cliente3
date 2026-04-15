@@ -214,7 +214,7 @@ const Header = () => {
                                     {/* Botão Agendar */}
                                     <button
                                         onClick={handleAgendar}
-                                        className="px-6 py-2.5 rounded-xl lg:rounded-2xl font-black uppercase text-[13px] tracking-wider text-[#0B1221] bg-gradient-to-br from-[#fef08a] via-[#facc15] to-[#eab308] shadow-[0_4px_15px_rgba(234,179,8,0.35)] hover:shadow-[0_6px_20px_rgba(234,179,8,0.45)] hover:scale-[1.03] hover:brightness-110 active:scale-[0.98] transition-all duration-200 cursor-pointer flex items-center gap-2 border-none ring-0 outline-none"
+                                        className="px-6 py-2.5 rounded-xl lg:rounded-2xl font-black uppercase text-[13px] tracking-wider text-[#0B1221] bg-gradient-to-br from-[#fef08a] via-[#facc15] to-[#eab308] hover:scale-[1.03] hover:brightness-110 active:scale-[0.98] transition-all duration-200 cursor-pointer flex items-center gap-2 border-none ring-0 outline-none"
                                     >
                                         <span className="relative top-[-1px] text-[16px]">📝</span> Agendar
                                     </button>
