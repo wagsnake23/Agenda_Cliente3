@@ -12,7 +12,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 {/* Lado Esquerdo */}
                 <div className="flex flex-col items-center md:items-start text-center md:text-left gap-0">
                     <div className="flex items-center md:items-start gap-3">
-                        <img src="/logo.png" alt="Logo" className="w-14 h-14 opacity-90 drop-shadow-md" />
+                        <img src="/logo.png" alt="Logo" className="w-[43px] h-[43px] md:w-14 md:h-14 opacity-90 drop-shadow-md object-contain" />
                         <h3
                             className="font-bold text-lg md:text-xl tracking-wider uppercase whitespace-nowrap flex gap-2 leading-none"
                             style={{
@@ -36,7 +36,10 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                             </span>
                         </h3>
                     </div>
-                    <p className="text-gray-400 text-xs md:text-[15px] font-medium opacity-80 max-w-[300px] md:ml-[68px] md:-mt-[16px]">
+                    <p 
+                        className="text-white text-xs md:text-[15px] font-bold md:font-medium max-w-[300px] md:ml-[68px] md:-mt-[16px]"
+                        style={{ color: '#FFFFFF' }}
+                    >
                         Calendário digital de organização de escala operacional
                     </p>
                 </div>

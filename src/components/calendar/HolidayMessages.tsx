@@ -34,7 +34,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         style={{ background: 'linear-gradient(180deg, #f87171 0%, #ef4444 100%)' }}
       >
         {/* Conteúdo do Header */}
-        <div className="relative flex items-center justify-between pl-1.5 pr-1.5 md:pl-6 md:pr-4 z-20 w-full">
+        <div className="relative flex items-center justify-between pl-2 pr-2 md:pl-6 md:pr-4 z-20 w-full">
           <div className="flex items-center gap-2">
             <h4 className="font-semibold text-white text-[14px] lg:text-[17px] uppercase tracking-[0.5px]">
               Feriados e Datas
@@ -61,7 +61,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         </div>
       </div>
 
-      <div className="px-0 md:px-6 pt-0.5 md:pt-3 pb-2 md:pb-5 flex flex-col justify-start flex-1">
+      <div className="px-1 md:px-6 pt-0.5 md:pt-3 pb-2 md:pb-5 flex flex-col justify-start flex-1">
         {isEmpty ? (
           <div className="flex-1 flex items-center justify-start py-4">
             <span className="text-[13px] md:text-[13px] lg:text-[14px] text-gray-400 font-normal italic leading-[1.6]">
