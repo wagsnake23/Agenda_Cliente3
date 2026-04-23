@@ -146,7 +146,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
           <span
             className={cn(
               "absolute left-1/2 -translate-x-1/2 text-[10px] md:text-[12px] leading-none animate-in zoom-in-50 duration-300 emoji-desktop-colorful",
-              isDoubleBirthday ? "-top-[10px]" : "-top-3"
+              isDoubleBirthday ? "md:-top-[10px] -top-[9px]" : "md:-top-3 -top-[9px]"
             )}
             title={rawTipo || ""}
           >
