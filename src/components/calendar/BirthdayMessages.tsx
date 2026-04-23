@@ -31,16 +31,18 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
 
   return (
     <div className={cn(
-      "premium-module-bg rounded-[16px] relative z-10 min-h-[100px] h-full flex flex-col overflow-hidden transition-all duration-300 shadow-[0_10px_25px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.05)]",
+      "relative z-10 min-h-[100px] h-full flex flex-col overflow-hidden transition-all duration-300",
+      "md:premium-module-bg md:rounded-[16px] md:shadow-[0_10px_25px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.05)]",
+      "max-md:!bg-transparent max-md:shadow-none max-md:border-none",
       isEmpty ? "hidden lg:flex" : "flex"
     )}>
-      {/* Highlight de topo sutil */}
+      {/* Highlight de topo sutil - Desktop apenas */}
       <div 
-        className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none" 
+        className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none hidden md:block" 
         style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
       />
       <div 
-        className="relative w-full h-9 md:h-[52px] flex items-center"
+        className="relative w-full h-9 md:h-[52px] hidden md:flex items-center"
         style={{ background: 'linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%)' }}
       >
         {/* Conteúdo do Header */}
@@ -72,7 +74,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
       </div>
 
 
-      <div className="px-1.5 md:px-6 pt-0.5 md:pt-3 pb-2 md:pb-5 flex flex-col justify-start flex-1">
+      <div className="px-0 md:px-6 pt-0.5 md:pt-3 pb-2 md:pb-5 flex flex-col justify-start flex-1">
         {isEmpty ? (
           <div className="flex flex-col items-start justify-start pt-3 pb-4 gap-1">
             <div className="flex items-center gap-2.5 px-0.5 opacity-60">

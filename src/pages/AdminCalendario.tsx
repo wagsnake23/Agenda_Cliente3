@@ -338,7 +338,7 @@ const AdminCalendario: React.FC = () => {
             <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8 pb-6">
 
                 {/* Filtros */}
-                <div className="premium-module-bg rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6">
+                <div className="premium-module-bg rounded-2xl border border-slate-200 shadow-sm p-4 pb-2.5 sm:p-6">
                     <div className="flex flex-col md:flex-row md:items-center gap-4">
                         {/* Busca */}
                         <div className="flex-1 md:flex-[0.6]">
@@ -385,11 +385,20 @@ const AdminCalendario: React.FC = () => {
                                 </SelectContent>
                             </Select>
                         </div>
+
+                        {/* Contador - Integrado aos filtros (Discreto) */}
+                        <div className="flex items-center md:ml-auto self-end md:self-center mt-[-4px] md:mt-0 px-1">
+                            <span className="text-blue-900/60 text-[10px] font-black uppercase tracking-wider">
+                                {filtered.length} {filtered.length !== 1 ? 'eventos' : 'evento'} exibido{filtered.length !== 1 ? 's' : ''}
+                            </span>
+                        </div>
                     </div>
                 </div>
 
+
+
                 {/* Tabela / Cards */}
-                <div className="mt-6 premium-module-bg md:rounded-2xl md:border md:border-slate-200 md:shadow-sm md:overflow-hidden">
+                <div className="mt-3 md:mt-6 md:premium-module-bg md:rounded-2xl md:border md:border-slate-200 md:shadow-sm md:overflow-hidden max-md:!bg-transparent max-md:border-none max-md:shadow-none transition-all duration-300">
                     {loading ? (
                         <div className="flex items-center justify-center py-20">
                             <Loader2 size={32} className="animate-spin text-blue-600" />
@@ -461,7 +470,7 @@ const AdminCalendario: React.FC = () => {
                             {/* Mobile cards */}
                             <div className="md:hidden space-y-4 pt-2">
                                 {filtered.map(ev => (
-                                    <div key={ev.id} className={`bg-white rounded-2xl shadow-sm border border-slate-100 p-4 transition-all ${!ev.is_active ? 'opacity-60 grayscale-[0.5]' : ''}`}>
+                                    <div key={ev.id} className={`bg-white rounded-2xl shadow-sm border border-blue-200/60 p-4 transition-all ${!ev.is_active ? 'opacity-60 grayscale-[0.5]' : ''}`}>
                                         <div className="grid grid-cols-[55px_1fr_auto] grid-rows-[auto_auto_auto] gap-x-3 gap-y-2 items-center">
 
                                             {/* EMOJI: Linha 1 e 2, Coluna 1 */}
@@ -538,8 +547,6 @@ const AdminCalendario: React.FC = () => {
                     )}
                 </div>
 
-                {/* Contador */}
-                <p className="text-xs text-slate-400 text-right font-medium mt-4">{filtered.length} evento{filtered.length !== 1 ? 's' : ''} exibido{filtered.length !== 1 ? 's' : ''}</p>
             </div>
 
             {/* Footer exibido apenas em desktop */}
@@ -759,13 +766,13 @@ const AdminCalendario: React.FC = () => {
                 confirmDeleteId && (
                     <div className="fixed inset-0 z-[300] flex items-center justify-center p-1 md:p-3 animate-in fade-in duration-200">
                         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => !deleting && setConfirmDeleteId(null)} />
-                        <div className="relative bg-gradient-to-br from-[#F4F9FF] to-[#E6F0FD] rounded-[24px] shadow-2xl border-2 border-blue-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] p-6 md:p-8 w-[99%] md:w-full md:max-w-md z-10 animate-in zoom-in-95 duration-200">
+                        <div className="relative bg-gradient-to-br from-white to-[#f8fbff] rounded-[24px] shadow-2xl border-2 border-slate-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] p-6 md:p-8 w-[99%] md:w-full md:max-w-md z-10 animate-in zoom-in-95 duration-200">
                             <div className="flex flex-col items-center gap-4 mb-6 text-center">
                                 <div className="flex items-center justify-center gap-3">
-                                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_4px_0_#93c5fd] border border-blue-200 flex items-center justify-center text-red-600 shrink-0">
+                                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-red-50 to-red-100 border border-red-200 flex items-center justify-center text-red-600 shrink-0">
                                         <Trash2 size={22} strokeWidth={3} />
                                     </div>
-                                    <h3 className="text-[1.35rem] font-black text-slate-800 leading-tight">Excluir Evento</h3>
+                                    <h3 className="text-[1.35rem] font-black text-red-600 leading-tight">Excluir Evento</h3>
                                 </div>
                             </div>
 
@@ -777,14 +784,14 @@ const AdminCalendario: React.FC = () => {
                                 <button
                                     onClick={() => setConfirmDeleteId(null)}
                                     disabled={deleting}
-                                    className="flex-1 h-12 rounded-xl bg-slate-200 text-slate-600 font-bold text-[17px] border border-slate-300 shadow-[0_4px_0_#CBD5E1] hover:bg-slate-300 active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-50"
+                                    className="flex-1 h-12 rounded-xl bg-slate-200 text-slate-600 font-black text-[17px] border border-slate-300 shadow-[0_2.5px_0_#CBD5E1] hover:bg-slate-300 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-50"
                                 >
                                     Cancelar
                                 </button>
                                 <button
                                     onClick={handleDelete}
                                     disabled={deleting}
-                                    className="flex-1 h-12 rounded-xl bg-red-600 text-white font-bold text-[17px] shadow-[0_4px_0_#991B1B] hover:bg-red-700 active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
+                                    className="flex-1 h-12 rounded-xl bg-red-600 text-white font-black text-[17px] shadow-[0_2.5px_0_#991B1B] hover:bg-red-700 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
                                 >
                                     {deleting ? <Loader2 size={16} className="animate-spin" /> : null}
                                     {deleting ? 'Aguarde...' : 'Excluir'}
