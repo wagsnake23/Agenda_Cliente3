@@ -41,18 +41,17 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
         <div
             className={cn(
                 "relative z-10 min-h-[100px] h-full flex flex-col overflow-hidden transition-all duration-300",
-                "md:premium-module-bg md:rounded-[16px] md:shadow-[0_10px_25px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.05)]",
-                "max-md:!bg-transparent max-md:shadow-none max-md:border-none",
+                "premium-module-bg rounded-[16px] shadow-[0_10px_25px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.05)]",
                 isEmpty ? "hidden md:flex" : "flex"
             )}
         >
-            {/* Highlight de topo sutil - Desktop apenas */}
+            {/* Highlight de topo sutil */}
             <div 
-                className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none hidden md:block" 
+                className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none" 
                 style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
             />
             <div 
-                className="relative w-full h-9 md:h-[52px] hidden md:flex items-center"
+                className="relative w-full h-9 md:h-[52px] flex items-center"
                 style={{ background: 'linear-gradient(180deg, #2a57b3 0%, #1a3a8a 100%)' }}
             >
                 {/* Conteúdo do Header */}
@@ -65,8 +64,8 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
 
                     <div 
                         className={cn(
-                            "flex flex-row items-center justify-center transition-all duration-300 ml-auto rounded-[10px] md:rounded-full cursor-pointer gap-1.5",
-                            "py-[2px] px-[6px] md:py-[6px] md:px-[12px]",
+                            "flex flex-row items-center justify-center transition-all duration-300 ml-auto rounded-[7px] md:rounded-full cursor-pointer gap-1",
+                            "py-[1.5px] px-[5px] md:py-[6px] md:px-[12px]",
                             "active:scale-95 active:translate-y-0"
                         )}
                         style={{ 
