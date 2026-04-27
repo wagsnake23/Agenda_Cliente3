@@ -37,8 +37,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         </h3>
                     </div>
                     <p 
-                        className="text-white text-xs md:text-[15px] font-bold md:font-medium max-w-[300px] md:ml-[68px] md:-mt-[16px]"
-                        style={{ color: '#FFFFFF' }}
+                        className="text-white md:text-gray-400 text-xs md:text-[15px] font-bold md:font-medium max-w-[300px] md:ml-[68px] md:-mt-[16px]"
                     >
                         Calendário digital de organização de escala operacional
                     </p>

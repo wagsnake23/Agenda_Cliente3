@@ -96,10 +96,10 @@ const GlobalEventModal = () => {
     return (
         <div className="fixed inset-0 z-[400] flex items-center justify-center p-1 sm:p-3">
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => !saving && setIsOpen(false)} />
-            <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-[#f8fbff] to-[#f0f7ff] rounded-[24px] shadow-2xl border-2 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
                 <div className="flex items-center justify-between px-6 md:px-5 py-4 bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a] shadow-[inset_0_-1px_0_rgba(255,255,255,0.1)]">
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_2px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80 shrink-0">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_1px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80 shrink-0">
                             <span className="text-lg drop-shadow-sm">
                                 {editingId ? '✏️' : '➕'}
                             </span>
@@ -110,39 +110,39 @@ const GlobalEventModal = () => {
                     </div>
                     <button
                         onClick={() => !saving && setIsOpen(false)}
-                        className="w-7 h-7 md:w-[34px] md:h-[34px] flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all font-bold translate-x-[4px] -translate-y-[4px] md:translate-x-0 md:translate-y-0"
+                        className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all shrink-0 translate-x-[4px] -translate-y-[4px] md:translate-x-0 md:translate-y-0"
                     >
-                        <X className="w-4 h-4 md:w-[22px] md:h-[22px]" strokeWidth={4} />
+                        <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={5} />
                     </button>
                 </div>
 
                 <form onSubmit={handleSubmit} className="p-6 space-y-4 overflow-y-auto max-h-[75vh]">
                     <div>
-                        <label className="text-[13px] font-semibold text-slate-500 mb-1 block">Nome *</label>
+                        <label className="text-[13px] font-semibold text-slate-700 mb-1 block">Nome *</label>
                         <input
                             value={form.title}
                             onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
                             placeholder="Ex: Natal"
-                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-800 text-sm focus:outline-none focus:border-blue-500 transition-all font-medium"
+                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-medium bg-white"
                         />
                     </div>
 
                     <div>
-                        <label className="text-[13px] font-semibold text-slate-500 mb-1 block">Descrição</label>
+                        <label className="text-[13px] font-semibold text-slate-700 mb-1 block">Descrição</label>
                         <input
                             value={form.description}
                             onChange={e => setForm(p => ({ ...p, description: e.target.value }))}
                             placeholder="Opcional"
-                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all"
+                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-white"
                         />
                     </div>
 
                     <div>
-                        <label className="text-[13px] font-semibold text-slate-500 mb-1 block">Tipo *</label>
+                        <label className="text-[13px] font-semibold text-slate-700 mb-1 block">Tipo *</label>
                         <select
                             value={form.type}
                             onChange={e => handleTypeChange(e.target.value as CalendarEventType)}
-                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all"
+                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-white"
                         >
                             <option value="holiday">🏁 Feriado</option>
                             <option value="event">📌 Evento</option>
@@ -152,7 +152,7 @@ const GlobalEventModal = () => {
 
                     <div className="grid grid-cols-2 gap-3">
                         <div>
-                            <label className="text-[13px] font-semibold text-slate-500 mb-1 block">
+                            <label className="text-[13px] font-semibold text-slate-700 mb-1 block">
                                 {form.is_fixed ? 'Data (Mês-Dia) *' : 'Data Completa *'}
                             </label>
                             {form.is_fixed ? (
@@ -175,23 +175,23 @@ const GlobalEventModal = () => {
                                     }}
                                     placeholder="MM-DD"
                                     maxLength={5}
-                                    className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all font-mono"
+                                    className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-mono bg-white"
                                 />
                             ) : (
                                 <input
                                     type="datetime-local"
                                     value={form.date}
                                     onChange={e => setForm(p => ({ ...p, date: e.target.value }))}
-                                    className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all"
+                                    className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-white"
                                 />
                             )}
                         </div>
                         <div>
-                            <label className="text-[13px] font-semibold text-slate-500 mb-1 block">Emoji</label>
+                            <label className="text-[13px] font-semibold text-slate-700 mb-1 block">Emoji</label>
                             <button
                                 type="button"
                                 onClick={() => setEmojiPickerOpen(true)}
-                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all flex items-center gap-2 hover:border-blue-400 hover:bg-blue-50 bg-slate-50"
+                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all flex items-center gap-2 hover:border-blue-400 hover:bg-blue-50 bg-white"
                             >
                                 {form.emoji ? (
                                     <>
@@ -213,14 +213,14 @@ const GlobalEventModal = () => {
                             type="button"
                             onClick={() => setIsOpen(false)}
                             disabled={saving}
-                            className="flex-1 h-12 rounded-xl bg-white text-[#1a3a8a] font-bold text-[19px] border border-[#1a3a8a]/40 hover:bg-blue-50 transition-all disabled:opacity-50"
+                            className="flex-1 h-12 rounded-xl bg-white text-[#1a3a8a] font-bold text-[19px] border border-[#1a3a8a]/40 shadow-[0_1px_0_#CBD5E1] hover:bg-blue-50 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-50"
                         >
                             Cancelar
                         </button>
                         <button
                             type="submit"
                             disabled={saving}
-                            className="flex-1 h-12 rounded-xl bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a] text-white font-bold text-[19px] shadow-[0_4px_0_#0f2a6b] hover:brightness-110 active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
+                            className="flex-1 h-12 rounded-xl bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a] text-white font-bold text-[19px] shadow-[0_1px_0_#0f2a6b] hover:brightness-110 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
                         >
                             {saving ? <Loader2 size={16} className="animate-spin" /> : <Check size={16} />}
                             {saving ? 'Salvando...' : 'Salvar'}

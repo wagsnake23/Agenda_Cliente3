@@ -557,11 +557,11 @@ const AdminCalendario: React.FC = () => {
                 modalOpen && (
                     <div className="fixed inset-0 z-[200] flex items-center justify-center p-1 sm:p-3">
                         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => !saving && setModalOpen(false)} />
-                        <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-slate-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
+                        <div className="relative bg-gradient-to-br from-[#f8fbff] to-[#f0f7ff] rounded-[24px] shadow-2xl border-2 border-slate-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
                             {/* Header */}
                             <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#0f3c78] to-[#2f80ed]">
                             <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_2px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80 shrink-0">
+                                <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_1px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80 shrink-0">
                                     <span className="text-lg drop-shadow-sm">
                                         {editingId ? '✏️' : '➕'}
                                     </span>
@@ -572,44 +572,44 @@ const AdminCalendario: React.FC = () => {
                             </div>
                                 <button
                                     onClick={() => !saving && setModalOpen(false)}
-                                    className="w-7 h-7 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all"
+                                    className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all shrink-0"
                                 >
-                                    <X className="w-4 h-4 md:w-[22px] md:h-[22px]" strokeWidth={4} />
+                                    <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={5} />
                                 </button>
                             </div>
 
                             <form onSubmit={handleSave} className="p-6 space-y-4 overflow-y-auto max-h-[75vh]">
                                 {/* Nome */}
                                 <div>
-                                    <label className="text-[13px] font-semibold text-slate-500 mb-1 block">Nome *</label>
+                                    <label className="text-[13px] font-semibold text-slate-700 mb-1 block">Nome *</label>
                                     <input
                                         value={form.title}
                                         onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
                                         disabled={form.is_system}
                                         placeholder="Ex: Natal"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-800 text-sm focus:outline-none focus:border-blue-500 transition-all font-medium disabled:opacity-50 disabled:bg-slate-50"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-medium disabled:opacity-50 disabled:bg-slate-50 bg-white"
                                     />
                                 </div>
 
                                 {/* Descrição */}
                                 <div>
-                                    <label className="text-[13px] font-semibold text-slate-500 mb-1 block">Descrição</label>
+                                    <label className="text-[13px] font-semibold text-slate-700 mb-1 block">Descrição</label>
                                     <input
                                         value={form.description}
                                         onChange={e => setForm(p => ({ ...p, description: e.target.value }))}
                                         placeholder="Opcional"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-white"
                                     />
                                 </div>
 
                                 {/* Tipo */}
                                 <div>
-                                    <label className="text-[13px] font-semibold text-slate-500 mb-1 block">Tipo *</label>
+                                    <label className="text-[13px] font-semibold text-slate-700 mb-1 block">Tipo *</label>
                                     <select
                                         value={form.type}
                                         onChange={e => handleTypeChange(e.target.value as CalendarEventType)}
                                         disabled={form.is_system}
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-50"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-50 bg-white"
                                     >
                                         <option value="holiday">🏁 Feriado</option>
                                         <option value="event">📌 Evento</option>
@@ -620,7 +620,7 @@ const AdminCalendario: React.FC = () => {
                                 {/* Data e formato */}
                                 <div className="grid grid-cols-2 gap-3">
                                     <div>
-                                        <label className="text-[13px] font-semibold text-slate-500 mb-1 block">
+                                        <label className="text-[13px] font-semibold text-slate-700 mb-1 block">
                                             {form.is_fixed ? 'Data (Mês-Dia) *' : 'Data Completa *'}
                                         </label>
                                         {form.is_fixed ? (
@@ -669,7 +669,7 @@ const AdminCalendario: React.FC = () => {
                                                 placeholder="(Mês-Dia)"
                                                 maxLength={5}
                                                 disabled={form.is_system}
-                                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all font-mono disabled:opacity-50 disabled:bg-slate-50"
+                                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-mono disabled:opacity-50 disabled:bg-slate-50 bg-white"
                                             />
                                         ) : (
                                             <input
@@ -677,16 +677,16 @@ const AdminCalendario: React.FC = () => {
                                                 value={form.date}
                                                 onChange={e => setForm(p => ({ ...p, date: e.target.value }))}
                                                 disabled={form.is_system}
-                                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-50"
+                                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-50 bg-white"
                                             />
                                         )}
                                     </div>
                                     <div>
-                                        <label className="text-[13px] font-semibold text-slate-500 mb-1 block">Emoji</label>
+                                        <label className="text-[13px] font-semibold text-slate-700 mb-1 block">Emoji</label>
                                         <button
                                             type="button"
                                             onClick={() => setEmojiPickerOpen(true)}
-                                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all flex items-center gap-2 hover:border-blue-400 hover:bg-blue-50 bg-slate-50"
+                                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all flex items-center gap-2 hover:border-blue-400 hover:bg-blue-50 bg-white"
                                         >
                                             {form.emoji ? (
                                                 <>
@@ -734,14 +734,14 @@ const AdminCalendario: React.FC = () => {
                                         type="button"
                                         onClick={() => setModalOpen(false)}
                                         disabled={saving}
-                                        className="flex-1 h-12 rounded-xl bg-white text-slate-600 font-bold text-[17px] border border-slate-300 shadow-[0_4px_0_#CBD5E1] hover:bg-slate-50 active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-50"
+                                        className="flex-1 h-12 rounded-xl bg-white text-slate-600 font-bold text-[17px] border border-slate-300 shadow-[0_1px_0_#CBD5E1] hover:bg-slate-50 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-50"
                                     >
                                         Cancelar
                                     </button>
                                     <button
                                         type="submit"
                                         disabled={saving}
-                                        className="flex-1 h-12 rounded-xl bg-blue-600 text-white font-bold text-[17px] shadow-[0_4px_0_#1E3A8A] hover:bg-blue-700 active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
+                                        className="flex-1 h-12 rounded-xl bg-blue-600 text-white font-bold text-[17px] shadow-[0_1px_0_#1E3A8A] hover:bg-blue-700 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
                                     >
                                         {saving ? <Loader2 size={16} className="animate-spin" /> : <Check size={16} />}
                                         {saving ? 'Salvando...' : 'Salvar'}

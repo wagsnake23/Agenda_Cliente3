@@ -105,7 +105,7 @@ const Index = () => {
                   </span>
                 </h3>
               </div>
-              <p className="text-gray-400 text-xs md:text-[15px] font-medium opacity-80 max-w-[300px] md:ml-[68px] md:-mt-[16px]">
+              <p className="text-white md:text-gray-400 text-xs md:text-[15px] font-bold md:font-medium opacity-80 max-w-[300px] md:ml-[68px] md:-mt-[16px]">
                 Calendário digital de organização de escala operacional
               </p>
             </div>

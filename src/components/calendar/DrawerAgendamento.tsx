@@ -310,7 +310,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
             )}
             <div
                 className={cn(
-                    "bg-white flex flex-col overflow-hidden",
+                    "bg-gradient-to-br from-[#f8fbff] to-[#f0f7ff] flex flex-col overflow-hidden",
                     variant === 'modal' 
                         ? "rounded-[24px] shadow-2xl border-2 border-blue-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] md:max-w-[515px] relative z-10 animate-in zoom-in-95 duration-200" 
                         : "rounded-2xl md:rounded-[29px] w-full h-full md:pointer-events-auto border border-[#0F172A]/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.02),0_4px_12px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.04),0_32px_64px_-12px_rgba(0,0,0,0.08)]"
@@ -333,8 +333,8 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                             <div className={cn(
                                 "w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-xl shrink-0 transition-all duration-300",
                                 mode === 'create' 
-                                    ? "bg-yellow-50/90 shadow-[0_2px_0_#facc15/30,inset_0_1.5px_1px_white] border border-yellow-200/50"
-                                    : "bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_2px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80"
+                                    ? "bg-yellow-50/90 shadow-[0_1px_0_#facc15/30,inset_0_1.5px_1px_white] border border-yellow-200/50"
+                                    : "bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_1px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80"
                             )}>
                                 <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none text-blue-600 emoji-desktop-colorful">
                                     📝
@@ -383,13 +383,13 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                             }
                         }}
                         className={cn(
-                            "flex items-center justify-center rounded-full transition-all text-white shadow-lg active:scale-90 translate-x-[2px] -translate-y-[2px] md:translate-x-0 md:translate-y-0",
-                            variant === 'modal' ? "w-[22px] h-[22px] md:w-[34px] md:h-[34px] bg-[#E53935] hover:bg-[#C62828]" : (mode === 'create' ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-red-500/90 hover:bg-red-600" : "w-[22px] h-[22px] md:w-10 md:h-10 bg-[#E53935] hover:bg-[#C62828]")
+                            "flex items-center justify-center rounded-full transition-all text-white shadow-lg active:scale-90 translate-x-[2px] -translate-y-[2px] md:translate-x-0 md:translate-y-0 shrink-0",
+                            variant === 'modal' ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-[#E53935] hover:bg-[#C62828]" : (mode === 'create' ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-red-500/90 hover:bg-red-600" : "w-[22px] h-[22px] md:w-8 md:h-8 bg-[#E53935] hover:bg-[#C62828]")
                         )}
                         title={variant === 'modal' ? "Fechar" : (modoEdicao ? "Voltar" : "Fechar")}
                     >
                         {variant === 'modal' || !modoEdicao ? (
-                            <X className="w-3.5 h-3.5 md:w-[22px] md:h-[22px]" strokeWidth={4} />
+                            <X className="w-3.5 h-3.5 md:w-5 md:h-5" strokeWidth={5} />
                         ) : (
                             <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" strokeWidth={4} />
                         )}
@@ -410,14 +410,14 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     <div className="grid grid-cols-[1fr_1fr_88px] md:flex md:flex-row gap-x-2 gap-y-2.5 md:gap-3.5 w-full mt-2 md:mt-3 items-start">
                                         {/* Data Inicial */}
                                         <div className="space-y-1.5 min-w-0 md:w-[120px]">
-                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-500 block truncate leading-none transition-all">Data inicial</label>
+                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-700 block truncate leading-none transition-all">Data inicial</label>
                                             <Input
                                                 type="text"
                                                 value={dataInicio ? format(parseISO(dataInicio), 'dd/MM/yyyy') : ''}
                                                 readOnly
                                                 onKeyDown={(e) => e.preventDefault()}
                                                 className={cn(
-                                                    "w-full h-10 md:h-11 rounded-xl border-slate-200 focus:border-blue-500 focus:ring-blue-500 transition-all font-medium text-slate-700 px-2 md:px-3 cursor-pointer appearance-none bg-white shadow-sm",
+                                                    "w-full h-10 md:h-11 rounded-xl border-slate-200 focus:border-blue-500 focus:ring-blue-500 transition-all font-medium text-black px-2 md:px-3 cursor-pointer appearance-none bg-white shadow-sm",
                                                     variant === 'modal' ? "text-[13px] md:text-[15px]" : "text-[13px] md:text-sm"
                                                 )}
                                                 onClick={() => setIsCalendarModalOpen(true)}
@@ -426,14 +426,14 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                                         {/* Data Final */}
                                         <div className="space-y-1.5 min-w-0 md:w-[120px]">
-                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-500 ml-1 block truncate leading-none transition-all">Data final</label>
+                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-700 ml-1 block truncate leading-none transition-all">Data final</label>
                                             <Input
                                                 type="text"
                                                 value={dataFim ? format(parseISO(dataFim), 'dd/MM/yyyy') : ''}
                                                 readOnly
                                                 onKeyDown={(e) => e.preventDefault()}
                                                 className={cn(
-                                                    "w-full h-10 md:h-11 rounded-xl border-slate-200 focus:border-blue-500 focus:ring-blue-500 transition-all font-medium text-slate-700 px-2 md:px-3 cursor-pointer appearance-none bg-white shadow-sm",
+                                                    "w-full h-10 md:h-11 rounded-xl border-slate-200 focus:border-blue-500 focus:ring-blue-500 transition-all font-medium text-black px-2 md:px-3 cursor-pointer appearance-none bg-white shadow-sm",
                                                     variant === 'modal' ? "text-[13px] md:text-[15px]" : "text-[13px] md:text-sm"
                                                 )}
                                                 onClick={() => setIsCalendarModalOpen(true)}
@@ -458,7 +458,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                             </div>
                                             <div className="text-center mt-1 min-w-0">
                                                 <span className={cn(
-                                                    "font-bold text-slate-500 uppercase tracking-tight block truncate w-full",
+                                                    "font-bold text-slate-700 uppercase tracking-tight block truncate w-full",
                                                     mode === 'create' ? "text-[11.5px]" : "text-[11px]"
                                                 )}>
                                                     {agendamentoEditando?.userName?.split(' ')[0] || (mode === 'create' ? (profile?.apelido || profile?.nome?.split(' ')[0] || "Novo") : "Usuário")}
@@ -468,7 +468,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                                         {/* Campo Dias (Aparece ao lado das datas em Desktop) */}
                                         <div className="hidden md:block space-y-1.5 w-[70px] shrink-0">
-                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-500 ml-1 block truncate leading-none">Dias</label>
+                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-700 ml-1 block truncate leading-none">Dias</label>
                                             <div className="h-10 md:h-11 rounded-xl bg-blue-50/40 border border-blue-100 flex items-center justify-center shadow-sm">
                                                 <span className="text-blue-700 font-extrabold text-sm">{totalDias}</span>
                                             </div>
@@ -479,10 +479,10 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     <div className="grid grid-cols-[1fr_1fr_88px] md:flex md:flex-row gap-x-2 md:gap-0 w-full md:w-[95%] mt-[-6px] md:mt-4 items-end">
                                         {/* Tipo de Agendamento (Ocupa 2 colunas no mobile) */}
                                         <div className="col-span-2 md:flex-1 space-y-1">
-                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-500 ml-1 block transition-all">Tipo de agendamento</label>
+                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-700 ml-1 block transition-all">Tipo de agendamento</label>
                                             <Select value={tipo} onValueChange={setTipo}>
                                                 <SelectTrigger className={cn(
-                                                    "h-10 md:h-11 rounded-xl border-slate-200 focus:border-blue-500 focus:ring-blue-500 transition-all font-medium text-slate-700",
+                                                    "h-10 md:h-11 rounded-xl border-slate-200 focus:border-blue-500 focus:ring-blue-500 transition-all font-medium text-black bg-white",
                                                     variant === 'modal' ? "md:text-[15px]" : "text-sm"
                                                 )}>
                                                     <SelectValue placeholder="Selecione..." />
@@ -504,7 +504,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                                         {/* Campo Dias no Mobile (Ao lado do Tipo) */}
                                         <div className="flex md:hidden flex-col items-center justify-center space-y-1 w-[88px] shrink-0">
-                                            <label className="text-[10px] font-semibold text-slate-500 block truncate">Qtde. dias</label>
+                                            <label className="text-[10px] font-semibold text-slate-700 block truncate">Qtde. dias</label>
                                             <div className="h-10 w-full rounded-xl bg-blue-50/40 border border-blue-100 flex items-center justify-center shadow-sm">
                                                 <span className="text-blue-700 font-extrabold text-sm">{totalDias}</span>
                                             </div>
@@ -533,7 +533,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     </div>
                                     <div className="text-center mt-1.5 min-w-0">
                                         <span className={cn(
-                                            "font-bold text-slate-500 uppercase tracking-tight block truncate max-w-[100px]",
+                                            "font-bold text-slate-700 uppercase tracking-tight block truncate max-w-[100px]",
                                             variant === 'modal' ? "text-[11px] md:text-[13.5px]" : "text-[11px] md:text-[12px]"
                                         )}>
                                             {agendamentoEditando?.userName?.split(' ')[0] || (mode === 'create' ? (profile?.apelido || profile?.nome?.split(' ')[0] || "Novo") : "Usuário")}
@@ -544,13 +544,13 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                             {/* Linha 3: Observação */}
                             <div className="space-y-1 relative mt-5 md:mt-3">
-                                <label className="text-[10px] md:text-[11px] font-semibold text-slate-500 ml-1 block transition-all">Observação</label>
+                                <label className="text-[10px] md:text-[11px] font-semibold text-slate-700 ml-1 block transition-all">Observação</label>
                                 <textarea
                                     value={observacao}
                                     onChange={(e) => setObservacao(e.target.value.slice(0, 100))}
                                     placeholder="Alguma observação importante..."
                                     className={cn(
-                                        "w-full min-h-[80px] md:min-h-[85px] p-2.5 md:p-3 rounded-xl border border-slate-200 bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-medium text-slate-700 resize-none outline-none",
+                                        "w-full min-h-[80px] md:min-h-[85px] p-2.5 md:p-3 rounded-xl border border-slate-200 bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-medium text-black resize-none outline-none",
                                         variant === 'modal' ? "text-[13px] md:text-[15px]" : "text-sm"
                                     )}
                                 />
@@ -565,7 +565,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     {/* Exibir Status Atual do Agendamento e Data da Ação */}
                                     <div className="flex flex-col items-start gap-1 md:gap-2 ml-1">
                                         <div className="flex flex-row items-center gap-2">
-                                            <span className="text-[11px] font-bold text-slate-500 uppercase">Status:</span>
+                                            <span className="text-[11px] font-bold text-slate-700 uppercase">Status:</span>
                                             {(() => {
                                                 const statusKey = (agendamentoEditando.status || 'pendente').toLowerCase();
                                                 const style = STATUS_STYLES[statusKey] || STATUS_STYLES.pendente;
