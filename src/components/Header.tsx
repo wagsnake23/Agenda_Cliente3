@@ -247,7 +247,10 @@ const Header = () => {
                         <h1
                             className="text-[1.1rem] md:text-[1.5rem] font-extrabold tracking-[0.01em] uppercase leading-none flex flex-row gap-0.5 select-none relative -left-[14px] md:-left-0 antialiased"
                             style={{
-                                textShadow: '0 1px 2px rgba(0,0,0,0.08)',
+                                textShadow: `
+                                    0 1px 0 #1e3a8a,
+                                    0 2px 3px rgba(0,0,0,0.15)
+                                `,
                                 WebkitFontSmoothing: 'antialiased',
                                 MozOsxFontSmoothing: 'grayscale',
                                 textRendering: 'optimizeLegibility'
