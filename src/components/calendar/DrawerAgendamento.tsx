@@ -310,7 +310,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
             )}
             <div
                 className={cn(
-                    "bg-gradient-to-br from-[#f8fbff] to-[#f0f7ff] flex flex-col overflow-hidden",
+                    "bg-[#F8FAFC] flex flex-col overflow-hidden",
                     variant === 'modal' 
                         ? "rounded-[24px] shadow-2xl border-2 border-blue-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] md:max-w-[515px] relative z-10 animate-in zoom-in-95 duration-200" 
                         : "rounded-2xl md:rounded-[29px] w-full h-full md:pointer-events-auto border border-[#0F172A]/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.02),0_4px_12px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.04),0_32px_64px_-12px_rgba(0,0,0,0.08)]"
@@ -321,9 +321,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                 <div className={cn(
                     "flex items-center justify-between shadow-[inset_0_-1px_0_rgba(255,255,255,0.1)] transition-colors duration-300",
                     variant === 'modal'
-                        ? (mode === 'create'
-                            ? "px-6 md:px-5 py-4 bg-gradient-to-b from-[#facc15] to-[#eab308]"
-                            : "px-6 md:px-5 py-4 bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a]")
+                        ? "px-6 md:px-5 py-4 bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a]"
                         : "p-2 md:p-3 bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a]"
                 )}>
                     <div className="flex flex-row items-center gap-2.5 md:gap-3.5 pt-0.5 md:pt-0">
@@ -332,9 +330,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                         ) : (
                             <div className={cn(
                                 "w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-xl shrink-0 transition-all duration-300",
-                                mode === 'create' 
-                                    ? "bg-yellow-50/90 shadow-[0_1px_0_#facc15/30,inset_0_1.5px_1px_white] border border-yellow-200/50"
-                                    : "bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_1px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80"
+                                "bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_1px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80"
                             )}>
                                 <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none text-blue-600 emoji-desktop-colorful">
                                     📝
@@ -344,8 +340,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                         <div className="flex flex-col justify-center min-w-0">
                             <h2 className={cn(
-                                "leading-tight transition-all font-semibold text-[14px] lg:text-[17px] uppercase tracking-[0.5px]",
-                                mode === 'create' ? "text-slate-900" : "text-white"
+                                "leading-tight transition-all font-semibold text-[14px] lg:text-[17px] uppercase tracking-[0.5px] text-white"
                             )}>
                                 {modoEdicao ? (
                                     <span>Editar Agendamento</span>
@@ -365,8 +360,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                             </h2>
                             {modoEdicao && agendamentoEditando?.createdAt && (
                                 <div className={cn(
-                                    "font-medium text-left leading-tight mt-0.5",
-                                    mode === 'create' ? "text-[#0B1221]/70 text-[10px] md:text-[13px]" : "text-white/80 text-[10px] md:text-[13px]"
+                                    "font-medium text-left leading-tight mt-0.5 text-white/80 text-[10px] md:text-[13px]"
                                 )}>
                                     Criado em {format(parseISO(agendamentoEditando.createdAt), "dd MMM yyyy 'às' HH:mm", { locale: ptBR })}
                                 </div>
@@ -403,7 +397,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                     {mode === 'create' || modoEdicao ? (
                         <div className="flex flex-col gap-0">
                             {/* ESTRUTURA REORGANIZADA: GRID 3 COLUNAS MOBILE | FLEX DESKTOP */}
-                            <div className="flex flex-col md:flex-row items-start gap-3 md:gap-6 w-full bg-white pb-1 relative">
+                            <div className="flex flex-col md:flex-row items-start gap-3 md:gap-6 w-full bg-transparent pb-1 relative">
                                 {/* Coluna Esquerda / Principal */}
                                 <div className="flex-1 w-full">
                                     {/* Grid Superior: Datas e Avatar (Mobile) | Datas e Dias (Desktop) */}
@@ -443,7 +437,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         {/* Avatar no Mobile (3ª Coluna) */}
                                         <div className="flex md:hidden flex-col items-center justify-start shrink-0 justify-self-end transform translate-y-[-10px]">
                                             <div className={cn(
-                                                "rounded-xl overflow-hidden shadow-sm border border-black/[0.08] transition-all bg-white",
+                                                "rounded-xl overflow-hidden shadow-sm border border-black/[0.08] transition-all bg-transparent",
                                                 mode === 'create' ? "w-[88px] h-[88px]" : "w-[84px] h-[84px]"
                                             )}>
                                                 {agendamentoEditando?.userPhoto ? (
@@ -519,7 +513,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                 )}>
                                     <div className={cn(
                                         "rounded-2xl overflow-hidden shadow-md border-2 border-white",
-                                        mode === 'create' ? "w-[84px] h-[84px] md:w-[120px] md:h-[120px] bg-white" : "w-16 h-16 md:w-[120px] md:h-[120px] ring-4 ring-blue-50/15 bg-white"
+                                        mode === 'create' ? "w-[84px] h-[84px] md:w-[120px] md:h-[120px] bg-transparent" : "w-16 h-16 md:w-[120px] md:h-[120px] ring-4 ring-blue-50/15 bg-transparent"
                                     )}>
                                         {agendamentoEditando?.userPhoto ? (
                                             <img src={agendamentoEditando.userPhoto} alt={agendamentoEditando.userName} className="w-full h-full object-cover" />
@@ -635,9 +629,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         "h-10.5 md:h-12 rounded-2xl text-[1.05rem] md:text-[1.15rem] font-black transition-all duration-300",
                                         modoEdicao ? "flex-1" : "w-full",
                                         isFormValid
-                                            ? (mode === 'create'
-                                                ? "bg-gradient-to-b from-[#facc15] to-[#eab308] text-[#0B1221] shadow-[0_4px_0_#eab308,inset_0_1.5px_1px_rgba(255,255,255,0.4)] hover:brightness-110 active:translate-y-[2px] active:shadow-none"
-                                                : "bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a] text-white shadow-[0_4px_0_#0f2a6b,inset_0_1.5px_1px_rgba(255,255,255,0.3)] hover:brightness-110 active:translate-y-[2px] active:shadow-none")
+                                            ? "bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a] text-white shadow-[0_1.5px_0_#0f2a6b,inset_0_1.5px_1px_rgba(255,255,255,0.3)] hover:brightness-110 active:translate-y-[1px] active:shadow-none"
                                             : cn(
                                                 "transition-all grayscale-0 opacity-100",
                                                 mode === 'create' ? "bg-slate-200 text-slate-500 border border-slate-300 shadow-none" : "bg-slate-100 text-slate-400 border border-slate-200 grayscale opacity-60"
@@ -887,7 +879,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                 isCalendarModalOpen && createPortal(
                     <div className="fixed inset-0 z-[300] flex items-center justify-center animate-in fade-in duration-200 pointer-events-auto">
                         <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setIsCalendarModalOpen(false)} />
-                        <div className="relative bg-[#F8FAFC] rounded-2xl md:rounded-[24px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-slate-200/60 z-10 flex flex-col animate-in zoom-in-95 duration-200 w-[98%] max-w-[98%] md:w-full md:max-w-[380px] overflow-hidden max-h-[90vh]">
+                        <div className="relative bg-[#F8FAFC] rounded-2xl md:rounded-[24px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border-2 border-slate-200/60 z-10 flex flex-col animate-in zoom-in-95 duration-200 w-[98%] max-w-[98%] md:w-full md:max-w-[380px] overflow-hidden max-h-[90vh]">
                             <div className="w-full flex justify-between items-center p-4 md:px-5 bg-[linear-gradient(135deg,#0f3c78,#1f5fa8,#2f80ed)] shadow-[inset_0_-1px_0_rgba(255,255,255,0.1)]">
                                 <div className="flex flex-col gap-1">
                                     <h3 className="font-bold text-white uppercase tracking-[1px] text-sm leading-tight">Selecione o Período</h3>
@@ -933,15 +925,15 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         caption: "order-1 flex justify-center pt-0 relative items-center pb-3 w-full px-1",
                                         caption_label: "font-black text-[0.95rem] uppercase tracking-wider text-blue-800",
                                         nav: "static",
-                                        nav_button: "h-8 w-8 flex items-center justify-center rounded-lg bg-[#93C5FD] border border-blue-300/60 text-[#1E3A8A] shadow-[0_3px_0_#60A5FA,inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-105 hover:scale-105 transition-all active:translate-y-[2px] active:shadow-none",
+                                        nav_button: "h-8 w-8 flex items-center justify-center rounded-lg bg-[#93C5FD] border border-blue-300/60 text-[#1E3A8A] shadow-[0_1px_0_#60A5FA,inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-105 hover:scale-105 transition-all active:translate-y-[1px] active:shadow-none",
                                         nav_button_previous: "absolute left-1/2 -translate-x-[150px] md:-translate-x-[165px] -top-1.5",
                                         nav_button_next: "absolute right-1/2 translate-x-[150px] md:translate-x-[165px] -top-1.5",
                                         table: "order-3 w-[min-content] mx-auto border-separate border-spacing-y-1 border-spacing-x-1 max-w-full",
                                         head_row: "flex w-full justify-center gap-1",
-                                        head_cell: "text-[12px] md:text-[13px] font-bold tracking-[0.4px] uppercase flex items-center justify-center rounded-[14px] h-10 w-10 md:h-12 md:w-12 bg-gradient-to-b from-[#F4F6F8] to-[#E6E9ED] text-slate-700 border border-slate-300 shadow-[0_1.5px_0_#cbd5e1,inset_0_1.5px_1px_rgba(255,255,255,0.4)] m-0",
+                                        head_cell: "text-[12px] md:text-[13px] font-bold tracking-[0.4px] uppercase flex items-center justify-center rounded-[14px] h-10 w-10 md:h-12 md:w-12 bg-gradient-to-b from-[#F4F6F8] to-[#E6E9ED] text-slate-700 border border-slate-300 shadow-[0_1px_0_#cbd5e1,inset_0_1.5px_1px_rgba(255,255,255,0.4)] m-0",
                                         row: "flex w-full justify-center gap-1 group relative",
                                         cell: "h-11 w-10 md:h-[50px] md:w-12 text-center p-0 m-0 relative focus-within:z-20 bg-transparent text-slate-700 first:text-slate-700 last:text-slate-700",
-                                        day: "h-10 w-10 md:h-12 md:w-12 p-0 flex items-center justify-center relative rounded-[14px] text-sm md:text-base font-semibold bg-white bg-clip-padding saturate-[1.05] transition-all duration-200 ease-out border border-slate-300 shadow-[0_2px_0_#cbd5e1,inset_0_1.5px_1px_rgba(255,255,255,0.4)] hover:scale-[1.02] hover:brightness-[1.05] cursor-pointer text-inherit outline-none focus-visible:ring-1 focus-visible:ring-blue-400 active:translate-y-[1.5px] active:shadow-none",
+                                        day: "h-10 w-10 md:h-12 md:w-12 p-0 flex items-center justify-center relative rounded-[14px] text-sm md:text-base font-semibold bg-white bg-clip-padding saturate-[1.05] transition-all duration-200 ease-out border border-slate-300 shadow-[0_1px_0_#cbd5e1,inset_0_1.5px_1px_rgba(255,255,255,0.4)] hover:scale-[1.02] hover:brightness-[1.05] cursor-pointer text-inherit outline-none focus-visible:ring-1 focus-visible:ring-blue-400 active:translate-y-[1px] active:shadow-none",
                                         day_range_start: "day-range-start !bg-[#93C5FD] !text-[#1e3a8a] !font-bold ring-2 ring-white !shadow-[0_2px_0_#60A5FA,inset_0_1.5px_1px_rgba(255,255,255,0.4)] z-20 !scale-[1.02] active:translate-y-[1.5px] active:shadow-none",
                                         day_range_end: "day-range-end !bg-[#93C5FD] !text-[#1e3a8a] !font-bold ring-2 ring-white !shadow-[0_2px_0_#60A5FA,inset_0_1.5px_1px_rgba(255,255,255,0.4)] z-20 !scale-[1.02] active:translate-y-[1.5px] active:shadow-none",
                                         day_range_middle: "aria-selected:!bg-[#DBEAFE] aria-selected:!text-[#1E3A8A] !shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.4),inset_0_-1px_1px_rgba(0,0,0,0.05)] font-bold",
@@ -971,7 +963,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                             <div className="px-5 pb-5 pt-1.5 flex gap-3 bg-[#F8FAFC]">
                                 <button
                                     onClick={() => handleSelectRange(undefined)}
-                                    className="flex-1 h-11 rounded-xl bg-red-50 text-red-600 font-black text-sm border border-red-100 shadow-sm hover:bg-red-100/50 active:translate-y-[1px] transition-all uppercase tracking-wider"
+                                    className="flex-1 h-11 rounded-xl bg-red-50 text-red-600 font-black text-sm border border-red-100 shadow-[0_1.5px_0_#fecaca] hover:bg-red-100/50 active:translate-y-[1px] active:shadow-none transition-all uppercase tracking-wider"
                                 >
                                     Limpar
                                 </button>
@@ -979,9 +971,9 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     onClick={() => setIsCalendarModalOpen(false)}
                                     disabled={!dataInicio}
                                     className={cn(
-                                        "flex-1 h-11 rounded-xl font-black text-sm shadow-md transition-all active:translate-y-[1px] uppercase tracking-wider",
+                                        "flex-1 h-11 rounded-xl font-black text-sm transition-all active:translate-y-[1px] active:shadow-none uppercase tracking-wider",
                                         dataInicio
-                                            ? "bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200"
+                                            ? "bg-blue-600 text-white hover:bg-blue-700 shadow-[0_1.5px_0_#1e3a8a]"
                                             : "bg-slate-200 text-slate-400 shadow-none cursor-not-allowed"
                                     )}
                                 >
