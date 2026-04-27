@@ -248,7 +248,7 @@ const Header = () => {
                             className="text-[1.1rem] md:text-[1.5rem] font-extrabold tracking-[0.01em] uppercase leading-none flex flex-row gap-0.5 select-none relative -left-[14px] md:-left-0 antialiased"
                             style={{
                                 textShadow: `
-                                    0 1px 0 #1e3a8a,
+                                    0 1px 0 #a81d1d,
                                     0 2px 3px rgba(0,0,0,0.15)
                                 `,
                                 WebkitFontSmoothing: 'antialiased',
@@ -256,8 +256,8 @@ const Header = () => {
                                 textRendering: 'optimizeLegibility'
                             }}
                         >
-                            <span style={{ color: '#1e40af' }}>CALENDÁRIO</span>
-                            <span style={{ color: '#1e40af' }}>AGENDA</span>
+                            <span style={{ color: '#f14e4e' }}>CALENDÁRIO</span>
+                            <span style={{ color: '#f14e4e' }}>AGENDA</span>
                         </h1>
                     </div>
                 </div>
