@@ -280,7 +280,7 @@ const MeuPerfil: React.FC = () => {
                 </div>
             </section>
 
-            <div className="w-full max-w-5xl mx-auto px-0 sm:px-6 pb-8">
+            <div className="w-full max-w-5xl mx-auto px-0 sm:px-6 pb-8 md:pb-[42px]">
 
                 {authLoading ? (
                     <ProfileSkeleton />

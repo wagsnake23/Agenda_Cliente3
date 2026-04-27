@@ -335,7 +335,7 @@ const AdminCalendario: React.FC = () => {
                 </div>
             </section>
 
-            <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8 pb-6">
+            <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8 pb-6 md:pb-[34px]">
 
                 {/* Filtros */}
                 <div className="premium-module-bg rounded-2xl border border-slate-200 shadow-sm p-4 pb-2.5 sm:p-6">

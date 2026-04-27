@@ -253,20 +253,20 @@ const UserModal: React.FC<{
                     className="p-6 space-y-4"
                 >
                     <div>
-                        <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Nome</label>
+                        <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Nome</label>
                         <input {...form.register('nome')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
                         {form.formState.errors.nome && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.nome.message}</p>}
                     </div>
 
                     <div>
-                        <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Email</label>
+                        <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Email</label>
                         <input {...form.register('email')} type="email" autoComplete="off" readOnly={isEditing} className={`w-full h-10 px-3 rounded-xl border text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all ${isEditing ? 'bg-slate-50 border-blue-200/30 text-slate-400 cursor-not-allowed' : 'border-blue-300/40'}`} />
                         {form.formState.errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.email.message}</p>}
                     </div>
 
                     {!isEditing && (
                         <div>
-                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Senha</label>
+                            <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Senha</label>
                             <input {...form.register('password')} type="password" autoComplete="new-password" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
                             {form.formState.errors.password && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.password.message}</p>}
                         </div>
@@ -274,18 +274,18 @@ const UserModal: React.FC<{
 
                     <div className="grid grid-cols-2 gap-3">
                         <div>
-                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Cargo</label>
+                            <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Cargo</label>
                             <input {...form.register('cargo')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
                         </div>
                         <div>
-                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Matrícula</label>
+                            <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Matrícula</label>
                             <input {...form.register('matricula')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
                         </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                         <div>
-                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Perfil</label>
+                            <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Perfil</label>
                             <Controller
                                 name="perfil"
                                 control={form.control}
@@ -307,7 +307,7 @@ const UserModal: React.FC<{
                             />
                         </div>
                         <div>
-                            <label className="text-[13px] font-semibold text-blue-800/85 ml-1 mb-1 block">Status</label>
+                            <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Status</label>
                             <Controller
                                 name="ativo"
                                 control={form.control}
@@ -521,7 +521,7 @@ const UsuariosPage: React.FC = () => {
                 </div>
             </section>
 
-            <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8 pb-6">
+            <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8 pb-6 md:pb-[34px]">
 
                 {/* Busca */}
                 <div className="premium-module-bg rounded-2xl shadow-sm border border-gray-100 p-4 mb-6">

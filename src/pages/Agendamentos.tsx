@@ -235,7 +235,7 @@ const AgendamentosPage: React.FC = () => {
                 </div>
             </section>
 
-            <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8 pb-6">
+            <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8 pb-6 md:pb-[34px]">
                 {/* Filtros */}
                 <div className="premium-module-bg rounded-2xl shadow-sm border border-gray-100 p-4 mb-6">
                     <div className="flex items-center gap-2 mb-4">
