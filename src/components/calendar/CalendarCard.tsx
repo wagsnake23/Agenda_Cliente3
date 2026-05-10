@@ -25,6 +25,7 @@ interface CalendarCardProps {
     onOpenCreateDrawer?: () => void;
     selectedPeriod?: { start: string, end: string } | null;
     calendarEvents?: CalendarEvent[];
+    viewMode?: 'mensal' | 'anual';
 }
 
 const CalendarCard: React.FC<CalendarCardProps> = ({
@@ -42,6 +43,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
     onOpenCreateDrawer,
     selectedPeriod,
     calendarEvents = [],
+    viewMode = 'mensal',
 }) => {
     const { calendarData, todayDayOfWeek, todayColors, isCurrentMonthAndYear } = useCalendarData({
         month,
@@ -116,18 +118,17 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
         <div
             className={cn(
                 "w-full transition-all duration-500 ease-out flex flex-col",
-                "px-2 py-2 md:px-8 md:pt-4 md:pb-8",
-                "md:bg-white backdrop-blur-sm md:backdrop-blur-none opacity-100",
+                viewMode === 'anual' ? "p-0 bg-white shadow-sm border overflow-hidden" : "px-2 py-2 md:px-8 md:pt-4 md:pb-8",
+                viewMode === 'anual' ? "" : "md:bg-white backdrop-blur-sm md:backdrop-blur-none",
                 "antialiased [font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] [contain:paint]",
-                // Efeito 3D Mobile Premium (Unificado e Interno)
-                "border-[0.5px] border-blue-400/25 shadow-[inset_0_1px_3px_rgba(255,255,255,0.8),inset_0_-1px_3px_rgba(0,0,0,0.05)]",
-                // Efeito 3D Desktop (REMOCK OUTER SHADOW/BLUR ONLY)
-                "md:border md:border-blue-800/20 md:shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(0,0,0,0.06)]",
-                "rounded-2xl md:rounded-[29px] bg-clip-padding",
-                "relative group/card overflow-hidden"
+                viewMode === 'anual' ? "rounded-t-[18px] rounded-b-[14px]" : "border-[0.5px] border-blue-400/25 shadow-[inset_0_1px_3px_rgba(255,255,255,0.8),inset_0_-1px_3px_rgba(0,0,0,0.05)]",
+                viewMode === 'anual' ? "" : "md:border md:border-blue-800/20 md:shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(0,0,0,0.06)]",
+                viewMode === 'anual' ? "" : "rounded-2xl md:rounded-[29px] bg-clip-padding",
+                "relative group/card"
             )}
             style={{
-                background: !isDesktopState ? '#ffffff' : 'white'
+                background: viewMode === 'anual' ? '#FFFFFF' : (!isDesktopState ? '#ffffff' : 'white'),
+                borderColor: viewMode === 'anual' ? 'rgba(170, 180, 195, 0.75)' : undefined
             }}
         >
             {/* Brilho superior sutil */}
@@ -135,8 +136,10 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
 
             <div
                 className={cn(
-                    "hidden md:flex justify-between items-start",
-                    "md:-mx-8 md:-mt-4 md:px-8 md:pt-4 mb-0 relative overflow-hidden md:rounded-t-[28px] md:h-[99px] border-none outline-none shadow-none bg-white"
+                    "flex justify-between items-start",
+                    viewMode === 'anual' ? "h-[50px] md:h-[65px]" : "md:-mx-8 md:-mt-4 md:px-8 md:pt-4 md:h-[99px] md:rounded-t-[28px]",
+                    viewMode === 'anual' && !isDesktopState ? "hidden" : "md:flex",
+                    "mb-0 relative overflow-hidden border-none outline-none shadow-none bg-white"
                 )}
             >
                 {/* Background da Estação */}
@@ -158,7 +161,10 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                 </div>
 
                 {/* Container Unificado para Badge e Estação */}
-                <div className="absolute top-[12px] left-[16px] right-[16px] z-20 flex items-center justify-between">
+                <div className={cn(
+                    "absolute z-20 flex items-center justify-between",
+                    viewMode === 'anual' ? "top-[8px] left-[10px] right-[10px]" : "top-[12px] left-[16px] right-[16px]"
+                )}>
                     {/* Badge Única: Mês e Ano */}
                     <div
                         className={cn(
@@ -169,17 +175,23 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                             background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(226,232,240,0.9))',
                             border: '1px solid rgba(59,130,246,0.15)',
                             boxShadow: '0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8)',
-                            padding: '7px 14px',
+                            padding: viewMode === 'anual' ? '4px 8px' : '7px 14px',
                             lineHeight: '1.3',
                             textShadow: 'none'
                         }}
                     >
-                        <CalendarDays size={20} className="text-[#1e3a8a] opacity-90 transform translate-y-[0.5px]" />
-                        <span className="text-[#1e3a8a] font-bold text-base md:text-[18px] select-none tracking-[0.2px]">
+                        <CalendarDays size={viewMode === 'anual' ? 14 : 20} className="text-[#1e3a8a] opacity-90 transform translate-y-[0.5px]" />
+                        <span className={cn(
+                            "text-[#1e3a8a] font-bold select-none tracking-[0.2px]",
+                            viewMode === 'anual' ? "text-[13px]" : "text-base md:text-[18px]"
+                        )}>
                             {MONTHS[month]}
                         </span>
                         <span className="text-[#1e3a8a] opacity-20 font-bold select-none">•</span>
-                        <span className="font-bold text-base md:text-[19px] select-none tracking-[0.2px]" style={{ color: 'rgba(185, 28, 28, 0.95)' }}>
+                        <span className={cn(
+                            "font-bold select-none tracking-[0.2px]",
+                            viewMode === 'anual' ? "text-[14px]" : "text-base md:text-[19px]"
+                        )} style={{ color: 'rgba(185, 28, 28, 0.95)' }}>
                             {year}
                         </span>
                     </div>
@@ -219,10 +231,15 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
             </div>
 
             <div
-                className="relative p-0 md:px-4 md:pt-6 md:pb-4 md:mt-0 bg-transparent md:rounded-[20px] opacity-100 transition-colors duration-500 md:shadow-[inset_0_1px_3px_rgba(255,255,255,0.9),inset_0_-1px_2px_rgba(14,165,233,0.05)]"
+                className={cn(
+                    "relative opacity-100 transition-colors duration-500",
+                    viewMode === 'anual' 
+                        ? "p-2 md:p-3 mt-0" 
+                        : "p-0 md:px-4 md:pt-6 md:pb-4 md:mt-0 md:rounded-[20px] md:shadow-[inset_0_1px_3px_rgba(255,255,255,0.9),inset_0_-1px_2px_rgba(14,165,233,0.05)]",
+                )}
                 style={{
-                    background: isDesktopState ? '#f1f5f9' : 'transparent',
-                    border: isDesktopState ? '0.5px solid rgba(148, 163, 184, 0.2)' : 'none'
+                    background: viewMode === 'anual' ? 'transparent' : (isDesktopState ? '#f1f5f9' : 'transparent'),
+                    border: viewMode === 'anual' ? 'none' : (isDesktopState ? '1px solid rgba(148, 163, 184, 0.2)' : 'none')
                 }}
             >
                 <CalendarGrid
@@ -237,6 +254,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                     month={month}
                     year={year}
                     selectedPeriod={selectedPeriod}
+                    viewMode={viewMode}
                 />
 
                 {/* Botões de Ação Compactos - Mobile apenas */}

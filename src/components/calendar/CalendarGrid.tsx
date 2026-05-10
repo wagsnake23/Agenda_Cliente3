@@ -30,6 +30,7 @@ interface CalendarGridProps {
   month: number;
   year: number;
   selectedPeriod?: { start: string, end: string } | null;
+  viewMode?: 'mensal' | 'anual';
 }
 
 const CalendarGrid: React.FC<CalendarGridProps> = ({
@@ -44,6 +45,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
   month,
   year,
   selectedPeriod,
+  viewMode = 'mensal',
 }) => {
   const { mode } = useCalendarMode();
 
@@ -64,11 +66,11 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
               className={cn(
                 // Estrutura fixa (NUNCA animar isso)
                 "flex items-center justify-center text-center",
-                "text-[12px] md:text-[13px] lg:text-[15px]",
+                viewMode === 'anual' ? "text-[10px] md:text-[11px] lg:text-[12px]" : "text-[12px] md:text-[13px] lg:text-[15px]",
                 "font-bold tracking-[0.4px]",
                 "rounded-[9px] md:rounded-[11px]",
                 "aspect-square md:aspect-auto",
-                "w-full md:h-[38px] lg:h-[48px]",
+                viewMode === 'anual' ? "w-full md:h-[24px] lg:h-[30px]" : "w-full md:h-[38px] lg:h-[48px]",
                 "py-1 relative overflow-hidden border border-blue-300/55 md:border-[0.5px] md:border-blue-300/45",
                 "saturate-[1.05]",
 
@@ -137,7 +139,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
           ? Array.from({ length: 42 }).map((_, index) => (
             <div
               key={index}
-              className="aspect-square md:aspect-auto flex items-center justify-center w-full md:h-[38px] lg:h-[48px]"
+              className={cn("aspect-square md:aspect-auto flex items-center justify-center w-full", viewMode === 'anual' ? "md:h-[24px] lg:h-[32px]" : "md:h-[38px] lg:h-[48px]")}
             >
               <Skeleton className="w-full h-full rounded-[9px] md:rounded-[11px]" />
             </div>
@@ -145,7 +147,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
           : calendarData.map((dayData, index) => (
             <div
               key={index}
-              className="aspect-square md:aspect-auto flex items-center justify-center w-full md:h-[38px] lg:h-[48px]"
+              className={cn("aspect-square md:aspect-auto flex items-center justify-center w-full", viewMode === 'anual' ? "md:h-[24px] lg:h-[32px]" : "md:h-[38px] lg:h-[48px]")}
             >
               <CalendarDay
                 dayData={dayData}
@@ -155,6 +157,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                 month={month}
                 year={year}
                 selectedPeriod={selectedPeriod}
+                viewMode={viewMode}
               />
             </div>
           ))}

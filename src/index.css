@@ -76,14 +76,6 @@ All colors MUST be HSL.
     background-attachment: fixed;
   }
 
-  @media (min-width: 1024px) {
-    body {
-      background-color: #f1f5f9;
-      background-image: none;
-      background-attachment: fixed;
-    }
-  }
-
   /* Utilitário para forçar o fundo se necessário */
   .premium-aurora-bg {
     background:
@@ -132,8 +124,7 @@ All colors MUST be HSL.
   }
 
   .premium-subheader-bg {
-    background-color: #f1f5f9;
-    background-image: none;
+    background: linear-gradient(135deg, #f8faff 0%, #f0f5ff 50%, #e6f0ff 100%);
     background-attachment: fixed;
   }
 

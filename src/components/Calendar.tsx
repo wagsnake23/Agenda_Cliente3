@@ -66,6 +66,7 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
   const [highlightedDay, setHighlightedDay] = useState<number | null>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [viewMode, setViewMode] = useState<'mensal' | 'anual'>('mensal');
   const { mode, setMode } = useCalendarMode();
   const { isAuthenticated } = useAuth();
   const { events: calendarEvents, setEvents } = useCalendarEventsContext();
@@ -463,6 +464,10 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
   }, []);
 
   const handlePrevMonth = () => {
+    if (viewMode === 'anual') {
+      onYearChange(year - 1);
+      return;
+    }
     const isMobile = window.innerWidth < 1024;
     if (isMobile) {
       const prevDate = subMonths(new Date(year, month, 1), 1);
@@ -474,6 +479,10 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
   };
 
   const handleNextMonth = () => {
+    if (viewMode === 'anual') {
+      onYearChange(year + 1);
+      return;
+    }
     const isMobile = window.innerWidth < 1024;
     if (isMobile) {
       const nextDate = addMonths(new Date(year, month, 1), 1);
@@ -536,6 +545,8 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
             setScaleType={setMode}
             todayAppointmentsCount={todayAppointmentsCount}
             handleOpenTodayAppointments={handleOpenTodayAppointmentsBell}
+            viewMode={viewMode}
+            setViewMode={setViewMode}
           />
         </div>
       </section>
@@ -545,70 +556,111 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
         {/* Mobile Flex Container para garantir 12px exatos de gap vertical entre os blocos (Card e Conteúdo) */}
         <div className="flex flex-col gap-3 lg:block w-full">
           <div className="w-full relative overflow-visible pt-0 pb-0 md:pb-6 mt-1.5 lg:mt-0 lg:py-7">
-            <Carousel
-              setApi={setApi}
-              opts={{
-                align: typeof window !== 'undefined' && window.innerWidth < 1024 ? "center" : "start",
-                containScroll: "trimSnaps",
-                dragFree: false,
-                slidesToScroll: 1,
-                duration: 22
-              }}
-              className="w-full relative px-0"
-            >
-              <CarouselContent className="w-full flex items-stretch gap-8 cursor-grab active:cursor-grabbing">
-                {monthsToRender.map((date, idx) => {
-                  const m = date.getMonth();
-                  const y = date.getFullYear();
-                  const isCurrent = m === month && y === year;
+            {viewMode === 'anual' ? (
+              <div className="relative w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[18px]">
+                  {Array.from({ length: 12 }).map((_, i) => (
+                    <CalendarCard
+                      key={`anual-${year}-${i}`}
+                      month={i}
+                      year={year}
+                      today={today}
+                      onDayClick={() => {}}
+                      goToToday={goToToday}
+                      formatToday={formatToday}
+                      isCenter={false}
+                      position="center"
+                      mode={mode}
+                      agendamentos={agendamentosComEventosGerais}
+                      onViewAgendamento={handleOpenViewDrawer}
+                      onOpenCreateDrawer={handleOpenCreateDrawer}
+                      selectedPeriod={selectedPeriod}
+                      calendarEvents={enrichedEvents}
+                      viewMode="anual"
+                    />
+                  ))}
+                </div>
+                {/* Setas Laterais Anuais (Desktop) */}
+                <button
+                  onClick={handlePrevMonth}
+                  className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -left-16 h-12 w-12 items-center justify-center rounded-full border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95 z-50"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={handleNextMonth}
+                  className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -right-16 h-12 w-12 items-center justify-center rounded-full border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95 z-50"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            ) : (
+              <Carousel
+                setApi={setApi}
+                opts={{
+                  align: typeof window !== 'undefined' && window.innerWidth < 1024 ? "center" : "start",
+                  containScroll: "trimSnaps",
+                  dragFree: false,
+                  slidesToScroll: 1,
+                  duration: 22
+                }}
+                className="w-full relative px-0"
+              >
+                <CarouselContent className="w-full flex items-stretch gap-8 cursor-grab active:cursor-grabbing">
+                  {monthsToRender.map((date, idx) => {
+                    const m = date.getMonth();
+                    const y = date.getFullYear();
+                    const isCurrent = m === month && y === year;
 
-                  const centerIndex = isMobile ? 1 : currentSlide + 1;
-                  const position = idx === centerIndex ? 'center' : idx === centerIndex - 1 ? 'left' : idx === centerIndex + 1 ? 'right' : 'far';
+                    const centerIndex = isMobile ? 1 : currentSlide + 1;
+                    const position = idx === centerIndex ? 'center' : idx === centerIndex - 1 ? 'left' : idx === centerIndex + 1 ? 'right' : 'far';
 
-                  return (
-                    <CarouselItem
-                      key={`${y}-${m}`}
-                      className={cn(
-                        "w-full basis-full shrink-0 grow-0 lg:basis-[calc((100%-4rem)/3)] relative",
-                        "transition-opacity duration-450 ease-out",
-                        position === 'center' ? "opacity-100 z-20" : "opacity-100 z-[5]"
-                      )}
-                      style={{
-                        opacity: 1,
-                        backfaceVisibility: 'hidden',
-                        WebkitBackfaceVisibility: 'hidden',
-                      }}
-                    >
-                      <CalendarCard
-                        month={m}
-                        year={y}
-                        today={today}
-                        onDayClick={isCurrent ? handleDayClick : () => { }}
-                        goToToday={goToToday}
-                        formatToday={formatToday}
-                        isCenter={position === 'center'}
-                        position={position}
-                        mode={mode}
-                        agendamentos={agendamentosComEventosGerais}
-                        onViewAgendamento={handleOpenViewDrawer}
-                        onOpenCreateDrawer={handleOpenCreateDrawer}
-                        selectedPeriod={selectedPeriod}
-                        calendarEvents={enrichedEvents}
-                      />
-                    </CarouselItem>
-                  );
-                })}
-              </CarouselContent>
+                    return (
+                      <CarouselItem
+                        key={`${y}-${m}`}
+                        className={cn(
+                          "w-full basis-full shrink-0 grow-0 lg:basis-[calc((100%-4rem)/3)] relative",
+                          "transition-opacity duration-450 ease-out",
+                          position === 'center' ? "opacity-100 z-20" : "opacity-100 z-[5]"
+                        )}
+                        style={{
+                          opacity: 1,
+                          backfaceVisibility: 'hidden',
+                          WebkitBackfaceVisibility: 'hidden',
+                        }}
+                      >
+                        <CalendarCard
+                          month={m}
+                          year={y}
+                          today={today}
+                          onDayClick={isCurrent ? handleDayClick : () => { }}
+                          goToToday={goToToday}
+                          formatToday={formatToday}
+                          isCenter={position === 'center'}
+                          position={position}
+                          mode={mode}
+                          agendamentos={agendamentosComEventosGerais}
+                          onViewAgendamento={handleOpenViewDrawer}
+                          onOpenCreateDrawer={handleOpenCreateDrawer}
+                          selectedPeriod={selectedPeriod}
+                          calendarEvents={enrichedEvents}
+                          viewMode="mensal"
+                        />
+                      </CarouselItem>
+                    );
+                  })}
+                </CarouselContent>
 
-              <CarouselPrevious
-                onClick={() => api?.scrollPrev()}
-                className="hidden lg:flex -left-16 h-12 w-12 border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95"
-              />
-              <CarouselNext
-                onClick={() => api?.scrollNext()}
-                className="hidden lg:flex -right-16 h-12 w-12 border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95"
-              />
-            </Carousel>
+                <CarouselPrevious
+                  onClick={() => api?.scrollPrev()}
+                  className="hidden lg:flex -left-16 h-12 w-12 border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95"
+                />
+                <CarouselNext
+                  onClick={() => api?.scrollNext()}
+                  className="hidden lg:flex -right-16 h-12 w-12 border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95"
+                />
+              </Carousel>
+            )}
 
             {/* Drawer de Visualização (Desktop: Sobre o primeiro card | Mobile: Abaixo do Carrossel) */}
             <div className={cn(
@@ -679,38 +731,40 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
             </div>
           </div>
 
-          <div className="max-w-[1600px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 lg:pb-16">
-            <div className="flex flex-col lg:flex-row gap-3 lg:gap-8 items-stretch">
-              {/* 1º - Agendamentos */}
-              <div className={cn(
-                "w-full lg:flex-1 lg:min-w-[370px] order-1 lg:order-1 flex flex-col gap-3",
-                !hasAgendamentos && "hidden md:flex"
-              )}>
-                <AgendamentosDisplay
-                  agendamentos={filteredMonthAgendamentos}
-                  month={month}
-                  year={year}
-                  highlightedDay={highlightedDay}
-                  onViewAgendamento={handleOpenViewDrawer}
-                />
-              </div>
-
-              {/* 2º e 3º - Feriados e Fases da Lua */}
-              <div className="contents lg:flex lg:w-full lg:flex-1 lg:min-w-[370px] lg:flex-col lg:order-2 lg:gap-8 gap-3">
-                <div className={`w-full flex-1 order-2 lg:order-none ${filteredHolidayMessages.length === 0 ? 'hidden md:block' : ''}`}>
-                  <HolidayMessages messages={filteredHolidayMessages} highlightedDay={highlightedDay} month={month} year={year} />
+          {viewMode === 'mensal' && (
+            <div className="max-w-[1600px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 lg:pb-16">
+              <div className="flex flex-col lg:flex-row gap-3 lg:gap-8 items-stretch">
+                {/* 1º - Agendamentos */}
+                <div className={cn(
+                  "w-full lg:flex-1 lg:min-w-[370px] order-1 lg:order-1 flex flex-col gap-3",
+                  !hasAgendamentos && "hidden md:flex"
+                )}>
+                  <AgendamentosDisplay
+                    agendamentos={filteredMonthAgendamentos}
+                    month={month}
+                    year={year}
+                    highlightedDay={highlightedDay}
+                    onViewAgendamento={handleOpenViewDrawer}
+                  />
                 </div>
-                <div className="w-full order-4 lg:order-none">
-                  <MoonPhasesDisplay moonPhases={moonPhases} month={month} year={year} />
-                </div>
-              </div>
 
-              {/* 4º - Aniversariantes */}
-              <div className="w-full lg:flex-1 lg:min-w-[370px] order-3 lg:order-3">
-                <BirthdayMessages month={month} year={year} highlightedDay={highlightedDay} calendarEvents={calendarEvents} />
+                {/* 2º e 3º - Feriados e Fases da Lua */}
+                <div className="contents lg:flex lg:w-full lg:flex-1 lg:min-w-[370px] lg:flex-col lg:order-2 lg:gap-8 gap-3">
+                  <div className={`w-full flex-1 order-2 lg:order-none ${filteredHolidayMessages.length === 0 ? 'hidden md:block' : ''}`}>
+                    <HolidayMessages messages={filteredHolidayMessages} highlightedDay={highlightedDay} month={month} year={year} />
+                  </div>
+                  <div className="w-full order-4 lg:order-none">
+                    <MoonPhasesDisplay moonPhases={moonPhases} month={month} year={year} />
+                  </div>
+                </div>
+
+                {/* 4º - Aniversariantes */}
+                <div className="w-full lg:flex-1 lg:min-w-[370px] order-3 lg:order-3">
+                  <BirthdayMessages month={month} year={year} highlightedDay={highlightedDay} calendarEvents={calendarEvents} />
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 

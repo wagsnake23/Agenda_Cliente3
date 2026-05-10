@@ -26,6 +26,7 @@ interface CalendarDayProps {
   month?: number;
   year?: number;
   selectedPeriod?: { start: string, end: string } | null;
+  viewMode?: 'mensal' | 'anual';
 }
 
 const CalendarDay: React.FC<CalendarDayProps> = ({
@@ -36,6 +37,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
   month,
   year,
   selectedPeriod,
+  viewMode = 'mensal',
 }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -100,7 +102,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       className={cn(
         "relative w-full h-full flex items-center justify-center",
         "rounded-[9px] md:rounded-[11px]",
-        "text-sm md:text-base font-semibold",
+        viewMode === 'anual' ? "text-[11px] md:text-[13px] font-bold" : "text-sm md:text-base font-semibold",
         "bg-clip-padding saturate-[1.05]",
         "transition-all duration-200 ease-out",
         "will-change-[background-color,border-color,transform]",
@@ -145,8 +147,11 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         {dynamicEmoji && (
           <span
             className={cn(
-              "absolute left-1/2 -translate-x-1/2 text-[10px] md:text-[12px] leading-none animate-in zoom-in-50 duration-300 emoji-desktop-colorful",
-              isDoubleBirthday ? "md:-top-[10px] -top-[9px]" : "md:-top-3 -top-[9px]"
+              "absolute left-1/2 -translate-x-1/2 leading-none animate-in zoom-in-50 duration-300 emoji-desktop-colorful",
+              viewMode === 'anual' ? "text-[7px] md:text-[9px]" : "text-[9px] md:text-[11px]",
+              viewMode === 'anual'
+                ? (isDoubleBirthday ? "md:-top-[10px] -top-[10px]" : "md:-top-3 -top-[12px]")
+                : (isDoubleBirthday ? "md:-top-[13px] -top-[12px]" : "md:-top-[16px] -top-[14px]")
             )}
             title={rawTipo || ""}
           >
@@ -159,18 +164,18 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       </div>
 
       {birthdayEmoji && !isDoubleBirthday && (
-        <span className="absolute bottom-0.5 left-0.5 text-xs md:text-sm leading-none text-inherit emoji-desktop-colorful">
+        <span className={cn("absolute bottom-0 left-0.5 leading-none text-inherit emoji-desktop-colorful", viewMode === 'anual' ? "text-[8px] md:text-[10px]" : "text-[11px] md:text-[13px]")}>
           {birthdayEmoji}
         </span>
       )}
 
       {renderBrasilFlagComponent ? (
-        <span className="absolute bottom-0.5 right-0.5 leading-none text-inherit">
-          <BrasilFlagIcon size={12} />
+        <span className="absolute bottom-[4px] right-0.5 leading-none text-inherit">
+          <BrasilFlagIcon size={viewMode === 'anual' ? 8 : 10} />
         </span>
       ) : (
         otherEmoji && (
-          <span className="absolute bottom-0.5 right-0.5 text-xs md:text-sm leading-none text-inherit emoji-desktop-colorful">
+          <span className={cn("absolute bottom-0 right-0.5 leading-none text-inherit emoji-desktop-colorful", viewMode === 'anual' ? "text-[8px] md:text-[10px]" : "text-[11px] md:text-[13px]")}>
             {otherEmoji}
           </span>
         )

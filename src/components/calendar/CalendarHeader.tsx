@@ -22,7 +22,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { MONTHS, DAYS_OF_WEEK, getSeasonDataForDate } from "@/utils/calendar-utils";
 import { cn } from "@/lib/utils";
 import { useCalendarEventsContext } from "@/context/CalendarEventsContext";
-import { getEventsForDate } from "@/hooks/use-calendar-events";
+import { getEventsForDate, type CalendarEvent } from "@/hooks/use-calendar-events";
 import { getDynamicHolidays, getNationalHolidays } from "@/lib/dynamicHolidays";
 
 interface CalendarHeaderProps {
@@ -42,6 +42,8 @@ interface CalendarHeaderProps {
   setScaleType: (scale: '24x48' | '12x36' | 'adm') => void;
   todayAppointmentsCount?: number;
   handleOpenTodayAppointments?: () => void;
+  viewMode: 'mensal' | 'anual';
+  setViewMode: (mode: 'mensal' | 'anual') => void;
 }
 
 const CalendarHeader: React.FC<CalendarHeaderProps> = ({
@@ -61,6 +63,8 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   setScaleType,
   todayAppointmentsCount = 0,
   handleOpenTodayAppointments,
+  viewMode,
+  setViewMode,
 }) => {
   const commandListRef = useRef<HTMLDivElement>(null);
 
@@ -69,7 +73,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   // Gerar lista de feriados para o select (Sistema + Banco)
   const holidaysList = useMemo(() => {
     // 1. Gerar feriados do sistema específicos para o ano visualizado
-    const systemEvents = [...getDynamicHolidays(year), ...getNationalHolidays(year)];
+    const systemEvents = [...getDynamicHolidays(year), ...getNationalHolidays(year)] as CalendarEvent[];
 
     // 2. Combinar com os eventos vindos do banco de dados (contexto)
     const allEvents = [...calendarEvents, ...systemEvents];
@@ -396,6 +400,14 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 <SelectItem value="adm" className="font-sans focus:!bg-red-500 hover:!bg-red-500 focus:!text-white">👔 Escala Adm</SelectItem>
               </SelectContent>
             </Select>
+
+            <Button
+              variant="outline"
+              onClick={() => setViewMode(viewMode === 'mensal' ? 'anual' : 'mensal')}
+              className="w-auto h-11 justify-between font-bold text-[14px] lg:text-[14px] uppercase tracking-[0.4px] transition-all bg-white border-gray-200 lg:border-[#e5e7eb] shadow-sm lg:shadow-[0_3px_6px_rgba(0,0,0,0.06)] text-[#334155] lg:rounded-[12px] focus:ring-0 focus:ring-offset-0 outline-none hover:!border-gray-300 lg:hover:shadow-[0_4px_10px_rgba(0,0,0,0.08)] flex items-center gap-2"
+            >
+              <span>📅 {viewMode === 'mensal' ? 'ANUAL' : 'MENSAL'}</span>
+            </Button>
           </div>
         </div>
 
