@@ -68,7 +68,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                 "flex items-center justify-center text-center",
                 viewMode === 'anual' ? "text-[10px] md:text-[11px] lg:text-[12px]" : "text-[12px] md:text-[13px] lg:text-[15px]",
                 "font-bold tracking-[0.4px]",
-                "rounded-[9px] md:rounded-[11px]",
+                "rounded-[8px] md:rounded-[10px]",
                 "aspect-square md:aspect-auto",
                 viewMode === 'anual' ? "w-full md:h-[24px] lg:h-[30px]" : "w-full md:h-[38px] lg:h-[48px]",
                 "py-1 relative overflow-hidden border border-blue-300/55 md:border-[0.5px] md:border-blue-300/45",
@@ -78,7 +78,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                 "transition-[background-color,color,box-shadow] duration-200 ease-out",
 
                 // Pseudo brilho fixo
-                "after:absolute after:inset-0 after:rounded-[9px] md:after:rounded-[11px] after:bg-gradient-to-b after:from-white/20 after:to-transparent after:pointer-events-none",
+                "after:absolute after:inset-0 after:rounded-[8px] md:after:rounded-[10px] after:bg-gradient-to-b after:from-white/20 after:to-transparent after:pointer-events-none",
 
                 // =====================
                 // MODO ADM
@@ -141,7 +141,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
               key={index}
               className={cn("aspect-square md:aspect-auto flex items-center justify-center w-full", viewMode === 'anual' ? "md:h-[24px] lg:h-[32px]" : "md:h-[38px] lg:h-[48px]")}
             >
-              <Skeleton className="w-full h-full rounded-[9px] md:rounded-[11px]" />
+              <Skeleton className="w-full h-full rounded-[8px] md:rounded-[10px]" />
             </div>
           ))
           : calendarData.map((dayData, index) => (
