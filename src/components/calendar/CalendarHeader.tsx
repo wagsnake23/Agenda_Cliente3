@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useMemo } from "react";
-import { ChevronLeft, ChevronRight, ChevronDown, Bell } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown, Bell, LayoutGrid } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -406,7 +406,8 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
               onClick={() => setViewMode(viewMode === 'mensal' ? 'anual' : 'mensal')}
               className="w-auto h-11 justify-between font-bold text-[14px] lg:text-[14px] uppercase tracking-[0.4px] transition-all bg-white border-gray-200 lg:border-[#e5e7eb] shadow-sm lg:shadow-[0_3px_6px_rgba(0,0,0,0.06)] text-[#334155] lg:rounded-[12px] focus:ring-0 focus:ring-offset-0 outline-none hover:!border-gray-300 lg:hover:shadow-[0_4px_10px_rgba(0,0,0,0.08)] flex items-center gap-2"
             >
-              <span>📅 {viewMode === 'mensal' ? 'ANUAL' : 'MENSAL'}</span>
+              <LayoutGrid size={18} className="text-[#334155]" />
+              <span>{viewMode === 'mensal' ? 'ANUAL' : 'MENSAL'}</span>
             </Button>
           </div>
         </div>
