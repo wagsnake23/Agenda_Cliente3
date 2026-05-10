@@ -124,8 +124,7 @@ All colors MUST be HSL.
   }
 
   .premium-subheader-bg {
-    background: linear-gradient(135deg, #f8faff 0%, #f0f5ff 50%, #e6f0ff 100%);
-    background-attachment: fixed;
+    background: #F9FAFB;
   }
 
   /* Utility to ensure original colorful emojis on desktop */
