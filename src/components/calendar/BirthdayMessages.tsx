@@ -99,7 +99,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                     )}
                   >
                     <div className="flex items-center gap-[8px] flex-1">
-                      <div className="flex flex-row items-center justify-center py-[2px] md:py-[4px] px-[8px] md:px-[10px] rounded-[6px] md:rounded-[8px] text-[11px] md:text-[13px] bg-[#f97316]/15 md:bg-gradient-to-b md:from-amber-400 md:to-amber-500 text-[#b45309] md:text-white leading-[1.1] border-[0.5px] border-[#f97316]/30 md:border-white/30 shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)] md:shadow-[inset_0_1px_4px_rgba(0,0,0,0.1)] shrink-0">
+                      <div className="flex flex-row items-center justify-center py-[3px] md:py-[4px] px-[8px] md:px-[10px] rounded-[8px] md:rounded-[10px] text-[12px] md:text-[13px] bg-[#f97316]/11 md:bg-gradient-to-b md:from-amber-400 md:to-amber-500 text-[#b45309] md:text-white leading-[1.1] border-[0.5px] border-[#f97316]/30 md:border-white/30 shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)] md:shadow-[inset_0_1px_4px_rgba(0,0,0,0.1)] shrink-0">
                         <span className="font-bold uppercase tracking-wide">{String(data.day).padStart(2, '0')}</span>
                         <span className="font-bold opacity-90 ml-[2px] uppercase">/{formattedMonth}</span>
                       </div>

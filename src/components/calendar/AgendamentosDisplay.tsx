@@ -131,7 +131,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                             "flex items-start gap-[8px] w-full relative",
                                             "before:content-[''] before:absolute before:left-[-12px] before:top-[8px] md:before:top-[10px] before:w-[8px] before:h-[8px] before:rounded-full before:bg-[#0078d7]"
                                         )}>
-                                            <div className="flex flex-row items-center justify-center py-[3px] md:py-[4px] px-[8px] md:px-[10px] rounded-[8px] md:rounded-[10px] text-[12px] md:text-[13px] bg-[#0078d7]/15 md:bg-gradient-to-b md:from-[#0078d7] md:to-[#005a9e] text-[#0078d7] md:text-white leading-[1.1] border-[0.5px] border-[#0078d7]/30 md:border-white/30 shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)] md:shadow-[inset_0_1px_4px_rgba(0,0,0,0.1)] shrink-0">
+                                            <div className="flex flex-row items-center justify-center py-[3px] md:py-[4px] px-[8px] md:px-[10px] rounded-[8px] md:rounded-[10px] text-[12px] md:text-[13px] bg-[#0078d7]/11 md:bg-gradient-to-b md:from-[#0078d7] md:to-[#005a9e] text-[#0078d7] md:text-white leading-[1.1] border-[0.5px] border-[#0078d7]/30 md:border-white/30 shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)] md:shadow-[inset_0_1px_4px_rgba(0,0,0,0.1)] shrink-0">
                                                 <span className="font-bold uppercase tracking-wide">{dia}</span>
                                                 <span className="font-bold opacity-90 ml-[2px]">/{mes}</span>
                                             </div>
