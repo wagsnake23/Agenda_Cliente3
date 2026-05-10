@@ -139,7 +139,7 @@ const Header = () => {
                             className="w-14 h-14 object-contain pointer-events-auto relative z-10 opacity-90 drop-shadow-md"
                         />
                         <h1
-                            className="font-bold text-base md:text-[1.35rem] tracking-wider uppercase whitespace-nowrap flex gap-2 leading-none pointer-events-auto select-none relative z-10 antialiased"
+                            className="font-bold text-base md:text-[1.35rem] tracking-tight uppercase whitespace-nowrap flex gap-2 leading-none pointer-events-auto select-none relative z-10 antialiased"
                             style={{
                                 textShadow: `
                                   0 1px 0 rgba(255,255,255,0.25),
@@ -150,7 +150,7 @@ const Header = () => {
                         >
                             <span 
                                 style={{ 
-                                    background: 'linear-gradient(180deg, #eef6ff 10%, #93c5fd 100%)',
+                                    background: 'linear-gradient(180deg, #FFFFFF 0%, #BAE6FD 100%)',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
                                     backgroundClip: 'text',
