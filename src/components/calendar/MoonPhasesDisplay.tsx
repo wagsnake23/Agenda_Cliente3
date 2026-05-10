@@ -61,30 +61,28 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       </div>
 
 
-      <div className="px-2.5 md:px-6 pt-0.5 md:pt-3 pb-0 md:pb-5 flex flex-col justify-center items-center flex-1 w-full">
-        <div className="flex flex-nowrap gap-3 md:gap-8 justify-center w-full overflow-x-auto pb-2">
+      <div className="px-1.5 md:px-6 pt-[5px] md:pt-3 pb-1 md:pb-5 flex flex-col justify-center items-center flex-1 w-full">
+        <div className="flex flex-row justify-between items-center w-full gap-1">
           {moonPhases.map((phase, index) => {
             const monthAbbr = (MONTHS[month] || 'Mês').substring(0, 3);
             const formattedMonth = monthAbbr.charAt(0).toUpperCase() + monthAbbr.slice(1).toLowerCase();
 
             return (
-              <React.Fragment key={index}>
-                <div
-                  className="flex flex-col items-center justify-center px-0 py-0 transition-all duration-200 w-12 md:w-16 flex-shrink-0 focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 cursor-pointer"
-                >
-                  <span className="text-2xl md:text-3xl mb-1.5 drop-shadow-[0_3px_10px_rgba(0,0,0,0.2)] filter saturate-[1.3] brightness-[1.05] transition-all duration-200 hover:scale-110">{phase.phaseIcon}</span>
-                  <span className="text-[13px] md:text-[15px] lg:text-[16px] font-medium text-[#1F2937] text-center leading-[1.6] uppercase tracking-tighter opacity-90">
-                    {phase.phaseName}
-                  </span>
-                  <div className="flex flex-row mt-0.5 md:mt-1.5 items-center justify-center py-0 px-0 bg-transparent text-[#6366f1] text-[11px] md:text-[14px] leading-[1.6] md:leading-[1.1] shrink-0 border-none shadow-none">
-                    <span className="font-semibold md:font-bold uppercase tracking-wide">{String(phase.date).padStart(2, '0')}</span>
-                    <span className="font-semibold md:font-bold opacity-90 ml-[2px] uppercase">/{formattedMonth}</span>
-                  </div>
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center transition-all duration-200 flex-1 min-w-0 cursor-pointer group"
+              >
+                <span className="text-xl md:text-2xl lg:text-3xl mb-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)] filter saturate-[1.3] brightness-[1.05] transition-all duration-200 group-hover:scale-110">
+                  {phase.phaseIcon}
+                </span>
+                <span className="text-[10px] md:text-[12px] lg:text-[14px] font-semibold text-[#1F2937] text-center leading-tight uppercase tracking-tighter opacity-90 truncate w-full px-0.5">
+                  {phase.phaseName}
+                </span>
+                <div className="flex flex-row mt-0.5 md:mt-1 items-center justify-center bg-transparent text-[#6366f1] text-[9px] md:text-[12px] lg:text-[13px] leading-none shrink-0 border-none shadow-none">
+                  <span className="font-bold uppercase tracking-tight">{String(phase.date).padStart(2, '0')}</span>
+                  <span className="font-bold opacity-80 ml-[1px] uppercase">/{formattedMonth}</span>
                 </div>
-                {index < moonPhases.length - 1 && (
-                  <div className="self-center h-12 border-r border-dashed border-indigo-400/30 mx-0.5 md:mx-1" />
-                )}
-              </React.Fragment>
+              </div>
             );
           })}
         </div>
