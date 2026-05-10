@@ -136,23 +136,29 @@ const Header = () => {
                         <img
                             src="/logo.png"
                             alt="Logo Calendário"
-                            className="w-[60px] h-[60px] object-contain pointer-events-auto relative z-10"
-                            style={{ 
-                                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.35)) drop-shadow(0 0 6px rgba(255,255,255,0.15)) brightness(1.1)' 
-                            }}
+                            className="w-14 h-14 object-contain pointer-events-auto relative z-10 opacity-90 drop-shadow-md"
                         />
                         <h1
-                            className="md:font-bold font-black md:text-[1.35rem] tracking-wider uppercase leading-none inline-flex items-center pointer-events-auto select-none gap-2 relative z-10 antialiased"
+                            className="font-bold text-base md:text-[1.35rem] tracking-wider uppercase whitespace-nowrap flex gap-2 leading-none pointer-events-auto select-none relative z-10 antialiased"
                             style={{
-                                color: 'rgba(255,255,255,0.95)',
-                                textShadow: '0 1px 1px rgba(0,0,0,0.25)',
-                                fontWeight: 700,
-                                WebkitFontSmoothing: 'antialiased',
-                                MozOsxFontSmoothing: 'grayscale'
+                                textShadow: `
+                                  0 1px 0 rgba(255,255,255,0.25),
+                                  0 2px 4px rgba(0,0,0,0.25),
+                                  0 6px 10px rgba(0,0,0,0.15)
+                                `
                             }}
                         >
-                            <span>CALENDÁRIO</span>
-                            <span>AGENDA</span>
+                            <span 
+                                style={{ 
+                                    background: 'linear-gradient(180deg, #eef6ff 10%, #93c5fd 100%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                    color: 'transparent'
+                                }}
+                            >
+                                CALENDÁRIO AGENDA
+                            </span>
                         </h1>
                     </div>
 
