@@ -134,6 +134,13 @@ All colors MUST be HSL.
       font-variant-emoji: emoji !important;
       color: initial !important;
     }
+
+    .emoji-3d {
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25)) saturate(1.2) brightness(1.1);
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
   }
 }
 

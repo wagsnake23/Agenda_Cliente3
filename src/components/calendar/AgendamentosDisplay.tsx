@@ -58,7 +58,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 <div className="relative flex items-center justify-between pl-2 pr-2 md:pl-6 md:pr-4 z-20 w-full">
                     <div className="flex items-center gap-2">
                         <h4 className="font-semibold text-white text-[14px] lg:text-[17px] uppercase tracking-[0.5px]">
-                            AGENDAMENTOS
+                            <span className="emoji-3d mr-1">📋</span>AGENDAMENTOS
                         </h4>
                     </div>
 
@@ -122,7 +122,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                     <div
                                         onClick={() => onViewAgendamento(agendamento.dataInicio, agendamento.id)}
                                         className={cn(
-                                            "cursor-pointer transition-all duration-150 ease-in-out flex flex-col py-[4px] md:py-[8px] pl-0 hover:bg-[#f8fafc] hover:rounded-[6px] hover:pl-[4px] group w-full active:scale-[0.98] origin-left",
+                                            "cursor-pointer transition-all duration-150 ease-in-out flex flex-col py-[2px] md:py-[4px] pl-0 hover:bg-[#f8fafc] hover:rounded-[6px] hover:pl-[4px] group w-full active:scale-[0.98] origin-left",
                                             "text-[13px] md:text-[15px] lg:text-[16px] font-medium text-[#1F2937] uppercase tracking-tight leading-[1.6]",
                                             isHighlighted && "bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-md z-20 animate-bounce-twice font-semibold"
                                         )}
@@ -166,13 +166,13 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                             </span>
                                         </div>
                                         {hasContinuation && (
-                                            <div className="flex w-full mt-2">
-                                                <div className="border-b border-dashed border-[#d1d5db] flex-1 ml-[10px]" />
+                                            <div className="flex w-full mt-1.5">
+                                                <div className="border-b border-dashed border-blue-400/30 flex-1 ml-[10px]" />
                                             </div>
                                         )}
                                     </div>
-                                    {index < currentMonthAgendamentos.length - 1 && (
-                                        <div className="h-[1px] my-[1px] md:my-[2px] bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent w-full" />
+                                    {index < currentMonthAgendamentos.length - 1 && !hasContinuation && (
+                                        <div className="w-full border-b border-dashed border-blue-400/30 mt-0.5 mb-1.5 md:mt-1 md:mb-2" />
                                     )}
                                 </React.Fragment>
                             );

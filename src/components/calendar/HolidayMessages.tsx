@@ -37,7 +37,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         <div className="relative flex items-center justify-between pl-2 pr-2 md:pl-6 md:pr-4 z-20 w-full">
           <div className="flex items-center gap-2">
             <h4 className="font-semibold text-white text-[14px] lg:text-[17px] uppercase tracking-[0.5px]">
-              Feriados e Datas
+              <span className="emoji-3d mr-1">📅</span> Feriados e Datas
             </h4>
           </div>
 
@@ -91,7 +91,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                 <React.Fragment key={i}>
                   <div
                     className={cn(
-                      "cursor-transition-all duration-150 ease-in-out flex items-start py-[3px] md:py-[6px] pl-0 hover:bg-[#f8fafc] hover:rounded-[6px] hover:pl-[4px] group w-full",
+                      "cursor-transition-all duration-150 ease-in-out flex items-start py-[1px] md:py-[2px] pl-0 hover:bg-[#f8fafc] hover:rounded-[6px] hover:pl-[4px] group w-full",
                       "text-[13px] md:text-[15px] lg:text-[16px] font-medium uppercase tracking-tight leading-[1.6]",
                       isHighlighted && "bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-md z-20 animate-bounce-twice font-semibold",
                       isInfoEvent && !isHighlighted && "text-slate-500",
@@ -131,7 +131,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                     </div>
                   </div>
                   {i < messages.length - 1 && (
-                    <div className="h-[1px] my-[3px] md:my-[6px] bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent w-full" />
+                    <div className="w-full border-b border-dashed border-red-400/30 mt-0.5 mb-1.5 md:mt-1 md:mb-2" />
                   )}
                 </React.Fragment>
               );

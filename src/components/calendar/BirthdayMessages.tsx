@@ -48,7 +48,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
         <div className="relative flex items-center justify-between pl-2 pr-2 md:pl-6 md:pr-4 z-20 w-full">
           <div className="flex items-center gap-2">
             <h4 className="font-semibold text-white text-[14px] lg:text-[17px] uppercase tracking-[0.5px]">
-              Aniversariantes
+              <span className="emoji-3d mr-1">🎂</span>Aniversariantes
             </h4>
           </div>
 
@@ -92,7 +92,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                 <React.Fragment key={i}>
                   <div
                     className={cn(
-                      "relative transition-all duration-150 ease-in-out flex items-center gap-[8px] py-[3px] md:py-[6px] pl-0 hover:bg-[#f8fafc] hover:rounded-[6px] hover:pl-[4px] group w-full",
+                      "relative transition-all duration-150 ease-in-out flex items-center gap-[8px] py-[1px] md:py-[2px] pl-0 hover:bg-[#f8fafc] hover:rounded-[6px] hover:pl-[4px] group w-full",
                       "before:content-[''] before:absolute before:left-[-12px] before:top-[12px] md:before:top-[15px] before:w-[8px] before:h-[8px] before:rounded-full before:bg-[#f97316]",
                       "text-[13px] md:text-[15px] lg:text-[16px] font-medium text-[#1F2937] uppercase tracking-tight leading-[1.6]",
                       isHighlighted && "bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-md z-20 animate-bounce-twice font-semibold"
@@ -112,7 +112,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                     </div>
                   </div>
                   {i < currentMonthBirthdays.length - 1 && (
-                    <div className="h-[1px] my-[3px] md:my-[6px] bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent w-full" />
+                    <div className="w-full border-b border-dashed border-amber-400/30 mt-0.5 mb-1.5 md:mt-1 md:mb-2" />
                   )}
                 </React.Fragment>
               );
