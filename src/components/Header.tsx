@@ -174,7 +174,7 @@ const Header = () => {
                                         {isAdmin && (
                                             <button
                                                 onClick={() => navigate('/usuarios')}
-                                                className={`px-3 py-2 rounded-lg text-[15.5px] font-semibold tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname.startsWith('/usuarios')
+                                                className={`px-3 py-2 rounded-lg text-[17px] font-medium tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname.startsWith('/usuarios')
                                                     ? 'text-white bg-white/10'
                                                     : 'text-white/90 hover:bg-white/10 hover:text-white'
                                                     }`}
@@ -189,7 +189,7 @@ const Header = () => {
 
                                         <button
                                             onClick={() => navigate('/admin/calendario')}
-                                            className={`px-3 py-2 rounded-lg text-[15.5px] font-semibold tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname.startsWith('/admin/calendario')
+                                            className={`px-3 py-2 rounded-lg text-[17px] font-medium tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname.startsWith('/admin/calendario')
                                                 ? 'text-white bg-white/10'
                                                 : 'text-white/90 hover:bg-white/10 hover:text-white'
                                                 }`}
@@ -204,7 +204,7 @@ const Header = () => {
                                         {/* Agendamentos */}
                                         <button
                                             onClick={() => navigate('/agendamentos')}
-                                            className={`px-3 py-2 rounded-lg text-[15.5px] font-semibold tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname === '/agendamentos'
+                                            className={`px-3 py-2 rounded-lg text-[17px] font-medium tracking-wide transition-all duration-200 ease-in-out relative group flex items-center gap-2 ${location.pathname === '/agendamentos'
                                                 ? 'text-white bg-white/10'
                                                 : 'text-white/90 hover:bg-white/10 hover:text-white'
                                                 }`}

@@ -557,7 +557,7 @@ const AdminCalendario: React.FC = () => {
                 modalOpen && (
                     <div className="fixed inset-0 z-[200] flex items-center justify-center p-1 sm:p-3">
                         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => !saving && setModalOpen(false)} />
-                        <div className="relative bg-gradient-to-br from-[#f8fbff] to-[#f0f7ff] rounded-[24px] shadow-2xl border-2 border-slate-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
+                        <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-slate-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
                             {/* Header */}
                             <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#0f3c78] to-[#2f80ed]">
                             <div className="flex items-center gap-3">
@@ -587,7 +587,7 @@ const AdminCalendario: React.FC = () => {
                                         onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
                                         disabled={form.is_system}
                                         placeholder="Ex: Natal"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-medium disabled:opacity-50 disabled:bg-slate-50 bg-white"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-medium disabled:opacity-50 disabled:bg-slate-50 bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                 </div>
 
@@ -598,7 +598,7 @@ const AdminCalendario: React.FC = () => {
                                         value={form.description}
                                         onChange={e => setForm(p => ({ ...p, description: e.target.value }))}
                                         placeholder="Opcional"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-white"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                 </div>
 
@@ -609,7 +609,7 @@ const AdminCalendario: React.FC = () => {
                                         value={form.type}
                                         onChange={e => handleTypeChange(e.target.value as CalendarEventType)}
                                         disabled={form.is_system}
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-50 bg-white"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-50 bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     >
                                         <option value="holiday">🏁 Feriado</option>
                                         <option value="event">📌 Evento</option>
@@ -669,7 +669,7 @@ const AdminCalendario: React.FC = () => {
                                                 placeholder="(Mês-Dia)"
                                                 maxLength={5}
                                                 disabled={form.is_system}
-                                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-mono disabled:opacity-50 disabled:bg-slate-50 bg-white"
+                                                className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-mono disabled:opacity-50 disabled:bg-slate-50 bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                             />
                                         ) : (
                                             <input
@@ -677,7 +677,7 @@ const AdminCalendario: React.FC = () => {
                                                 value={form.date}
                                                 onChange={e => setForm(p => ({ ...p, date: e.target.value }))}
                                                 disabled={form.is_system}
-                                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-50 bg-white"
+                                                className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-50 bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                             />
                                         )}
                                     </div>
@@ -686,7 +686,7 @@ const AdminCalendario: React.FC = () => {
                                         <button
                                             type="button"
                                             onClick={() => setEmojiPickerOpen(true)}
-                                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all flex items-center gap-2 hover:border-blue-400 hover:bg-blue-50 bg-white"
+                                            className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all flex items-center gap-2 hover:border-blue-400 hover:bg-blue-50 bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                         >
                                             {form.emoji ? (
                                                 <>
@@ -741,7 +741,7 @@ const AdminCalendario: React.FC = () => {
                                     <button
                                         type="submit"
                                         disabled={saving}
-                                        className="flex-1 h-12 rounded-xl bg-blue-600 text-white font-bold text-[17px] shadow-[0_1px_0_#1E3A8A] hover:bg-blue-700 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
+                                        className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[#0f3c78] to-[#2f80ed] text-white font-bold text-[17px] shadow-[0_1.5px_0_#0f2a6b,inset_0_1.5px_1px_rgba(255,255,255,0.3)] hover:brightness-110 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
                                     >
                                         {saving ? <Loader2 size={16} className="animate-spin" /> : <Check size={16} />}
                                         {saving ? 'Salvando...' : 'Salvar'}

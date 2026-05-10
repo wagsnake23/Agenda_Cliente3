@@ -96,7 +96,7 @@ const GlobalEventModal = () => {
     return (
         <div className="fixed inset-0 z-[400] flex items-center justify-center p-1 sm:p-3">
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => !saving && setIsOpen(false)} />
-            <div className="relative bg-gradient-to-br from-[#f8fbff] to-[#f0f7ff] rounded-[24px] shadow-2xl border-2 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
+            <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
                 <div className="flex items-center justify-between px-6 md:px-5 py-4 bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a] shadow-[inset_0_-1px_0_rgba(255,255,255,0.1)]">
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_1px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80 shrink-0">
@@ -123,7 +123,7 @@ const GlobalEventModal = () => {
                             value={form.title}
                             onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
                             placeholder="Ex: Natal"
-                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-medium bg-white"
+                            className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-medium bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                         />
                     </div>
 
@@ -133,7 +133,7 @@ const GlobalEventModal = () => {
                             value={form.description}
                             onChange={e => setForm(p => ({ ...p, description: e.target.value }))}
                             placeholder="Opcional"
-                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-white"
+                            className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                         />
                     </div>
 
@@ -142,7 +142,7 @@ const GlobalEventModal = () => {
                         <select
                             value={form.type}
                             onChange={e => handleTypeChange(e.target.value as CalendarEventType)}
-                            className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-white"
+                            className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                         >
                             <option value="holiday">🏁 Feriado</option>
                             <option value="event">📌 Evento</option>
@@ -175,14 +175,14 @@ const GlobalEventModal = () => {
                                     }}
                                     placeholder="MM-DD"
                                     maxLength={5}
-                                    className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-mono bg-white"
+                                    className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all font-mono bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                 />
                             ) : (
                                 <input
                                     type="datetime-local"
                                     value={form.date}
                                     onChange={e => setForm(p => ({ ...p, date: e.target.value }))}
-                                    className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-white"
+                                    className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                 />
                             )}
                         </div>
@@ -191,7 +191,7 @@ const GlobalEventModal = () => {
                             <button
                                 type="button"
                                 onClick={() => setEmojiPickerOpen(true)}
-                                className="w-full h-11 px-4 rounded-xl border border-slate-200 text-black text-sm focus:outline-none focus:border-blue-500 transition-all flex items-center gap-2 hover:border-blue-400 hover:bg-blue-50 bg-white"
+                                className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-black text-sm focus:outline-none focus:border-blue-500 transition-all flex items-center gap-2 hover:border-blue-400 hover:bg-blue-50 bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                             >
                                 {form.emoji ? (
                                     <>
