@@ -245,7 +245,7 @@ const Header = () => {
                             className="w-12 h-12 md:w-14 md:h-14 object-contain transition-transform duration-300 hover:scale-105 shrink-0 relative -left-[4px]"
                         />
                         <h1
-                            className="text-[1.1rem] md:text-[1.5rem] font-extrabold tracking-[0.01em] uppercase leading-none flex flex-row gap-0.5 select-none relative -left-[14px] md:-left-0 antialiased"
+                            className="text-[1.1rem] md:text-[1.5rem] font-extrabold tracking-[0.01em] uppercase leading-none flex flex-row gap-0.5 select-none relative -left-[14px] md:-left-0 antialiased opacity-95 md:opacity-100"
                             style={{
                                 textShadow: `
                                     0 1px 0 #1e3a8a,
