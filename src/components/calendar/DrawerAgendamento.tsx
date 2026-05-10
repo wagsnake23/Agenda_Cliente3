@@ -329,8 +329,8 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                 <div className={cn(
                     "flex items-center justify-between shadow-[inset_0_-1px_0_rgba(255,255,255,0.1)] transition-colors duration-300",
                     variant === 'modal'
-                        ? "px-6 md:px-5 py-4 bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a]"
-                        : "p-2 md:p-3 bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a]"
+                        ? "px-6 md:px-5 py-4 bg-gradient-to-b from-[#0078d7] to-[#005a9e]"
+                        : "p-2 md:p-3 bg-gradient-to-b from-[#0078d7] to-[#005a9e]"
                 )}>
                     <div className="flex flex-row items-center gap-2.5 md:gap-3.5 pt-0.5 md:pt-0">
                         {(!modoEdicao && mode !== 'create') ? (
@@ -637,7 +637,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         "h-10.5 md:h-12 rounded-2xl text-[1.05rem] md:text-[1.15rem] font-black transition-all duration-300",
                                         modoEdicao ? "flex-1" : "w-full",
                                         isFormValid
-                                            ? "bg-gradient-to-b from-[#2a57b3] to-[#1a3a8a] text-white shadow-[0_1.5px_0_#0f2a6b,inset_0_1.5px_1px_rgba(255,255,255,0.3)] hover:brightness-110 active:translate-y-[1px] active:shadow-none"
+                                            ? "bg-gradient-to-b from-[#0078d7] to-[#005a9e] text-white shadow-[0_1.5px_0_#004578,inset_0_1.5px_1px_rgba(255,255,255,0.3)] hover:brightness-110 active:translate-y-[1px] active:shadow-none"
                                             : cn(
                                                 "transition-all grayscale-0 opacity-100",
                                                 mode === 'create' ? "bg-slate-200 text-slate-500 border border-slate-300 shadow-none" : "bg-slate-100 text-slate-400 border border-slate-200 grayscale opacity-60"

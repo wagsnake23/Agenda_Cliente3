@@ -46,13 +46,13 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
             )}
         >
             {/* Highlight de topo sutil */}
-            <div 
-                className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none" 
-                style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
+            <div
+                className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none"
+                style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }}
             />
-            <div 
+            <div
                 className="relative w-full h-9 md:h-[52px] flex items-center"
-                style={{ background: 'linear-gradient(180deg, #2a57b3 0%, #1a3a8a 100%)' }}
+                style={{ background: 'linear-gradient(180deg, #0078d7 0%, #005a9e 100%)' }}
             >
                 {/* Conteúdo do Header */}
                 <div className="relative flex items-center justify-between pl-2 pr-2 md:pl-6 md:pr-4 z-20 w-full">
@@ -62,7 +62,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                         </h4>
                     </div>
 
-                    <div 
+                    <div
                         className={cn(
                             "flex flex-row items-center justify-center transition-all duration-300 ml-auto rounded-[7px] md:rounded-full cursor-pointer gap-1",
                             "py-[1.5px] px-[5px] md:py-[6px] md:px-[12px]",
@@ -129,9 +129,9 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                     >
                                         <div className={cn(
                                             "flex items-start gap-[8px] w-full relative",
-                                            "before:content-[''] before:absolute before:left-[-12px] before:top-[8px] md:before:top-[10px] before:w-[8px] before:h-[8px] before:rounded-full before:bg-[#1a3a8a]"
+                                            "before:content-[''] before:absolute before:left-[-12px] before:top-[8px] md:before:top-[10px] before:w-[8px] before:h-[8px] before:rounded-full before:bg-[#0078d7]"
                                         )}>
-                                            <div className="flex flex-row items-center justify-center py-[3px] md:py-[4px] px-[8px] md:px-[10px] rounded-[8px] md:rounded-[10px] text-[12px] md:text-[13px] bg-[#1a3a8a]/15 md:bg-gradient-to-b md:from-[#2a57b3] md:to-[#1a3a8a] text-[#1a3a8a] md:text-white leading-[1.1] border-[0.5px] border-[#1a3a8a]/30 md:border-white/30 shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)] md:shadow-[inset_0_1px_4px_rgba(0,0,0,0.1)] shrink-0">
+                                            <div className="flex flex-row items-center justify-center py-[3px] md:py-[4px] px-[8px] md:px-[10px] rounded-[8px] md:rounded-[10px] text-[12px] md:text-[13px] bg-[#0078d7]/15 md:bg-gradient-to-b md:from-[#0078d7] md:to-[#005a9e] text-[#0078d7] md:text-white leading-[1.1] border-[0.5px] border-[#0078d7]/30 md:border-white/30 shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)] md:shadow-[inset_0_1px_4px_rgba(0,0,0,0.1)] shrink-0">
                                                 <span className="font-bold uppercase tracking-wide">{dia}</span>
                                                 <span className="font-bold opacity-90 ml-[2px]">/{mes}</span>
                                             </div>
