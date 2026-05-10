@@ -7,7 +7,10 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ className }) => {
     return (
-        <footer className={cn("w-full mt-auto bg-[#0F172A] py-8 border-t border-gray-800 shadow-2xl relative z-10", className)}>
+        <footer className={cn(
+            "w-full mt-auto bg-[#0F172A] py-6 md:py-8 border-t border-gray-800 shadow-2xl relative z-10",
+            className
+        )}>
             <div className="w-full max-w-[1600px] mx-auto px-0 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
                 {/* Lado Esquerdo */}
                 <div className="flex flex-col items-center md:items-start text-center md:text-left gap-0">
