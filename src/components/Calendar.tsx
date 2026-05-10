@@ -739,7 +739,7 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
           </div>
 
           {viewMode === 'mensal' && (
-            <div className="max-w-[1600px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 pb-3 lg:pb-16">
+            <div className="max-w-[1600px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 pb-2 lg:pb-16">
               <div className="flex flex-col lg:flex-row gap-3 lg:gap-8 items-stretch">
                 {/* 1º - Agendamentos */}
                 <div className={cn(
