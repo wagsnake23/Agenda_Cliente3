@@ -102,7 +102,9 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       className={cn(
         "relative w-full h-full flex items-center justify-center",
         "rounded-[9px] md:rounded-[11px]",
-        viewMode === 'anual' ? "text-[11px] md:text-[13px] font-bold" : "text-sm md:text-base font-semibold",
+        viewMode === 'anual' 
+          ? cn("text-[11px] md:text-[13px]", mode === 'adm' ? "font-bold md:font-semibold" : "font-bold")
+          : "text-sm md:text-base font-semibold",
         "bg-clip-padding saturate-[1.05]",
         "transition-all duration-200 ease-out",
         "will-change-[background-color,border-color,transform]",
@@ -112,6 +114,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         mode === "adm"
           ? cn(
             "border-[0.5px]",
+            viewMode === 'anual' && "md:border-[0.5px] md:border-slate-300/60",
             !isSelected && dayData.colors.border ? dayData.colors.border : "border-slate-300/80"
           )
           : !isSelected && "border-slate-300/50",
@@ -127,7 +130,10 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
                    ? cn(
                        "bg-white",
                        mode === 'adm' 
-                         ? "bg-white max-md:bg-white border-[0.1px] border-slate-400/60 shadow-[inset_0_1px_3px_rgba(0,0,0,0.07)]" 
+                         ? cn(
+                             "bg-white max-md:bg-white",
+                             viewMode === 'anual' ? "md:bg-[#F9FAFB] md:border-[0.5px] md:border-slate-300/60 md:shadow-none" : "border-[0.1px] border-slate-400/60 shadow-[inset_0_1px_3px_rgba(0,0,0,0.07)]"
+                           )
                          : "max-md:bg-[#ffffff] max-md:border-slate-400/45"
                      )
                    : dayData.colors.bg)
