@@ -71,10 +71,10 @@ const EmojiPicker: React.FC<EmojiPickerProps> = ({ open, onClose, onSelect, curr
                     </div>
                     <button
                         onClick={onClose}
-                        className="w-7 h-7 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all"
+                        className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all"
                         title="Fechar"
                     >
-                        <X className="w-4 h-4 md:w-[22px] md:h-[22px]" strokeWidth={4} />
+                        <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={5} />
                     </button>
                 </div>
 
