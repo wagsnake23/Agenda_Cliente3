@@ -122,6 +122,7 @@ interface DrawerAgendamentoProps {
     setSelectedAgendamentoId?: (id: string | null) => void;
     variant?: 'drawer' | 'modal';
     onEditRequest?: (ag: Agendamento) => void;
+    viewMode?: 'mensal' | 'anual';
 }
 
 const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
@@ -142,6 +143,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
     setSelectedAgendamentoId,
     variant = 'drawer',
     onEditRequest,
+    viewMode = 'mensal',
 }) => {
     const { profile } = useAuth();
     const [dataInicio, setDataInicio] = useState(initialDate || '');
@@ -306,7 +308,13 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
             )}
         >
             {variant === 'modal' && (
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+                <div 
+                    className={cn(
+                        "absolute inset-0 transition-all duration-300",
+                        viewMode === 'anual' ? "bg-black/15" : "bg-black/60 backdrop-blur-sm"
+                    )} 
+                    onClick={onClose} 
+                />
             )}
             <div
                 className={cn(

@@ -691,6 +691,7 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
                 selectedAgendamentoId={selectedAgendamentoId}
                 setSelectedAgendamentoId={setSelectedAgendamentoId}
                 onEditRequest={handleEditRequest}
+                viewMode={viewMode}
               />
             </div>
 
@@ -711,6 +712,7 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
               onSelectPeriod={toggleHighlightPeriod}
               selectedAgendamentoId={selectedAgendamentoId}
               setSelectedAgendamentoId={setSelectedAgendamentoId}
+              viewMode={viewMode}
             />
 
             {/* Indicadores de bolinhas */}
