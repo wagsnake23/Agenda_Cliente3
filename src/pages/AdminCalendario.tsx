@@ -738,14 +738,19 @@ const AdminCalendario: React.FC = () => {
                                     >
                                         Cancelar
                                     </button>
-                                    <button
-                                        type="submit"
-                                        disabled={saving}
-                                        className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[#0f3c78] to-[#2f80ed] text-white font-bold text-[17px] shadow-[0_1.5px_0_#0f2a6b,inset_0_1.5px_1px_rgba(255,255,255,0.3)] hover:brightness-110 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center gap-2"
-                                    >
-                                        {saving ? <Loader2 size={16} className="animate-spin" /> : <Check size={16} />}
-                                        {saving ? 'Salvando...' : 'Salvar'}
-                                    </button>
+                                    {(() => {
+                                        const isFormValid = form.title.trim().length > 0 && form.date.length >= 10;
+                                        return (
+                                            <button
+                                                type="submit"
+                                                disabled={saving || !isFormValid}
+                                                className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[#0f3c78] to-[#2f80ed] text-white font-bold text-[17px] shadow-[0_1.5px_0_#0f2a6b,inset_0_1.5px_1px_rgba(255,255,255,0.3)] hover:brightness-110 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-40 disabled:grayscale-[0.5] disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                            >
+                                                {saving ? <Loader2 size={16} className="animate-spin" /> : <Check size={16} />}
+                                                {saving ? 'Salvando...' : 'Salvar'}
+                                            </button>
+                                        );
+                                    })()}
                                 </div>
                             </form>
                         </div>
