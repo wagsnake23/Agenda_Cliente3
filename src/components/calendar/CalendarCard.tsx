@@ -118,7 +118,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
         <div
             className={cn(
                 "w-full transition-all duration-500 ease-out flex flex-col",
-                viewMode === 'anual' ? "p-0 bg-white shadow-sm border overflow-hidden" : "px-2 py-2 md:px-8 md:pt-4 md:pb-8",
+                viewMode === 'anual' ? "p-0 bg-[#F9FAFB] shadow-sm border overflow-hidden" : "px-2 py-2 md:px-8 md:pt-4 md:pb-8",
                 viewMode === 'anual' ? "" : "md:bg-white backdrop-blur-sm md:backdrop-blur-none",
                 "antialiased [font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] [contain:paint]",
                 viewMode === 'anual' ? "rounded-t-[18px] rounded-b-[14px]" : "border-[0.5px] border-blue-400/25 shadow-[inset_0_1px_3px_rgba(255,255,255,0.8),inset_0_-1px_3px_rgba(0,0,0,0.05)]",
@@ -127,7 +127,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                 "relative group/card"
             )}
             style={{
-                background: viewMode === 'anual' ? '#FFFFFF' : (!isDesktopState ? '#ffffff' : 'white'),
+                background: viewMode === 'anual' ? '#F9FAFB' : (!isDesktopState ? '#ffffff' : 'white'),
                 borderColor: viewMode === 'anual' ? 'rgba(170, 180, 195, 0.75)' : undefined
             }}
         >
@@ -139,7 +139,8 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                     "flex justify-between items-start",
                     viewMode === 'anual' ? "h-[50px] md:h-[65px]" : "md:-mx-8 md:-mt-4 md:px-8 md:pt-4 md:h-[99px] md:rounded-t-[28px]",
                     viewMode === 'anual' && !isDesktopState ? "hidden" : "md:flex",
-                    "mb-0 relative overflow-hidden border-none outline-none shadow-none bg-white"
+                    "mb-0 relative overflow-hidden border-none outline-none shadow-none",
+                    viewMode === 'anual' ? "bg-[#F9FAFB]" : "bg-white"
                 )}
             >
                 {/* Background da Estação */}
