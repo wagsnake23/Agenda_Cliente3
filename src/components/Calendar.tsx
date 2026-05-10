@@ -558,7 +558,10 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
           <div className="w-full relative overflow-visible pt-0 pb-0 md:pb-6 mt-1.5 lg:mt-0 lg:py-7">
             {viewMode === 'anual' ? (
               <div className="relative w-full">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[18px]">
+                <div 
+                  key={`annual-grid-${year}`}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[18px] animate-in fade-in slide-in-from-bottom-2 duration-700"
+                >
                   {Array.from({ length: 12 }).map((_, i) => (
                     <CalendarCard
                       key={`anual-${year}-${i}`}
