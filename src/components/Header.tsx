@@ -242,16 +242,16 @@ const Header = () => {
             </header>
 
             {/* Header Mobile/Tablet */}
-            <header className="sticky top-0 z-50 w-full h-[64px] bg-transparent flex flex-row items-center justify-between mt-0 md:mt-0 mb-1 pl-1 pr-1 select-none lg:hidden md:relative md:z-auto md:h-auto overflow-hidden">
+            <header className="sticky top-0 z-50 w-full h-[64px] bg-transparent flex flex-row items-center justify-between mt-0 md:mt-0 mb-1 select-none lg:hidden md:relative md:z-auto md:h-auto overflow-hidden">
                 <div className="flex items-center cursor-pointer relative -top-[1px]" onClick={() => navigate('/')}>
-                    <div className="flex items-center gap-4 w-full max-w-[320px]">
+                    <div className="flex items-center gap-[6px] w-full max-w-[320px]">
                         <img
                             src="/logo.png"
                             alt="Logo Calendário"
-                            className="w-12 h-12 md:w-14 md:h-14 object-contain transition-transform duration-300 hover:scale-105 shrink-0 relative -left-[4px]"
+                            className="w-12 h-12 md:w-14 md:h-14 object-contain transition-transform duration-300 hover:scale-105 shrink-0"
                         />
                         <h1
-                            className="text-[1.1rem] md:text-[1.5rem] font-extrabold tracking-[0.01em] uppercase leading-none flex flex-row gap-0.5 select-none relative -left-[14px] md:-left-0 antialiased opacity-95 md:opacity-100"
+                            className="text-[1.1rem] md:text-[1.5rem] font-extrabold tracking-[0.01em] uppercase leading-none flex flex-row gap-0.5 select-none md:-left-0 antialiased opacity-95 md:opacity-100"
                             style={{
                                 textShadow: `
                                     0 1px 0 #1e3a8a,
@@ -268,12 +268,12 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-3 shrink-0 pr-0.5">
+                <div className="flex items-center gap-3 shrink-0">
                     {/* Sino de Notificações Mobile */}
                     <div
                         onClick={todayAppointmentsCount > 0 ? handleOpenTodayAppointments : undefined}
                         className={cn(
-                            "relative transition-transform -left-[5px]",
+                            "relative transition-transform left-[4px]",
                             todayAppointmentsCount > 0
                                 ? "cursor-pointer active:scale-90"
                                 : "opacity-40"
@@ -300,7 +300,7 @@ const Header = () => {
                         )}
                     </div>
 
-                    <div className="flex items-center justify-end w-10 relative -bottom-[1px] -left-[9px]">
+                    <div className="flex items-center justify-end w-10 relative -bottom-[1px] left-[2px]">
                         <MobileMenu />
                     </div>
                 </div>
