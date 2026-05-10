@@ -197,37 +197,51 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                         </span>
                     </div>
 
-                    {/* Badge da Estação (Desktop) com Tooltip */}
-                    <Tooltip delayDuration={300}>
-                        <TooltipTrigger asChild>
-                            <div
-                                className="transition-all duration-300 hover:scale-[1.10] cursor-pointer select-none group/season shadow-[0_4px_10px_rgba(0,0,0,0.12)]"
-                                style={{
-                                    padding: '4px',
-                                    borderRadius: '12px',
-                                    fontSize: '12.5px',
-                                    background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(226,232,240,0.9))',
-                                    color: season.style.text,
-                                    fontWeight: '800',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    border: `1px solid rgba(59,130,246,0.15)`,
-                                    width: '40px',
-                                    height: '40px'
-                                }}
+                    {/* Badge da Estação (Desktop) */}
+                    <div className="flex items-center">
+                        <Tooltip delayDuration={viewMode === 'anual' ? 999999 : 300}>
+                            <TooltipTrigger asChild>
+                                <div
+                                    className={cn(
+                                        "transition-all duration-500 cursor-pointer select-none group/season shadow-[0_4px_10px_rgba(0,0,0,0.12)] flex items-center justify-center overflow-hidden",
+                                        viewMode === 'anual' ? "hover:pr-3" : "hover:scale-[1.10]"
+                                    )}
+                                    style={{
+                                        padding: '4px',
+                                        borderRadius: '12px',
+                                        background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(226,232,240,0.9))',
+                                        color: season.style.text,
+                                        fontWeight: '800',
+                                        border: `1px solid rgba(59,130,246,0.15)`,
+                                        height: viewMode === 'anual' ? '25px' : '40px',
+                                        minWidth: viewMode === 'anual' ? '25px' : '40px',
+                                        width: 'fit-content'
+                                    }}
+                                >
+                                    <span className={cn(
+                                        "transform transition-transform group-hover/season:rotate-12 flex items-center justify-center",
+                                        viewMode === 'anual' ? "text-sm w-[17px]" : "text-xl"
+                                    )}>{season.emoji}</span>
+                                    
+                                    {viewMode === 'anual' && (
+                                        <span className="max-w-0 opacity-0 group-hover/season:max-w-[100px] group-hover/season:opacity-100 group-hover/season:ml-2 transition-all duration-500 whitespace-nowrap text-[10px] uppercase tracking-widest overflow-hidden">
+                                            {season.name}
+                                        </span>
+                                    )}
+                                </div>
+                            </TooltipTrigger>
+                            <TooltipContent
+                                side="left"
+                                className={cn(
+                                    "bg-white/95 backdrop-blur-md border border-gray-100 shadow-xl font-bold text-[#334155] uppercase tracking-wider py-2 px-3 text-[11px] rounded-[10px]",
+                                    viewMode === 'anual' && "hidden"
+                                )}
+                                sideOffset={8}
                             >
-                                <span className="text-xl transform transition-transform group-hover/season:rotate-12">{season.emoji}</span>
-                            </div>
-                        </TooltipTrigger>
-                        <TooltipContent
-                            side="left"
-                            className="bg-white/95 backdrop-blur-md border border-gray-100 shadow-xl font-bold text-[#334155] uppercase tracking-wider py-2 px-3 text-[11px] rounded-[10px]"
-                            sideOffset={8}
-                        >
-                            Estação: <span style={{ color: season.style.text }}>{season.name}</span>
-                        </TooltipContent>
-                    </Tooltip>
+                                Estação: <span style={{ color: season.style.text }}>{season.name}</span>
+                            </TooltipContent>
+                        </Tooltip>
+                    </div>
                 </div>
             </div>
 
