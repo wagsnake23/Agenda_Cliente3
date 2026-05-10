@@ -668,15 +668,16 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
             {/* Drawer de Visualização (Desktop: Sobre o primeiro card | Mobile: Abaixo do Carrossel) */}
             <div className={cn(
               "z-[100] transition-all duration-300",
-              "lg:absolute lg:top-2 lg:left-0 lg:w-[calc((100%-4rem)/3)] lg:h-[calc(100%-92px)]",
-              "w-full h-auto mt-4 px-0",
+              (!isMobile && viewMode === 'anual') 
+                ? "fixed inset-0 pointer-events-none" 
+                : "lg:absolute lg:top-2 lg:left-0 lg:w-[calc((100%-4rem)/3)] lg:h-[calc(100%-92px)] w-full h-auto mt-4 px-0",
               (drawerMode === 'view' && isDrawerOpen) ? "opacity-100 pointer-events-auto block" : "opacity-0 pointer-events-none hidden"
             )}>
               <DrawerAgendamento
                 isOpen={isDrawerOpen && drawerMode === 'view'}
                 onClose={handleCloseDrawer}
                 mode="view"
-                variant="drawer"
+                variant={(!isMobile && viewMode === 'anual') ? 'modal' : 'drawer'}
                 initialDate={selectedDrawerDate}
                 agendamentosNoDia={drawerAgendamentos}
                 todosAgendamentos={filteredMonthAgendamentos}
