@@ -163,8 +163,8 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
 
                 {/* Container Unificado para Badge e Estação */}
                 <div className={cn(
-                    "absolute z-20 flex items-center justify-between",
-                    viewMode === 'anual' ? "top-[8px] left-[10px] right-[10px]" : "top-[12px] left-[16px] right-[16px]"
+                    "absolute z-20 flex items-start justify-between",
+                    viewMode === 'anual' ? "top-[9px] left-[10px] right-[10px]" : "top-[12px] left-[16px] right-[16px]"
                 )}>
                     {/* Badge Única: Mês e Ano */}
                     <div
