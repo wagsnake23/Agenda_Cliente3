@@ -143,11 +143,11 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
 
   const drawerAgendamentos = useMemo(() => {
     if (!selectedDrawerDate) return [];
-    // Filtra agendamentos do mês que interceptam o dia selecionado no drawer
-    return filteredMonthAgendamentos.filter(a => 
+    // Filtra todos os agendamentos que interceptam o dia selecionado no drawer/modal
+    return agendamentosComEventosGerais.filter(a => 
       a.dataInicio <= selectedDrawerDate && a.dataFim >= selectedDrawerDate
     );
-  }, [filteredMonthAgendamentos, selectedDrawerDate]);
+  }, [agendamentosComEventosGerais, selectedDrawerDate]);
 
   const toggleHighlightPeriod = (period: { start: string, end: string } | null) => {
     if (!period) {
@@ -355,7 +355,8 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
     
     // Se o drawer estiver aberto visualizando um dia e mudarmos o mês/ano do calendário, 
     // fechamos o drawer se o dia não pertencer ao mês e nenhum agendamento que estava sendo visto for visível no novo mês.
-    if (isDrawerOpen && drawerMode === 'view' && selectedDrawerDate) {
+    // IMPORTANTE: No modo anual, ignoramos esta trava para permitir visualizar qualquer dia do ano sem fechar o modal.
+    if (isDrawerOpen && drawerMode === 'view' && selectedDrawerDate && viewMode !== 'anual') {
       const d = new Date(selectedDrawerDate + 'T12:00:00');
       const isDayInCurrentMonth = d.getMonth() === month && d.getFullYear() === year;
 
@@ -377,7 +378,7 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
         handleCloseDrawer();
       }
     }
-  }, [month, year, isDrawerOpen, drawerMode, selectedDrawerDate, agendamentosComEventosGerais]);
+  }, [month, year, isDrawerOpen, drawerMode, selectedDrawerDate, agendamentosComEventosGerais, viewMode]);
 
   // Notificações de hoje (Sino)
   const todayStr = useMemo(() => {
