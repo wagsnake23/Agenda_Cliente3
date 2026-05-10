@@ -522,7 +522,7 @@ const MeuPerfil: React.FC = () => {
                                 <button
                                     type="submit"
                                     disabled={saving || uploadingPhoto}
-                                    className="w-full md:w-auto md:min-w-[280px] h-12 rounded-xl bg-gradient-to-b from-[#2563EB] to-[#1D4ED8] text-white font-bold text-[16px] shadow-[0_4px_0_#1e3a8a] hover:brightness-110 active:translate-y-[4px] active:shadow-none transition-all duration-200 flex items-center justify-center gap-2.5 disabled:opacity-70 disabled:pointer-events-none"
+                                    className="w-full h-11 rounded-xl bg-gradient-to-b from-[#2563EB] to-[#1D4ED8] text-white font-bold text-[16px] shadow-[0_4px_0_#1d4ed8] hover:brightness-110 active:translate-y-[4px] active:shadow-none transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:pointer-events-none"
                                 >
                                     {saving ? (
                                         <><Loader2 size={20} className="animate-spin" /> Salvando...</>
