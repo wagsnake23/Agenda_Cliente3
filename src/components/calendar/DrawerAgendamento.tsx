@@ -804,24 +804,35 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                                                 {/* COLUNA 2: CONTEÚDO */}
                                                 <div className="col-start-2 row-start-1 flex items-start justify-between md:justify-start gap-1.5 md:gap-2 py-0.5 -ml-1 md:ml-0 overflow-hidden pr-10 md:pr-0">
-                                                    <div className="flex items-start gap-1.5 md:gap-2 overflow-hidden">
-                                                        {!isEventSpecial && <span className="text-[1rem] md:text-[1.1rem] drop-shadow-sm leading-none shrink-0 mt-0.5 emoji-desktop-colorful">{emoji}</span>}
+                                                    <div className="flex items-center gap-2 md:gap-2.5 overflow-hidden">
+                                                        {!isEventSpecial && (
+                                                            <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0 shadow-sm">
+                                                                <span className="text-[14px] md:text-[16px] leading-none drop-shadow-sm emoji-desktop-colorful">{emoji}</span>
+                                                            </div>
+                                                        )}
                                                         <span className={cn("text-[14px] md:text-[16px] font-bold text-slate-900 uppercase tracking-tight whitespace-normal break-words leading-tight")}>
                                                             {tipoNome}
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 overflow-hidden -ml-1 md:ml-0 mt-0.5 pr-10 md:pr-0">
-                                                    <div className="flex items-center gap-1 md:gap-1.5 overflow-hidden">
-                                                        {!isEventSpecial && <CalendarDays className="w-[14px] h-[14px] md:w-[16px] md:h-[16px] text-blue-500/70 shrink-0" />}
+                                                <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 overflow-hidden -ml-1 md:ml-0 mt-1 pr-10 md:pr-0">
+                                                    <div className="flex items-center gap-2 md:gap-2.5 overflow-hidden">
+                                                        {!isEventSpecial && (
+                                                            <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
+                                                                <CalendarDays className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] text-blue-500/80" />
+                                                            </div>
+                                                        )}
                                                         <span className={cn(
                                                             "text-[12px] md:text-[clamp(13px,0.9vw,14px)] font-bold text-slate-800 flex items-center gap-x-1 flex-wrap md:flex-nowrap", 
                                                             "whitespace-nowrap text-ellipsis"
                                                         )}>
                                                             <span>{renderPeriod()}</span>
                                                             {timeStr ? (
-                                                                <span className="inline-flex items-center gap-[3px] shrink-0 ml-[2px] md:ml-[6px]">
-                                                                    <span className="text-[13px] md:text-[14px] leading-none saturate-150 drop-shadow-sm ml-[2px] emoji-desktop-colorful">🕗</span> {timeStr}
+                                                                <span className="inline-flex items-center gap-[6px] shrink-0 ml-1 md:ml-2">
+                                                                    <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
+                                                                        <span className="text-[11px] md:text-[13px] leading-none saturate-150 drop-shadow-sm emoji-desktop-colorful">🕗</span>
+                                                                    </div>
+                                                                    <span className="text-[12px] md:text-[14px] font-bold text-slate-800">{timeStr}</span>
                                                                 </span>
                                                             ) : null}
                                                         </span>
