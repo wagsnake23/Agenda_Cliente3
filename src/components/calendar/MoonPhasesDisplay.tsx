@@ -21,8 +21,8 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
   return (
     <div className={cn(
       "relative z-10 min-h-[44px] h-full flex flex-col transition-all duration-300",
-      "bg-[#ffffff] rounded-2xl shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-slate-200/60 overflow-hidden",
-      "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.65)] md:shadow-[0_6px_22px_rgba(15,23,42,0.05)] md:transition-all md:duration-[200ms] md:ease-out"
+      "bg-[#ffffff] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/35 overflow-hidden",
+      "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.92)] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:transition-all md:duration-[200ms] md:ease-out"
     )}>
       {/* Highlight de topo sutil */}
       <div 

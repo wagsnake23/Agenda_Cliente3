@@ -41,8 +41,8 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
         <div
             className={cn(
                 "relative z-10 min-h-[100px] h-full flex flex-col transition-all duration-300",
-                "bg-[#ffffff] rounded-2xl shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-slate-200/60 overflow-hidden",
-                "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.65)] md:shadow-[0_6px_22px_rgba(15,23,42,0.05)] md:overflow-hidden md:transition-all md:duration-[200ms] md:ease-out",
+                "bg-[#ffffff] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/35 overflow-hidden",
+                "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.92)] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:overflow-hidden md:transition-all md:duration-[200ms] md:ease-out",
                 isEmpty ? "hidden md:flex" : "flex"
             )}
         >
@@ -124,9 +124,9 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                         onClick={() => onViewAgendamento(agendamento.dataInicio, agendamento.id)}
                                         className={cn(
                                             "cursor-pointer transition-all duration-150 ease-in-out w-full origin-left group",
-                                            "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px] rounded-[14px] bg-[#ffffff] border border-slate-200/60 shadow-[0_2px_10px_rgba(15,23,42,0.04),inset_0_1.5px_3px_rgba(0,0,0,0.03)]", // Mobile
+                                            "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px_6px_8px] rounded-[14px] bg-[#ffffff] border border-slate-200/60 shadow-[0_2px_10px_rgba(15,23,42,0.04),inset_0_1.5px_3px_rgba(0,0,0,0.03)]", // Mobile
                                             "active:scale-[0.98] active:shadow-sm hover:-translate-y-[1px] md:hover:-translate-y-[1px]",
-                                            "md:min-h-[78px] md:p-[12px_18px] md:rounded-[18px] md:border md:border-[rgba(226,232,240,0.55)] md:bg-[#fcfcfd] md:shadow-[0_2px_10px_rgba(15,23,42,0.035)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.06)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
+                                            "md:min-h-[78px] md:p-[12px_18px_12px_13px] md:rounded-[18px] md:border md:border-[rgba(226,232,240,0.55)] md:bg-[#fcfcfd] md:shadow-[0_2px_10px_rgba(15,23,42,0.035)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.06)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
                                             isHighlighted && "bg-yellow-100 md:bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-[16px] md:rounded-[18px] z-20 animate-bounce-twice font-semibold"
                                         )}
                                     >
@@ -136,7 +136,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                             "md:before:hidden"
                                         )}>
                                             {/* Date Block */}
-                                            <div className="flex flex-col items-center justify-center bg-[rgba(37,99,235,0.08)] md:bg-[rgba(59,130,246,0.08)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[50px] w-[50px] h-[50px] md:min-w-[68px] md:w-[68px] md:h-[68px] md:flex-col md:border-none md:shadow-none shrink-0">
+                                            <div className="flex flex-col items-center justify-center bg-[rgba(37,99,235,0.08)] md:bg-[rgba(59,130,246,0.08)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[48px] w-[48px] h-[48px] md:min-w-[64px] md:w-[64px] md:h-[64px] md:flex-col md:border-none md:shadow-none shrink-0">
                                                 <span className="font-[800] text-[18px] md:text-[28px] text-[#2563eb] md:text-[#2563eb] leading-[1] md:leading-[1] tracking-tight md:font-[800] md:uppercase">{dia}</span>
                                                 <span className="font-[700] text-[9px] md:text-[12px] text-[#2563eb] md:text-[#2563eb] md:opacity-[0.82] mt-[1px] md:mt-[4px] leading-none md:font-[700] uppercase md:uppercase">{mes}</span>
                                             </div>
