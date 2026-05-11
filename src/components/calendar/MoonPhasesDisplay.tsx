@@ -58,20 +58,24 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       
       {/* HEADER */}
       <div 
-        className="relative w-full h-11 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-none md:px-[34px] overflow-hidden md:justify-between"
+        className="relative w-full h-14 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-none md:px-[34px] overflow-hidden md:justify-between"
       >
         {/* Mobile gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#818cf8] to-[#6366f1] md:hidden" />
+        <div className="absolute inset-0 bg-[#6366f1] md:hidden" />
         {/* Desktop gradient overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#5b5ff5_0%,#7b61ff_55%,#a78bfa_100%)] hidden md:block" />
 
-        <div className="relative flex items-center justify-between pl-2 pr-2 md:p-0 z-20 w-full h-full md:w-auto md:flex-row md:justify-start">
+        <div className="relative flex items-center justify-between px-[16px] md:px-0 z-20 w-full h-full md:w-auto md:flex-row md:justify-start">
           <div className="flex items-center gap-2 md:gap-0">
-            {/* Mobile Moon Icon and Title */}
-            <h4 className="flex md:hidden items-center font-semibold text-white text-[14px] uppercase tracking-[0.5px]">
-              <Moon className="w-5 h-5 text-white mr-1.5" />
-              <span>FASES DA LUA</span>
-            </h4>
+            {/* Mobile Header Modernizado */}
+            <div className="flex md:hidden items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/10 shadow-sm">
+                <Moon className="w-[18px] h-[18px] text-white" />
+              </div>
+              <h4 className="font-bold text-white text-[14px] uppercase tracking-[0.8px]">
+                FASES DA LUA
+              </h4>
+            </div>
 
             {/* Desktop Moon Icon and Title */}
             <div className="hidden md:flex items-center">

@@ -52,19 +52,23 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }}
             />
             <div
-                className="relative w-full h-11 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
+                className="relative w-full h-14 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
             >
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/90 to-[#3b82f6]/90 md:bg-[linear-gradient(135deg,#1976d2_0%,#3b82f6_55%,#60a5fa_100%)]" />
+                <div className="absolute inset-0 bg-[#3b82f6] md:bg-[linear-gradient(135deg,#1976d2_0%,#3b82f6_55%,#60a5fa_100%)]" />
 
                 {/* Conteúdo do Header */}
                 <div className="relative flex items-center justify-between px-[16px] md:px-[34px] z-20 w-full h-full">
                     <div className="flex items-center">
-                        {/* Mobile Header (Inalterado) */}
-                        <h4 className="flex md:hidden items-center font-bold text-white text-[15px] uppercase tracking-[0.5px]">
-                            <ClipboardList className="w-5 h-5 text-white mr-1.5" />
-                            <span>AGENDAMENTOS</span>
-                        </h4>
+                        {/* Mobile Header Modernizado */}
+                        <div className="flex md:hidden items-center gap-2.5">
+                            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/10 shadow-sm">
+                                <ClipboardList className="w-[18px] h-[18px] text-white" />
+                            </div>
+                            <h4 className="font-bold text-white text-[14px] uppercase tracking-[0.8px]">
+                                AGENDAMENTOS
+                            </h4>
+                        </div>
 
                         {/* Desktop Header Premium */}
                         <div className="hidden md:flex items-center">
