@@ -22,7 +22,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
     <div className={cn(
       "relative z-10 min-h-[44px] h-full flex flex-col transition-all duration-300",
       "premium-module-bg rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.05)] overflow-hidden",
-      "md:bg-[#ffffff] md:rounded-[26px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:transition-all md:duration-[220ms] md:ease-out md:hover:-translate-y-[2px] md:hover:shadow-[0_14px_40px_rgba(15,23,42,0.08)]"
+      "md:bg-[#F9FAFB] md:rounded-[26px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:transition-all md:duration-[220ms] md:ease-out md:hover:-translate-y-[2px] md:hover:shadow-[0_14px_40px_rgba(15,23,42,0.08)]"
     )}>
       {/* Highlight de topo sutil */}
       <div 
@@ -62,7 +62,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       </div>
 
 
-      <div className="px-1.5 md:px-[28px] pt-[5px] md:pt-[28px] pb-1 md:pb-[28px] flex flex-col justify-center items-center flex-1 w-full bg-transparent md:bg-[#ffffff] rounded-b-2xl md:rounded-b-[26px]">
+      <div className="px-1.5 md:px-[28px] pt-[5px] md:pt-[28px] pb-1 md:pb-[28px] flex flex-col justify-center items-center flex-1 w-full bg-transparent md:bg-[#F9FAFB] rounded-b-2xl md:rounded-b-[26px]">
         <div className="flex flex-row justify-between md:justify-around items-center w-full gap-1 md:gap-[16px]">
           {moonPhases.map((phase, index) => {
             const monthAbbr = (MONTHS[month] || 'Mês').substring(0, 3);

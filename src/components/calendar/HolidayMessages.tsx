@@ -23,7 +23,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
     <div className={cn(
       "relative z-10 min-h-[100px] h-full flex flex-col transition-all duration-300",
       "bg-[#ffffff] rounded-2xl shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-[#e2e8f0]/70 overflow-hidden",
-      "md:bg-[#ffffff] md:rounded-[26px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:overflow-hidden md:transition-all md:duration-[220ms] md:ease-out md:hover:-translate-y-[2px] md:hover:shadow-[0_14px_40px_rgba(15,23,42,0.08)]"
+      "md:bg-[#F9FAFB] md:rounded-[26px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:overflow-hidden md:transition-all md:duration-[220ms] md:ease-out md:hover:-translate-y-[2px] md:hover:shadow-[0_14px_40px_rgba(15,23,42,0.08)]"
     )}>
       {/* Highlight de topo sutil */}
       <div 
@@ -31,7 +31,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
       />
       <div 
-        className="relative w-full h-[60px] md:h-[72px] flex items-center rounded-t-2xl md:rounded-t-[26px] overflow-hidden"
+        className="relative w-full h-[50px] md:h-[72px] flex items-center rounded-t-2xl md:rounded-t-[26px] overflow-hidden"
       >
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#ef4444]/90 to-[#f87171]/90 md:from-[#ef5350] md:to-[#ff8a80]" />
@@ -60,7 +60,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         </div>
       </div>
 
-      <div className="p-[14px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-[#ffffff] rounded-b-2xl md:rounded-b-[26px]">
+      <div className="p-[14px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-[#F9FAFB] rounded-b-2xl md:rounded-b-[26px]">
         {isEmpty ? (
           <div className="flex-1 flex items-center justify-start py-4">
             <span className="text-[13px] md:text-[14px] font-normal md:font-[500] italic leading-[1.6] px-1 text-gray-400">
