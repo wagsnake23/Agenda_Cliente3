@@ -687,7 +687,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     const emoji = agenda.tipo.split(' ')[0];
                                     let tipoNome = agenda.tipo.replace(emoji, '').trim();
                                     const isEventSpecial = agenda.userName === '_SPECIAL_EVENT_';
-                                    const displayUserName = isEventSpecial ? 'Evento' : (agenda.userName || "Usuário");
+                                    const displayUserName = isEventSpecial ? 'Evento' : (agenda.userName ? agenda.userName.split(' ')[0] : "Usuário");
 
                                     let timeStr = "";
                                     if (isEventSpecial && tipoNome.includes(' - 🕗 ')) {
@@ -736,7 +736,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                             id={`agendamento-${agenda.id}`}
                                             onClick={handleCardClick}
                                             className={cn(
-                                                "p-1 md:pt-3 md:pb-1.5 md:px-1.5 rounded-2xl border border-slate-200/80 overflow-hidden bg-[#F8FAFC] transition-all duration-300 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.02),0_2px_4px_-2px_rgba(0,0,0,0.02),inset_0_1.5px_3px_rgba(0,0,0,0.04)] group relative cursor-pointer",
+                                                "py-[6.5px] px-1 md:pt-4 md:pb-2.5 md:px-1.5 rounded-2xl border border-slate-200/80 overflow-hidden bg-[#F8FAFC] transition-all duration-300 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.02),0_2px_4px_-2px_rgba(0,0,0,0.02),inset_0_1.5px_3px_rgba(0,0,0,0.04)] group relative cursor-pointer",
                                                 isSelected
                                                     ? "border-blue-500 shadow-lg scale-[1.01] md:scale-[1.02] bg-blue-50/50"
                                                     : "hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05),inset_0_2px_4px_rgba(0,0,0,0.02)] hover:border-slate-300/50"
@@ -785,10 +785,10 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 </div>
                                             )}
 
-                                            <div className="grid grid-rows-[auto_auto_auto] grid-cols-[65px_1fr] md:grid-cols-[80px_1fr_auto_50px] gap-x-2 md:gap-x-3.5 gap-y-1 items-center relative">
+                                            <div className="grid grid-rows-[auto_auto_auto] grid-cols-[65px_1fr] md:grid-cols-[80px_1fr_auto_50px] gap-x-2 md:gap-x-3.5 gap-y-0.5 md:gap-y-1 items-center relative">
                                                 {/* COLUNA 1: USUÁRIO */}
                                                 <div className="col-start-1 row-start-1 row-span-3 flex flex-col items-center justify-center gap-1 md:gap-1.5 self-stretch my-0.5 -ml-1 md:ml-0">
-                                                    <div className="w-[54px] h-[54px] md:w-[78px] md:h-[78px] md:-translate-y-1.5 rounded-xl overflow-hidden bg-slate-100 border-2 border-white shadow-sm shrink-0">
+                                                    <div className="w-[56px] h-[56px] md:w-[80px] md:h-[80px] -translate-y-[2px] md:-translate-y-[8px] rounded-xl overflow-hidden bg-slate-100 border-2 border-white shadow-sm shrink-0">
                                                         {agenda.userPhoto ? (
                                                             <img src={agenda.userPhoto} alt={agenda.userName} className="w-full h-full object-cover" />
                                                         ) : (
@@ -803,7 +803,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 </div>
 
                                                 {/* COLUNA 2: CONTEÚDO */}
-                                                <div className="col-start-2 row-start-1 flex items-start justify-between md:justify-start gap-1.5 md:gap-2 py-0.5 -ml-1 md:ml-0 overflow-hidden pr-10 md:pr-0">
+                                                <div className="col-start-2 row-start-1 flex items-start justify-between md:justify-start gap-1.5 md:gap-2 -ml-1 md:ml-0 overflow-hidden pr-10 md:pr-0">
                                                     <div className="flex items-center gap-2 md:gap-2.5 overflow-hidden">
                                                         {!isEventSpecial && (
                                                             <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0 shadow-sm">
@@ -815,7 +815,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 overflow-hidden -ml-1 md:ml-0 mt-1 pr-10 md:pr-0">
+                                                <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 overflow-hidden -ml-1 md:ml-0 pr-10 md:pr-0">
                                                     <div className="flex items-center gap-2 md:gap-2.5 overflow-hidden">
                                                         {!isEventSpecial && (
                                                             <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
