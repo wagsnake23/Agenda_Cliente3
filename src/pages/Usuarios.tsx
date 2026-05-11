@@ -230,7 +230,7 @@ const UserModal: React.FC<{
     return (
         <div className="fixed inset-0 z-[150] flex items-center justify-center p-1 md:p-4">
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
-            <div className="relative bg-gradient-to-br from-[#f8fbff] to-[#f0f7ff] rounded-[24px] shadow-2xl border-2 border-slate-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
+            <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
                 <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#0f3c78] to-[#2f80ed]">
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_2px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80 shrink-0">
@@ -254,20 +254,20 @@ const UserModal: React.FC<{
                 >
                     <div>
                         <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Nome</label>
-                        <input {...form.register('nome')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
+                        <input {...form.register('nome')} type="text" className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-500 transition-all font-medium bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]" />
                         {form.formState.errors.nome && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.nome.message}</p>}
                     </div>
 
                     <div>
                         <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Email</label>
-                        <input {...form.register('email')} type="email" autoComplete="off" readOnly={isEditing} className={`w-full h-10 px-3 rounded-xl border text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all ${isEditing ? 'bg-slate-50 border-blue-200/30 text-slate-400 cursor-not-allowed' : 'border-blue-300/40'}`} />
+                        <input {...form.register('email')} type="email" autoComplete="off" readOnly={isEditing} className={`w-full h-11 px-4 rounded-xl border text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-500 transition-all font-medium ${isEditing ? 'bg-slate-100 border-slate-200/30 text-slate-400 cursor-not-allowed shadow-none' : 'border-slate-200/60 bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]'}`} />
                         {form.formState.errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.email.message}</p>}
                     </div>
 
                     {!isEditing && (
                         <div>
                             <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Senha</label>
-                            <input {...form.register('password')} type="password" autoComplete="new-password" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
+                            <input {...form.register('password')} type="password" autoComplete="new-password" className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-500 transition-all font-medium bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]" />
                             {form.formState.errors.password && <p className="text-red-500 text-xs mt-1 ml-1">{form.formState.errors.password.message}</p>}
                         </div>
                     )}
@@ -275,11 +275,11 @@ const UserModal: React.FC<{
                     <div className="grid grid-cols-2 gap-3">
                         <div>
                             <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Cargo</label>
-                            <input {...form.register('cargo')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
+                            <input {...form.register('cargo')} type="text" className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-500 transition-all font-medium bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]" />
                         </div>
                         <div>
                             <label className="text-[13px] font-medium text-slate-800 ml-1 mb-1 block">Matrícula</label>
-                            <input {...form.register('matricula')} type="text" className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-400 transition-all" />
+                            <input {...form.register('matricula')} type="text" className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:border-blue-500 transition-all font-medium bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]" />
                         </div>
                     </div>
 
@@ -295,7 +295,7 @@ const UserModal: React.FC<{
                                         onValueChange={field.onChange}
                                         {...{ modal: false } as any}
                                     >
-                                        <SelectTrigger className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:border-blue-400 transition-all bg-white">
+                                        <SelectTrigger className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:ring-0 focus:border-blue-500 transition-all font-medium bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]">
                                             <SelectValue placeholder="Selecione o perfil" />
                                         </SelectTrigger>
                                         <SelectContent position="item-aligned" className="rounded-xl border-blue-200 shadow-xl z-[250]">
@@ -317,7 +317,7 @@ const UserModal: React.FC<{
                                         onValueChange={(v) => field.onChange(v === 'true')}
                                         {...{ modal: false } as any}
                                      >
-                                        <SelectTrigger className="w-full h-10 px-3 rounded-xl border border-blue-300/40 text-slate-700 text-sm md:text-[15px] focus:border-blue-400 transition-all bg-white">
+                                        <SelectTrigger className="w-full h-11 px-4 rounded-xl border border-slate-200/60 text-slate-700 text-sm md:text-[15px] focus:outline-none focus:ring-0 focus:border-blue-500 transition-all font-medium bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]">
                                             <SelectValue placeholder="Selecione o status" />
                                         </SelectTrigger>
                                         <SelectContent position="item-aligned" className="rounded-xl border-blue-200 shadow-xl z-[250]">

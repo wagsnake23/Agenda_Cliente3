@@ -206,7 +206,7 @@ const AuthPage: React.FC = () => {
             {showResetModal && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center p-2">
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowResetModal(false)} />
-                    <div className="relative bg-gradient-to-br from-[#F4F9FF] to-[#E6F0FD] rounded-[24px] shadow-2xl border border-blue-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] p-6 md:p-8 w-[99%] md:w-full md:max-w-md z-10 animate-in zoom-in-95 duration-200" onClick={(e) => e.stopPropagation()}>
+                    <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] p-6 md:p-8 w-[99%] md:w-full md:max-w-md z-10 animate-in zoom-in-95 duration-200" onClick={(e) => e.stopPropagation()}>
                         <div className="flex flex-col items-center gap-4 mb-6 text-center">
                             <div className="flex items-center justify-center gap-3">
                                 <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_4px_0_#93c5fd] border border-blue-200 flex items-center justify-center shrink-0">
@@ -230,7 +230,7 @@ const AuthPage: React.FC = () => {
                                         value={resetEmail}
                                         onChange={(e) => setResetEmail(e.target.value)}
                                         placeholder="seu@email.com"
-                                        className="w-full h-11 pl-11 pr-4 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-bold placeholder-slate-400"
+                                        className="w-full h-11 pl-11 pr-4 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm focus:outline-none focus:border-blue-500 transition-all font-bold placeholder-slate-400 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                 </div>
                             </div>

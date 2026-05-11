@@ -414,7 +414,7 @@ const MeuPerfil: React.FC = () => {
                                         {...form.register('nome')}
                                         type="text"
                                         placeholder="Seu nome"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 bg-[#F0F7FF] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all placeholder-slate-300 shadow-sm"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 transition-all placeholder-slate-300 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                     {form.formState.errors.nome && (
                                         <p className="text-red-500 text-[10px] mt-1 ml-1 font-bold">
@@ -432,7 +432,7 @@ const MeuPerfil: React.FC = () => {
                                         {...form.register('matricula')}
                                         type="text"
                                         placeholder="Nº"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 bg-[#F0F7FF] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all placeholder-slate-300 shadow-sm"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 transition-all placeholder-slate-300 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                     {form.formState.errors.matricula && (
                                         <p className="text-red-500 text-[10px] mt-1 ml-1 font-bold">
@@ -451,7 +451,7 @@ const MeuPerfil: React.FC = () => {
                                         {...form.register('apelido')}
                                         type="text"
                                         placeholder="Como prefere ser chamado"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 bg-[#F0F7FF] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all placeholder-slate-300 shadow-sm"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 transition-all placeholder-slate-300 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                 </div>
 
@@ -464,7 +464,7 @@ const MeuPerfil: React.FC = () => {
                                         {...form.register('cargo')}
                                         type="text"
                                         placeholder="Ex: Soldado BM"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 bg-[#F0F7FF] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all placeholder-slate-300 shadow-sm"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 transition-all placeholder-slate-300 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                     {form.formState.errors.cargo && (
                                         <p className="text-red-500 text-[10px] mt-1 ml-1 font-bold">
@@ -483,7 +483,7 @@ const MeuPerfil: React.FC = () => {
                                         type="email"
                                         value={profile?.email || ''}
                                         readOnly
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 bg-slate-100/50 text-slate-400 text-sm md:text-[15px] font-medium cursor-not-allowed shadow-sm"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 bg-slate-100/50 text-slate-400 text-sm md:text-[15px] font-medium cursor-not-allowed shadow-none"
                                     />
                                 </div>
 
@@ -496,7 +496,7 @@ const MeuPerfil: React.FC = () => {
                                     <input
                                         {...form.register('data_nascimento')}
                                         type="date"
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 bg-[#F0F7FF] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all shadow-sm"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 transition-all shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                 </div>
 
@@ -507,7 +507,7 @@ const MeuPerfil: React.FC = () => {
                                     </label>
                                     <select
                                         {...form.register('escala')}
-                                        className="w-full h-11 px-4 rounded-xl border border-slate-200 bg-[#F0F7FF] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all shadow-sm appearance-none cursor-pointer"
+                                        className="w-full h-11 px-4 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm md:text-[15px] font-medium focus:outline-none focus:border-blue-500 transition-all shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)] appearance-none cursor-pointer"
                                     >
                                         <option value="">Não Definida</option>
                                         <option value="Adm">👔 Escala Adm</option>
@@ -541,7 +541,7 @@ const MeuPerfil: React.FC = () => {
             {showPasswordModal && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center p-2 bg-black/60 backdrop-blur-sm">
                     <div className="absolute inset-0" onClick={() => setShowPasswordModal(false)} />
-                    <div className="relative bg-gradient-to-br from-[#f8fbff] to-[#e0efff] rounded-[24px] shadow-2xl border border-white/60 p-7 md:p-9 w-[99%] md:max-w-[440px] z-10 animate-in zoom-in-95 duration-200" onClick={(e) => e.stopPropagation()}>
+                    <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] p-7 md:p-9 w-[99%] md:max-w-[440px] z-10 animate-in zoom-in-95 duration-200" onClick={(e) => e.stopPropagation()}>
                         <button
                             onClick={() => setShowPasswordModal(false)}
                             className="absolute right-4 top-4 md:right-6 md:top-6 w-8 h-8 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-md active:scale-90 transition-all"
@@ -571,7 +571,7 @@ const MeuPerfil: React.FC = () => {
                                         onChange={(e) => setNewPassword(e.target.value)}
                                         placeholder=""
                                         autoComplete="new-password"
-                                        className="w-full h-11 md:h-12 px-4 pr-10 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm md:text-base focus:outline-none focus:border-blue-500 transition-all font-bold"
+                                        className="w-full h-11 md:h-12 px-4 pr-10 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm md:text-base focus:outline-none focus:border-blue-500 transition-all font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                     />
                                     <button
                                         type="button"
@@ -591,7 +591,7 @@ const MeuPerfil: React.FC = () => {
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                     placeholder=""
                                     autoComplete="new-password"
-                                    className="w-full h-11 md:h-12 px-4 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm md:text-base focus:outline-none focus:border-blue-500 transition-all font-bold"
+                                    className="w-full h-11 md:h-12 px-4 rounded-xl border border-slate-200/60 bg-[#F8FAFC] text-slate-700 text-sm md:text-base focus:outline-none focus:border-blue-500 transition-all font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]"
                                 />
                             </div>
                         </div>

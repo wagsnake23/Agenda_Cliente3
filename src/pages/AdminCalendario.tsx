@@ -557,7 +557,7 @@ const AdminCalendario: React.FC = () => {
                 modalOpen && (
                     <div className="fixed inset-0 z-[200] flex items-center justify-center p-1 sm:p-3">
                         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => !saving && setModalOpen(false)} />
-                        <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-slate-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1.5px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
+                        <div className="relative bg-white rounded-[24px] shadow-2xl border-2 border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] max-w-lg z-10 animate-in zoom-in-95 duration-200 overflow-hidden">
                             {/* Header */}
                             <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#0f3c78] to-[#2f80ed]">
                             <div className="flex items-center gap-3">
