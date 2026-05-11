@@ -70,7 +70,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
             {/* Mobile Moon Icon and Title */}
             <h4 className="flex md:hidden items-center font-semibold text-white text-[14px] uppercase tracking-[0.5px]">
               <Moon className="w-5 h-5 text-white mr-1.5" />
-              <span>Fases da Lua</span>
+              <span>FASES DA LUA</span>
             </h4>
 
             {/* Desktop Moon Icon and Title */}
@@ -79,8 +79,8 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
                 <Moon className="w-[26px] h-[26px] text-white" />
               </div>
               <div className="flex flex-col ml-4">
-                <span className="text-[18px] font-[700] tracking-[0.2px] text-[#ffffff] leading-none">Fases da Lua</span>
-                <span className="text-[14px] font-[500] text-[rgba(255,255,255,0.82)] mt-[4px] leading-none">Calendário lunar do mês</span>
+                <span className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase">FASES DA LUA</span>
+                <span className="text-[14px] font-[500] text-[rgba(255,255,255,0.85)] mt-[6px] leading-none">Calendário lunar do mês</span>
               </div>
             </div>
           </div>

@@ -31,18 +31,30 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
       />
       <div 
-        className="relative w-full h-11 md:h-[68px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
+        className="relative w-full h-11 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
       >
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#ef5350]/90 to-[#fca5a5]/90 md:bg-[linear-gradient(135deg,#ef5350_0%,#f87171_60%,#fca5a5_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ef5350]/90 to-[#ef5350]/90 md:bg-[linear-gradient(135deg,#ef5350_0%,#f87171_60%,#fca5a5_100%)]" />
 
         {/* Conteúdo do Header */}
-        <div className="relative flex items-center justify-between px-[16px] md:px-[22px] z-20 w-full h-full">
-          <div className="flex items-center gap-2">
-            <h4 className="flex items-center font-bold md:font-[700] text-white text-[15px] md:text-[16px] uppercase tracking-[0.5px] md:tracking-[0.1px]">
-              <PartyPopper className="w-5 h-5 md:w-[20px] md:h-[20px] md:opacity-95 text-white mr-1.5 md:mr-2" />
-              FERIADOS E DATAS
+        <div className="relative flex items-center justify-between px-[16px] md:px-[34px] z-20 w-full h-full">
+          <div className="flex items-center">
+            {/* Mobile Header (Inalterado) */}
+            <h4 className="flex md:hidden items-center font-bold text-white text-[15px] uppercase tracking-[0.5px]">
+              <PartyPopper className="w-5 h-5 text-white mr-1.5" />
+              <span>FERIADOS E DATAS</span>
             </h4>
+
+            {/* Desktop Header Premium */}
+            <div className="hidden md:flex items-center">
+              <div className="w-[54px] h-[54px] rounded-full bg-[rgba(255,255,255,0.12)] backdrop-blur-[10px] flex items-center justify-center text-[26px] text-[#ffffff] shrink-0 border border-white/10 shadow-sm">
+                <PartyPopper className="w-[26px] h-[26px] text-white" />
+              </div>
+              <div className="flex flex-col ml-4">
+                <span className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase">Feriados e Datas</span>
+                <span className="text-[14px] font-[500] text-[rgba(255,255,255,0.85)] mt-[6px] leading-none">Datas importantes e feriados</span>
+              </div>
+            </div>
           </div>
 
           <div 
