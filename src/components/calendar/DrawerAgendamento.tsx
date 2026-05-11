@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, SquarePen, Trash2, User, Calendar as CalendarIcon, Clock } from 'lucide-react';
+import { X, SquarePen, Trash2, User, Calendar as CalendarIcon, Clock, CalendarDays, ClipboardList } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -321,81 +321,105 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                     "bg-white flex flex-col overflow-hidden",
                     variant === 'modal' 
                         ? "rounded-[24px] shadow-2xl border-2 border-blue-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] md:max-w-[515px] relative z-10 animate-in zoom-in-95 duration-200" 
-                        : "rounded-2xl md:rounded-[29px] w-full h-full md:pointer-events-auto border border-[#0F172A]/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.02),0_4px_12px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.04),0_32px_64px_-12px_rgba(0,0,0,0.08)]"
+                        : "md:bg-[#F9FAFB] rounded-2xl md:rounded-[26px] w-full h-full md:pointer-events-auto border border-[#0F172A]/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.02),0_4px_12px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.04),0_32px_64px_-12px_rgba(0,0,0,0.08)]"
                 )}
                 style={variant === 'modal' ? { maxHeight: '95vh' } : {}}
             >
                 {/* Header do Drawer */}
                 <div className={cn(
-                    "flex items-center justify-between shadow-[inset_0_-1px_0_rgba(255,255,255,0.1)] transition-colors duration-300",
+                    "relative w-full flex items-center justify-between overflow-hidden shrink-0",
                     variant === 'modal'
-                        ? "px-6 md:px-5 py-4 bg-gradient-to-b from-[#0078d7] to-[#005a9e]"
-                        : "p-2 md:p-3 bg-gradient-to-b from-[#0078d7] to-[#005a9e]"
+                        ? "px-6 md:px-5 py-4 bg-gradient-to-b from-[#0078d7] to-[#005a9e] h-auto"
+                        : "h-[50px] md:h-[72px] rounded-t-2xl md:rounded-t-[26px]"
                 )}>
-                    <div className="flex flex-row items-center gap-2.5 md:gap-3.5 pt-0.5 md:pt-0">
-                        {(!modoEdicao && mode !== 'create') ? (
-                            <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none shrink-0 emoji-desktop-colorful">📋</span>
+                    {variant !== 'modal' && (
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/90 to-[#60a5fa]/90 md:from-[#1976d2] md:to-[#42a5f5]" />
+                    )}
+                    
+                    <div className="flex-1 flex items-center gap-1.5 md:gap-3.5 px-3.5 md:px-6 relative z-10">
+                        {(!modoEdicao && mode !== 'create' && variant !== 'modal') ? (
+                            <div className="w-[32px] h-[32px] md:w-[44px] md:h-[44px] bg-white/20 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shrink-0 border border-white/30 shadow-lg">
+                                <ClipboardList className="w-5 h-5 md:w-7 md:h-7 text-white drop-shadow-sm" />
+                            </div>
                         ) : (
                             <div className={cn(
-                                "w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-xl shrink-0 transition-all duration-300",
-                                "bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_1px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80"
+                                "flex items-center justify-center rounded-lg md:rounded-xl shrink-0 transition-all duration-300 shadow-lg border",
+                                variant === 'modal'
+                                    ? "w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-50 to-blue-200 border-blue-200/80"
+                                    : "w-[32px] h-[32px] md:w-[44px] md:h-[44px] bg-white/20 backdrop-blur-md border-white/30"
                             )}>
-                                <span className="text-lg md:text-xl drop-shadow-[1px_3px_4px_rgba(0,0,0,0.45)] filter saturate-[1.3] brightness-[1.1] select-none text-blue-600 emoji-desktop-colorful">
-                                    📝
-                                </span>
+                                <SquarePen className={cn(
+                                    "w-5 h-5 md:w-7 md:h-7 text-white drop-shadow-sm",
+                                    variant === 'modal' ? "text-blue-600" : ""
+                                )} />
                             </div>
                         )}
 
                         <div className="flex flex-col justify-center min-w-0">
                             <h2 className={cn(
-                                "leading-tight transition-all font-semibold text-[14px] lg:text-[17px] uppercase tracking-[0.5px] text-white"
+                                "leading-tight transition-all font-bold uppercase tracking-tight text-white",
+                                variant === 'modal' ? "text-[14px] md:text-[17px]" : "text-[13px] md:text-[18px]"
                             )}>
                                 {modoEdicao ? (
-                                    <span>Editar Agendamento</span>
+                                    <span>Editar</span>
                                 ) : mode === 'create' ? (
-                                    <span>Novo Agendamento</span>
+                                    <span>Novo</span>
                                 ) : (
-                                    <span>
-                                        {initialDate ? (() => {
-                                            const d = new Date(initialDate + 'T12:00:00');
-                                            const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-                                            const dia = String(d.getDate()).padStart(2, '0');
-                                            const mes = months[d.getMonth()].toUpperCase();
-                                            return `AGENDAMENTOS DIA ${dia}/${mes}`;
-                                        })() : 'AGENDAMENTOS DO DIA'}
-                                    </span>
+                                    <span>Agendamentos</span>
                                 )}
                             </h2>
-                            {modoEdicao && agendamentoEditando?.createdAt && (
-                                <div className={cn(
-                                    "font-medium text-left leading-tight mt-0.5 text-white/80 text-[10px] md:text-[13px]"
-                                )}>
-                                    Criado em {format(parseISO(agendamentoEditando.createdAt), "dd MMM yyyy 'às' HH:mm", { locale: ptBR })}
+                            {(modoEdicao && agendamentoEditando?.createdAt) && (
+                                <div className="font-medium text-left leading-tight mt-0.5 text-white/80 text-[10px] md:text-[11px]">
+                                    {format(parseISO(agendamentoEditando.createdAt), "dd MMM yyyy", { locale: ptBR })}
                                 </div>
                             )}
                         </div>
                     </div>
-                    <button
-                        onClick={() => {
-                            if (variant === 'modal' || !modoEdicao) {
-                                onClose();
-                            } else {
-                                setModoEdicao(false);
-                                setAgendamentoEditando(null);
-                            }
-                        }}
-                        className={cn(
-                            "flex items-center justify-center rounded-full transition-all text-white shadow-lg active:scale-90 translate-x-[2px] -translate-y-[2px] md:translate-x-0 md:translate-y-0 shrink-0",
-                            variant === 'modal' ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-[#E53935] hover:bg-[#C62828]" : (mode === 'create' ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-red-500/90 hover:bg-red-600" : "w-[22px] h-[22px] md:w-8 md:h-8 bg-[#E53935] hover:bg-[#C62828]")
+
+                    {/* Badge de Data ou Botão de Fechar */}
+                    <div className="flex items-center gap-2.5 mr-3.5 md:mr-6 relative z-10">
+                        {(!modoEdicao && mode !== 'create' && initialDate && variant !== 'modal') && (
+                            <div className="flex items-center gap-2 bg-white/15 backdrop-blur-md px-2.5 py-1.5 md:px-3 md:py-2 rounded-xl border border-white/20 shadow-inner">
+                                <CalendarDays className="w-3.5 h-3.5 md:w-4 md:h-4 text-white/90" />
+                                <div className="flex flex-col leading-none">
+                                    {(() => {
+                                        const d = new Date(initialDate + 'T12:00:00');
+                                        const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+                                        return (
+                                            <>
+                                                <span className="text-[10px] md:text-[12px] font-bold text-white tracking-wider">{String(d.getDate()).padStart(2, '0')} {monthsAbbr[d.getMonth()]}</span>
+                                                <span className="text-[8px] md:text-[9px] font-medium text-white/80">{d.getFullYear()}</span>
+                                            </>
+                                        );
+                                    })()}
+                                </div>
+                            </div>
                         )}
-                        title={variant === 'modal' ? "Fechar" : (modoEdicao ? "Voltar" : "Fechar")}
-                    >
-                        {variant === 'modal' || !modoEdicao ? (
-                            <X className="w-3.5 h-3.5 md:w-5 md:h-5" strokeWidth={5} />
-                        ) : (
-                            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" strokeWidth={4} />
-                        )}
-                    </button>
+
+                        <button
+                            onClick={() => {
+                                if (variant === 'modal' || !modoEdicao) {
+                                    onClose();
+                                } else {
+                                    setModoEdicao(false);
+                                    setAgendamentoEditando(null);
+                                }
+                            }}
+                            className={cn(
+                                "flex items-center justify-center rounded-full transition-all text-white shadow-lg active:scale-90 shrink-0",
+                                variant === 'modal' 
+                                    ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-[#E53935] hover:bg-[#C62828]" 
+                                    : (mode === 'create' || modoEdicao ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-red-500/90 hover:bg-red-600" : "w-[22px] h-[22px] md:w-8 md:h-8 bg-gradient-to-br from-[#ef4444]/90 to-[#f87171]/90 md:from-[#ef5350] md:to-[#ff8a80] border border-white/30 hover:brightness-110")
+                            )}
+                            title={variant === 'modal' ? "Fechar" : (modoEdicao ? "Voltar" : "Fechar")}
+                        >
+                            {variant === 'modal' || !modoEdicao ? (
+                                <X className="w-3.5 h-3.5 md:w-5 md:h-5" strokeWidth={5} />
+                            ) : (
+                                <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" strokeWidth={4} />
+                            )}
+                        </button>
+                    </div>
                 </div>
 
                 <div className={cn(

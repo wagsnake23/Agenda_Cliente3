@@ -3,7 +3,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { MONTHS } from '@/utils/calendar-utils';
-import { CalendarDays, ChevronRight } from 'lucide-react';
+import { CalendarDays, ChevronRight, PartyPopper, Calendar as CalendarIcon } from 'lucide-react';
 import BrasilFlagIcon from '@/components/BrasilFlagIcon';
 
 interface HolidayMessagesProps {
@@ -39,8 +39,10 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         {/* Conteúdo do Header */}
         <div className="relative flex items-center justify-between px-[16px] md:px-[22px] z-20 w-full h-full">
           <div className="flex items-center gap-2">
-            <h4 className="font-bold md:font-[700] text-white text-[15px] md:text-[17px] uppercase tracking-[0.5px] md:tracking-[0.2px]">
-              <span className="emoji-3d mr-1">📅</span> <span className="md:inline hidden">FERIADOS E DATAS</span><span className="md:hidden">Feriados e Datas</span>
+            <h4 className="flex items-center font-bold md:font-[700] text-white text-[15px] md:text-[17px] uppercase tracking-[0.5px] md:tracking-[0.2px]">
+              <PartyPopper className="w-5 h-5 md:w-7 md:h-7 text-white drop-shadow-sm mr-1.5 md:mr-2" />
+              <span className="md:inline hidden">FERIADOS E DATAS</span>
+              <span className="md:hidden">Feriados e Datas</span>
             </h4>
           </div>
 
@@ -122,7 +124,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                               {emoji ? (
                                 <span className="text-[20px] md:text-[28px] filter saturate-[1.3] brightness-[1.1] emoji-desktop-colorful leading-none">{emoji}</span>
                               ) : (
-                                <span className="text-[20px] md:text-[28px] filter saturate-[1.3] brightness-[1.1] emoji-desktop-colorful leading-none">📅</span>
+                                <CalendarIcon className="w-5 h-5 md:w-7 md:h-7 text-gray-400 opacity-60" />
                               )}
                           </div>
                           

@@ -40,8 +40,10 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
         {/* Conteúdo do Header */}
         <div className="relative flex items-center justify-between pl-2 pr-2 md:px-[22px] z-20 w-full h-full">
           <div className="flex items-center gap-2">
-            <h4 className="font-semibold md:font-[700] text-white text-[14px] md:text-[17px] uppercase tracking-[0.5px] md:tracking-[0.2px]">
-              <span className="emoji-3d mr-1">🌙</span> <span className="md:inline hidden">FASES DA LUA</span><span className="md:hidden">Fases da Lua</span>
+            <h4 className="flex items-center font-semibold md:font-[700] text-white text-[14px] md:text-[17px] uppercase tracking-[0.5px] md:tracking-[0.2px]">
+              <Moon className="w-5 h-5 md:w-7 md:h-7 text-white drop-shadow-sm mr-1.5 md:mr-2" />
+              <span className="md:inline hidden">FASES DA LUA</span>
+              <span className="md:hidden">Fases da Lua</span>
             </h4>
           </div>
 

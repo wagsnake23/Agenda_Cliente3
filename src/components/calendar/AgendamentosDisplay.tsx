@@ -4,7 +4,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { MONTHS } from '@/utils/calendar-utils';
 import { Agendamento } from './DrawerAgendamento';
-import { CalendarDays, ChevronRight } from 'lucide-react';
+import { CalendarDays, ChevronRight, ClipboardList } from 'lucide-react';
 
 interface AgendamentosDisplayProps {
     agendamentos: Agendamento[];
@@ -60,8 +60,10 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 {/* Conteúdo do Header */}
                 <div className="relative flex items-center justify-between px-[16px] md:px-[22px] z-20 w-full h-full">
                     <div className="flex items-center gap-2">
-                        <h4 className="font-bold md:font-[700] text-white text-[15px] md:text-[17px] uppercase tracking-[0.5px] md:tracking-[0.2px]">
-                            <span className="emoji-3d mr-1">📋</span><span className="md:inline hidden">AGENDAMENTOS</span><span className="md:hidden">AGENDAMENTOS</span>
+                        <h4 className="flex items-center font-bold md:font-[700] text-white text-[15px] md:text-[17px] uppercase tracking-[0.5px] md:tracking-[0.2px]">
+                            <ClipboardList className="w-5 h-5 md:w-7 md:h-7 text-white drop-shadow-sm mr-1.5 md:mr-2" />
+                            <span className="md:inline hidden">AGENDAMENTOS</span>
+                            <span className="md:hidden">AGENDAMENTOS</span>
                         </h4>
                     </div>
 
@@ -85,7 +87,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 {isEmpty ? (
                     <div className="flex flex-col items-start justify-start pt-3 pb-4 gap-1 px-1">
                         <div className="flex items-center gap-2.5 opacity-60">
-                            <span className="text-lg md:text-xl filter grayscale contrast-50 select-none">📋</span>
+                            <ClipboardList className="w-5 h-5 md:w-6 md:h-6 text-gray-400 opacity-60" />
                             <span className="text-[11px] md:text-[14px] font-bold md:font-[500] text-gray-400 uppercase md:normal-case tracking-[1px] md:tracking-normal leading-tight">
                                 Nenhum agendamento para este mês
                             </span>
