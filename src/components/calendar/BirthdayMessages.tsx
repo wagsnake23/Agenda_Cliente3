@@ -92,7 +92,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                   <div
                     className={cn(
                       "cursor-transition-all duration-150 ease-in-out group w-full",
-                      "flex flex-row items-center justify-between min-h-[72px] p-[10px_12px] rounded-[16px] bg-[#ffffff] border border-slate-100/80 shadow-[0_2px_10px_rgba(15,23,42,0.04)]", // Mobile
+                      "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px] rounded-[14px] bg-[#ffffff] border border-slate-100/80 shadow-[0_2px_10px_rgba(15,23,42,0.04)]", // Mobile
                       "active:scale-[0.98] active:shadow-sm hover:-translate-y-[1px] md:hover:-translate-y-[1px]",
                       "md:min-h-[84px] md:p-[16px_18px] md:rounded-[20px] md:border md:border-[rgba(226,232,240,0.55)] md:shadow-[0_2px_10px_rgba(15,23,42,0.04)] md:hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
                       isHighlighted && "bg-yellow-100 md:bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-[16px] md:rounded-[20px] z-20 animate-bounce-twice font-semibold",
@@ -106,27 +106,27 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                     )}>
                       {/* Date Block */}
                       <div className={cn(
-                        "flex flex-col items-center justify-center bg-[rgba(245,158,11,0.10)] md:bg-[#f4f7fb] rounded-[14px] md:rounded-[18px] py-0 px-0 min-w-[64px] w-[64px] h-[64px] md:w-[72px] md:h-[72px] md:flex-col md:border-none md:shadow-none shrink-0"
+                        "flex flex-col items-center justify-center bg-[rgba(245,158,11,0.10)] md:bg-[#f4f7fb] rounded-[12px] md:rounded-[18px] py-0 px-0 min-w-[50px] w-[50px] h-[50px] md:min-w-[72px] md:w-[72px] md:h-[72px] md:flex-col md:border-none md:shadow-none shrink-0"
                       )}>
-                        <span className="font-[800] text-[22px] md:text-[32px] text-[#f59e0b] md:text-[#2563eb] leading-none tracking-tight md:font-[800] uppercase md:uppercase">{String(data.day).padStart(2, '0')}</span>
-                        <span className="font-[700] text-[11px] md:text-[13px] text-[#f59e0b] md:text-[#64748b] opacity-90 mt-1 md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]"><span className="md:inline hidden">/</span>{formattedMonth}</span>
+                        <span className="font-[800] text-[18px] md:text-[32px] text-[#f59e0b] md:text-[#2563eb] leading-none tracking-tight md:font-[800] uppercase md:uppercase">{String(data.day).padStart(2, '0')}</span>
+                        <span className="font-[700] text-[9px] md:text-[13px] text-[#f59e0b] md:text-[#64748b] opacity-90 mt-[1px] md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]"><span className="md:inline hidden">/</span>{formattedMonth}</span>
                       </div>
 
                       {/* Icon Circle & Text Area */}
                       <div className="flex flex-row items-center gap-3 md:gap-[16px] flex-1 min-w-0 pr-1">
                           {/* Icon Circle */}
                           <div className={cn(
-                              "w-[42px] h-[42px] md:w-[54px] md:h-[54px] rounded-full flex items-center justify-center shrink-0 bg-amber-500/10"
+                              "w-[38px] h-[38px] md:w-[54px] md:h-[54px] rounded-full flex items-center justify-center shrink-0 bg-amber-500/10"
                           )}>
-                              <span className="text-[22px] md:text-[28px] filter saturate-[1.3] brightness-[1.1] emoji-desktop-colorful leading-none">🎂</span>
+                              <span className="text-[20px] md:text-[28px] filter saturate-[1.3] brightness-[1.1] emoji-desktop-colorful leading-none">🎂</span>
                           </div>
                           
                           <div className="flex flex-col min-w-0 flex-1 md:justify-center">
-                              <span className="text-[15px] md:text-[18px] font-bold md:font-[700] leading-[1.2] text-[#1e293b] md:text-[#1e293b] truncate uppercase md:uppercase">
+                              <span className="text-[14px] md:text-[18px] font-bold md:font-[700] leading-[1.2] text-[#1e293b] md:text-[#1e293b] truncate uppercase md:uppercase">
                                   {data.name.replace(/Bombeiro\s+/i, '')}
                               </span>
                               
-                              <span className="text-[12px] md:text-[14px] font-medium md:font-[500] text-[#64748b] md:text-[#64748b] mt-[2px] md:mt-[4px] truncate">
+                              <span className="text-[11px] md:text-[14px] font-medium md:font-[500] text-[#64748b] md:text-[#64748b] mt-[1px] md:mt-[4px] truncate">
                                   Aniversário
                               </span>
                           </div>
