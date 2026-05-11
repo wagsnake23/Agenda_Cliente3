@@ -815,7 +815,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 overflow-hidden -ml-1 md:ml-0 pr-10 md:pr-0">
+                                                <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 -ml-1 md:ml-0 pr-10 md:pr-0">
                                                     <div className="flex items-center gap-2 md:gap-2.5 overflow-hidden">
                                                         {!isEventSpecial && (
                                                             <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
@@ -823,8 +823,8 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                             </div>
                                                         )}
                                                         <span className={cn(
-                                                            "text-[12px] md:text-[clamp(13px,0.9vw,14px)] font-bold text-slate-800 flex items-center gap-x-1 flex-wrap md:flex-nowrap", 
-                                                            "whitespace-nowrap text-ellipsis"
+                                                            "text-[12px] md:text-[clamp(13px,0.9vw,14px)] font-bold text-slate-800 flex items-center gap-x-1 flex-nowrap", 
+                                                            "whitespace-nowrap truncate"
                                                         )}>
                                                             <span>{renderPeriod()}</span>
                                                             {timeStr ? (
@@ -840,7 +840,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                                                     {/* Duração (Mobile apenas, no Desktop fica na Col 3) */}
                                                     {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && agenda.totalDias > 1 && (
-                                                        <span className="md:hidden text-[10px] font-black text-blue-700 bg-blue-50/50 px-1.5 py-0.5 rounded-md whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] border border-blue-100/50 shrink-0">
+                                                        <span className="md:hidden text-[11.5px] font-bold text-blue-700 bg-blue-50/50 px-2 py-0.5 rounded-md whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] border border-blue-100/50 shrink-0 ml-auto">
                                                             {agenda.totalDias} dias
                                                         </span>
                                                     )}
