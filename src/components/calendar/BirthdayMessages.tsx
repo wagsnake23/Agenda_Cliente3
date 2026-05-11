@@ -33,7 +33,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
     <div className={cn(
       "relative z-10 min-h-[100px] h-full flex flex-col transition-all duration-300",
       "bg-[#ffffff] rounded-2xl shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-[#e2e8f0]/70 overflow-hidden",
-      "md:bg-[#F9FAFB] md:rounded-[26px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:overflow-hidden md:transition-all md:duration-[220ms] md:ease-out md:hover:-translate-y-[2px] md:hover:shadow-[0_14px_40px_rgba(15,23,42,0.08)]",
+      "md:bg-[#F9FAFB] md:rounded-[26px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:overflow-hidden md:transition-all md:duration-[220ms] md:ease-out md:hover:shadow-[0_14px_40px_rgba(15,23,42,0.08)]",
       isEmpty ? "hidden lg:flex" : "flex"
     )}>
       {/* Highlight de topo sutil */}
@@ -85,7 +85,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
             </div>
           </div>
         ) : (
-          <div className="flex flex-col gap-[10px] md:gap-[16px] relative md:before:hidden w-full pt-1 md:pt-0">
+          <div className="flex flex-col gap-[10px] md:gap-[14px] relative md:before:hidden w-full pt-1 md:pt-0">
             {currentMonthBirthdays.map((data, i) => {
               const isHighlighted = data.day === highlightedDay;
 
@@ -94,9 +94,9 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                   <div
                     className={cn(
                       "cursor-transition-all duration-150 ease-in-out group w-full",
-                      "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px] rounded-[14px] bg-[#ffffff] border border-slate-100/80 shadow-[0_2px_10px_rgba(15,23,42,0.04)]", // Mobile
+                      "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px] rounded-[14px] bg-[#ffffff] border border-slate-200/60 shadow-[0_2px_10px_rgba(15,23,42,0.04),inset_0_1.5px_3px_rgba(0,0,0,0.03)]", // Mobile
                       "active:scale-[0.98] active:shadow-sm hover:-translate-y-[1px] md:hover:-translate-y-[1px]",
-                      "md:min-h-[84px] md:p-[16px_18px] md:rounded-[20px] md:border md:border-[rgba(226,232,240,0.55)] md:shadow-[0_2px_10px_rgba(15,23,42,0.04)] md:hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
+                      "md:min-h-[76px] md:p-[12px_18px] md:rounded-[20px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_4px_12px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(0,0,0,0.02)] md:hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
                       isHighlighted && "bg-yellow-100 md:bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-[16px] md:rounded-[20px] z-20 animate-bounce-twice font-semibold",
                       !isHighlighted && "text-[#1F2937]"
                     )}
@@ -108,10 +108,10 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                     )}>
                       {/* Date Block */}
                       <div className={cn(
-                        "flex flex-col items-center justify-center bg-[rgba(245,158,11,0.10)] md:bg-[#f4f7fb] rounded-[12px] md:rounded-[18px] py-0 px-0 min-w-[50px] w-[50px] h-[50px] md:min-w-[72px] md:w-[72px] md:h-[72px] md:flex-col md:border-none md:shadow-none shrink-0"
+                        "flex flex-col items-center justify-center bg-[rgba(245,158,11,0.10)] md:bg-[rgba(245,158,11,0.10)] rounded-[12px] md:rounded-[18px] py-0 px-0 min-w-[50px] w-[50px] h-[50px] md:min-w-[64px] md:w-[64px] md:h-[64px] md:flex-col md:border-none md:shadow-none shrink-0"
                       )}>
-                        <span className="font-[800] text-[18px] md:text-[32px] text-[#f59e0b] md:text-[#2563eb] leading-none tracking-tight md:font-[800] uppercase md:uppercase">{String(data.day).padStart(2, '0')}</span>
-                        <span className="font-[700] text-[9px] md:text-[13px] text-[#f59e0b] md:text-[#64748b] opacity-90 mt-[1px] md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]"><span className="md:inline hidden">/</span>{formattedMonth}</span>
+                        <span className="font-[800] text-[18px] md:text-[26px] text-[#f59e0b] md:text-[#f59e0b] leading-none tracking-tight md:font-[800] uppercase md:uppercase">{String(data.day).padStart(2, '0')}</span>
+                        <span className="font-[700] text-[9px] md:text-[11.5px] text-[#f59e0b] md:text-[#f59e0b] opacity-90 mt-[1px] md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]">{formattedMonth}</span>
                       </div>
 
                       {/* Icon Circle & Text Area */}
@@ -124,21 +124,18 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                           </div>
                           
                           <div className="flex flex-col min-w-0 flex-1 md:justify-center">
-                              <span className="text-[14px] md:text-[18px] font-bold md:font-[700] leading-[1.2] text-[#1e293b] md:text-[#1e293b] truncate uppercase md:uppercase">
+                              <span className="text-[14px] md:text-[17px] font-bold md:font-[700] leading-[1.2] text-[#1e293b] md:text-[#1e293b] truncate uppercase md:uppercase">
                                   {data.name.replace(/Bombeiro\s+/i, '')}
                               </span>
                               
-                              <span className="text-[11px] md:text-[14px] font-medium md:font-[500] text-[#64748b] md:text-[#64748b] mt-[1px] md:mt-[4px] truncate">
+                              <span className="text-[11px] md:text-[13px] font-medium md:font-[500] text-[#64748b] md:text-[#64748b] mt-[1px] md:mt-[4px] truncate">
                                   Aniversário
                               </span>
                           </div>
                       </div>
                     </div>
                     
-                    {/* Chevron */}
-                    <div className="shrink-0 ml-2 md:flex md:items-center md:justify-center hidden">
-                        <ChevronRight className="w-[18px] h-[18px] md:w-[20px] md:h-[20px] text-[#f9a825] opacity-55 md:opacity-45" />
-                    </div>
+
                   </div>
                 </React.Fragment>
               );
