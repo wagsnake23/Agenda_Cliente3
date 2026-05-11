@@ -20,7 +20,7 @@ interface MoonPhasesDisplayProps {
 const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month, year }) => {
   return (
     <div className={cn(
-      "relative z-10 min-h-[44px] h-full flex flex-col transition-all duration-300",
+      "relative z-10 min-h-[54px] h-full flex flex-col transition-all duration-300",
       "bg-[#ffffff] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/35 overflow-hidden",
       "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.92)] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:transition-all md:duration-[200ms] md:ease-out"
     )}>
@@ -30,7 +30,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
         style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
       />
       <div 
-        className="relative w-full h-9 md:h-[68px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
+        className="relative w-full h-11 md:h-[68px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
       >
         {/* Mobile gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#818cf8] to-[#6366f1] md:hidden" />
@@ -64,7 +64,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       </div>
 
 
-      <div className="px-1.5 md:px-[22px] pt-[5px] md:pt-[24px] pb-1 md:pb-[24px] flex flex-col justify-center items-center flex-1 w-full bg-transparent md:bg-[#ffffff] rounded-b-2xl md:rounded-b-[22px]">
+      <div className="px-1.5 md:px-[22px] pt-[10px] md:pt-[24px] pb-[16px] md:pb-[24px] flex flex-col justify-center items-center flex-1 w-full bg-transparent md:bg-[#ffffff] rounded-b-2xl md:rounded-b-[22px]">
         <div className="flex flex-row justify-between md:justify-around items-center w-full gap-1 md:gap-[16px]">
           {moonPhases.map((phase, index) => {
             const monthAbbr = (MONTHS[month] || 'Mês').substring(0, 3);

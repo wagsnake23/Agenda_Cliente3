@@ -52,7 +52,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }}
             />
             <div
-                className="relative w-full h-[50px] md:h-[68px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
+                className="relative w-full h-11 md:h-[68px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
             >
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/90 to-[#60a5fa]/90 md:bg-[linear-gradient(135deg,#1976d2_0%,#3b82f6_55%,#60a5fa_100%)]" />
