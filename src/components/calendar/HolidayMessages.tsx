@@ -22,8 +22,8 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
   return (
     <div className={cn(
       "relative z-10 min-h-[100px] h-full flex flex-col transition-all duration-300",
-      "bg-[#ffffff] rounded-2xl shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-[#e2e8f0]/70 overflow-hidden",
-      "md:bg-[#F9FAFB] md:rounded-[26px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:overflow-hidden md:transition-all md:duration-[220ms] md:ease-out md:hover:shadow-[0_14px_40px_rgba(15,23,42,0.08)]"
+      "bg-[#ffffff] rounded-2xl shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-slate-200/60 overflow-hidden",
+      "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.65)] md:shadow-[0_6px_22px_rgba(15,23,42,0.05)] md:overflow-hidden md:transition-all md:duration-[200ms] md:ease-out md:hover:-translate-y-[2px] md:hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)]"
     )}>
       {/* Highlight de topo sutil */}
       <div 
@@ -31,18 +31,17 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
       />
       <div 
-        className="relative w-full h-[50px] md:h-[72px] flex items-center rounded-t-2xl md:rounded-t-[26px] overflow-hidden"
+        className="relative w-full h-[50px] md:h-[68px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
       >
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#ef4444]/90 to-[#f87171]/90 md:from-[#ef5350] md:to-[#ff8a80]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ef5350]/90 to-[#fca5a5]/90 md:bg-[linear-gradient(135deg,#ef5350_0%,#f87171_60%,#fca5a5_100%)]" />
 
         {/* Conteúdo do Header */}
         <div className="relative flex items-center justify-between px-[16px] md:px-[22px] z-20 w-full h-full">
           <div className="flex items-center gap-2">
-            <h4 className="flex items-center font-bold md:font-[700] text-white text-[15px] md:text-[17px] uppercase tracking-[0.5px] md:tracking-[0.2px]">
-              <PartyPopper className="w-5 h-5 md:w-7 md:h-7 text-white drop-shadow-sm mr-1.5 md:mr-2" />
-              <span className="md:inline hidden">FERIADOS E DATAS</span>
-              <span className="md:hidden">Feriados e Datas</span>
+            <h4 className="flex items-center font-bold md:font-[700] text-white text-[15px] md:text-[16px] uppercase tracking-[0.5px] md:tracking-[0.1px]">
+              <PartyPopper className="w-5 h-5 md:w-[20px] md:h-[20px] md:opacity-95 text-white mr-1.5 md:mr-2" />
+              FERIADOS E DATAS
             </h4>
           </div>
 
@@ -50,19 +49,19 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
             className={cn(
               "flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-1",
               "rounded-[14px] px-[10px] py-[5px] backdrop-blur-[10px] bg-white/18 text-white", // Mobile
-              "md:rounded-[16px] md:px-[14px] md:py-[8px] md:backdrop-blur-[10px] md:bg-white/18 md:text-white md:border-none md:shadow-none", // Desktop
+              "md:rounded-[16px] md:px-[16px] md:py-[8px] md:backdrop-blur-[10px] md:bg-[rgba(255,255,255,0.16)] md:text-[#ffffff] md:border md:border-[rgba(255,255,255,0.14)] md:min-h-[38px] md:shadow-none", // Desktop
               "active:scale-95 active:translate-y-0"
             )}
             style={{ lineHeight: '1.2' }}
           >
-            <CalendarDays className="w-[16px] h-[16px] text-white hidden md:block" />
-            <span className="font-bold uppercase tracking-[0.2px] text-white text-[12px] md:text-[13px]">{MONTHS[month]?.substring(0, 3)}</span>
-            <span className="font-bold text-[12px] md:text-[13px] text-white/90 md:text-white">/{year}</span>
+            <CalendarIcon className="w-[16px] h-[16px] text-white hidden md:hidden" />
+            <span className="font-bold uppercase tracking-[0.2px] text-white md:text-[#ffffff] text-[12px] md:text-[13px] md:font-[700] md:tracking-[0.2px]">{MONTHS[month]?.substring(0, 3)} <span className="md:inline hidden">{year}</span></span>
+            <span className="font-bold text-[12px] md:text-[13px] text-white/90 md:hidden">/{year}</span>
           </div>
         </div>
       </div>
 
-      <div className="p-[14px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-[#F9FAFB] rounded-b-2xl md:rounded-b-[26px]">
+      <div className="p-[14px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-[#ffffff] rounded-b-2xl md:rounded-b-[22px]">
         {isEmpty ? (
           <div className="flex-1 flex items-center justify-start py-4">
             <span className="text-[13px] md:text-[14px] font-normal md:font-[500] italic leading-[1.6] px-1 text-gray-400">
@@ -95,34 +94,30 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                       "cursor-transition-all duration-150 ease-in-out group w-full",
                       "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px] rounded-[14px] bg-[#ffffff] border border-slate-200/60 shadow-[0_2px_10px_rgba(15,23,42,0.04),inset_0_1.5px_3px_rgba(0,0,0,0.03)]", // Mobile
                       "active:scale-[0.98] active:shadow-sm hover:-translate-y-[1px] md:hover:-translate-y-[1px]",
-                      "md:min-h-[76px] md:p-[12px_18px] md:rounded-[20px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_4px_12px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(0,0,0,0.02)] md:hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
-                      isHighlighted && "bg-yellow-100 md:bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-[16px] md:rounded-[20px] z-20 animate-bounce-twice font-semibold",
-                      isInfoEvent && !isHighlighted && "text-slate-500",
-                      !isInfoEvent && !isHighlighted && "text-[#1F2937]"
+                      "md:min-h-[78px] md:p-[12px_18px] md:rounded-[18px] md:border md:border-[rgba(226,232,240,0.55)] md:bg-[#fcfcfd] md:shadow-[0_2px_10px_rgba(15,23,42,0.035)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.06)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
+                      isHighlighted && "bg-yellow-100 md:bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-[16px] md:rounded-[18px] z-20 animate-bounce-twice font-semibold"
                     )}
                   >
                     <div className={cn(
-                      "flex items-center gap-3 md:gap-[16px] flex-1 relative min-w-0",
-                      "md:items-center",
-                      "md:before:hidden"
+                      "flex items-center gap-3 md:gap-[16px] flex-1 relative min-w-0"
                     )}>
                       {/* Date Block */}
                       <div className={cn(
-                        "flex flex-col items-center justify-center bg-[rgba(239,68,68,0.08)] md:bg-[rgba(239,68,68,0.08)] rounded-[12px] md:rounded-[18px] py-0 px-0 min-w-[50px] w-[50px] h-[50px] md:min-w-[64px] md:w-[64px] md:h-[64px] md:flex-col md:border-none md:shadow-none shrink-0"
+                        "flex flex-col items-center justify-center bg-[rgba(239,68,68,0.08)] md:bg-[rgba(239,68,68,0.08)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[50px] w-[50px] h-[50px] md:min-w-[68px] md:w-[68px] md:h-[68px] md:flex-col md:border-none md:shadow-none shrink-0"
                       )}>
-                        <span className="font-[800] text-[18px] md:text-[26px] text-[#ef4444] md:text-[#ef4444] leading-none tracking-tight md:font-[800] uppercase md:uppercase">{String(day).padStart(2, '0')}</span>
-                        <span className="font-[700] text-[9px] md:text-[11.5px] text-[#ef4444] md:text-[#ef4444] opacity-90 mt-[1px] md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]">{formattedMonth}</span>
+                        <span className="font-[800] text-[18px] md:text-[30px] text-[#ef4444] md:text-[#ef4444] leading-[1] md:leading-[1] tracking-tight md:font-[800] uppercase md:uppercase">{String(day).padStart(2, '0')}</span>
+                        <span className="font-[700] text-[9px] md:text-[12px] text-[#ef4444] md:text-[#ef4444] md:opacity-[0.82] mt-[1px] md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]">{formattedMonth}</span>
                       </div>
 
                       {/* Icon Circle & Text Area */}
                       <div className="flex flex-row items-center gap-3 md:gap-[16px] flex-1 min-w-0 pr-1">
                           {/* Icon Circle */}
                           <div className={cn(
-                              "w-[38px] h-[38px] md:w-[54px] md:h-[54px] rounded-full flex items-center justify-center shrink-0",
-                              isInfoEvent ? "bg-slate-500/10 md:bg-slate-500/10" : "bg-red-500/10 md:bg-red-500/10"
+                              "w-[38px] h-[38px] md:w-[48px] md:h-[48px] md:bg-[rgba(148,163,184,0.08)] rounded-full flex items-center justify-center shrink-0",
+                              isInfoEvent ? "bg-slate-500/10" : "bg-red-500/10"
                           )}>
                               {emoji ? (
-                                <span className="text-[20px] md:text-[28px] filter saturate-[1.3] brightness-[1.1] emoji-desktop-colorful leading-none">{emoji}</span>
+                                <span className="text-[20px] md:text-[24px] md:filter-none filter saturate-[1.3] brightness-[1.1] leading-none">{emoji}</span>
                               ) : (
                                 <CalendarIcon className="w-5 h-5 md:w-7 md:h-7 text-gray-400 opacity-60" />
                               )}
@@ -130,23 +125,20 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                           
                           <div className="flex flex-col min-w-0 flex-1 md:justify-center">
                               <div className="flex items-center gap-1 min-w-0 w-full">
-                                  <span className="text-[14px] md:text-[17px] font-bold md:font-[700] leading-[1.2] text-[#1e293b] md:text-[#1e293b] truncate uppercase md:uppercase">
-                                      {name}
-                                  </span>
-                                  {name.includes('Independência do Brasil') && (
-                                    <div className="md:scale-125 origin-left transition-transform shrink-0 md:mt-0">
-                                      <BrasilFlagIcon size={14} />
-                                    </div>
-                                  )}
+                                   <span className="text-[14px] md:text-[16px] font-bold md:font-[700] leading-[1.2] text-[#1e293b] md:text-[#1e293b] truncate uppercase">
+                                       {name}
+                                   </span>
+                                   {name.includes('Independência do Brasil') && (
+                                       <span className="text-[14px] md:text-[16px] shrink-0 saturate-150 drop-shadow-sm emoji-desktop-colorful" style={{transform: 'translateY(-1px)'}}>🇧🇷</span>
+                                   )}
                               </div>
                               
-                              <span className="text-[11px] md:text-[13px] font-medium md:font-[500] text-[#64748b] md:text-[#64748b] mt-[1px] md:mt-[4px] truncate">
+                              <span className="text-[13px] md:text-[18px] font-medium md:font-[500] text-[#64748b] md:text-[#64748b] mt-[1px] md:mt-[4px] truncate lowercase first-letter:uppercase">
                                   {isInfoEvent ? 'Data comemorativa' : 'Feriado'}
                               </span>
                           </div>
                       </div>
                     </div>
-                    
 
                   </div>
                 </React.Fragment>
