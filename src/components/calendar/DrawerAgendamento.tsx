@@ -880,7 +880,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                                                 {/* COLUNA 4: AÇÕES VERTICAL (DESKTOP) */}
                                                 {profile && (agenda.userId === profile.id || profile.perfil === 'administrador') && (
-                                                    <div className="hidden md:flex col-start-4 row-start-1 row-span-3 self-stretch border-l border-blue-200/70 bg-gradient-to-b from-[#d9e7fa] to-[#c1d6f0] shadow-[inset_1px_0_2px_rgba(255,255,255,0.8),inset_-3px_-2px_6px_rgba(0,0,50,0.08)] -mt-1 -mb-1 -mr-1 md:-mt-3 md:-mb-1.5 md:-mr-1.5 flex-col items-center justify-center gap-0.5 md:gap-1 acoes rounded-r-2xl">
+                                                    <div className="hidden md:flex col-start-4 row-start-1 row-span-3 self-stretch border-l border-slate-200/60 bg-[#ECF0F4] shadow-[inset_1px_0_2px_rgba(255,255,255,0.8)] -mt-1 -mb-1 -mr-1 md:-mt-3 md:-mb-1.5 md:-mr-1.5 flex-col items-center justify-center gap-0.5 md:gap-1 acoes rounded-r-2xl">
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
@@ -897,7 +897,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                             <SquarePen className="w-[18px] h-[18px] md:w-[22px] md:h-[22px] group-hover/btn:scale-110 transition-transform" />
                                                         </button>
 
-                                                        <div className="w-[60%] h-[1px] bg-blue-300/40 my-0.5 shadow-[0_1px_0_rgba(255,255,255,0.7)]" />
+                                                        <div className="w-[60%] h-[1px] bg-slate-300/30 my-0.5 shadow-[0_1px_0_rgba(255,255,255,0.7)]" />
 
                                                         <button
                                                             onClick={(e) => {
