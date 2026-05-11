@@ -114,7 +114,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
                   {phase.phaseIcon}
                 </span>
                 <span className="text-[10px] font-semibold text-[#1F2937] text-center leading-tight uppercase tracking-tighter opacity-90 truncate w-full px-0.5">
-                  {getFullPhaseName(phase.phaseName)}
+                  {getFullPhaseName(phase.phaseName).replace('Lua ', '')}
                 </span>
                 <div className="flex flex-row mt-0.5 items-center justify-center bg-transparent text-[#6366f1] text-[9px] leading-none shrink-0 border-none shadow-none">
                   <span className="font-bold uppercase tracking-tight">{String(phase.date).padStart(2, '0')}</span>
@@ -145,20 +145,23 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
               <div 
                 key={index} 
                 className={cn(
-                  "flex-1 min-h-[250px] bg-[#fcfcfd] rounded-[24px] p-[24px_20px] flex flex-col items-center justify-between relative transition-all duration-[220ms] ease-out z-10 cursor-pointer",
+                  "flex-1 min-h-[250px] rounded-[24px] p-[24px_20px] flex flex-col items-center justify-between relative transition-all duration-[250ms] ease-out cursor-pointer",
                   isNextPhase 
-                    ? "border border-[rgba(99,102,241,0.28)] shadow-[0_14px_34px_rgba(99,102,241,0.12)] -translate-y-[4px]" 
-                    : "border border-[rgba(226,232,240,0.65)] shadow-[0_8px_24px_rgba(15,23,42,0.04)] hover:-translate-y-[4px] hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+                    ? "bg-[#ffffff] border-2 border-[rgba(99,102,241,0.32)] shadow-[0_16px_38px_rgba(99,102,241,0.12)] outline outline-[1px] outline-[rgba(99,102,241,0.08)] -translate-y-[4px] z-20 hover:-translate-y-[6px] hover:shadow-[0_22px_46px_rgba(99,102,241,0.18)]" 
+                    : "bg-[#fcfcfd] border border-[rgba(226,232,240,0.92)] shadow-[0_8px_24px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] z-10 hover:-translate-y-[4px] hover:shadow-[0_18px_40px_rgba(15,23,42,0.08),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)]"
                 )}
               >
                 {isNextPhase && (
-                  <div className="absolute top-[-12px] right-[18px] bg-[linear-gradient(135deg,#6366f1,#a855f7)] text-[#ffffff] p-[8px_14px] rounded-full text-[12px] font-[700] shadow-[0_10px_22px_rgba(99,102,241,0.22)] tracking-[0.3px] z-[5]">
+                  <div className="absolute top-[-14px] left-[50%] -translate-x-[50%] bg-[linear-gradient(135deg,#6366f1,#a855f7)] text-[#ffffff] p-[8px_16px] rounded-full text-[12px] font-[700] tracking-[0.4px] uppercase shadow-[0_10px_22px_rgba(99,102,241,0.24)] border border-[rgba(255,255,255,0.22)] z-[5]">
                     PRÓXIMA
                   </div>
                 )}
                 
                 <div className="flex flex-col items-center w-full">
-                  <span className="text-[72px] filter drop-shadow-[0_8px_18px_rgba(255,215,0,0.22)] leading-none mt-[10px]">{phase.phaseIcon}</span>
+                  <span className={cn(
+                    "text-[72px] leading-none mt-[10px]",
+                    isNextPhase ? "filter drop-shadow-[0_8px_18px_rgba(255,215,0,0.22)]" : ""
+                  )}>{phase.phaseIcon}</span>
                   <span className="text-[20px] font-[700] text-[#1e293b] mt-[18px] text-center leading-tight">{fullPhaseName}</span>
                   <span className="text-[15px] font-[500] text-[#64748b] leading-[1.5] text-center mt-[10px]">{phaseSubtitle}</span>
                 </div>
