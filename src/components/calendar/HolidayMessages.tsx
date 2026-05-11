@@ -28,7 +28,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
       {/* Highlight de topo sutil */}
 
       <div 
-        className="relative w-full h-14 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
+        className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
       >
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-[#ef5350]" />

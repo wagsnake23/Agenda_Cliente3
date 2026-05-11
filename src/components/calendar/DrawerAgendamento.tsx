@@ -330,7 +330,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                     "relative w-full flex items-center justify-between overflow-hidden shrink-0",
                     variant === 'modal'
                         ? "px-4 md:px-3 py-4 bg-gradient-to-b from-[#0078d7] to-[#005a9e] h-auto"
-                        : "h-14 md:h-[72px] rounded-t-2xl md:rounded-t-[26px]"
+                        : "h-[54px] md:h-[72px] rounded-t-2xl md:rounded-t-[26px]"
                 )}>
                     {variant !== 'modal' && (
                         <div className="absolute inset-0 bg-[#3b82f6]" />

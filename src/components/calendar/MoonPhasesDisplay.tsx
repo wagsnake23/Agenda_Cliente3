@@ -55,7 +55,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       
       {/* HEADER */}
       <div 
-        className="relative w-full h-14 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-none md:px-[34px] overflow-hidden md:justify-between"
+        className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-none md:px-[34px] overflow-hidden md:justify-between"
       >
         {/* Mobile gradient overlay */}
         <div className="absolute inset-0 bg-[#6366f1]" />
