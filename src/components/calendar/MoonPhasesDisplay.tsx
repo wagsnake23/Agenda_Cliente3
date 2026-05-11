@@ -47,8 +47,8 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
   return (
     <div className={cn(
       "relative z-10 h-full flex flex-col transition-all duration-300",
-      "min-h-[54px] bg-[#ffffff] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/35 overflow-hidden",
-      "md:min-h-0 md:bg-[#ffffff] md:rounded-[24px] md:border md:border-[rgba(226,232,240,0.65)] md:shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:overflow-hidden md:transition-none"
+      "min-h-[54px] bg-[#ffffff] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/45 overflow-hidden",
+      "md:min-h-0 md:bg-[#ffffff] md:rounded-[24px] md:border md:border-[rgba(226,232,240,0.85)] md:shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:overflow-hidden md:transition-none"
     )}>
       {/* Highlight de topo sutil (Mobile apenas) */}
       <div 
@@ -128,7 +128,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
 
       {/* DESKTOP FASES CONTAINER (Novo Layout Premium) */}
       <div className="hidden md:flex flex-col bg-[#ffffff] rounded-b-[24px]">
-        <div className="relative flex flex-row items-stretch justify-between gap-[20px] p-[34px]">
+        <div className="relative flex flex-row items-stretch justify-between gap-[20px] p-[34px_34px_24px_34px]">
           {/* Timeline conectando as fases */}
           <div className="absolute top-[50%] left-[34px] right-[34px] h-[2px] z-0 -translate-y-1/2" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,.15), rgba(99,102,241,.35), rgba(99,102,241,.15))' }} />
           
@@ -185,7 +185,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
         </div>
 
         {/* Bloco Inferior Informativo */}
-        <div className="mx-[34px] mb-[34px] p-[24px_28px] rounded-[22px] bg-[rgba(99,102,241,0.045)] border border-[rgba(99,102,241,0.08)] flex justify-between items-center gap-[28px]">
+        <div className="mx-[34px] mb-[24px] p-[24px_28px] rounded-[22px] bg-[rgba(99,102,241,0.045)] border border-[rgba(99,102,241,0.08)] flex justify-between items-center gap-[28px]">
           {/* Área Esquerda */}
           <div className="flex items-center gap-[18px]">
             <div className="w-[54px] h-[54px] rounded-full bg-[rgba(99,102,241,0.10)] flex items-center justify-center shrink-0">

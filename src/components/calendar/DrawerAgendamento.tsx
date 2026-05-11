@@ -329,14 +329,17 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                 <div className={cn(
                     "relative w-full flex items-center justify-between overflow-hidden shrink-0",
                     variant === 'modal'
-                        ? "px-6 md:px-5 py-4 bg-gradient-to-b from-[#0078d7] to-[#005a9e] h-auto"
+                        ? "px-4 md:px-3 py-4 bg-gradient-to-b from-[#0078d7] to-[#005a9e] h-auto"
                         : "h-[50px] md:h-[72px] rounded-t-2xl md:rounded-t-[26px]"
                 )}>
                     {variant !== 'modal' && (
                         <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/90 to-[#60a5fa]/90 md:from-[#1976d2] md:to-[#42a5f5]" />
                     )}
                     
-                    <div className="flex-1 flex items-center gap-1.5 md:gap-3.5 px-3.5 md:px-6 relative z-10">
+                    <div className={cn(
+                        "flex-1 flex items-center gap-1.5 md:gap-3.5 relative z-10",
+                        variant === 'modal' ? "px-0" : "px-3.5 md:px-6"
+                    )}>
                         {(!modoEdicao && mode !== 'create' && variant !== 'modal') ? (
                             <div className="w-[32px] h-[32px] md:w-[44px] md:h-[44px] bg-white/20 backdrop-blur-md rounded-lg md:rounded-xl flex items-center justify-center shrink-0 border border-white/30 shadow-lg">
                                 <ClipboardList className="w-5 h-5 md:w-7 md:h-7 text-white drop-shadow-sm" />
@@ -361,9 +364,9 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                 variant === 'modal' ? "text-[14px] md:text-[17px]" : "text-[13px] md:text-[18px]"
                             )}>
                                 {modoEdicao ? (
-                                    <span>Editar</span>
+                                    <span>Editar Agendamento</span>
                                 ) : mode === 'create' ? (
-                                    <span>Novo</span>
+                                    <span>Novo Agendamento</span>
                                 ) : (
                                     <span>
                                         {initialDate ? (() => {
@@ -386,7 +389,10 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                     </div>
 
                     {/* Botão de Fechar */}
-                    <div className="flex items-center gap-2.5 mr-3.5 md:mr-6 relative z-10">
+                    <div className={cn(
+                        "flex items-center gap-2.5 relative z-10",
+                        variant === 'modal' ? "mr-0" : "mr-3.5 md:mr-6"
+                    )}>
                         <button
                             onClick={() => {
                                 if (variant === 'modal' || !modoEdicao) {
@@ -638,7 +644,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         className={cn(
                                             "flex-1 h-10.5 md:h-12 rounded-2xl text-[1.05rem] md:text-[1.15rem] font-black transition-all duration-300",
                                             variant === 'modal'
-                                                ? "bg-white border border-[#1a3a8a]/40 text-[#1a3a8a] hover:bg-blue-50 hover:text-[#1a3a8a]"
+                                                ? "bg-white border border-slate-300 text-slate-600 hover:bg-slate-50 hover:text-slate-700 shadow-sm"
                                                 : "bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200 hover:text-slate-700 shadow-sm"
                                         )}
                                     >
