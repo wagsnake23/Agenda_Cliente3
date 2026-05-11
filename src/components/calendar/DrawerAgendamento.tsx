@@ -368,20 +368,25 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                 ) : mode === 'create' ? (
                                     <span>Novo Agendamento</span>
                                 ) : (
-                                    <span>
-                                        {initialDate ? (() => {
+                                    <div className="flex flex-col">
+                                        <span className="block">Agendamentos do dia</span>
+                                        {initialDate && (() => {
                                             const d = new Date(initialDate + 'T12:00:00');
                                             const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
                                             const dia = String(d.getDate()).padStart(2, '0');
                                             const mes = monthsAbbr[d.getMonth()];
                                             const ano = d.getFullYear();
-                                            return `Agendamentos do dia ${dia}${mes}${ano}`;
-                                        })() : 'Agendamentos do dia'}
-                                    </span>
+                                            return (
+                                                <span className="text-[11px] md:text-[13px] font-normal text-white/90 mt-0.5 tracking-[0.5px]">
+                                                    {dia} {mes} {ano}
+                                                </span>
+                                            );
+                                        })()}
+                                    </div>
                                 )}
                             </h2>
                             {(modoEdicao && agendamentoEditando?.createdAt) && (
-                                <div className="font-medium text-left leading-tight mt-0.5 text-white/80 text-[10px] md:text-[11px]">
+                                <div className="font-normal text-left leading-tight mt-0.5 text-white/80 text-[10px] md:text-[11px]">
                                     {format(parseISO(agendamentoEditando.createdAt), "dd MMM yyyy", { locale: ptBR })}
                                 </div>
                             )}
@@ -841,7 +846,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                     {/* Duração (Mobile apenas, no Desktop fica na Col 3) */}
                                                     {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && agenda.totalDias > 1 && (
                                                         <span className="md:hidden text-[11.5px] font-bold text-blue-700 bg-blue-50/50 px-2 py-0.5 rounded-md whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] border border-blue-100/50 shrink-0 ml-auto">
-                                                            {agenda.totalDias} dias
+                                                            ⏳ {agenda.totalDias} dias
                                                         </span>
                                                     )}
                                                 </div>
@@ -873,14 +878,14 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 <div className="hidden md:flex col-start-3 row-start-2 justify-self-end items-center md:-translate-y-[4px]">
                                                     {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && agenda.totalDias > 1 && (
                                                         <span className="text-[10px] md:text-[14.5px] font-bold text-blue-700 whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
-                                                            {agenda.totalDias} dias
+                                                            ⏳ {agenda.totalDias} dias
                                                         </span>
                                                     )}
                                                 </div>
 
                                                 {/* COLUNA 4: AÇÕES VERTICAL PREMIUM (DESKTOP) */}
                                                 {profile && (agenda.userId === profile.id || profile.perfil === 'administrador') && (
-                                                    <div className="hidden md:flex col-start-4 row-start-1 row-span-3 self-stretch border-l border-slate-200/60 bg-[#ECF0F4] shadow-[inset_1px_0_2px_rgba(255,255,255,0.8)] -mt-1 -mb-1 -mr-1 md:-mt-3 md:-mb-1.5 md:-mr-1.5 flex-col items-center justify-center gap-2.5 acoes rounded-r-2xl">
+                                                    <div className="hidden md:flex col-start-4 row-start-1 row-span-3 self-stretch border-l border-slate-200/60 bg-transparent -mt-1 -mb-1 -mr-1 md:-mt-3 md:-mb-1.5 md:-mr-1.5 flex-col items-center justify-center gap-2.5 acoes rounded-r-2xl">
                                                         {/* Botão Editar */}
                                                         <button
                                                             onClick={(e) => {
