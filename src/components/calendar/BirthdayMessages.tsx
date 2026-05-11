@@ -37,15 +37,12 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
       isEmpty ? "hidden lg:flex" : "flex"
     )}>
       {/* Highlight de topo sutil */}
-      <div 
-        className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none hidden md:block" 
-        style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
-      />
+
       <div
         className="relative w-full h-14 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
       >
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-[#f59e0b] md:bg-[linear-gradient(135deg,#f59e0b_0%,#fbbf24_60%,#fde68a_100%)]" />
+        <div className="absolute inset-0 bg-[#f59e0b]" />
 
         {/* Conteúdo do Header */}
         <div className="relative flex items-center justify-between px-[16px] md:px-[34px] z-20 w-full h-full">
@@ -82,7 +79,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
             style={{ lineHeight: '1.2' }}
           >
             <CalendarDays className="w-[16px] h-[16px] text-white hidden md:hidden" />
-            <span className="font-bold uppercase tracking-[0.2px] text-white md:text-[#ffffff] text-[12px] md:text-[13px] md:font-[700] md:tracking-[0.2px]">{MONTHS[month]?.substring(0, 3)} <span className="md:inline hidden">{year}</span></span>
+            <span className="font-bold uppercase tracking-[0.2px] text-white md:text-[#ffffff] text-[12px] md:text-[15px] md:font-[700] md:tracking-[0.2px]">{MONTHS[month]?.substring(0, 3)} <span className="md:inline hidden">{year}</span></span>
             <span className="font-bold text-[12px] md:text-[13px] text-white/90 md:hidden">/{year}</span>
           </div>
         </div>

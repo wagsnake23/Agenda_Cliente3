@@ -333,7 +333,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                         : "h-14 md:h-[72px] rounded-t-2xl md:rounded-t-[26px]"
                 )}>
                     {variant !== 'modal' && (
-                        <div className="absolute inset-0 bg-[#3b82f6] md:from-[#1976d2] md:to-[#42a5f5]" />
+                        <div className="absolute inset-0 bg-[#3b82f6]" />
                     )}
                     
                     <div className={cn(
@@ -490,18 +490,23 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         </div>
 
                                         {/* Campo Dias (Aparece ao lado das datas em Desktop) */}
-                                        <div className="hidden md:block space-y-1.5 w-[70px] shrink-0">
-                                            <label className="text-[10px] md:text-[11px] font-semibold text-slate-700 ml-1 block truncate leading-none">Dias</label>
-                                            <div className="h-10 md:h-11 rounded-xl bg-blue-50/40 border border-blue-100 flex items-center justify-center shadow-sm">
-                                                <span className="text-blue-700 font-extrabold text-sm">{totalDias}</span>
+                                        {totalDias > 1 && (
+                                            <div className="hidden md:block space-y-1.5 w-[70px] shrink-0 animate-in fade-in zoom-in-95 duration-200">
+                                                <label className="text-[10px] md:text-[11px] font-semibold text-slate-700 ml-1 block truncate leading-none">Dias</label>
+                                                <div className="h-10 md:h-11 rounded-xl bg-blue-50/40 border border-blue-100 flex items-center justify-center shadow-sm">
+                                                    <span className="text-blue-700 font-extrabold text-sm">{totalDias}</span>
+                                                </div>
                                             </div>
-                                        </div>
+                                        )}
                                     </div>
 
                                     {/* Linha 2 Grid Mobile / Flex Desktop */}
                                     <div className="grid grid-cols-[1fr_1fr_88px] md:flex md:flex-row gap-x-2 md:gap-0 w-full md:w-[95%] mt-[-6px] md:mt-4 items-end">
-                                        {/* Tipo de Agendamento (Ocupa 2 colunas no mobile) */}
-                                        <div className="col-span-2 md:flex-1 space-y-1">
+                                        {/* Tipo de Agendamento (Ocupa 2 colunas no mobile, ou 3 se dias <= 1) */}
+                                        <div className={cn(
+                                            "md:flex-1 space-y-1 transition-all duration-300",
+                                            totalDias > 1 ? "col-span-2" : "col-span-3"
+                                        )}>
                                             <label className="text-[10px] md:text-[11px] font-semibold text-slate-700 ml-1 block transition-all">Tipo de agendamento</label>
                                             <Select value={tipo} onValueChange={setTipo}>
                                                 <SelectTrigger className={cn(
@@ -526,12 +531,14 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         </div>
 
                                         {/* Campo Dias no Mobile (Ao lado do Tipo) */}
-                                        <div className="flex md:hidden flex-col items-center justify-center space-y-1 w-[88px] shrink-0">
-                                            <label className="text-[10px] font-semibold text-slate-700 block truncate">Qtde. dias</label>
-                                            <div className="h-10 w-full rounded-xl bg-blue-50/40 border border-blue-100 flex items-center justify-center shadow-sm">
-                                                <span className="text-blue-700 font-extrabold text-sm">{totalDias}</span>
+                                        {totalDias > 1 && (
+                                            <div className="flex md:hidden flex-col items-center justify-center space-y-1 w-[88px] shrink-0 animate-in fade-in zoom-in-95 duration-200">
+                                                <label className="text-[10px] font-semibold text-slate-700 block truncate">Qtde. dias</label>
+                                                <div className="h-10 w-full rounded-xl bg-blue-50/40 border border-blue-100 flex items-center justify-center shadow-sm">
+                                                    <span className="text-blue-700 font-extrabold text-sm">{totalDias}</span>
+                                                </div>
                                             </div>
-                                        </div>
+                                        )}
                                     </div>
                                 </div>
 
@@ -821,7 +828,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                     </div>
 
                                                     {/* Duração (Mobile apenas, no Desktop fica na Col 3) */}
-                                                    {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && (
+                                                    {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && agenda.totalDias > 1 && (
                                                         <span className="md:hidden text-[10px] font-black text-blue-700 bg-blue-50/50 px-1.5 py-0.5 rounded-md whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] border border-blue-100/50 shrink-0">
                                                             {agenda.totalDias} dias
                                                         </span>
@@ -853,7 +860,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                     })()}
                                                 </div>
                                                 <div className="hidden md:flex col-start-3 row-start-2 justify-self-end flex items-center">
-                                                    {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && (
+                                                    {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && agenda.totalDias > 1 && (
                                                         <span className="text-[10px] md:text-[clamp(11.5px,0.85vw,12.5px)] font-black text-blue-700 whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                                                             {agenda.totalDias} dias
                                                         </span>
@@ -917,7 +924,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                             <span className="text-[11px] sm:text-[12px] font-black text-blue-800 uppercase tracking-tight">
                                                 {format(parseISO(dataInicio), 'dd/MM')}
                                                 {dataFim && dataFim !== dataInicio && ` - ${format(parseISO(dataFim), 'dd/MM')}`}
-                                                {` • ${totalDias} ${totalDias === 1 ? 'dia' : 'dias'}`}
+                                                {totalDias > 1 && ` • ${totalDias} dias`}
                                             </span>
                                         </div>
                                     )}

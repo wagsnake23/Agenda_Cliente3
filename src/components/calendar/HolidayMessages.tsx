@@ -26,15 +26,12 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
       "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.92)] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:overflow-hidden md:transition-all md:duration-[200ms] md:ease-out"
     )}>
       {/* Highlight de topo sutil */}
-      <div 
-        className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none hidden md:block" 
-        style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
-      />
+
       <div 
         className="relative w-full h-14 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
       >
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-[#ef5350] md:bg-[linear-gradient(135deg,#ef5350_0%,#f87171_60%,#fca5a5_100%)]" />
+        <div className="absolute inset-0 bg-[#ef5350]" />
 
         {/* Conteúdo do Header */}
         <div className="relative flex items-center justify-between px-[16px] md:px-[34px] z-20 w-full h-full">
@@ -71,7 +68,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
             style={{ lineHeight: '1.2' }}
           >
             <CalendarIcon className="w-[16px] h-[16px] text-white hidden md:hidden" />
-            <span className="font-bold uppercase tracking-[0.2px] text-white md:text-[#ffffff] text-[12px] md:text-[13px] md:font-[700] md:tracking-[0.2px]">{MONTHS[month]?.substring(0, 3)} <span className="md:inline hidden">{year}</span></span>
+            <span className="font-bold uppercase tracking-[0.2px] text-white md:text-[#ffffff] text-[12px] md:text-[15px] md:font-[700] md:tracking-[0.2px]">{MONTHS[month]?.substring(0, 3)} <span className="md:inline hidden">{year}</span></span>
             <span className="font-bold text-[12px] md:text-[13px] text-white/90 md:hidden">/{year}</span>
           </div>
         </div>

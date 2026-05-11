@@ -51,19 +51,14 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       "md:min-h-0 md:bg-[#ffffff] md:rounded-[24px] md:border md:border-[rgba(226,232,240,0.85)] md:shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:overflow-hidden md:transition-none"
     )}>
       {/* Highlight de topo sutil (Mobile apenas) */}
-      <div 
-        className="absolute inset-x-0 top-0 h-[1.5px] z-30 pointer-events-none md:hidden" 
-        style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }} 
-      />
+
       
       {/* HEADER */}
       <div 
         className="relative w-full h-14 md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-none md:px-[34px] overflow-hidden md:justify-between"
       >
         {/* Mobile gradient overlay */}
-        <div className="absolute inset-0 bg-[#6366f1] md:hidden" />
-        {/* Desktop gradient overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#5b5ff5_0%,#7b61ff_55%,#a78bfa_100%)] hidden md:block" />
+        <div className="absolute inset-0 bg-[#6366f1]" />
 
         <div className="relative flex items-center justify-between px-[16px] md:px-0 z-20 w-full h-full md:w-auto md:flex-row md:justify-start">
           <div className="flex items-center gap-2 md:gap-0">
@@ -90,8 +85,8 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
           </div>
 
           {/* Mobile Badge */}
-          <div 
-            className="md:hidden flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-1 rounded-[7px] py-[1.5px] px-[5px] bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(226,232,240,0.9))] border border-blue-500/15 shadow-[0_2px_6px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] text-[#1e3a8a] active:scale-95 active:translate-y-0"
+            <div 
+              className="md:hidden flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-1 rounded-[7px] py-[4px] px-[6px] bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(226,232,240,0.9))] border border-blue-500/15 shadow-[0_2px_6px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] text-[#1e3a8a] active:scale-95 active:translate-y-0"
             style={{ lineHeight: '1.2' }}
           >
             <span className="font-bold uppercase tracking-[0.2px] text-[12px]">{MONTHS[month]?.substring(0, 3)}</span>
@@ -101,7 +96,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
 
         {/* Desktop Badge */}
         <div className="hidden md:flex relative z-20 items-center gap-[10px] min-h-[42px] bg-[rgba(255,255,255,0.14)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.16)] rounded-[18px] p-[10px_18px]">
-           <span className="text-[14px] font-[700] text-[#ffffff] tracking-[0.2px] uppercase">{MONTHS[month]?.substring(0, 3)} {year}</span>
+           <span className="text-[15px] font-[700] text-[#ffffff] tracking-[0.2px] uppercase">{MONTHS[month]?.substring(0, 3)} {year}</span>
         </div>
       </div>
 
