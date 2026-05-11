@@ -803,11 +803,11 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 </div>
 
                                                 {/* COLUNA 2: CONTEÚDO */}
-                                                <div className="col-start-2 row-start-1 flex items-start justify-between md:justify-start gap-1.5 md:gap-2 -ml-1 md:ml-0 overflow-hidden pr-10 md:pr-0">
+                                                <div className="col-start-2 row-start-1 flex items-start justify-between md:justify-start gap-1.5 md:gap-2 -ml-1 md:ml-0 md:-translate-y-[8px] overflow-hidden pr-10 md:pr-0">
                                                     <div className="flex items-center gap-2 md:gap-2.5 overflow-hidden">
                                                         {!isEventSpecial && (
-                                                            <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0 shadow-sm">
-                                                                <span className="text-[14px] md:text-[16px] leading-none drop-shadow-sm emoji-desktop-colorful">{emoji}</span>
+                                                            <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0 shadow-sm">
+                                                                <span className="text-[14px] md:text-[20px] leading-none drop-shadow-sm emoji-desktop-colorful">{emoji}</span>
                                                             </div>
                                                         )}
                                                         <span className={cn("text-[14px] md:text-[16px] font-bold text-slate-900 uppercase tracking-tight whitespace-normal break-words leading-tight")}>
@@ -815,22 +815,22 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 -ml-1 md:ml-0 pr-10 md:pr-0">
+                                                <div className="col-start-2 row-start-2 flex items-center gap-x-1.5 md:gap-x-2 -ml-1 md:ml-0 md:-translate-y-[4px] pr-10 md:pr-0">
                                                     <div className="flex items-center gap-2 md:gap-2.5 overflow-hidden">
                                                         {!isEventSpecial && (
-                                                            <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
-                                                                <CalendarDays className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] text-blue-500/80" />
+                                                            <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
+                                                                <CalendarDays className="w-[12px] h-[12px] md:w-[17px] md:h-[17px] text-blue-500/80" />
                                                             </div>
                                                         )}
                                                         <span className={cn(
-                                                            "text-[12px] md:text-[clamp(13px,0.9vw,14px)] font-bold text-slate-800 flex items-center gap-x-1 flex-nowrap", 
+                                                            "text-[12px] md:text-[15.5px] font-bold text-slate-800 flex items-center gap-x-1 flex-nowrap", 
                                                             "whitespace-nowrap truncate"
                                                         )}>
                                                             <span>{renderPeriod()}</span>
                                                             {timeStr ? (
                                                                 <span className="inline-flex items-center gap-[6px] shrink-0 ml-1 md:ml-2">
-                                                                    <div className="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
-                                                                        <span className="text-[11px] md:text-[13px] leading-none saturate-150 drop-shadow-sm emoji-desktop-colorful">🕗</span>
+                                                                    <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px] rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
+                                                                        <span className="text-[11px] md:text-[16px] leading-none saturate-150 drop-shadow-sm emoji-desktop-colorful">🕗</span>
                                                                     </div>
                                                                     <span className="text-[12px] md:text-[14px] font-bold text-slate-800">{timeStr}</span>
                                                                 </span>
@@ -845,12 +845,12 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                         </span>
                                                     )}
                                                 </div>
-                                                <div className="col-start-2 row-start-3 flex flex-wrap items-center gap-x-2 gap-y-0.5 -ml-1 md:ml-0 mt-0.5">
+                                                <div className="col-start-2 row-start-3 md:col-span-2 flex flex-wrap items-center gap-x-2 gap-y-0.5 -ml-1 md:ml-0 mt-0.5">
                                                     {/* Duração agora está na Linha 2 no mobile */}
                                                     
                                                     {agenda.observacao && (
                                                         <div className={cn(
-                                                            "italic text-[9.5px] text-slate-700 leading-tight break-words",
+                                                            "italic text-[9.5px] text-slate-700 leading-tight break-words line-clamp-2 overflow-hidden",
                                                             isEventSpecial ? "md:text-[12px]" : "md:text-[10.5px]"
                                                         )}>
                                                             "{agenda.observacao}"
@@ -859,20 +859,20 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 </div>
 
                                                 {/* COLUNA 3: STATUS / DURAÇÃO (DESKTOP APENAS) */}
-                                                <div className="hidden md:block col-start-3 row-start-1 justify-self-end py-0.5">
+                                                <div className="hidden md:block col-start-3 row-start-1 justify-self-end py-0.5 md:-translate-y-[8px]">
                                                     {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && (() => {
                                                         const statusKey = (agenda.status || 'pendente').toLowerCase();
                                                         const style = STATUS_STYLES[statusKey] || STATUS_STYLES.pendente;
                                                         return (
-                                                            <span className={cn("px-1 md:px-2 py-0.5 rounded-full text-[8.5px] md:text-[9.5px] font-bold uppercase tracking-tight shadow-sm border leading-none block text-center min-w-[60px]", style.className)}>
+                                                            <span className={cn("px-1 md:px-2 py-0.5 rounded-full text-[8.5px] md:text-[11px] font-bold uppercase tracking-tight shadow-sm border leading-none block text-center min-w-[60px]", style.className)}>
                                                                 {style.label}
                                                             </span>
                                                         );
                                                     })()}
                                                 </div>
-                                                <div className="hidden md:flex col-start-3 row-start-2 justify-self-end flex items-center">
+                                                <div className="hidden md:flex col-start-3 row-start-2 justify-self-end items-center md:-translate-y-[4px]">
                                                     {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && agenda.totalDias > 1 && (
-                                                        <span className="text-[10px] md:text-[clamp(11.5px,0.85vw,12.5px)] font-black text-blue-700 whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                                                        <span className="text-[10px] md:text-[14.5px] font-bold text-blue-700 whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                                                             {agenda.totalDias} dias
                                                         </span>
                                                     )}
