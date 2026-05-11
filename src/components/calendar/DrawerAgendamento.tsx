@@ -341,18 +341,18 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                         variant === 'modal' ? "px-0" : "px-3.5 md:px-6"
                     )}>
                         {(!modoEdicao && mode !== 'create' && variant !== 'modal') ? (
-                            <div className="w-8 h-8 md:w-[44px] md:h-[44px] bg-white/20 backdrop-blur-md rounded-full md:rounded-xl flex items-center justify-center shrink-0 border border-white/10 md:border-white/30 shadow-sm md:shadow-lg">
-                                <ClipboardList className="w-[18px] h-[18px] md:w-7 md:h-7 text-white drop-shadow-sm" />
+                            <div className="w-8 h-8 md:w-[44px] md:h-[44px] bg-white rounded-full md:rounded-xl flex items-center justify-center shrink-0 shadow-sm md:shadow-lg">
+                                <ClipboardList className="w-[18px] h-[18px] md:w-7 md:h-7 text-[#3b82f6] drop-shadow-sm" />
                             </div>
                         ) : (
                             <div className={cn(
-                                "flex items-center justify-center rounded-full md:rounded-xl shrink-0 transition-all duration-300 shadow-sm md:shadow-lg border",
+                                "flex items-center justify-center rounded-full md:rounded-xl shrink-0 transition-all duration-300 shadow-sm md:shadow-lg",
                                 variant === 'modal'
-                                    ? "w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-50 to-blue-200 border-blue-200/80"
-                                    : "w-8 h-8 md:w-[44px] md:h-[44px] bg-white/20 backdrop-blur-md border-white/10 md:border-white/30"
+                                    ? "w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-50 to-blue-200 border-2 border-blue-200/80"
+                                    : "w-8 h-8 md:w-[44px] md:h-[44px] bg-white"
                             )}>
                                 <SquarePen className={cn(
-                                    "w-[18px] h-[18px] md:w-7 md:h-7 text-white drop-shadow-sm",
+                                    "w-[18px] h-[18px] md:w-7 md:h-7 text-[#3b82f6] drop-shadow-sm",
                                     variant === 'modal' ? "text-blue-600" : ""
                                 )} />
                             </div>

@@ -62,8 +62,8 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                     <div className="flex items-center">
                         {/* Mobile Header Modernizado */}
                         <div className="flex md:hidden items-center gap-2.5">
-                            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/10 shadow-sm">
-                                <ClipboardList className="w-[18px] h-[18px] text-white" />
+                            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                <ClipboardList className="w-[18px] h-[18px] text-[#3b82f6]" />
                             </div>
                             <h4 className="font-bold text-white text-[14px] uppercase tracking-[0.8px]">
                                 AGENDAMENTOS
@@ -72,8 +72,8 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
 
                         {/* Desktop Header Premium */}
                         <div className="hidden md:flex items-center">
-                            <div className="w-[54px] h-[54px] rounded-full bg-[rgba(255,255,255,0.12)] backdrop-blur-[10px] flex items-center justify-center text-[26px] text-[#ffffff] shrink-0 border border-white/10 shadow-sm">
-                                <ClipboardList className="w-[26px] h-[26px] text-white" />
+                            <div className="w-[54px] h-[54px] rounded-full bg-white flex items-center justify-center text-[26px] shrink-0 shadow-sm">
+                                <ClipboardList className="w-[26px] h-[26px] text-[#3b82f6]" />
                             </div>
                             <div className="flex flex-col ml-4">
                                 <span className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase">Agendamentos</span>
