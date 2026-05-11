@@ -84,20 +84,18 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
             </div>
           </div>
 
-          {/* Mobile Badge */}
-            <div 
-              className="md:hidden flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-1 rounded-[7px] py-[4px] px-[6px] bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(226,232,240,0.9))] border border-blue-500/15 shadow-[0_2px_6px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] text-[#1e3a8a] active:scale-95 active:translate-y-0"
+          {/* Unified Badge: Month and Year */}
+          <div 
+            className={cn(
+              "flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
+              "rounded-[16px] px-[16px] py-[8px] backdrop-blur-[10px] bg-[rgba(255,255,255,0.16)] text-[#ffffff] border border-[rgba(255,255,255,0.14)]",
+              "active:scale-95 active:translate-y-0"
+            )}
             style={{ lineHeight: '1.2' }}
           >
-            <span className="font-bold uppercase tracking-[0.2px] text-[12px]">{MONTHS[month]?.substring(0, 3)}</span>
-            <span className="font-bold text-[12px] text-red-700/95">/{year}</span>
+            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
           </div>
-        </div>
-
-        {/* Desktop Badge */}
-        <div className="hidden md:flex relative z-20 items-center gap-[10px] min-h-[42px] bg-[rgba(255,255,255,0.14)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.16)] rounded-[18px] p-[10px_18px]">
-           <span className="text-[15px] font-[700] text-[#ffffff] tracking-[0.2px] uppercase">{MONTHS[month]?.substring(0, 3)} {year}</span>
-        </div>
+      </div>
       </div>
 
       {/* MOBILE FASES CONTAINER (Inalterado) */}

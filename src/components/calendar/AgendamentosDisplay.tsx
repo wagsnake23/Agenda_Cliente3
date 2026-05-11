@@ -81,16 +81,14 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
 
                     <div
                         className={cn(
-                            "flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-1",
-                            "rounded-[14px] px-[10px] py-[5px] backdrop-blur-[10px] bg-white/18 text-white", // Mobile
-                            "md:rounded-[16px] md:px-[16px] md:py-[8px] md:backdrop-blur-[10px] md:bg-[rgba(255,255,255,0.16)] md:text-[#ffffff] md:border md:border-[rgba(255,255,255,0.14)] md:min-h-[38px] md:shadow-none", // Desktop
+                            "flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
+                            "rounded-[16px] px-[16px] py-[8px] backdrop-blur-[10px] bg-[rgba(255,255,255,0.16)] text-[#ffffff] border border-[rgba(255,255,255,0.14)]",
                             "active:scale-95 active:translate-y-0"
                         )}
                         style={{ lineHeight: '1.2' }}
                     >
-                        <CalendarDays className="w-[16px] h-[16px] text-white hidden md:hidden" />
-                        <span className="font-bold uppercase tracking-[0.2px] text-white md:text-[#ffffff] text-[12px] md:text-[15px] md:font-[700] md:tracking-[0.2px]">{MONTHS[month]?.substring(0, 3)} <span className="md:inline hidden">{year}</span></span>
-                        <span className="font-bold text-[12px] md:text-[13px] text-white/90 md:hidden">/{year}</span>
+                        <CalendarDays className="w-[16px] h-[16px] text-white hidden" />
+                        <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
                     </div>
                 </div>
             </div>
