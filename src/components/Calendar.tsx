@@ -740,10 +740,10 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
 
           {viewMode === 'mensal' && (
             <div className="max-w-[1600px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 pb-2 lg:pb-16">
-              <div className="flex flex-col lg:flex-row gap-3 lg:gap-8 items-stretch">
+              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 lg:gap-[24px] items-stretch">
                 {/* 1º - Agendamentos */}
                 <div className={cn(
-                  "w-full lg:flex-1 lg:min-w-[370px] order-1 lg:order-1 flex flex-col gap-3",
+                  "w-full lg:flex-1 lg:min-w-[30%] order-1 flex flex-col",
                   !hasAgendamentos && "hidden md:flex"
                 )}>
                   <AgendamentosDisplay
@@ -755,19 +755,19 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
                   />
                 </div>
 
-                {/* 2º e 3º - Feriados e Fases da Lua */}
-                <div className="contents lg:flex lg:w-full lg:flex-1 lg:min-w-[370px] lg:flex-col lg:order-2 lg:gap-8 gap-3">
-                  <div className={`w-full flex-1 order-2 lg:order-none ${filteredHolidayMessages.length === 0 ? 'hidden md:block' : ''}`}>
-                    <HolidayMessages messages={filteredHolidayMessages} highlightedDay={highlightedDay} month={month} year={year} />
-                  </div>
-                  <div className="w-full order-4 lg:order-none">
-                    <MoonPhasesDisplay moonPhases={moonPhases} month={month} year={year} />
-                  </div>
+                {/* 2º - Feriados e Datas */}
+                <div className={`w-full lg:flex-1 lg:min-w-[30%] order-2 flex flex-col ${filteredHolidayMessages.length === 0 ? 'hidden md:flex' : 'flex'}`}>
+                  <HolidayMessages messages={filteredHolidayMessages} highlightedDay={highlightedDay} month={month} year={year} />
                 </div>
 
-                {/* 4º - Aniversariantes */}
-                <div className="w-full lg:flex-1 lg:min-w-[370px] order-3 lg:order-3">
+                {/* 3º - Aniversariantes */}
+                <div className="w-full lg:flex-1 lg:min-w-[30%] order-3 flex flex-col">
                   <BirthdayMessages month={month} year={year} highlightedDay={highlightedDay} calendarEvents={calendarEvents} />
+                </div>
+
+                {/* 4º - Fases da Lua */}
+                <div className="w-full order-4 lg:mt-2 flex flex-col">
+                  <MoonPhasesDisplay moonPhases={moonPhases} month={month} year={year} />
                 </div>
               </div>
             </div>

@@ -57,7 +57,7 @@ const Index = () => {
 
   return (
     <>
-    <div className="min-h-screen flex flex-col bg-transparent">
+    <div className="min-h-screen flex flex-col bg-[#f4f7fb] md:bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)]">
       <div className="flex-1 flex flex-col items-stretch justify-start px-4 py-2 lg:p-0 gap-y-2 overflow-x-hidden">
         <Header />
 
