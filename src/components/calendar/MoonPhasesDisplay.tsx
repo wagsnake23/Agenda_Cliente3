@@ -22,7 +22,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
     <div className={cn(
       "relative z-10 min-h-[44px] h-full flex flex-col transition-all duration-300",
       "bg-[#ffffff] rounded-2xl shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-slate-200/60 overflow-hidden",
-      "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.65)] md:shadow-[0_6px_22px_rgba(15,23,42,0.05)] md:transition-all md:duration-[200ms] md:ease-out md:hover:-translate-y-[2px] md:hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)]"
+      "md:bg-[#ffffff] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.65)] md:shadow-[0_6px_22px_rgba(15,23,42,0.05)] md:transition-all md:duration-[200ms] md:ease-out"
     )}>
       {/* Highlight de topo sutil */}
       <div 
@@ -51,20 +51,20 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
             className={cn(
               "flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-1",
               "rounded-[7px] py-[1.5px] px-[5px] bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(226,232,240,0.9))] border border-blue-500/15 shadow-[0_2px_6px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] text-[#1e3a8a]", // Mobile
-              "md:rounded-[16px] md:px-[16px] md:py-[8px] md:backdrop-blur-[10px] md:bg-[rgba(255,255,255,0.16)] md:text-[#ffffff] md:border md:border-[rgba(255,255,255,0.14)] md:min-h-[38px] md:shadow-none", // Desktop
+              "md:rounded-[16px] md:px-[16px] md:py-[8px] md:backdrop-blur-[10px] md:bg-[rgba(255,255,255,0.85)] md:text-[#5a5eb0] md:border md:border-[rgba(255,255,255,0.4)] md:min-h-[38px] md:shadow-none", // Desktop
               "active:scale-95 active:translate-y-0"
             )}
             style={{ lineHeight: '1.2' }}
           >
             <CalendarDays className="w-[16px] h-[16px] text-white hidden md:hidden" />
-            <span className="font-bold uppercase tracking-[0.2px] text-[12px] md:text-[13px] md:text-[#ffffff] md:font-[700] md:tracking-[0.2px]">{MONTHS[month]?.substring(0, 3)} <span className="md:inline hidden">{year}</span></span>
+            <span className="font-bold uppercase tracking-[0.2px] text-[12px] md:text-[13px] md:text-[#5a5eb0] md:font-[700] md:tracking-[0.2px]">{MONTHS[month]?.substring(0, 3)} <span className="md:inline hidden">{year}</span></span>
             <span className="font-bold text-[12px] md:text-[13px] text-red-700/95 md:hidden">/{year}</span>
           </div>
         </div>
       </div>
 
 
-      <div className="px-1.5 md:px-[28px] pt-[5px] md:pt-[28px] pb-1 md:pb-[28px] flex flex-col justify-center items-center flex-1 w-full bg-transparent md:bg-[#ffffff] rounded-b-2xl md:rounded-b-[22px]">
+      <div className="px-1.5 md:px-[22px] pt-[5px] md:pt-[24px] pb-1 md:pb-[24px] flex flex-col justify-center items-center flex-1 w-full bg-transparent md:bg-[#ffffff] rounded-b-2xl md:rounded-b-[22px]">
         <div className="flex flex-row justify-between md:justify-around items-center w-full gap-1 md:gap-[16px]">
           {moonPhases.map((phase, index) => {
             const monthAbbr = (MONTHS[month] || 'Mês').substring(0, 3);
@@ -73,7 +73,10 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
             return (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center transition-all duration-200 flex-1 min-w-0 md:min-w-[120px] cursor-pointer group md:gap-[10px]"
+                className={cn(
+                  "flex flex-col items-center justify-center transition-all duration-200 flex-1 min-w-0 md:min-w-[120px] cursor-pointer group md:gap-[10px]",
+                  "md:min-h-[140px] md:p-[16px_12px] md:rounded-[18px] md:border md:border-[rgba(226,232,240,0.55)] md:bg-[#fcfcfd] md:shadow-[0_2px_10px_rgba(15,23,42,0.035)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.06)] md:active:shadow-sm md:active:scale-[0.98]"
+                )}
               >
                 <span className="text-xl md:text-[42px] mb-1 md:mb-0 drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)] filter saturate-[1.3] brightness-[1.05] transition-all duration-200 group-hover:scale-110 leading-none">
                   {phase.phaseIcon}
