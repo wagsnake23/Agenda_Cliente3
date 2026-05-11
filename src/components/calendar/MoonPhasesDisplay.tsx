@@ -60,7 +60,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
         {/* Mobile gradient overlay */}
         <div className="absolute inset-0 bg-[#6366f1]" />
 
-        <div className="relative flex items-center justify-between px-[16px] md:px-0 z-20 w-full h-full md:w-auto md:flex-row md:justify-start">
+        <div className="relative flex items-center justify-between px-[16px] md:px-0 z-20 w-full h-full md:flex-row">
           <div className="flex items-center gap-2 md:gap-0">
             {/* Mobile Header Modernizado */}
             <div className="flex md:hidden items-center gap-2.5">
