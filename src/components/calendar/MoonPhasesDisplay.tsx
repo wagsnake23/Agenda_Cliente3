@@ -99,8 +99,8 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       </div>
 
       {/* MOBILE FASES CONTAINER (Inalterado) */}
-      <div className="md:hidden px-1.5 pt-[20px] pb-[20px] flex flex-col justify-center items-center flex-1 w-full bg-transparent rounded-b-2xl">
-        <div className="flex flex-row justify-between items-center w-full gap-1">
+      <div className="md:hidden px-0.5 pt-[20px] pb-[20px] flex flex-col justify-center items-center flex-1 w-full bg-transparent rounded-b-2xl">
+        <div className="flex flex-row justify-between items-center w-full gap-0.5">
           {moonPhases.map((phase, index) => {
             const monthAbbr = (MONTHS[month] || 'Mês').substring(0, 3);
             const formattedMonth = monthAbbr.charAt(0).toUpperCase() + monthAbbr.slice(1).toLowerCase();
@@ -110,10 +110,10 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
                 <span className="text-xl mb-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)] filter saturate-[1.3] brightness-[1.05] transition-all duration-200 group-hover:scale-110 leading-none">
                   {phase.phaseIcon}
                 </span>
-                <span className="text-[10px] font-semibold text-[#1F2937] text-center leading-tight uppercase tracking-tighter opacity-90 truncate w-full px-0.5">
+                <span className="text-[10px] font-semibold text-[#1F2937] text-center leading-tight uppercase tracking-tighter opacity-90 w-full px-0.5">
                   {getFullPhaseName(phase.phaseName).replace('Lua ', '')}
                 </span>
-                <div className="flex flex-row mt-0.5 items-center justify-center bg-transparent text-[#6366f1] text-[9px] leading-none shrink-0 border-none shadow-none">
+                <div className="flex flex-row mt-1 items-center justify-center bg-transparent text-[#6366f1] text-[11px] leading-none shrink-0 border-none shadow-none">
                   <span className="font-bold uppercase tracking-tight">{String(phase.date).padStart(2, '0')}</span>
                   <span className="font-bold opacity-80 ml-[1px] uppercase">/ {formattedMonth}</span>
                 </div>
