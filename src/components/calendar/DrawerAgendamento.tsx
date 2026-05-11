@@ -365,7 +365,16 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                 ) : mode === 'create' ? (
                                     <span>Novo</span>
                                 ) : (
-                                    <span>Agendamentos</span>
+                                    <span>
+                                        {initialDate ? (() => {
+                                            const d = new Date(initialDate + 'T12:00:00');
+                                            const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+                                            const dia = String(d.getDate()).padStart(2, '0');
+                                            const mes = monthsAbbr[d.getMonth()];
+                                            const ano = d.getFullYear();
+                                            return `Agendamentos do dia ${dia}${mes}${ano}`;
+                                        })() : 'Agendamentos do dia'}
+                                    </span>
                                 )}
                             </h2>
                             {(modoEdicao && agendamentoEditando?.createdAt) && (
@@ -376,26 +385,8 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                         </div>
                     </div>
 
-                    {/* Badge de Data ou Botão de Fechar */}
+                    {/* Botão de Fechar */}
                     <div className="flex items-center gap-2.5 mr-3.5 md:mr-6 relative z-10">
-                        {(!modoEdicao && mode !== 'create' && initialDate && variant !== 'modal') && (
-                            <div className="flex items-center gap-2 bg-white/15 backdrop-blur-md px-2.5 py-1.5 md:px-3 md:py-2 rounded-xl border border-white/20 shadow-inner">
-                                <CalendarDays className="w-3.5 h-3.5 md:w-4 md:h-4 text-white/90" />
-                                <div className="flex flex-col leading-none">
-                                    {(() => {
-                                        const d = new Date(initialDate + 'T12:00:00');
-                                        const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
-                                        return (
-                                            <>
-                                                <span className="text-[10px] md:text-[12px] font-bold text-white tracking-wider">{String(d.getDate()).padStart(2, '0')} {monthsAbbr[d.getMonth()]}</span>
-                                                <span className="text-[8px] md:text-[9px] font-medium text-white/80">{d.getFullYear()}</span>
-                                            </>
-                                        );
-                                    })()}
-                                </div>
-                            </div>
-                        )}
-
                         <button
                             onClick={() => {
                                 if (variant === 'modal' || !modoEdicao) {
@@ -732,10 +723,10 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                             id={`agendamento-${agenda.id}`}
                                             onClick={handleCardClick}
                                             className={cn(
-                                                "p-1 md:pt-3 md:pb-1.5 md:px-1.5 rounded-2xl border overflow-hidden bg-gradient-to-br from-[#ebf4ff] via-[#f0f7ff] to-[#e1effe] hover:from-[#e1effe] hover:to-[#ebf4ff] transition-all duration-300 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.03),0_2px_4px_-2px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] group relative cursor-pointer",
+                                                "p-1 md:pt-3 md:pb-1.5 md:px-1.5 rounded-2xl border border-slate-200/80 overflow-hidden bg-[#F8FAFC] transition-all duration-300 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.02),0_2px_4px_-2px_rgba(0,0,0,0.02),inset_0_1.5px_3px_rgba(0,0,0,0.04)] group relative cursor-pointer",
                                                 isSelected
-                                                    ? "border-blue-500 shadow-lg scale-[1.01] md:scale-[1.02]"
-                                                    : "border-white/60 hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05),0_8px_10px_-6px_rgba(0,0,0,0.05),inset_0_2px_4px_rgba(255,255,255,1)]"
+                                                    ? "border-blue-500 shadow-lg scale-[1.01] md:scale-[1.02] bg-blue-50/50"
+                                                    : "hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05),inset_0_2px_4px_rgba(0,0,0,0.02)] hover:border-slate-300/50"
                                             )}
                                         >
                                             {/* Menu Mobile Dropdown (Posicionamento absoluto no card) */}
