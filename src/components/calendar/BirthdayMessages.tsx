@@ -109,7 +109,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                       <div className={cn(
                         "flex flex-col items-center justify-center bg-[rgba(245,158,11,0.10)] md:bg-[rgba(245,158,11,0.10)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[50px] w-[50px] h-[50px] md:min-w-[68px] md:w-[68px] md:h-[68px] md:flex-col md:border-none md:shadow-none shrink-0"
                       )}>
-                        <span className="font-[800] text-[18px] md:text-[30px] text-[#f59e0b] md:text-[#f59e0b] leading-[1] md:leading-[1] tracking-tight md:font-[800] uppercase md:uppercase">{String(data.day).padStart(2, '0')}</span>
+                        <span className="font-[800] text-[18px] md:text-[28px] text-[#f59e0b] md:text-[#f59e0b] leading-[1] md:leading-[1] tracking-tight md:font-[800] uppercase md:uppercase">{String(data.day).padStart(2, '0')}</span>
                         <span className="font-[700] text-[9px] md:text-[12px] text-[#f59e0b] md:text-[#f59e0b] md:opacity-[0.82] mt-[1px] md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]">{formattedMonth}</span>
                       </div>
 

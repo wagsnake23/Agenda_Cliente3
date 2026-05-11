@@ -105,7 +105,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                       <div className={cn(
                         "flex flex-col items-center justify-center bg-[rgba(239,68,68,0.08)] md:bg-[rgba(239,68,68,0.08)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[50px] w-[50px] h-[50px] md:min-w-[68px] md:w-[68px] md:h-[68px] md:flex-col md:border-none md:shadow-none shrink-0"
                       )}>
-                        <span className="font-[800] text-[18px] md:text-[30px] text-[#ef4444] md:text-[#ef4444] leading-[1] md:leading-[1] tracking-tight md:font-[800] uppercase md:uppercase">{String(day).padStart(2, '0')}</span>
+                        <span className="font-[800] text-[18px] md:text-[28px] text-[#ef4444] md:text-[#ef4444] leading-[1] md:leading-[1] tracking-tight md:font-[800] uppercase md:uppercase">{String(day).padStart(2, '0')}</span>
                         <span className="font-[700] text-[9px] md:text-[12px] text-[#ef4444] md:text-[#ef4444] md:opacity-[0.82] mt-[1px] md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]">{formattedMonth}</span>
                       </div>
 
