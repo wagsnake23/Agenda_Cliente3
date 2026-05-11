@@ -41,7 +41,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
         <div
             className={cn(
                 "relative z-10 min-h-[100px] h-full flex flex-col transition-all duration-300",
-                "bg-[#ffffff] rounded-[20px] shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-[#e2e8f0]/70 overflow-hidden",
+                "bg-[#ffffff] rounded-2xl shadow-[0_2px_10px_rgba(15,23,42,0.04)] border border-[#e2e8f0]/70 overflow-hidden",
                 "md:bg-[#ffffff] md:rounded-[26px] md:border md:border-[rgba(226,232,240,0.7)] md:shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:overflow-hidden md:transition-all md:duration-[220ms] md:ease-out md:hover:-translate-y-[2px] md:hover:shadow-[0_14px_40px_rgba(15,23,42,0.08)]",
                 isEmpty ? "hidden md:flex" : "flex"
             )}
@@ -52,7 +52,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)' }}
             />
             <div
-                className="relative w-full h-[60px] md:h-[72px] flex items-center rounded-t-[20px] md:rounded-t-[26px] overflow-hidden"
+                className="relative w-full h-[60px] md:h-[72px] flex items-center rounded-t-2xl md:rounded-t-[26px] overflow-hidden"
             >
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/90 to-[#60a5fa]/90 md:from-[#1976d2] md:to-[#42a5f5]" />
@@ -81,7 +81,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 </div>
             </div>
 
-            <div className="p-[14px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-[#ffffff] rounded-b-[20px] md:rounded-b-[26px]">
+            <div className="p-[14px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-[#ffffff] rounded-b-2xl md:rounded-b-[26px]">
                 {isEmpty ? (
                     <div className="flex flex-col items-start justify-start pt-3 pb-4 gap-1 px-1">
                         <div className="flex items-center gap-2.5 opacity-60">
@@ -92,7 +92,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                         </div>
                     </div>
                 ) : (
-                    <div className="flex flex-col gap-[12px] md:gap-[16px] relative md:before:hidden w-full pt-1 md:pt-0">
+                    <div className="flex flex-col gap-[10px] md:gap-[16px] relative md:before:hidden w-full pt-1 md:pt-0">
                         {currentMonthAgendamentos.map((agendamento, index) => {
                             const isHighlighted = highlightedDay !== null && (() => {
                                 const hoverDate = new Date(year, month, highlightedDay, 12, 0, 0);
