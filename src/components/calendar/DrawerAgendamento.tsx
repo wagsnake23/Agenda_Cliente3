@@ -785,7 +785,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 </div>
                                             )}
 
-                                            <div className="grid grid-rows-[auto_auto_auto] grid-cols-[65px_1fr] md:grid-cols-[80px_1fr_auto_50px] gap-x-2 md:gap-x-3.5 gap-y-0.5 md:gap-y-1 items-center relative">
+                                            <div className="grid grid-rows-[auto_auto_auto] grid-cols-[65px_1fr] md:grid-cols-[80px_1fr_auto_70px] gap-x-2 md:gap-x-3.5 gap-y-0.5 md:gap-y-1 items-center relative">
                                                 {/* COLUNA 1: USUÁRIO */}
                                                 <div className="col-start-1 row-start-1 row-span-3 flex flex-col items-center justify-center gap-1 md:gap-1.5 self-stretch my-0.5 -ml-1 md:ml-0">
                                                     <div className="w-[56px] h-[56px] md:w-[80px] md:h-[80px] -translate-y-[2px] md:-translate-y-[8px] rounded-xl overflow-hidden bg-slate-100 border-2 border-white shadow-sm shrink-0">
@@ -878,9 +878,10 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                     )}
                                                 </div>
 
-                                                {/* COLUNA 4: AÇÕES VERTICAL (DESKTOP) */}
+                                                {/* COLUNA 4: AÇÕES VERTICAL PREMIUM (DESKTOP) */}
                                                 {profile && (agenda.userId === profile.id || profile.perfil === 'administrador') && (
-                                                    <div className="hidden md:flex col-start-4 row-start-1 row-span-3 self-stretch border-l border-slate-200/60 bg-[#ECF0F4] shadow-[inset_1px_0_2px_rgba(255,255,255,0.8)] -mt-1 -mb-1 -mr-1 md:-mt-3 md:-mb-1.5 md:-mr-1.5 flex-col items-center justify-center gap-0.5 md:gap-1 acoes rounded-r-2xl">
+                                                    <div className="hidden md:flex col-start-4 row-start-1 row-span-3 self-stretch border-l border-slate-200/60 bg-[#ECF0F4] shadow-[inset_1px_0_2px_rgba(255,255,255,0.8)] -mt-1 -mb-1 -mr-1 md:-mt-3 md:-mb-1.5 md:-mr-1.5 flex-col items-center justify-center gap-2.5 acoes rounded-r-2xl">
+                                                        {/* Botão Editar */}
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
@@ -891,23 +892,30 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                                     setAgendamentoEditando(agenda);
                                                                 }
                                                             }}
-                                                            className="w-8 h-8 md:w-11 md:h-11 flex items-center justify-center rounded-full text-blue-600 hover:text-blue-800 hover:bg-white/60 hover:shadow-sm transition-all group/btn drop-shadow-sm"
+                                                            className={cn(
+                                                                "w-[48px] h-[48px] flex items-center justify-center rounded-[14px] transition-all duration-200 group/edit",
+                                                                "bg-white/80 border border-blue-100 shadow-sm",
+                                                                "hover:bg-blue-50 hover:-translate-y-[1px] hover:shadow-md"
+                                                            )}
                                                             title="Editar"
                                                         >
-                                                            <SquarePen className="w-[18px] h-[18px] md:w-[22px] md:h-[22px] group-hover/btn:scale-110 transition-transform" />
+                                                            <SquarePen className="w-[20px] h-[20px] text-[#2563eb] stroke-[2.2] transition-transform group-hover/edit:scale-105" />
                                                         </button>
 
-                                                        <div className="w-[60%] h-[1px] bg-slate-300/30 my-0.5 shadow-[0_1px_0_rgba(255,255,255,0.7)]" />
-
+                                                        {/* Botão Excluir */}
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
                                                                 setConfirmDeleteId(agenda.id);
                                                             }}
-                                                            className="w-8 h-8 md:w-11 md:h-11 flex items-center justify-center rounded-full text-[#E53935] hover:text-[#C62828] hover:bg-white/60 hover:shadow-sm transition-all group/btn drop-shadow-sm"
+                                                            className={cn(
+                                                                "w-[48px] h-[48px] flex items-center justify-center rounded-[14px] transition-all duration-200 group/del",
+                                                                "bg-white/80 border border-red-100 shadow-sm",
+                                                                "hover:bg-red-50 hover:-translate-y-[1px] hover:shadow-md"
+                                                            )}
                                                             title="Excluir"
                                                         >
-                                                            <Trash2 className="w-[18px] h-[18px] md:w-[22px] md:h-[22px] group-hover/btn:scale-110 transition-transform" />
+                                                            <Trash2 className="w-[20px] h-[20px] text-[#ef4444] stroke-[2.2] transition-transform group-hover/del:scale-105" />
                                                         </button>
                                                     </div>
                                                 )}
