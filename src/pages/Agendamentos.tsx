@@ -513,7 +513,7 @@ const AgendamentosPage: React.FC = () => {
                                                     </div>
                                                 )}
                                                 <div>
-                                                    <p className="text-slate-700 text-sm font-bold">{ag.profiles?.nome || 'Usuário'}</p>
+                                                    <p className="text-slate-700 text-sm font-bold truncate max-w-[150px]">{ag.profiles?.apelido || (ag.profiles?.nome ? ag.profiles.nome.split(' ')[0] : 'Usuário')}</p>
                                                     <span className="text-slate-600 text-[13px] uppercase font-black tracking-tight">{ag.tipo_agendamento}</span>
                                                 </div>
                                             </div>
