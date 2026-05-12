@@ -301,7 +301,7 @@ const AdminCalendario: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-stretch justify-start px-4 py-2 lg:p-0 gap-y-2 overflow-x-hidden text-slate-800">
+        <div className="min-h-screen flex flex-col items-stretch justify-start px-4 pt-1 pb-2 lg:p-0 gap-y-2 overflow-x-hidden text-slate-800">
             <Header />
 
             <section className="w-full pt-0 lg:pt-[82px] pb-0 lg:pb-8 bg-transparent lg:premium-subheader-bg lg:border-t-[3px] lg:border-[#2563eb] lg:shadow-[0_12px_28px_rgba(0,0,0,0.08)] mb-6">

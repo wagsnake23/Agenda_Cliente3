@@ -252,7 +252,7 @@ const MeuPerfil: React.FC = () => {
         : 'U';
 
     return (
-        <div className="min-h-screen flex flex-col items-stretch justify-start px-4 py-2 lg:p-0 md:gap-y-2 overflow-x-hidden md:overflow-visible text-slate-800">
+        <div className="min-h-screen flex flex-col items-stretch justify-start px-4 pt-1 pb-2 lg:p-0 gap-y-2 overflow-x-hidden md:overflow-visible text-slate-800">
 
             {/* Cropper Modal */}
             {showCropper && rawImageSrc && (
