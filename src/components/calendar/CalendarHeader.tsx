@@ -208,7 +208,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                       "transition-all duration-200 cursor-pointer",
                       "rounded-[12px] outline-none border-none",
                       "bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white hover:brightness-110 flex items-center gap-2",
-                      "shadow-[0_4px_0_#0f172a,inset_0_1px_0_rgba(255,255,255,0.2)] active:translate-y-[4px] active:shadow-none"
+                      "shadow-[0_1px_0_#0f172a,inset_0_1px_0_rgba(255,255,255,0.2)] active:translate-y-[1px] active:shadow-none"
                     )}
                   >
                     <span>{getSeasonDataForDate(today.getMonth(), today.getDate()).emoji}</span>
