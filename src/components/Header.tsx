@@ -131,7 +131,7 @@ const Header = () => {
                 className="hidden lg:flex fixed top-0 w-full h-[76px] bg-[#243552] items-center z-[100] select-none border-b border-white/10"
                 style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 -1px 0 rgba(255,255,255,0.05)' }}
             >
-                <div className="w-full max-w-[1600px] mx-auto px-8 lg:px-[60px] flex items-center justify-between">
+                <div className="w-full max-w-[1400px] mx-auto px-8 flex items-center justify-between">
                     <div onClick={() => navigate('/')} className="flex items-center gap-[10px] cursor-pointer relative">
                         <img
                             src="/logo.png"

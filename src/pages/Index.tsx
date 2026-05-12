@@ -149,7 +149,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col items-stretch justify-start px-0 lg:p-0 pt-[125px] lg:pt-2 pb-0 lg:gap-y-2 overflow-x-hidden">
+      <div className="flex-1 flex flex-col items-stretch justify-start px-0 lg:p-0 pt-[121px] lg:pt-2 pb-0 lg:gap-y-2 overflow-x-hidden">
         
         {/* Desktop Header */}
         <div className="hidden lg:block">

@@ -11,7 +11,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
             "w-full mt-auto bg-gradient-to-b from-[#0F172A] to-[#111827] md:bg-none md:bg-[#0F172A] pt-[15px] pb-[15px] md:pt-[27px] md:pb-[43px] border-t border-white/[0.08] md:border-gray-800 shadow-2xl relative z-10",
             className
         )}>
-            <div className="w-full max-w-[1600px] mx-auto px-0 md:px-8">
+            <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8">
                 {/* ---------- MOBILE FOOTER ---------- */}
                 {/* ---------- MOBILE FOOTER ---------- */}
                 <div className="flex flex-col items-center justify-center w-full md:hidden px-4">

@@ -542,7 +542,7 @@ const Calendar = ({
           "lg:shadow-[0_12px_28px_rgba(0,0,0,0.08)]"
         )}
       >
-        <div className="w-full max-w-[1600px] mx-auto px-0 lg:px-[60px]">
+        <div className="w-full max-w-[1647px] mx-auto px-0 md:px-8">
           <CalendarHeader
             month={month}
             year={year}
@@ -566,7 +566,7 @@ const Calendar = ({
         </div>
       </section>
 
-      <div className="w-full max-w-[1600px] mx-auto px-0 md:px-[60px] relative md:mt-0 md:transition-transform md:duration-500 md:scale-[0.85] md:origin-top md:-mb-[7%]">
+      <div className="w-full max-w-[1647px] mx-auto px-0 md:px-8 relative md:mt-0 md:transition-transform md:duration-500 md:scale-[0.85] md:origin-top md:-mb-[7%]">
 
         {/* Mobile Flex Container para garantir 12px exatos de gap vertical entre os blocos (Card e Conteúdo) */}
         <div className="flex flex-col gap-3 lg:block w-full">
@@ -753,7 +753,7 @@ const Calendar = ({
           </div>
 
           {viewMode === 'mensal' && (
-            <div className="max-w-[1600px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 pb-2 lg:pb-16">
+            <div className="max-w-[1647px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 pb-2 lg:pb-16">
               <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 lg:gap-[24px] items-stretch">
                 {/* 1º - Agendamentos */}
                 <div className={cn(
