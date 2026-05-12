@@ -252,8 +252,7 @@ const MeuPerfil: React.FC = () => {
         : 'U';
 
     return (
-        <div className="min-h-screen flex flex-col items-stretch justify-start px-4 pt-1 pb-2 lg:p-0 gap-y-2 overflow-x-hidden md:overflow-visible text-slate-800">
-
+        <div className="min-h-screen flex flex-col items-stretch justify-start px-4 pt-0 pb-0 lg:p-0 gap-y-2 overflow-x-hidden md:overflow-visible text-slate-800 bg-[#f8faff] md:bg-transparent">
             {/* Cropper Modal */}
             {showCropper && rawImageSrc && (
                 <ImageCropperModal
@@ -263,8 +262,16 @@ const MeuPerfil: React.FC = () => {
                     uploading={uploadingPhoto}
                 />
             )}
-            {/* Header Global */}
-            <Header />
+            {/* Header Mobile Fixo */}
+            <div className="lg:hidden fixed top-0 left-0 right-0 z-[100] bg-[#f8faff] px-4 pt-1">
+                <Header />
+            </div>
+
+            <div className="flex-1 flex flex-col pt-[66px] lg:pt-0">
+                {/* Header Desktop */}
+                <div className="hidden lg:block">
+                    <Header />
+                </div>
 
             <section className="w-full pt-2 lg:pt-[82px] pb-0 lg:pb-8 bg-transparent lg:premium-subheader-bg lg:border-t-[3px] lg:border-[#2563eb] lg:shadow-[0_12px_28px_rgba(0,0,0,0.08)] mb-4 md:mb-6">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-0 sm:pt-6">
@@ -534,6 +541,7 @@ const MeuPerfil: React.FC = () => {
                         </div>
                     </form>
                 )}
+            </div>
             </div>
             {/* Footer exibido apenas em desktop */}
             <Footer className="hidden md:block" />

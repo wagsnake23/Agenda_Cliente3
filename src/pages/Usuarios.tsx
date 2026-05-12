@@ -475,8 +475,18 @@ const UsuariosPage: React.FC = () => {
         }
     };
     return (
-        <div className="min-h-screen flex flex-col items-stretch justify-start px-4 pt-1 pb-2 lg:p-0 gap-y-2 overflow-x-hidden text-slate-800">
-            <Header />
+        <div className="min-h-screen flex flex-col items-stretch justify-start px-4 pt-0 pb-0 lg:p-0 gap-y-2 overflow-x-hidden text-slate-800 bg-[#f8faff] md:bg-transparent">
+            {/* Header Mobile Fixo */}
+            <div className="lg:hidden fixed top-0 left-0 right-0 z-[100] bg-[#f8faff] px-4 pt-1">
+                <Header />
+            </div>
+
+            <div className="flex-1 flex flex-col pt-[66px] lg:pt-0">
+                {/* Header Desktop */}
+                <div className="hidden lg:block">
+                    <Header />
+                </div>
+
             <ConfirmDialog
                 open={!!confirmDelete}
                 onConfirm={() => confirmDelete && handleDelete(confirmDelete)}
@@ -688,6 +698,7 @@ const UsuariosPage: React.FC = () => {
                         </div>
                     </>
                 )}
+            </div>
             </div>
             {/* Footer exibido apenas em desktop */}
             <Footer className="hidden md:block" />
