@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         <img 
                             src="/logo.png" 
                             alt="Logo" 
-                            className="w-[43px] h-[43px] md:w-14 md:h-14 opacity-90 drop-shadow-md object-contain absolute left-4 md:relative md:left-auto mt-[5px] md:mt-0" 
+                            className="w-[43px] h-[43px] md:w-14 md:h-14 opacity-90 drop-shadow-md object-contain absolute left-4 md:relative md:left-auto mt-4 md:mt-0" 
                         />
                         <div className="flex flex-col items-center md:items-start">
                             <h3
