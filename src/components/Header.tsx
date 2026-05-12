@@ -132,34 +132,39 @@ const Header = () => {
                 style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 -1px 0 rgba(255,255,255,0.05)' }}
             >
                 <div className="w-full max-w-[1600px] mx-auto px-8 flex items-center justify-between">
-                    <div onClick={() => navigate('/')} className="flex items-center gap-4 cursor-pointer relative">
+                    <div onClick={() => navigate('/')} className="flex items-center gap-[10px] cursor-pointer relative">
                         <img
                             src="/logo.png"
                             alt="Logo Calendário"
-                            className="w-14 h-14 object-contain pointer-events-auto relative z-10 opacity-90 drop-shadow-md"
+                            className="w-[48px] h-[48px] object-contain pointer-events-auto relative z-10 opacity-90 drop-shadow-md"
                         />
-                        <h1
-                            className="font-bold text-base md:text-[1.35rem] tracking-tight uppercase whitespace-nowrap flex gap-2 leading-none pointer-events-auto select-none relative z-10 antialiased"
-                            style={{
-                                textShadow: `
-                                  0 1px 0 rgba(255,255,255,0.25),
-                                  0 2px 4px rgba(0,0,0,0.25),
-                                  0 6px 10px rgba(0,0,0,0.15)
-                                `
-                            }}
-                        >
-                            <span 
-                                style={{ 
-                                    background: 'linear-gradient(180deg, #FFFFFF 0%, #BAE6FD 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text',
-                                    color: 'transparent'
+                        <div className="flex flex-col justify-center pointer-events-auto select-none relative z-10 antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                            <h1
+                                style={{
+                                    fontSize: '25px',
+                                    fontWeight: 700,
+                                    color: '#FFFFFF',
+                                    letterSpacing: '-0.6px',
+                                    lineHeight: 1,
+                                    textShadow: '0 1px 1px rgba(0,0,0,0.35)'
                                 }}
                             >
-                                CALENDÁRIO AGENDA
+                                Agenda
+                            </h1>
+                            <span 
+                                style={{
+                                    fontSize: '11px',
+                                    fontWeight: 600,
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '2px',
+                                    color: '#BFD3EA',
+                                    marginTop: '4px',
+                                    lineHeight: 1
+                                }}
+                            >
+                                CALENDÁRIO INTELIGENTE
                             </span>
-                        </h1>
+                        </div>
                     </div>
 
                     {/* Área de Auth - Alinhada à Direita */}
