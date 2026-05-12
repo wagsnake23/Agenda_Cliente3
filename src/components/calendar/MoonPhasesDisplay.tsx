@@ -47,8 +47,8 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
   return (
     <div className={cn(
       "relative z-10 h-full flex flex-col transition-all duration-300",
-      "min-h-[54px] bg-[#ffffff] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/45 overflow-hidden",
-      "md:min-h-0 md:bg-[#ffffff] md:rounded-[24px] md:border md:border-[rgba(226,232,240,0.85)] md:shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:overflow-hidden md:transition-none"
+      "min-h-[54px] bg-[#f8fafc] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/45 overflow-hidden",
+      "md:min-h-0 md:bg-[#f8fafc] md:rounded-[24px] md:border md:border-[rgba(226,232,240,0.85)] md:shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:overflow-hidden md:transition-none"
     )}>
       {/* Highlight de topo sutil (Mobile apenas) */}
 
@@ -124,7 +124,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       </div>
 
       {/* DESKTOP FASES CONTAINER (Novo Layout Premium) */}
-      <div className="hidden md:flex flex-col bg-[#ffffff] rounded-b-[24px]">
+      <div className="hidden md:flex flex-col bg-transparent rounded-b-[24px]">
         <div className="relative flex flex-row items-stretch justify-between gap-[20px] p-[34px_34px_24px_34px]">
           {/* Timeline conectando as fases */}
           <div className="absolute top-[50%] left-[34px] right-[34px] h-[2px] z-0 -translate-y-1/2" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,.15), rgba(99,102,241,.35), rgba(99,102,241,.15))' }} />
@@ -145,7 +145,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
                   "flex-1 min-h-[250px] rounded-[24px] p-[24px_20px] flex flex-col items-center justify-between relative transition-all duration-[250ms] ease-out cursor-pointer",
                   isNextPhase 
                     ? "bg-[#ffffff] border-2 border-[rgba(99,102,241,0.32)] shadow-[0_16px_38px_rgba(99,102,241,0.12)] outline outline-[1px] outline-[rgba(99,102,241,0.08)] -translate-y-[4px] z-20 hover:-translate-y-[6px] hover:shadow-[0_22px_46px_rgba(99,102,241,0.18)]" 
-                    : "bg-[#fcfcfd] border border-[rgba(226,232,240,0.92)] shadow-[0_8px_24px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] z-10 hover:-translate-y-[4px] hover:shadow-[0_18px_40px_rgba(15,23,42,0.08),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)]"
+                    : "bg-[#ffffff] border border-[rgba(226,232,240,0.92)] shadow-[0_8px_24px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] z-10 hover:-translate-y-[4px] hover:shadow-[0_18px_40px_rgba(15,23,42,0.08),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)]"
                 )}
               >
                 {isNextPhase && (
