@@ -802,7 +802,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                             </div>
                                                         )}
                                                     </div>
-                                                    <span className="text-[13px] md:text-[18px] md:-mt-1.5 font-medium text-slate-700 leading-tight text-center break-words max-w-[60px] md:max-w-[75px] lowercase first-letter:uppercase">
+                                                    <span className="text-[12px] md:text-[16px] md:-mt-1.5 font-medium text-slate-700 leading-tight text-center break-words max-w-[60px] md:max-w-[75px] lowercase first-letter:uppercase">
                                                         {displayUserName}
                                                     </span>
                                                 </div>
