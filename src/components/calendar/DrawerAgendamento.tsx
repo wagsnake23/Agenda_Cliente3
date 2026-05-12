@@ -435,7 +435,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     <div className="grid grid-cols-[1fr_1fr_88px] md:flex md:flex-row gap-x-2 gap-y-2.5 md:gap-3.5 w-full mt-2 md:mt-3 items-start">
                                         {/* Data Inicial */}
                                         <div className="space-y-1.5 min-w-0 md:w-[120px]">
-                                            <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-700 block truncate leading-none transition-all">Data inicial</label>
+                                            <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-500 block truncate leading-none transition-all">Data inicial</label>
                                             <Input
                                                 type="text"
                                                 value={dataInicio ? format(parseISO(dataInicio), 'dd/MM/yyyy') : ''}
@@ -451,7 +451,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                                         {/* Data Final */}
                                         <div className="space-y-1.5 min-w-0 md:w-[120px]">
-                                            <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-700 ml-1 block truncate leading-none transition-all">Data final</label>
+                                            <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-500 ml-1 block truncate leading-none transition-all">Data final</label>
                                             <Input
                                                 type="text"
                                                 value={dataFim ? format(parseISO(dataFim), 'dd/MM/yyyy') : ''}
@@ -494,7 +494,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         {/* Campo Dias (Aparece ao lado das datas em Desktop) */}
                                         {totalDias > 1 && (
                                             <div className="hidden md:block space-y-1.5 w-[70px] shrink-0 animate-in fade-in zoom-in-95 duration-200">
-                                                <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-700 ml-1 block truncate leading-none">Dias</label>
+                                                <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-500 ml-1 block truncate leading-none">Dias</label>
                                                 <div className="h-10 md:h-11 rounded-xl bg-blue-50/40 border border-blue-100 flex items-center justify-center shadow-sm">
                                                     <span className="text-blue-700 font-extrabold text-sm">{totalDias}</span>
                                                 </div>
@@ -509,7 +509,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                             "md:flex-1 space-y-1 transition-all duration-300",
                                             totalDias > 1 ? "col-span-2" : "col-span-3"
                                         )}>
-                                            <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-700 ml-1 block transition-all">Tipo de agendamento</label>
+                                            <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-500 ml-1 block transition-all">Tipo de agendamento</label>
                                             <Select value={tipo} onValueChange={setTipo}>
                                                 <SelectTrigger className={cn(
                                                     "h-10 md:h-11 rounded-xl border-slate-200/60 focus:border-blue-500 focus:ring-blue-500 transition-all font-medium text-black bg-[#F8FAFC] shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.05)]",
@@ -535,7 +535,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         {/* Campo Dias no Mobile (Ao lado do Tipo) */}
                                         {totalDias > 1 && (
                                             <div className="flex md:hidden flex-col items-center justify-center space-y-1 w-[88px] shrink-0 animate-in fade-in zoom-in-95 duration-200">
-                                                <label className="text-[12.5px] font-semibold text-slate-700 block truncate">Qtde. dias</label>
+                                                <label className="text-[12.5px] font-semibold text-slate-500 block truncate">Qtde. dias</label>
                                                 <div className="h-10 w-full rounded-xl bg-blue-50/40 border border-blue-100 flex items-center justify-center shadow-sm">
                                                     <span className="text-blue-700 font-extrabold text-sm">{totalDias}</span>
                                                 </div>
@@ -576,7 +576,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                             {/* Linha 3: Observação */}
                             <div className="space-y-1 relative mt-5 md:mt-3">
-                                <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-700 ml-1 block transition-all">Observação</label>
+                                <label className="text-[12.5px] md:text-[13.5px] font-semibold text-slate-500 ml-1 block transition-all">Observação</label>
                                 <textarea
                                     value={observacao}
                                     onChange={(e) => setObservacao(e.target.value.slice(0, 100))}
