@@ -8,7 +8,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ className }) => {
     return (
         <footer className={cn(
-            "w-screen md:w-full relative left-1/2 right-1/2 md:left-auto md:right-auto -ml-[50vw] md:ml-0 -mr-[50vw] md:mr-0 mt-auto bg-gradient-to-b from-[#0F172A] to-[#111827] md:bg-none md:bg-[#0F172A] pt-[12px] pb-[21px] md:pt-[27px] md:pb-[43px] border-t border-white/[0.08] md:border-gray-800 shadow-2xl z-10",
+            "w-screen md:w-full relative left-1/2 right-1/2 md:left-auto md:right-auto -ml-[50vw] md:ml-0 -mr-[50vw] md:mr-0 mt-auto bg-gradient-to-b from-[#0F172A] to-[#111827] md:bg-none md:bg-[#0F172A] pt-[13px] pb-[13px] md:pt-[27px] md:pb-[43px] border-t border-white/[0.08] md:border-gray-800 shadow-2xl z-10",
             className
         )}>
             <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8">
@@ -51,20 +51,13 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         </div>
                     </div>
                     
-                    {/* Divisor com Opacidade Reduzida */}
-                    <div style={{
-                        width: '72%',
-                        height: '1px',
-                        background: 'rgba(255,255,255,0.06)',
-                        opacity: 0.6,
-                        marginTop: '22px',
-                        marginBottom: '16px'
-                    }} />
+
 
                     <div style={{
                         fontSize: '13px',
                         fontWeight: 500,
                         color: '#94A3B8',
+                        marginTop: '12px',
                         marginBottom: '4px'
                     }}>
                         © 2026 Agenda
