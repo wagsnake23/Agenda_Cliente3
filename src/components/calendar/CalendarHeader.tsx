@@ -252,7 +252,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             onValueChange={(value) => onMonthChange(parseInt(value))}
           >
             <SelectTrigger
-              className="flex-1 max-w-[200px] h-9 lg:h-11 justify-between font-bold text-sm md:text-[14px] lg:text-[15px] uppercase tracking-[0.5px] transition-all
+              className="w-[134px] min-w-[134px] lg:w-[200px] lg:min-w-[200px] flex-none h-9 lg:h-11 justify-between font-bold text-sm md:text-[14px] lg:text-[15px] uppercase tracking-[0.5px] transition-all
                          bg-[rgba(255,255,255,0.78)] backdrop-blur-[10px] border-[rgba(59,130,246,0.10)] shadow-[0_6px_18px_rgba(15,23,42,0.05)] border text-[#334155] rounded-[16px] lg:rounded-[12px]
                          focus:ring-0 focus:ring-offset-0 focus:border-gray-200 lg:focus:border-[#e5e7eb] outline-none
                          hover:!border-gray-300 lg:hover:shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
