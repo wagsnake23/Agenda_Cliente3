@@ -121,7 +121,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                 viewMode === 'anual' ? "p-0 bg-[#F9FAFB] shadow-sm border overflow-hidden" : "px-2 py-2 md:px-8 md:pt-4 md:pb-8",
                 viewMode === 'anual' ? "" : "md:bg-white backdrop-blur-sm md:backdrop-blur-none",
                 "antialiased [font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] [contain:paint]",
-                viewMode === 'anual' ? "rounded-t-[18px] rounded-b-[14px]" : "border-[0.5px] border-blue-400/25 shadow-[inset_0_1px_3px_rgba(255,255,255,0.8),inset_0_-1px_3px_rgba(0,0,0,0.05)]",
+                viewMode === 'anual' ? "rounded-t-[18px] rounded-b-[14px]" : "border-[0.5px] border-blue-400/15 shadow-[inset_0_1px_3px_rgba(0,0,0,0.03)]",
                 viewMode === 'anual' ? "" : "md:border md:border-blue-800/20 md:shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(0,0,0,0.06)]",
                 viewMode === 'anual' ? "" : "rounded-2xl md:rounded-[29px] bg-clip-padding",
                 "relative group/card"

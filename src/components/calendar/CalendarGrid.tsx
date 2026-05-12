@@ -66,12 +66,13 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
               className={cn(
                 // Estrutura fixa (NUNCA animar isso)
                 "flex items-center justify-center text-center",
-                viewMode === 'anual' ? "text-[10px] md:text-[11px] lg:text-[12px]" : "text-[12px] md:text-[13px] lg:text-[15px]",
-                "font-bold tracking-[0.4px]",
+                viewMode === 'anual' ? "text-[10px] md:text-[11px] lg:text-[12px]" : "text-[13px] md:text-[13px] lg:text-[15px]",
+                "font-bold tracking-[0.3px]",
                 "rounded-[8px] md:rounded-[10px]",
                 "aspect-square md:aspect-auto",
                 viewMode === 'anual' ? "w-full md:h-[24px] lg:h-[30px]" : "w-full md:h-[38px] lg:h-[48px]",
-                "py-1 relative overflow-hidden border border-blue-300/55 md:border-[0.5px] md:border-blue-300/45",
+                "py-1 relative overflow-hidden",
+                "border-[1px] border-[rgba(59,130,246,0.12)] md:border-[0.5px] md:border-blue-300/45",
                 "saturate-[1.05]",
 
                 // Transição segura (somente cores e sombra)
@@ -80,13 +81,16 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                 // Pseudo brilho fixo
                 "after:absolute after:inset-0 after:rounded-[8px] md:after:rounded-[10px] after:bg-gradient-to-b after:from-white/20 after:to-transparent after:pointer-events-none",
 
+                // Estilos Base Mobile
+                "bg-gradient-to-b from-[#f8faff] to-[#eff6ff] shadow-[0_4px_12px_rgba(15,23,42,0.04)]",
+
                 // =====================
                 // MODO ADM
                 // =====================
                 mode === 'adm'
                   ? cn(
-                    "shadow-[inset_0_1px_2px_rgba(255,255,255,0.9),inset_0_-1px_1px_rgba(0,0,0,0.1)]",
-                    "bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe]",
+                    "md:shadow-[inset_0_1px_2px_rgba(255,255,255,0.9),inset_0_-1px_1px_rgba(0,0,0,0.1)]",
+                    "md:bg-gradient-to-br md:from-[#f0f9ff] md:to-[#e0f2fe]",
                     index === 0 ? "text-red-900" : "text-[#1e3a8a]",
                     isToday && "z-20"
                   )
@@ -95,7 +99,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                   // MODO NORMAL
                   // =====================
                   : cn(
-                    "shadow-[inset_0_1px_2px_rgba(255,255,255,0.9),inset_0_-1px_1px_rgba(0,0,0,0.1)]",
+                    "md:shadow-[inset_0_1px_2px_rgba(255,255,255,0.9),inset_0_-1px_1px_rgba(0,0,0,0.1)]",
 
                     isToday
                       ? cn(
@@ -113,7 +117,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                       )
                       : cn(
                         index === 0 ? 'text-red-900' : 'text-[#1e3a8a]',
-                        "bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe]"
+                        "md:bg-gradient-to-br md:from-[#f0f9ff] md:to-[#e0f2fe]"
                       )
                   )
               )}

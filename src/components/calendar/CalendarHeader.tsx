@@ -239,7 +239,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             size="icon"
             onClick={handlePrevMonth}
             className="h-9 w-10 lg:h-11 lg:w-11 transition-all duration-300 
-                       bg-white border-gray-200 shadow-sm border rounded-[12px] lg:rounded-[12px]
+                       bg-[rgba(255,255,255,0.78)] border-[rgba(59,130,246,0.08)] shadow-[0_6px_18px_rgba(15,23,42,0.06)] border rounded-[16px] lg:rounded-[12px]
                        hover:!bg-red-500 hover:!text-white active:!bg-red-600 active:!text-white
                        focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 
                        focus-visible:border-red-600 outline-none ring-0 shrink-0"
@@ -253,7 +253,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
           >
             <SelectTrigger
               className="flex-1 max-w-[200px] h-9 lg:h-11 justify-between font-bold text-sm md:text-[14px] lg:text-[15px] uppercase tracking-[0.5px] transition-all
-                         bg-white border-gray-200 lg:border-[#e5e7eb] shadow-sm lg:shadow-[0_3px_6px_rgba(0,0,0,0.06)] border text-[#334155] rounded-[12px] lg:rounded-[12px]
+                         bg-[rgba(255,255,255,0.78)] backdrop-blur-[10px] border-[rgba(59,130,246,0.10)] shadow-[0_6px_18px_rgba(15,23,42,0.05)] border text-[#334155] rounded-[16px] lg:rounded-[12px]
                          focus:ring-0 focus:ring-offset-0 focus:border-gray-200 lg:focus:border-[#e5e7eb] outline-none
                          hover:!border-gray-300 lg:hover:shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
             >
@@ -280,7 +280,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 variant="outline"
                 role="combobox"
                 className="w-[90px] lg:max-w-[110px] h-9 lg:h-11 justify-between font-bold text-sm md:text-[14px] lg:text-[15px] uppercase tracking-[0.5px] transition-all
-                           bg-white border-gray-200 lg:border-[#e5e7eb] shadow-sm lg:shadow-[0_3px_6px_rgba(0,0,0,0.06)] border text-[#334155] rounded-[12px] lg:rounded-[12px]
+                           bg-[rgba(255,255,255,0.78)] backdrop-blur-[10px] border-[rgba(59,130,246,0.10)] shadow-[0_6px_18px_rgba(15,23,42,0.05)] border text-[#334155] rounded-[16px] lg:rounded-[12px]
                            focus:ring-0 focus:ring-offset-0 focus:border-gray-200 lg:focus:border-[#e5e7eb] outline-none
                            hover:!border-gray-300 lg:hover:shadow-[0_4px_10px_rgba(0,0,0,0.08)] shrink-0"
               >
@@ -336,7 +336,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             size="icon"
             onClick={handleNextMonth}
             className="h-9 w-10 lg:h-11 lg:w-11 transition-all duration-300 
-                       bg-white border-gray-200 shadow-sm border rounded-[12px] lg:rounded-[12px]
+                       bg-[rgba(255,255,255,0.78)] border-[rgba(59,130,246,0.08)] shadow-[0_6px_18px_rgba(15,23,42,0.06)] border rounded-[16px] lg:rounded-[12px]
                        hover:!bg-red-500 hover:!text-white active:!bg-red-600 active:!text-white
                        focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2
                        focus-visible:border-red-600 outline-none ring-0 shrink-0"
