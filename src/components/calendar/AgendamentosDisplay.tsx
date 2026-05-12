@@ -93,7 +93,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 </div>
             </div>
 
-            <div className="pt-[11px] pb-[14px] px-[14px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-[22px]">
+            <div className="pt-[11px] pb-[14px] px-[13px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-[22px]">
                 {isEmpty ? (
                     <div className="flex flex-col items-start justify-start pt-3 pb-4 gap-1 px-1">
                         <div className="flex items-center gap-2.5 opacity-60">
@@ -141,12 +141,11 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                         )}
                                     >
                                         <div className={cn(
-                                            "flex items-center gap-3 md:gap-[16px] w-full relative",
-                                            "md:items-center",
-                                            "md:before:hidden"
+                                            "flex items-center gap-3 md:gap-[16px] flex-1 relative min-w-0",
+                                            "-ml-[2px] md:ml-0"
                                         )}>
                                             {/* Date Block */}
-                                            <div className="flex flex-col items-center justify-center bg-[rgba(37,99,235,0.08)] md:bg-[rgba(59,130,246,0.08)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[48px] w-[48px] h-[48px] md:min-w-[64px] md:w-[64px] md:h-[64px] md:flex-col md:border-none md:shadow-none shrink-0">
+                                            <div className="flex flex-col items-center justify-center bg-[rgba(37,99,235,0.08)] md:bg-[rgba(59,130,246,0.08)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[46px] w-[46px] h-[46px] md:min-w-[64px] md:w-[64px] md:h-[64px] md:flex-col md:border-none md:shadow-none shrink-0 ml-[2px] md:ml-0">
                                                 <span className="font-[800] text-[18px] md:text-[28px] text-[#2563eb] md:text-[#2563eb] leading-[1] md:leading-[1] tracking-tight md:font-[800] md:uppercase">{dia}</span>
                                                 <span className="font-[700] text-[9px] md:text-[12px] text-[#2563eb] md:text-[#2563eb] md:opacity-[0.82] mt-[1px] md:mt-[4px] leading-none md:font-[700] uppercase md:uppercase">{mes}</span>
                                             </div>

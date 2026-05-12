@@ -72,7 +72,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         </div>
       </div>
 
-      <div className="pt-[11px] pb-[14px] px-[14px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-[22px]">
+      <div className="pt-[11px] pb-[14px] px-[13px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-[22px]">
         {isEmpty ? (
           <div className="flex-1 flex items-center justify-start py-4">
             <span className="text-[13px] md:text-[14px] font-normal md:font-[500] italic leading-[1.6] px-1 text-gray-400">
@@ -110,11 +110,13 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                     )}
                   >
                     <div className={cn(
-                      "flex items-center gap-3 md:gap-[16px] flex-1 relative min-w-0"
+                      "flex items-center gap-3 md:gap-[16px] flex-1 relative min-w-0",
+                      "-ml-[2px] md:ml-0"
                     )}>
                       {/* Date Block */}
                       <div className={cn(
-                        "flex flex-col items-center justify-center bg-[rgba(239,68,68,0.08)] md:bg-[rgba(239,68,68,0.08)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[48px] w-[48px] h-[48px] md:min-w-[64px] md:w-[64px] md:h-[64px] md:flex-col md:border-none md:shadow-none shrink-0"
+                        "flex flex-col items-center justify-center bg-[rgba(239,68,68,0.08)] md:bg-[rgba(239,68,68,0.08)] rounded-[12px] md:rounded-[16px] py-0 px-0 min-w-[46px] w-[46px] h-[46px] md:min-w-[64px] md:w-[64px] md:h-[64px] md:flex-col md:border-none md:shadow-none shrink-0",
+                        "ml-[2px] md:ml-0"
                       )}>
                         <span className="font-[800] text-[18px] md:text-[28px] text-[#ef4444] md:text-[#ef4444] leading-[1] md:leading-[1] tracking-tight md:font-[800] uppercase md:uppercase">{String(day).padStart(2, '0')}</span>
                         <span className="font-[700] text-[9px] md:text-[12px] text-[#ef4444] md:text-[#ef4444] md:opacity-[0.82] mt-[1px] md:mt-[4px] leading-none uppercase md:uppercase md:font-[700]">{formattedMonth}</span>
