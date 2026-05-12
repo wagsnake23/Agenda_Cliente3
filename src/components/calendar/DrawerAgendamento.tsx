@@ -746,14 +746,14 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         >
                                             {/* Menu Mobile Dropdown (Posicionamento absoluto no card) */}
                                             {profile && (agenda.userId === profile.id || profile.perfil === 'administrador') && (
-                                                <div className="absolute top-1 right-1 md:hidden z-[30]">
+                                                <div className="absolute top-[2px] right-[-1px] md:hidden z-[30]">
                                                     <DropdownMenu modal={false}>
                                                         <DropdownMenuTrigger asChild>
                                                                     <button
                                                                         onClick={(e) => e.stopPropagation()}
-                                                                        className="w-7 h-8 flex items-center justify-center rounded-lg bg-[#F1F5F9] text-[#475569] border border-slate-200/60 shadow-sm hover:bg-slate-200/80 transition-all active:scale-95"
+                                                                        className="w-8 h-8 flex items-center justify-center rounded-lg text-black hover:bg-slate-200/50 transition-all active:scale-95"
                                                                     >
-                                                                <MoreVertical className="w-4.5 h-4.5" />
+                                                                <MoreVertical className="w-5 h-5" />
                                                             </button>
                                                         </DropdownMenuTrigger>
                                                         <DropdownMenuContent align="end" className="w-[140px] rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-slate-200/60 p-1.5 animate-in fade-in slide-in-from-top-1 duration-200 z-[400]">
