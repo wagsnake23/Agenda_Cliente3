@@ -503,27 +503,46 @@ const AgendamentosPage: React.FC = () => {
                                 const st = STATUS_STYLES[ag.status] || STATUS_STYLES.pendente;
                                 return (
                                     <div key={ag.id} className="premium-module-bg rounded-2xl shadow-sm border border-gray-100 p-4">
-                                        <div className="flex items-start justify-between mb-3">
-                                            <div className="flex items-center gap-2">
+                                        <div className="flex gap-3">
+                                            {/* Avatar Lateral */}
+                                            <div className="shrink-0">
                                                 {ag.profiles?.foto_url ? (
-                                                    <img src={ag.profiles.foto_url} alt={ag.profiles.nome} className="w-10 h-10 rounded-lg object-cover" />
+                                                    <img src={ag.profiles.foto_url} alt={ag.profiles.nome} className="w-[52px] h-[52px] rounded-xl object-cover shadow-sm border border-gray-100" />
                                                 ) : (
-                                                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
-                                                        <User size={18} className="text-blue-500" />
+                                                    <div className="w-[52px] h-[52px] rounded-xl bg-blue-50 flex items-center justify-center border border-blue-100/50">
+                                                        <User size={24} className="text-blue-500" />
                                                     </div>
                                                 )}
-                                                <div>
-                                                    <p className="text-slate-700 text-sm font-bold truncate max-w-[150px]">{ag.profiles?.apelido || (ag.profiles?.nome ? ag.profiles.nome.split(' ')[0] : 'Usuário')}</p>
-                                                    <span className="text-slate-600 text-[13px] uppercase font-black tracking-tight">{ag.tipo_agendamento}</span>
+                                            </div>
+
+                                            {/* Conteúdo à Direita */}
+                                            <div className="flex-1 min-w-0 flex flex-col gap-1">
+                                                <div className="flex items-start justify-between">
+                                                    <div className="min-w-0 flex-1">
+                                                        <p className="text-slate-700 text-sm font-bold truncate pr-2 leading-tight">
+                                                            {ag.profiles?.apelido || (ag.profiles?.nome ? ag.profiles.nome.split(' ')[0] : 'Usuário')}
+                                                        </p>
+                                                    </div>
+                                                    <span className={`shrink-0 px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${st.className}`}>
+                                                        {st.label}
+                                                    </span>
+                                                </div>
+
+                                                <span className="text-slate-600 text-[11px] uppercase font-black tracking-tight leading-none block">
+                                                    {ag.tipo_agendamento}
+                                                </span>
+
+                                                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-slate-500 mt-0.5">
+                                                    <div className="flex items-center gap-1">
+                                                        <span className="opacity-70">📅</span>
+                                                        <span>{formatDate(ag.data_inicial)} → {formatDate(ag.data_final)}</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="w-1 h-1 rounded-full bg-slate-300 hidden xs:block" />
+                                                        <span className="font-bold text-blue-700 whitespace-nowrap">{ag.dias} dias</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${st.className}`}>
-                                                {st.label}
-                                            </span>
-                                        </div>
-                                        <div className="flex items-center gap-4 text-xs text-slate-500 mb-2">
-                                            <span>📅 {formatDate(ag.data_inicial)} → {formatDate(ag.data_final)}</span>
-                                            <span className="font-bold text-blue-700">{ag.dias} dias</span>
                                         </div>
                                         {ag.observacao && (
                                             <p className="text-slate-400 text-xs italic mt-2">"{ag.observacao}"</p>
