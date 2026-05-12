@@ -266,7 +266,7 @@ const MeuPerfil: React.FC = () => {
             {/* Header Global */}
             <Header />
 
-            <section className="w-full pt-2 lg:pt-[82px] pb-0 lg:pb-8 bg-transparent lg:premium-subheader-bg lg:border-t-[3px] lg:border-[#2563eb] lg:shadow-[0_12px_28px_rgba(0,0,0,0.08)] mb-6">
+            <section className="w-full pt-2 lg:pt-[82px] pb-0 lg:pb-8 bg-transparent lg:premium-subheader-bg lg:border-t-[3px] lg:border-[#2563eb] lg:shadow-[0_12px_28px_rgba(0,0,0,0.08)] mb-4 md:mb-6">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-0 sm:pt-6">
                     {/* Cabeçalho do Módulo Interno */}
                     <div className="flex items-center justify-center md:justify-start gap-3 flex-1">
@@ -398,7 +398,7 @@ const MeuPerfil: React.FC = () => {
                                 <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-200 shadow-[0_2px_0_#93c5fd,inset_0_1.5px_1px_white] border border-blue-200/80 shrink-0">
                                     <span className="text-xl drop-shadow-sm">ℹ️</span>
                                 </div>
-                                <h3 className="font-black text-[1.15rem] md:text-[1.3rem] tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-900">
+                                <h3 className="font-extrabold text-[1.15rem] md:text-[1.3rem] tracking-[-0.02em] bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-900">
                                     Informações Pessoais
                                 </h3>
                             </div>
