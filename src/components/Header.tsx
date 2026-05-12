@@ -249,27 +249,39 @@ const Header = () => {
             {/* Header Mobile/Tablet */}
             <header className="sticky top-0 z-50 w-full h-[64px] bg-transparent flex flex-row items-center justify-between mt-0 md:mt-0 mb-1 select-none lg:hidden md:relative md:z-auto md:h-auto overflow-hidden">
                 <div className="flex items-center cursor-pointer relative -top-[1px]" onClick={() => navigate('/')}>
-                    <div className="flex items-center gap-[6px] w-full max-w-[320px]">
+                    <div className="flex items-center gap-2 w-full max-w-[320px]">
                         <img
                             src="/logo.png"
                             alt="Logo Calendário"
-                            className="w-12 h-12 md:w-14 md:h-14 object-contain transition-transform duration-300 hover:scale-105 shrink-0"
+                            className="w-[36px] h-[36px] object-contain transition-transform duration-300 hover:scale-105 shrink-0"
+                            style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.10))' }}
                         />
-                        <h1
-                            className="text-[1.1rem] md:text-[1.5rem] font-bold md:font-extrabold tracking-[0.01em] uppercase leading-none flex flex-row gap-0.5 select-none md:-left-0 antialiased opacity-95 md:opacity-100"
-                            style={{
-                                textShadow: `
-                                    0 1px 0 #1e3a8a,
-                                    0 2px 3px rgba(0,0,0,0.15)
-                                `,
-                                WebkitFontSmoothing: 'antialiased',
-                                MozOsxFontSmoothing: 'grayscale',
-                                textRendering: 'optimizeLegibility'
-                            }}
-                        >
-                            <span style={{ color: '#1e40af' }}>CALENDÁRIO</span>
-                            <span style={{ color: '#1e40af' }}>AGENDA</span>
-                        </h1>
+                        <div className="flex flex-col justify-center select-none antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                            <h1
+                                style={{
+                                    fontSize: '21px',
+                                    fontWeight: 700,
+                                    color: '#2447A5',
+                                    letterSpacing: '-1px',
+                                    lineHeight: 1
+                                }}
+                            >
+                                Agenda
+                            </h1>
+                            <span 
+                                style={{
+                                    fontSize: '9px',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1.4px',
+                                    color: '#94A3B8',
+                                    marginTop: '5px',
+                                    lineHeight: 1
+                                }}
+                            >
+                                CALENDÁRIO INTELIGENTE
+                            </span>
+                        </div>
                     </div>
                 </div>
 
@@ -286,9 +298,10 @@ const Header = () => {
                     >
                         <Bell
                             size={24}
-                            color={todayAppointmentsCount > 0 ? "#1e40af" : "#94a3b8"}
+                            color="#94A3B8"
                             strokeWidth={2.5}
                             className={cn(
+                                "opacity-90",
                                 todayAppointmentsCount > 0 && "filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]"
                             )}
                         />
