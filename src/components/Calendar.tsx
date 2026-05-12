@@ -536,7 +536,7 @@ const Calendar = ({
     <div className="w-full antialiased [font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] transition-all duration-500 relative">
       <section
         className={cn(
-          "hidden lg:block w-full pt-0 lg:pt-[98px] pb-0 lg:pb-[20px] mb-0.5 lg:mb-0",
+          "hidden lg:block w-full pt-0 lg:pt-[78px] pb-0 lg:pb-4 mb-0.5 lg:mb-0",
           "bg-transparent lg:premium-subheader-bg",
           "lg:border-t-[3px] lg:border-[#2563eb]",
           "lg:shadow-[0_12px_28px_rgba(0,0,0,0.08)]"
