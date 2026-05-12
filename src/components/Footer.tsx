@@ -8,7 +8,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ className }) => {
     return (
         <footer className={cn(
-            "w-full mt-auto bg-gradient-to-b from-[#0F172A] to-[#111827] md:bg-none md:bg-[#0F172A] pt-[15px] pb-[15px] md:pt-[27px] md:pb-[43px] border-t border-white/[0.08] md:border-gray-800 shadow-2xl relative z-10",
+            "w-screen md:w-full relative left-1/2 right-1/2 md:left-auto md:right-auto -ml-[50vw] md:ml-0 -mr-[50vw] md:mr-0 mt-auto bg-gradient-to-b from-[#0F172A] to-[#111827] md:bg-none md:bg-[#0F172A] pt-[25px] pb-[40px] md:pt-[27px] md:pb-[43px] border-t border-white/[0.08] md:border-gray-800 shadow-2xl z-10",
             className
         )}>
             <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8">
