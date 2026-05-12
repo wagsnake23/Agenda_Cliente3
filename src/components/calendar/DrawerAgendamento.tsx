@@ -845,7 +845,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
 
                                                     {/* Duração (Mobile apenas, no Desktop fica na Col 3) */}
                                                     {!isEventSpecial && !tipoNome.toLowerCase().includes('doação de sangue') && !tipoNome.toLowerCase().includes('folga aniversário') && agenda.totalDias > 1 && (
-                                                        <span className="md:hidden text-[11.5px] font-bold text-blue-700 bg-blue-50/50 px-1.5 py-0.5 rounded-md whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] border border-blue-100/50 shrink-0 ml-auto">
+                                                        <span className="md:hidden text-[11.5px] font-bold text-blue-700 whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] shrink-0 ml-auto">
                                                             ⏳ {agenda.totalDias} dias
                                                         </span>
                                                     )}
