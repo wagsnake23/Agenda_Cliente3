@@ -11,44 +11,53 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
             "w-full mt-auto bg-[#0F172A] py-5 md:pt-[27px] md:pb-[43px] border-t border-gray-800 shadow-2xl relative z-10",
             className
         )}>
-            <div className="w-full max-w-[1600px] mx-auto px-0 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
+            <div className="w-full max-w-[1600px] mx-auto px-0 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
                 {/* Lado Esquerdo */}
-                <div className="flex flex-col items-center md:items-start text-center md:text-left gap-0">
-                    <div className="flex items-center md:items-start gap-3">
-                        <img src="/logo.png" alt="Logo" className="w-[43px] h-[43px] md:w-14 md:h-14 opacity-90 drop-shadow-md object-contain" />
-                        <h3
-                            className="font-bold text-lg md:text-xl tracking-wider uppercase whitespace-nowrap flex gap-2 leading-none"
-                            style={{
-                                textShadow: `
-                                    0 1px 0 rgba(255,255,255,0.25),
-                                    0 2px 4px rgba(0,0,0,0.25),
-                                    0 6px 10px rgba(0,0,0,0.15)
-                                `
-                            }}
-                        >
-                            <span 
-                                style={{ 
-                                    background: 'linear-gradient(180deg, #eef6ff 10%, #93c5fd 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text',
-                                    color: 'transparent'
+                <div className="flex flex-col items-center md:items-start text-center md:text-left gap-0 w-full">
+                    <div className="flex items-center md:items-start gap-3 relative w-full justify-center md:justify-start px-4">
+                        <img 
+                            src="/logo.png" 
+                            alt="Logo" 
+                            className="w-[43px] h-[43px] md:w-14 md:h-14 opacity-90 drop-shadow-md object-contain absolute left-4 md:relative md:left-auto mt-[5px] md:mt-0" 
+                        />
+                        <div className="flex flex-col items-center md:items-start">
+                            <h3
+                                className="font-bold text-lg md:text-xl tracking-wider uppercase whitespace-nowrap flex gap-2 leading-none relative z-10"
+                                style={{
+                                    textShadow: `
+                                        0 1px 0 rgba(255,255,255,0.25),
+                                        0 2px 4px rgba(0,0,0,0.25),
+                                        0 6px 10px rgba(0,0,0,0.15)
+                                    `
                                 }}
                             >
-                                CALENDÁRIO AGENDA
-                            </span>
-                        </h3>
+                                <span 
+                                    style={{ 
+                                        background: 'linear-gradient(180deg, #eef6ff 10%, #93c5fd 100%)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                        backgroundClip: 'text',
+                                        color: 'transparent'
+                                    }}
+                                >
+                                    CALENDÁRIO AGENDA
+                                </span>
+                            </h3>
+                            {/* Descrição Desktop */}
+                            <p className="hidden md:block text-gray-400 text-[14px] font-medium max-w-[400px] mt-[2px] leading-[1.6]">
+                                Calendário digital de organização de escala operacional
+                            </p>
+                        </div>
                     </div>
-                    <p 
-                        className="text-gray-300 md:text-gray-400 text-xs md:text-[14px] font-medium md:font-medium max-w-[400px] md:ml-[68px] md:-mt-[26px] md:leading-[1.6]"
-                    >
+                    {/* Descrição Mobile */}
+                    <p className="md:hidden text-gray-300 text-xs font-medium max-w-[400px] mt-[9px] text-center">
                         Calendário digital de organização <br className="md:hidden" /> de escala operacional
                     </p>
                 </div>
 
                 {/* Lado Direito */}
                 <div className="flex flex-col items-center md:items-end gap-1.5">
-                    <span className="text-gray-400 text-[10px] md:text-[12px] font-semibold tracking-wide uppercase">
+                    <span className="text-gray-400 text-[10px] md:text-[12px] font-semibold tracking-wide uppercase whitespace-nowrap">
                         © 2026 — <span style={{ 
                             background: 'linear-gradient(180deg, #eef6ff 10%, #93c5fd 100%)',
                             WebkitBackgroundClip: 'text',
@@ -58,7 +67,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         }}>CALENDÁRIO AGENDA</span>
                     </span>
 
-                    <div className="flex items-center gap-1.5 text-xs md:text-[14px] font-medium md:font-medium text-gray-300 md:text-gray-400">
+                    <div className="flex items-center gap-1.5 text-xs md:text-[14px] font-medium md:font-medium text-gray-300 md:text-gray-400 whitespace-nowrap">
                         <span>Design by</span>
                         <a
                             href="https://api.whatsapp.com/send?phone=5514991188921&text=Olá!%20Tenho%20interesse%20no%20Calendário%20Prontidão.%20Podemos%20conversar?"
