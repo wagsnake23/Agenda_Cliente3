@@ -110,7 +110,7 @@ const GlobalEventModal = () => {
                     </div>
                     <button
                         onClick={() => !saving && setIsOpen(false)}
-                        className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-[#E53935] hover:bg-[#C62828] text-white shadow-lg active:scale-90 transition-all shrink-0 translate-x-[4px] -translate-y-[4px] md:translate-x-0 md:translate-y-0"
+                        className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-[#ef5350] hover:brightness-110 text-white shadow-lg active:scale-90 transition-all shrink-0 translate-x-[4px] -translate-y-[4px] md:translate-x-0 md:translate-y-0"
                     >
                         <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={5} />
                     </button>

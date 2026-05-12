@@ -408,15 +408,12 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                 }
                             }}
                             className={cn(
-                                "flex items-center justify-center rounded-full transition-all text-white shadow-lg active:scale-90 shrink-0",
-                                variant === 'modal' 
-                                    ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-[#E53935] hover:bg-[#C62828]" 
-                                    : (mode === 'create' || modoEdicao ? "w-[22px] h-[22px] md:w-8 md:h-8 bg-red-500/90 hover:bg-red-600" : "w-[22px] h-[22px] md:w-8 md:h-8 bg-gradient-to-br from-[#ef4444]/90 to-[#f87171]/90 md:from-[#ef5350] md:to-[#ff8a80] border border-white/30 hover:brightness-110")
+                                "w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full transition-all text-white shadow-lg active:scale-90 shrink-0 bg-[#ef5350] hover:brightness-110"
                             )}
                             title={variant === 'modal' ? "Fechar" : (modoEdicao ? "Voltar" : "Fechar")}
                         >
                             {variant === 'modal' || !modoEdicao ? (
-                                <X className="w-3.5 h-3.5 md:w-5 md:h-5" strokeWidth={5} />
+                                <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={5} />
                             ) : (
                                 <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" strokeWidth={4} />
                             )}
