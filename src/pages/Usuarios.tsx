@@ -495,11 +495,11 @@ const UsuariosPage: React.FC = () => {
                     {/* Header interno do Módulo */}
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div className="flex items-center justify-center md:justify-start gap-3 flex-1">
-                            <h2 className="text-[1.2rem] md:text-[1.7rem] font-black tracking-tight flex items-center justify-center md:justify-start gap-3 flex-1 md:flex-none">
+                            <h2 className="premium-module-title gap-3">
                                 <div className="w-9 h-9 md:w-12 md:h-12 bg-gradient-to-br from-[#f0f7ff] via-[#e1effe] to-[#dbeafe] rounded-xl md:rounded-2xl border border-blue-200/50 shadow-[inset_0_1.5px_1.5px_white,0_2px_4px_rgba(37,99,235,0.06)] flex items-center justify-center shrink-0">
                                     <span className="text-lg md:text-2xl">👥</span>
                                 </div>
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900">Usuários</span>
+                                Usuários
                             </h2>
                         </div>
                         <div className="flex items-center gap-2 w-full sm:w-auto">

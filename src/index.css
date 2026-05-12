@@ -158,3 +158,23 @@ All colors MUST be HSL.
     /* Redução total de aproximadamente 8% */
   }
 }
+
+.premium-module-title {
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1;
+  color: #1e3a8a !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 1024px) {
+  .premium-module-title {
+    font-size: 28px !important;
+    letter-spacing: -0.03em !important;
+  }
+}
