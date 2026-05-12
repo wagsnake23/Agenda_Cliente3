@@ -253,14 +253,14 @@ const Header = () => {
                         <img
                             src="/logo.png"
                             alt="Logo Calendário"
-                            className="w-[36px] h-[36px] object-contain transition-transform duration-300 hover:scale-105 shrink-0"
+                            className="w-[38px] h-[38px] object-contain transition-transform duration-300 hover:scale-105 shrink-0"
                             style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.10))' }}
                         />
                         <div className="flex flex-col justify-center select-none antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                             <h1
                                 style={{
-                                    fontSize: '21px',
-                                    fontWeight: 700,
+                                    fontSize: '22px',
+                                    fontWeight: 800,
                                     color: '#2447A5',
                                     letterSpacing: '-1px',
                                     lineHeight: 1
@@ -270,11 +270,11 @@ const Header = () => {
                             </h1>
                             <span 
                                 style={{
-                                    fontSize: '9px',
+                                    fontSize: '10px',
                                     fontWeight: 700,
                                     textTransform: 'uppercase',
                                     letterSpacing: '1.4px',
-                                    color: '#94A3B8',
+                                    color: '#64748B',
                                     marginTop: '5px',
                                     lineHeight: 1
                                 }}
