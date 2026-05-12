@@ -40,9 +40,9 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         </h3>
                     </div>
                     <p 
-                        className="text-white md:text-gray-400 text-xs md:text-[15px] font-bold md:font-medium max-w-[300px] md:ml-[68px] md:-mt-[16px]"
+                        className="text-gray-300 md:text-gray-400 text-xs md:text-[14px] font-medium md:font-medium max-w-[400px] md:ml-[68px] md:-mt-[26px] md:leading-[1.6]"
                     >
-                        Calendário digital de organização de escala operacional
+                        Calendário digital de organização <br className="md:hidden" /> de escala operacional
                     </p>
                 </div>
 
@@ -58,7 +58,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         }}>CALENDÁRIO AGENDA</span>
                     </span>
 
-                    <div className="flex items-center gap-1.5 text-xs md:text-[14px] font-bold text-gray-300">
+                    <div className="flex items-center gap-1.5 text-xs md:text-[14px] font-medium md:font-bold text-gray-300">
                         <span>Design by</span>
                         <a
                             href="https://api.whatsapp.com/send?phone=5514991188921&text=Olá!%20Tenho%20interesse%20no%20Calendário%20Prontidão.%20Podemos%20conversar?"
