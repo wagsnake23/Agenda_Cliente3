@@ -40,10 +40,12 @@ interface CalendarProps {
   onYearChange: (year: number) => void;
   goToToday: () => void;
   formatToday: () => string;
+  viewMode?: 'mensal' | 'anual';
+  onViewModeChange?: (mode: 'mensal' | 'anual') => void;
 }
 
 // Converter do formato Supabase para o formato do DrawerAgendamento
-const toDrawerFormat = (ag: ReturnType<typeof useAgendamentos>['agendamentos'][number]): DrawerAgendamentoType => ({
+const toDrawerFormat = (ag: any): any => ({
   id: ag.id,
   userId: ag.user_id,
   dataInicio: ag.data_inicial,
@@ -60,13 +62,25 @@ const toDrawerFormat = (ag: ReturnType<typeof useAgendamentos>['agendamentos'][n
   rejectedAt: ag.rejected_at,
 });
 
-const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatToday }: CalendarProps) => {
+const Calendar = ({ 
+  month, 
+  year, 
+  onMonthChange, 
+  onYearChange, 
+  goToToday, 
+  formatToday,
+  viewMode: externalViewMode,
+  onViewModeChange: externalOnViewModeChange
+}: CalendarProps) => {
   const today = new Date();
   const [isYearPopoverOpen, setIsYearPopoverOpen] = useState(false);
   const [highlightedDay, setHighlightedDay] = useState<number | null>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [viewMode, setViewMode] = useState<'mensal' | 'anual'>('mensal');
+  const [internalViewMode, setInternalViewMode] = useState<'mensal' | 'anual'>('mensal');
+  
+  const viewMode = externalViewMode || internalViewMode;
+  const setViewMode = externalOnViewModeChange || setInternalViewMode;
   const { mode, setMode } = useCalendarMode();
   const { isAuthenticated } = useAuth();
   const { events: calendarEvents, setEvents } = useCalendarEventsContext();
@@ -522,7 +536,7 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
     <div className="w-full antialiased [font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] transition-all duration-500 relative">
       <section
         className={cn(
-          "w-full pt-0 lg:pt-[98px] pb-0 lg:pb-[20px] mb-0.5 lg:mb-0",
+          "hidden lg:block w-full pt-0 lg:pt-[98px] pb-0 lg:pb-[20px] mb-0.5 lg:mb-0",
           "bg-transparent lg:premium-subheader-bg",
           "lg:border-t-[3px] lg:border-[#2563eb]",
           "lg:shadow-[0_12px_28px_rgba(0,0,0,0.08)]"
@@ -552,11 +566,11 @@ const Calendar = ({ month, year, onMonthChange, onYearChange, goToToday, formatT
         </div>
       </section>
 
-      <div className="w-full max-w-[1600px] mx-auto px-0 md:p-4 relative md:mt-0 md:transition-transform md:duration-500 md:scale-[0.85] md:origin-top md:-mb-[7%]">
+      <div className="w-full max-w-[1600px] mx-auto px-0 md:px-[60px] relative md:mt-0 md:transition-transform md:duration-500 md:scale-[0.85] md:origin-top md:-mb-[7%]">
 
         {/* Mobile Flex Container para garantir 12px exatos de gap vertical entre os blocos (Card e Conteúdo) */}
         <div className="flex flex-col gap-3 lg:block w-full">
-          <div className="w-full relative overflow-visible pt-0 pb-0 md:pb-6 mt-1.5 lg:mt-0 lg:py-7">
+          <div className="w-full relative overflow-visible pt-0 pb-0 md:pb-6 mt-0 lg:mt-0 lg:py-7">
             {viewMode === 'anual' ? (
               <div className="relative w-full min-h-[700px] lg:min-h-[1100px]">
                 <div 

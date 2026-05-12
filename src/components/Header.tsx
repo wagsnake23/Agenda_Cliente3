@@ -131,7 +131,7 @@ const Header = () => {
                 className="hidden lg:flex fixed top-0 w-full h-[76px] bg-[#243552] items-center z-[100] select-none border-b border-white/10"
                 style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 -1px 0 rgba(255,255,255,0.05)' }}
             >
-                <div className="w-full max-w-[1600px] mx-auto px-8 flex items-center justify-between">
+                <div className="w-full max-w-[1600px] mx-auto px-8 lg:px-[60px] flex items-center justify-between">
                     <div onClick={() => navigate('/')} className="flex items-center gap-[10px] cursor-pointer relative">
                         <img
                             src="/logo.png"
@@ -247,14 +247,14 @@ const Header = () => {
             </header>
 
             {/* Header Mobile/Tablet */}
-            <header className="sticky top-0 z-50 w-full h-[64px] bg-transparent flex flex-row items-center justify-between mt-0 md:mt-0 mb-1 select-none lg:hidden md:relative md:z-auto md:h-auto overflow-hidden">
+            <header className="relative w-full flex flex-row items-center justify-between mt-0 md:mt-0 pt-[22px] select-none lg:hidden md:relative md:z-auto md:h-auto">
                 <div className="flex items-center cursor-pointer relative -top-[1px]" onClick={() => navigate('/')}>
                     <div className="flex items-center gap-2 w-full max-w-[320px]">
                         <img
                             src="/logo.png"
                             alt="Logo Calendário"
                             className="w-[38px] h-[38px] object-contain transition-transform duration-300 hover:scale-105 shrink-0"
-                            style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.10))' }}
+                            style={{ filter: 'none' }}
                         />
                         <div className="flex flex-col justify-center select-none antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                             <h1

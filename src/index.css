@@ -143,12 +143,14 @@ All colors MUST be HSL.
     }
   }
 
-  /* Fundo Premium Home Mobile: Gradiente + Brilho Radial */
-  .premium-home-bg {
-    background: 
-      radial-gradient(circle at top, rgba(59, 130, 246, 0.08), transparent 45%),
-      linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 45%, #F8FAFC 100%);
-    background-attachment: scroll;
+  /* Layout de Header Fixo Mobile - App Nativo Style */
+  .mobile-fixed-header-bg {
+    background-color: #f8faff !important;
+  }
+
+  .mobile-fixed-header-shadow {
+    box-shadow: none !important;
+    border-bottom: none !important;
   }
 }
 
