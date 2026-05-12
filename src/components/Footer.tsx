@@ -8,7 +8,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ className }) => {
     return (
         <footer className={cn(
-            "w-full mt-auto bg-[#0F172A] py-6 md:py-8 border-t border-gray-800 shadow-2xl relative z-10",
+            "w-full mt-auto bg-[#0F172A] py-5 md:pt-[27px] md:pb-[43px] border-t border-gray-800 shadow-2xl relative z-10",
             className
         )}>
             <div className="w-full max-w-[1600px] mx-auto px-0 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
@@ -58,7 +58,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         }}>CALENDÁRIO AGENDA</span>
                     </span>
 
-                    <div className="flex items-center gap-1.5 text-xs md:text-[14px] font-medium md:font-bold text-gray-300">
+                    <div className="flex items-center gap-1.5 text-xs md:text-[14px] font-medium md:font-medium text-gray-300 md:text-gray-400">
                         <span>Design by</span>
                         <a
                             href="https://api.whatsapp.com/send?phone=5514991188921&text=Olá!%20Tenho%20interesse%20no%20Calendário%20Prontidão.%20Podemos%20conversar?"
