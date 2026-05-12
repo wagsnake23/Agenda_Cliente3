@@ -203,6 +203,19 @@ const AgendamentosPage: React.FC = () => {
         }
     };
 
+    const formatDateMobileShort = (d: string, showYear: boolean = true) => {
+        try {
+            const date = parseISO(d);
+            const day = format(date, 'd');
+            const month = format(date, 'MMM', { locale: ptBR }).replace('.', '');
+            const year = showYear ? format(date, 'yyyy') : '';
+            const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
+            return `${day}${capitalizedMonth}${year}`;
+        } catch {
+            return d;
+        }
+    };
+
     return (
         <div className="min-h-screen flex flex-col items-stretch justify-start px-4 pt-1 pb-2 lg:p-0 gap-y-2 overflow-x-hidden md:overflow-visible">
             <Header />
@@ -528,19 +541,26 @@ const AgendamentosPage: React.FC = () => {
                                                     </span>
                                                 </div>
 
-                                                <span className="text-slate-600 text-[11px] uppercase font-black tracking-tight leading-none block">
+                                                <span className="text-slate-700 text-[12px] uppercase font-bold tracking-tight leading-none block">
                                                     {ag.tipo_agendamento}
                                                 </span>
 
-                                                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-slate-500 mt-0.5">
+                                                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] text-slate-700 mt-1">
                                                     <div className="flex items-center gap-1">
                                                         <span className="opacity-70">📅</span>
-                                                        <span>{formatDate(ag.data_inicial)} → {formatDate(ag.data_final)}</span>
+                                                        <span className="font-bold">
+                                                            {ag.dias < 2 
+                                                                ? formatDateMobileShort(ag.data_inicial) 
+                                                                : `${formatDateMobileShort(ag.data_inicial, false)} - ${formatDateMobileShort(ag.data_final)}`
+                                                            }
+                                                        </span>
                                                     </div>
-                                                    <div className="flex items-center gap-2">
-                                                        <span className="w-1 h-1 rounded-full bg-slate-300 hidden xs:block" />
-                                                        <span className="font-bold text-blue-700 whitespace-nowrap">{ag.dias} dias</span>
-                                                    </div>
+                                                    {ag.dias >= 2 && (
+                                                        <div className="flex items-center gap-2">
+                                                            <span className="w-1 h-1 rounded-full bg-slate-300 hidden xs:block" />
+                                                            <span className="font-bold text-blue-700 whitespace-nowrap">{ag.dias} dias</span>
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
