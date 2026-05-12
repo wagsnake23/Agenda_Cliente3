@@ -121,10 +121,10 @@ const Index = () => {
 
   return (
     <>
-    <div className="min-h-screen flex flex-col items-stretch justify-start px-4 py-2 lg:p-0 gap-y-2 overflow-x-hidden bg-[#f8faff] md:bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)]">
+    <div className="min-h-screen flex flex-col items-stretch justify-start px-4 pt-0 pb-2 lg:p-0 gap-y-2 overflow-x-hidden bg-[#f8faff] md:bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)]">
       
       {/* Mobile Unified Fixed Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-[110] mobile-fixed-header-bg px-4 pt-2">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-[110] mobile-fixed-header-bg px-4 pt-0">
         <Header />
         <div className="pb-0.5 mt-2">
           <CalendarHeader
