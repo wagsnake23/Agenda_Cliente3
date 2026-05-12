@@ -13,49 +13,59 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         )}>
             <div className="w-full max-w-[1600px] mx-auto px-0 md:px-8">
                 {/* ---------- MOBILE FOOTER ---------- */}
-                <div className="flex flex-col items-center justify-center w-full md:hidden">
-                    <div className="flex items-center justify-center gap-[10px]">
-                        <img src="/logo.png" alt="Logo" className="w-[42px] h-[42px] object-contain opacity-90 drop-shadow-md" />
-                        <h3
-                            style={{
-                                fontFamily: "'Montserrat', sans-serif",
-                                fontSize: '24px',
-                                fontWeight: 700,
-                                letterSpacing: '-0.8px',
-                                lineHeight: 1,
-                                color: '#F8FAFC'
-                            }}
-                        >
-                            Agenda
-                        </h3>
+                {/* ---------- MOBILE FOOTER ---------- */}
+                <div className="flex flex-col items-center justify-center w-full md:hidden px-4">
+                    {/* Bloco Principal Centralizado */}
+                    <div className="flex items-center justify-center gap-[16px] w-full max-w-[340px]">
+                        {/* Logo Maior */}
+                        <img 
+                            src="/logo.png" 
+                            alt="Logo" 
+                            className="w-[64px] h-[64px] object-contain opacity-90 drop-shadow-xl shrink-0" 
+                        />
+                        
+                        {/* Bloco de Texto ao Lado */}
+                        <div className="flex flex-col items-start justify-center text-left">
+                            <h3
+                                style={{
+                                    fontFamily: "'Montserrat', sans-serif",
+                                    fontSize: '24px',
+                                    fontWeight: 700,
+                                    letterSpacing: '-0.8px',
+                                    lineHeight: 1,
+                                    color: '#F8FAFC',
+                                    marginBottom: '8px'
+                                }}
+                            >
+                                Agenda
+                            </h3>
+                            <p style={{
+                                fontSize: '15px',
+                                fontWeight: 500,
+                                lineHeight: 1.5,
+                                color: '#94A3B8',
+                                maxWidth: '220px'
+                            }}>
+                                Calendário inteligente para organização operacional
+                            </p>
+                        </div>
                     </div>
                     
-                    <p style={{
-                        fontFamily: "'Montserrat', sans-serif",
-                        fontSize: '14px',
-                        fontWeight: 500,
-                        lineHeight: 1.6,
-                        color: '#94A3B8',
-                        textAlign: 'center',
-                        maxWidth: '240px',
-                        marginTop: '8px'
-                    }}>
-                        Calendário inteligente para organização operacional
-                    </p>
-
+                    {/* Divisor com Opacidade Reduzida */}
                     <div style={{
                         width: '72%',
                         height: '1px',
                         background: 'rgba(255,255,255,0.06)',
-                        marginTop: '18px',
-                        marginBottom: '14px'
+                        opacity: 0.6,
+                        marginTop: '22px',
+                        marginBottom: '16px'
                     }} />
 
                     <div style={{
                         fontSize: '13px',
                         fontWeight: 500,
                         color: '#94A3B8',
-                        marginBottom: '0px'
+                        marginBottom: '4px'
                     }}>
                         © 2026 Agenda
                     </div>
