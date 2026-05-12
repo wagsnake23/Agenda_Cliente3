@@ -303,7 +303,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
         <div
             className={cn(
                 variant === 'modal' ? "fixed inset-0 z-[200] flex items-center justify-center p-1 sm:p-4" : "w-full z-[60] flex flex-col items-center justify-start p-0",
-                variant === 'drawer' && "md:absolute md:top-0 md:left-0 md:h-full md:pointer-events-none md:animate-in md:fade-in md:zoom-in-95 md:duration-300",
+                variant === 'drawer' && "md:absolute md:top-0 md:left-[0.5px] md:h-full md:pointer-events-none md:animate-in md:fade-in md:zoom-in-95 md:duration-300",
                 !isOpen && "hidden"
             )}
         >
@@ -321,7 +321,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                     "bg-white flex flex-col overflow-hidden",
                     variant === 'modal' 
                         ? "rounded-[24px] shadow-2xl border-2 border-blue-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] md:max-w-[515px] relative z-10 animate-in zoom-in-95 duration-200" 
-                        : "md:bg-[#F9FAFB] rounded-2xl md:rounded-[26px] w-full h-full md:pointer-events-auto border border-[#0F172A]/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.02),0_4px_12px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.04),0_32px_64px_-12px_rgba(0,0,0,0.08)]"
+                        : "md:bg-white rounded-2xl md:rounded-[29px] w-full h-full md:pointer-events-auto border border-blue-800/20 md:shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(0,0,0,0.06)]"
                 )}
                 style={variant === 'modal' ? { maxHeight: '95vh' } : {}}
             >

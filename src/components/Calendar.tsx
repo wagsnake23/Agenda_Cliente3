@@ -571,142 +571,144 @@ const Calendar = ({
         {/* Mobile Flex Container para garantir 12px exatos de gap vertical entre os blocos (Card e Conteúdo) */}
         <div className="flex flex-col gap-3 lg:block w-full">
           <div className="w-full relative overflow-visible pt-0 pb-0 md:pb-6 mt-0 lg:mt-0 lg:py-7">
-            {viewMode === 'anual' ? (
-              <div className="relative w-full min-h-[700px] lg:min-h-[1100px]">
-                <div 
-                  key={`annual-grid-${year}`}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[18px] animate-in fade-in duration-700"
-                >
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <CalendarCard
-                      key={`anual-${year}-${i}`}
-                      month={i}
-                      year={year}
-                      today={today}
-                      onDayClick={() => {}}
-                      goToToday={goToToday}
-                      formatToday={formatToday}
-                      isCenter={false}
-                      position="center"
-                      mode={mode}
-                      agendamentos={agendamentosComEventosGerais}
-                      onViewAgendamento={handleOpenViewDrawer}
-                      onOpenCreateDrawer={handleOpenCreateDrawer}
-                      selectedPeriod={selectedPeriod}
-                      calendarEvents={enrichedEvents}
-                      viewMode="anual"
-                    />
-                  ))}
+            <div className="relative w-full">
+              {viewMode === 'anual' ? (
+                <div className="relative w-full min-h-[700px] lg:min-h-[1100px]">
+                  <div 
+                    key={`annual-grid-${year}`}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[18px] animate-in fade-in duration-700"
+                  >
+                    {Array.from({ length: 12 }).map((_, i) => (
+                      <CalendarCard
+                        key={`anual-${year}-${i}`}
+                        month={i}
+                        year={year}
+                        today={today}
+                        onDayClick={() => {}}
+                        goToToday={goToToday}
+                        formatToday={formatToday}
+                        isCenter={false}
+                        position="center"
+                        mode={mode}
+                        agendamentos={agendamentosComEventosGerais}
+                        onViewAgendamento={handleOpenViewDrawer}
+                        onOpenCreateDrawer={handleOpenCreateDrawer}
+                        selectedPeriod={selectedPeriod}
+                        calendarEvents={enrichedEvents}
+                        viewMode="anual"
+                      />
+                    ))}
+                  </div>
+                  {/* Setas Laterais Anuais (Desktop) */}
+                  <button
+                    onClick={handlePrevMonth}
+                    className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -left-16 h-12 w-12 items-center justify-center rounded-full border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95 z-50"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    onClick={handleNextMonth}
+                    className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -right-16 h-12 w-12 items-center justify-center rounded-full border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95 z-50"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
                 </div>
-                {/* Setas Laterais Anuais (Desktop) */}
-                <button
-                  onClick={handlePrevMonth}
-                  className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -left-16 h-12 w-12 items-center justify-center rounded-full border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95 z-50"
+              ) : (
+                <Carousel
+                  setApi={setApi}
+                  opts={{
+                    align: typeof window !== 'undefined' && window.innerWidth < 1024 ? "center" : "start",
+                    containScroll: "trimSnaps",
+                    dragFree: false,
+                    slidesToScroll: 1,
+                    duration: 22
+                  }}
+                  className="w-full relative px-0"
                 >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <button
-                  onClick={handleNextMonth}
-                  className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -right-16 h-12 w-12 items-center justify-center rounded-full border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95 z-50"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
+                  <CarouselContent className="w-full flex items-stretch gap-8 cursor-grab active:cursor-grabbing">
+                    {monthsToRender.map((date, idx) => {
+                      const m = date.getMonth();
+                      const y = date.getFullYear();
+                      const isCurrent = m === month && y === year;
+
+                      const centerIndex = isMobile ? 1 : currentSlide + 1;
+                      const position = idx === centerIndex ? 'center' : idx === centerIndex - 1 ? 'left' : idx === centerIndex + 1 ? 'right' : 'far';
+
+                      return (
+                        <CarouselItem
+                          key={`${y}-${m}`}
+                          className={cn(
+                            "w-full basis-full shrink-0 grow-0 lg:basis-[calc((100%-4rem)/3)] relative",
+                            "transition-opacity duration-450 ease-out",
+                            position === 'center' ? "opacity-100 z-20" : "opacity-100 z-[5]"
+                          )}
+                          style={{
+                            opacity: 1,
+                            backfaceVisibility: 'hidden',
+                            WebkitBackfaceVisibility: 'hidden',
+                          }}
+                        >
+                          <CalendarCard
+                            month={m}
+                            year={y}
+                            today={today}
+                            onDayClick={isCurrent ? handleDayClick : () => { }}
+                            goToToday={goToToday}
+                            formatToday={formatToday}
+                            isCenter={position === 'center'}
+                            position={position}
+                            mode={mode}
+                            agendamentos={agendamentosComEventosGerais}
+                            onViewAgendamento={handleOpenViewDrawer}
+                            onOpenCreateDrawer={handleOpenCreateDrawer}
+                            selectedPeriod={selectedPeriod}
+                            calendarEvents={enrichedEvents}
+                            viewMode="mensal"
+                          />
+                        </CarouselItem>
+                      );
+                    })}
+                  </CarouselContent>
+
+                  <CarouselPrevious
+                    onClick={() => api?.scrollPrev()}
+                    className="hidden lg:flex -left-16 h-12 w-12 border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95"
+                  />
+                  <CarouselNext
+                    onClick={() => api?.scrollNext()}
+                    className="hidden lg:flex -right-16 h-12 w-12 border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95"
+                  />
+                </Carousel>
+              )}
+
+              {/* Drawer de Visualização (Desktop: Sobre o primeiro card | Mobile: Abaixo do Carrossel) */}
+              <div className={cn(
+                "z-[100] transition-all duration-300",
+                (!isMobile && viewMode === 'anual') 
+                  ? "fixed inset-0 pointer-events-none" 
+                  : "lg:absolute lg:top-0 lg:left-0 lg:w-[calc((100%-4rem)/3)] lg:h-full w-full h-auto lg:mt-0 mt-4 px-0",
+                (drawerMode === 'view' && isDrawerOpen) ? "opacity-100 pointer-events-auto block" : "opacity-0 pointer-events-none hidden"
+              )}>
+                <DrawerAgendamento
+                  isOpen={isDrawerOpen && drawerMode === 'view'}
+                  onClose={handleCloseDrawer}
+                  mode="view"
+                  variant={(!isMobile && viewMode === 'anual') ? 'modal' : 'drawer'}
+                  initialDate={selectedDrawerDate}
+                  agendamentosNoDia={drawerAgendamentos}
+                  todosAgendamentos={filteredMonthAgendamentos}
+                  onSave={salvarAgendamento}
+                  onDelete={excluirAgendamento}
+                  onUpdate={editarAgendamento}
+                  anchorRef={null as any}
+                  selectedPeriod={selectedPeriod}
+                  onSelectPeriod={toggleHighlightPeriod}
+                  selectedAgendamentoId={selectedAgendamentoId}
+                  setSelectedAgendamentoId={setSelectedAgendamentoId}
+                  onEditRequest={handleEditRequest}
+                  viewMode={viewMode}
+                />
               </div>
-            ) : (
-              <Carousel
-                setApi={setApi}
-                opts={{
-                  align: typeof window !== 'undefined' && window.innerWidth < 1024 ? "center" : "start",
-                  containScroll: "trimSnaps",
-                  dragFree: false,
-                  slidesToScroll: 1,
-                  duration: 22
-                }}
-                className="w-full relative px-0"
-              >
-                <CarouselContent className="w-full flex items-stretch gap-8 cursor-grab active:cursor-grabbing">
-                  {monthsToRender.map((date, idx) => {
-                    const m = date.getMonth();
-                    const y = date.getFullYear();
-                    const isCurrent = m === month && y === year;
-
-                    const centerIndex = isMobile ? 1 : currentSlide + 1;
-                    const position = idx === centerIndex ? 'center' : idx === centerIndex - 1 ? 'left' : idx === centerIndex + 1 ? 'right' : 'far';
-
-                    return (
-                      <CarouselItem
-                        key={`${y}-${m}`}
-                        className={cn(
-                          "w-full basis-full shrink-0 grow-0 lg:basis-[calc((100%-4rem)/3)] relative",
-                          "transition-opacity duration-450 ease-out",
-                          position === 'center' ? "opacity-100 z-20" : "opacity-100 z-[5]"
-                        )}
-                        style={{
-                          opacity: 1,
-                          backfaceVisibility: 'hidden',
-                          WebkitBackfaceVisibility: 'hidden',
-                        }}
-                      >
-                        <CalendarCard
-                          month={m}
-                          year={y}
-                          today={today}
-                          onDayClick={isCurrent ? handleDayClick : () => { }}
-                          goToToday={goToToday}
-                          formatToday={formatToday}
-                          isCenter={position === 'center'}
-                          position={position}
-                          mode={mode}
-                          agendamentos={agendamentosComEventosGerais}
-                          onViewAgendamento={handleOpenViewDrawer}
-                          onOpenCreateDrawer={handleOpenCreateDrawer}
-                          selectedPeriod={selectedPeriod}
-                          calendarEvents={enrichedEvents}
-                          viewMode="mensal"
-                        />
-                      </CarouselItem>
-                    );
-                  })}
-                </CarouselContent>
-
-                <CarouselPrevious
-                  onClick={() => api?.scrollPrev()}
-                  className="hidden lg:flex -left-16 h-12 w-12 border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95"
-                />
-                <CarouselNext
-                  onClick={() => api?.scrollNext()}
-                  className="hidden lg:flex -right-16 h-12 w-12 border border-blue-800 bg-gradient-to-b from-[#1e40af] to-[#1e3a8a] text-white shadow-lg hover:from-red-500 hover:to-red-600 hover:border-red-400 transition-all active:scale-95"
-                />
-              </Carousel>
-            )}
-
-            {/* Drawer de Visualização (Desktop: Sobre o primeiro card | Mobile: Abaixo do Carrossel) */}
-            <div className={cn(
-              "z-[100] transition-all duration-300",
-              (!isMobile && viewMode === 'anual') 
-                ? "fixed inset-0 pointer-events-none" 
-                : "lg:absolute lg:top-2 lg:left-0 lg:w-[calc((100%-4rem)/3)] lg:h-[calc(100%-92px)] w-full h-auto mt-4 px-0",
-              (drawerMode === 'view' && isDrawerOpen) ? "opacity-100 pointer-events-auto block" : "opacity-0 pointer-events-none hidden"
-            )}>
-              <DrawerAgendamento
-                isOpen={isDrawerOpen && drawerMode === 'view'}
-                onClose={handleCloseDrawer}
-                mode="view"
-                variant={(!isMobile && viewMode === 'anual') ? 'modal' : 'drawer'}
-                initialDate={selectedDrawerDate}
-                agendamentosNoDia={drawerAgendamentos}
-                todosAgendamentos={filteredMonthAgendamentos}
-                onSave={salvarAgendamento}
-                onDelete={excluirAgendamento}
-                onUpdate={editarAgendamento}
-                anchorRef={null as any}
-                selectedPeriod={selectedPeriod}
-                onSelectPeriod={toggleHighlightPeriod}
-                selectedAgendamentoId={selectedAgendamentoId}
-                setSelectedAgendamentoId={setSelectedAgendamentoId}
-                onEditRequest={handleEditRequest}
-                viewMode={viewMode}
-              />
             </div>
 
             {/* Modal de Criação (Centralizado) */}
