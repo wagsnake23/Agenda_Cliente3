@@ -138,6 +138,7 @@ const Calendar = ({
   const [selectedDrawerDate, setSelectedDrawerDate] = useState<string | undefined>();
   const [selectedAgendamentoId, setSelectedAgendamentoId] = useState<string | null>(null);
   const [selectedPeriod, setSelectedPeriod] = useState<{ start: string, end: string } | null>(null);
+  const [drawerOnlyDay, setDrawerOnlyDay] = useState(false);
 
   // --- LÓGICA DE FILTRAGEM CENTRALIZADA (REQUISITO: CONSISTÊNCIA CARD/DRAWER) ---
   const filteredMonthAgendamentos = useMemo(() => {
@@ -273,10 +274,11 @@ const Calendar = ({
     setIsDrawerOpen(true);
   };
 
-  const handleOpenViewDrawer = (date: string, agendamentoId?: string) => {
+  const handleOpenViewDrawer = (date: string, agendamentoId?: string, onlyDay: boolean = false) => {
     setDrawerMode('view');
     setSelectedDrawerDate(date);
     setSelectedAgendamentoId(agendamentoId || null);
+    setDrawerOnlyDay(onlyDay);
     setIsDrawerOpen(true);
   };
 
@@ -284,6 +286,7 @@ const Calendar = ({
     setIsDrawerOpen(false);
     setSelectedPeriod(null);
     setSelectedAgendamentoId(null);
+    setDrawerOnlyDay(false);
   };
 
   useEffect(() => {
@@ -406,7 +409,7 @@ const Calendar = ({
 
   const handleOpenTodayAppointmentsBell = useCallback(() => {
     goToToday();
-    handleOpenViewDrawer(todayStr);
+    handleOpenViewDrawer(todayStr, undefined, true);
   }, [goToToday, handleOpenViewDrawer, todayStr]);
 
   useEffect(() => {
@@ -707,6 +710,7 @@ const Calendar = ({
                   setSelectedAgendamentoId={setSelectedAgendamentoId}
                   onEditRequest={handleEditRequest}
                   viewMode={viewMode}
+                  showOnlyDay={drawerOnlyDay}
                 />
               </div>
             </div>
@@ -729,6 +733,7 @@ const Calendar = ({
               selectedAgendamentoId={selectedAgendamentoId}
               setSelectedAgendamentoId={setSelectedAgendamentoId}
               viewMode={viewMode}
+              showOnlyDay={false}
             />
 
             {/* Indicadores de bolinhas */}

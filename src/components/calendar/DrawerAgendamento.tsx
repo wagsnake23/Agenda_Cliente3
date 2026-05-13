@@ -123,6 +123,7 @@ interface DrawerAgendamentoProps {
     variant?: 'drawer' | 'modal';
     onEditRequest?: (ag: Agendamento) => void;
     viewMode?: 'mensal' | 'anual';
+    showOnlyDay?: boolean;
 }
 
 const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
@@ -144,6 +145,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
     variant = 'drawer',
     onEditRequest,
     viewMode = 'mensal',
+    showOnlyDay = false,
 }) => {
     const { profile } = useAuth();
     const [dataInicio, setDataInicio] = useState(initialDate || '');
@@ -221,7 +223,8 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
     // Filtragem de agendamentos vigentes do mês
     const agendamentosExibidos = useMemo(() => {
         if (mode === 'view') {
-            return todosAgendamentos
+            const source = showOnlyDay ? agendamentosNoDia : todosAgendamentos;
+            return source
                 .filter(a => {
                     const status = a.status?.toLowerCase();
                     return status !== 'cancelado' && status !== 'recusado';
@@ -229,7 +232,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                 .sort((a, b) => new Date(a.dataInicio + 'T12:00:00').getTime() - new Date(b.dataInicio + 'T12:00:00').getTime());
         }
         return agendamentosNoDia;
-    }, [mode, todosAgendamentos, agendamentosNoDia]);
+    }, [mode, todosAgendamentos, agendamentosNoDia, showOnlyDay]);
 
     // Efeito para scrollar até o agendamento selecionado ou o primeiro do dia
     useEffect(() => {
@@ -386,9 +389,20 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     <span>Novo Agendamento</span>
                                 ) : (
                                     <div className="flex flex-col">
-                                        <span className="block">Agendamentos do mês</span>
+                                        <span className="block">{showOnlyDay ? "Agendamentos do dia" : "Agendamentos do mês"}</span>
                                         {initialDate && (() => {
                                             const d = new Date(initialDate + 'T12:00:00');
+                                            if (showOnlyDay) {
+                                                const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+                                                const dia = String(d.getDate()).padStart(2, '0');
+                                                const mes = monthsAbbr[d.getMonth()];
+                                                const ano = d.getFullYear();
+                                                return (
+                                                    <span className="text-[11px] md:text-[13px] font-normal text-white/90 mt-0.5 tracking-[0.5px]">
+                                                        {dia} {mes} {ano}
+                                                    </span>
+                                                );
+                                            }
                                             const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
                                             const mes = months[d.getMonth()];
                                             const ano = d.getFullYear();
