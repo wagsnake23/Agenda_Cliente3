@@ -171,7 +171,7 @@ const AuthPage: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={loginForm.formState.isSubmitting}
-                                className="w-full h-12 md:h-12 rounded-2xl bg-gradient-to-b from-[#E53935] to-[#B71C1C] hover:from-[#EF5350] hover:to-[#C62828] text-white font-black text-[17.5px] shadow-[0_4px_0_#991B1B,0_10px_20px_rgba(183,28,28,0.25)] md:shadow-[0_1px_0_#991B1B,0_10px_20px_rgba(183,28,28,0.25)] active:translate-y-[4px] md:active:translate-y-[1px] active:shadow-[0_1px_0_#991B1B] md:active:shadow-none transition-all duration-150 disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-3 border border-white/10"
+                                className="w-full h-12 md:h-12 rounded-2xl bg-gradient-to-b from-[#E53935] to-[#B71C1C] hover:from-[#EF5350] hover:to-[#C62828] text-white font-black text-[17.5px] shadow-[0_1px_0_#991B1B,0_10px_20px_rgba(183,28,28,0.25)] active:translate-y-[1px] active:shadow-none transition-all duration-150 disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-3 border border-white/10"
                             >
                                 {loginForm.formState.isSubmitting ? (
                                     <><Loader2 size={24} className="animate-spin" /> Entrando...</>
@@ -239,14 +239,14 @@ const AuthPage: React.FC = () => {
                                 <button
                                     type="button"
                                     onClick={() => setShowResetModal(false)}
-                                    className="flex-1 h-12 rounded-xl bg-slate-200 text-slate-600 font-bold text-[17px] border border-slate-300 shadow-[0_4px_0_#CBD5E1] hover:bg-slate-300 active:translate-y-[2px] active:shadow-none transition-all"
+                                    className="flex-1 h-12 rounded-2xl bg-slate-200 text-slate-600 font-black text-[17.5px] border border-slate-300 shadow-[0_1px_0_#CBD5E1] hover:bg-slate-300 active:translate-y-[1px] active:shadow-none transition-all"
                                 >
                                     Cancelar
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={isResetting}
-                                    className="flex-1 h-12 rounded-xl bg-blue-600 text-white font-bold text-[17px] shadow-[0_4px_0_#1E3A8A] hover:bg-blue-700 active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center"
+                                    className="flex-1 h-12 rounded-2xl bg-blue-600 text-white font-black text-[17.5px] shadow-[0_1px_0_#1E3A8A] hover:bg-blue-700 active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-70 flex items-center justify-center"
                                 >
                                     {isResetting ? <Loader2 size={18} className="animate-spin" /> : 'Enviar'}
                                 </button>
