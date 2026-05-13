@@ -106,7 +106,7 @@ const AuthPage: React.FC = () => {
                     />
 
                     {/* Títulos com Gradiente Premium */}
-                    <div className="text-center mb-8 md:mb-4">
+                    <div className="text-center mb-4 md:mb-4">
                         <h1
                             className="font-black text-xl uppercase leading-tight"
                             style={{
@@ -120,7 +120,7 @@ const AuthPage: React.FC = () => {
                     </div>
 
                     {/* Formulário */}
-                    <form onSubmit={loginForm.handleSubmit(handleLogin)} className="w-full space-y-5 md:space-y-2">
+                    <form onSubmit={loginForm.handleSubmit(handleLogin)} className="w-full space-y-4 md:space-y-2">
                         {/* Email */}
                         <div className="space-y-2">
                             <label className="text-slate-500 md:text-slate-700 text-[13px] font-bold ml-1 opacity-70">Email</label>
@@ -167,7 +167,7 @@ const AuthPage: React.FC = () => {
                         </div>
 
                         {/* Botão Entrar Anterior (Texto e Ícones) */}
-                        <div className="pt-4">
+                        <div className="pt-2">
                             <button
                                 type="submit"
                                 disabled={loginForm.formState.isSubmitting}
