@@ -298,7 +298,7 @@ const Header = () => {
                     >
                         <Bell
                             size={24}
-                            color="#94A3B8"
+                            color={todayAppointmentsCount > 0 ? "#1e40af" : "#94A3B8"}
                             strokeWidth={2.5}
                             className={cn(
                                 "opacity-90",
