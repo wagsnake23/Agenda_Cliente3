@@ -96,13 +96,13 @@ const AuthPage: React.FC = () => {
 
             <div className="w-full max-w-[390px] relative z-10">
                 {/* Card de Login - No Mobile fundo branco direto, no Desktop com Card */}
-                <div className="bg-white md:bg-[#F8FAFC] md:rounded-[31px] md:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,1),inset_0_2px_10px_rgba(0,0,0,0.05)] overflow-hidden px-4 md:px-8 pt-3 md:pt-4 pb-6 md:pb-1 flex flex-col items-center md:border-[4px] md:border-white/60">
+                <div className="bg-white md:bg-[#F8FAFC] md:rounded-[28px] md:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,1),inset_0_2px_10px_rgba(0,0,0,0.05)] overflow-hidden px-4 md:px-8 pt-3 md:pt-4 pb-6 md:pb-1 flex flex-col items-center md:border-[4px] md:border-white/60">
 
                     {/* Logo Original */}
                     <img
                         src="/logo.png"
                         alt="Calendário"
-                        className="w-20 md:w-20 h-20 md:h-20 drop-shadow-[0_10px_30px_rgba(37,99,235,0.3)] object-contain filter brightness-[1.1] mb-2 md:mb-1 transform hover:scale-105 transition-transform duration-500"
+                        className="w-20 md:w-20 h-20 md:h-20 drop-shadow-[0_10px_30px_rgba(37,99,235,0.3)] object-contain filter brightness-[1.1] mb-2 md:mb-1"
                     />
 
                     {/* Títulos com Gradiente Premium */}
@@ -171,7 +171,7 @@ const AuthPage: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={loginForm.formState.isSubmitting}
-                                className="w-full h-12 md:h-12 rounded-2xl bg-gradient-to-b from-[#E53935] to-[#B71C1C] hover:from-[#EF5350] hover:to-[#C62828] text-white font-black text-[17.5px] shadow-[0_4px_0_#991B1B,0_10px_20px_rgba(183,28,28,0.25)] active:translate-y-[4px] active:shadow-[0_1px_0_#991B1B] transition-all duration-150 disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-3 border border-white/10"
+                                className="w-full h-12 md:h-12 rounded-2xl bg-gradient-to-b from-[#E53935] to-[#B71C1C] hover:from-[#EF5350] hover:to-[#C62828] text-white font-black text-[17.5px] shadow-[0_4px_0_#991B1B,0_10px_20px_rgba(183,28,28,0.25)] md:shadow-[0_1px_0_#991B1B,0_10px_20px_rgba(183,28,28,0.25)] active:translate-y-[4px] md:active:translate-y-[1px] active:shadow-[0_1px_0_#991B1B] md:active:shadow-none transition-all duration-150 disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-3 border border-white/10"
                             >
                                 {loginForm.formState.isSubmitting ? (
                                     <><Loader2 size={24} className="animate-spin" /> Entrando...</>
@@ -192,7 +192,7 @@ const AuthPage: React.FC = () => {
                     </button>
 
                     {/* Footer Desktop - Dentro do card */}
-                    <div className="hidden md:block mt-7 text-[#475569] text-[10px] font-semibold uppercase tracking-wider">
+                    <div className="hidden md:block mt-7 text-slate-800 text-[10px] font-bold uppercase tracking-wider">
                         © {new Date().getFullYear()} - Calendário Agenda - by Vagner
                     </div>
                 </div>
