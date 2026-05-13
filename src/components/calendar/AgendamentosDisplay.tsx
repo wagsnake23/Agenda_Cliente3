@@ -42,14 +42,14 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
             className={cn(
                 "relative z-10 min-h-[100px] h-full flex flex-col transition-all duration-300",
                 "bg-[#f8fafc] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/35 overflow-hidden",
-                "md:bg-[#f8fafc] md:rounded-[22px] md:border md:border-[rgba(226,232,240,0.92)] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:overflow-hidden md:transition-all md:duration-[200ms] md:ease-out",
+                "md:bg-[#f8fafc] md:rounded-[24px] md:border md:border-[rgba(226,232,240,0.92)] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:overflow-hidden md:transition-all md:duration-[200ms] md:ease-out",
                 isEmpty ? "hidden md:flex" : "flex"
             )}
         >
             {/* Highlight de topo sutil */}
 
             <div
-                className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
+                className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[24px] overflow-hidden"
             >
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-[#3b82f6]" />
@@ -93,7 +93,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 </div>
             </div>
 
-            <div className="pt-[11px] pb-[14px] px-[13px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-[22px]">
+            <div className="pt-[11px] pb-[14px] px-[13px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-[24px]">
                 {isEmpty ? (
                     <div className="flex flex-col items-start justify-start pt-3 pb-4 gap-1 px-1">
                         <div className="flex items-center gap-2.5 opacity-60">

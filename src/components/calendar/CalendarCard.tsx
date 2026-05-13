@@ -118,16 +118,16 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
         <div
             className={cn(
                 "w-full transition-all duration-500 ease-out flex flex-col",
-                viewMode === 'anual' ? "p-0 bg-[#F9FAFB] shadow-sm border overflow-hidden" : "px-2 py-2 md:px-8 md:pt-4 md:pb-8",
+                viewMode === 'anual' ? "p-0 bg-[#F9FAFB] shadow-sm border overflow-hidden" : "px-2 py-2 md:px-5 md:pt-0 md:pb-7 md:overflow-hidden",
                 viewMode === 'anual' ? "" : "md:bg-white backdrop-blur-sm md:backdrop-blur-none",
                 "antialiased [font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] [contain:paint]",
-                viewMode === 'anual' ? "rounded-t-[18px] rounded-b-[14px]" : "border-[0.5px] border-blue-400/15 shadow-[inset_0_1px_3px_rgba(0,0,0,0.03)]",
-                viewMode === 'anual' ? "" : "md:border md:border-blue-800/20 md:shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(0,0,0,0.06)]",
-                viewMode === 'anual' ? "" : "rounded-2xl md:rounded-[29px] bg-clip-padding",
+                viewMode === 'anual' ? "rounded-t-[18px] rounded-b-[14px]" : "border border-slate-300/35 shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)]",
+                viewMode === 'anual' ? "" : "md:border md:border-[rgba(226,232,240,0.92)] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)]",
+                viewMode === 'anual' ? "" : "rounded-2xl md:rounded-[24px] bg-clip-padding",
                 "relative group/card"
             )}
             style={{
-                background: viewMode === 'anual' ? '#F9FAFB' : (!isDesktopState ? '#ffffff' : 'white'),
+                background: viewMode === 'anual' ? '#F9FAFB' : (!isDesktopState ? '#ffffff' : 'linear-gradient(180deg, #ffffff 0%, #fcfdfe 100%)'),
                 borderColor: viewMode === 'anual' ? 'rgba(170, 180, 195, 0.75)' : undefined
             }}
         >
@@ -137,10 +137,10 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
             <div
                 className={cn(
                     "flex justify-between items-start",
-                    viewMode === 'anual' ? "h-[50px] md:h-[65px]" : "md:-mx-8 md:-mt-4 md:px-8 md:pt-4 md:h-[99px] md:rounded-t-[28px]",
+                    viewMode === 'anual' ? "h-[50px] md:h-[65px]" : "md:-mx-5 md:mt-0 md:px-5 md:pt-4 md:h-[99px] md:rounded-t-[24px]",
                     viewMode === 'anual' && !isDesktopState ? "hidden" : "md:flex",
                     "mb-0 relative overflow-hidden border-none outline-none shadow-none",
-                    viewMode === 'anual' ? "bg-[#F9FAFB]" : "bg-white"
+                    viewMode === 'anual' ? "bg-[#F9FAFB]" : "bg-transparent"
                 )}
             >
                 {/* Background da Estação */}
@@ -152,11 +152,13 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                         backgroundPosition: "center"
                     }}
                 >
-                    {/* Overlay local apenas para o ícone do calendário */}
+                    {/* Overlay local para melhorar integração e legibilidade */}
                     <div
-                        className="absolute top-0 left-0 w-[110px] h-[70px] pointer-events-none z-10"
+                        className="absolute inset-0 pointer-events-none z-10"
                         style={{
-                            background: 'radial-gradient(circle at top left, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0) 70%)'
+                            background: viewMode === 'anual' 
+                                ? 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.05) 100%)' 
+                                : 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.6) 92%, #ffffff 100%), radial-gradient(circle at top left, rgba(0,0,0,0.15) 0%, transparent 50%)'
                         }}
                     />
                 </div>
@@ -173,10 +175,10 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                             "active:scale-95 active:translate-y-0 active:brightness-[0.98]"
                         )}
                         style={{ 
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(226,232,240,0.9))',
-                            border: '1px solid rgba(59,130,246,0.15)',
-                            boxShadow: '0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8)',
-                            padding: viewMode === 'anual' ? '4px 8px' : '7px 14px',
+                            background: 'linear-gradient(135deg, rgba(255,255,255,0.98), rgba(241,245,249,0.95))',
+                            border: '1px solid rgba(59,130,246,0.18)',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9)',
+                            padding: viewMode === 'anual' ? '4px 8px' : '8px 18px',
                             lineHeight: '1.3',
                             textShadow: 'none'
                         }}
@@ -250,11 +252,11 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                     "relative opacity-100 transition-colors duration-500",
                     viewMode === 'anual' 
                         ? "p-2 md:p-3 mt-0" 
-                        : "p-0 md:px-4 md:pt-6 md:pb-4 md:mt-0 md:rounded-[20px] md:shadow-[inset_0_1px_3px_rgba(255,255,255,0.9),inset_0_-1px_2px_rgba(14,165,233,0.05)]",
+                        : "p-0 md:px-0 md:pt-1 md:pb-2 md:mt-0 md:rounded-none md:shadow-none",
                 )}
                 style={{
-                    background: viewMode === 'anual' ? 'transparent' : (isDesktopState ? '#f1f5f9' : 'transparent'),
-                    border: viewMode === 'anual' ? 'none' : (isDesktopState ? '1px solid rgba(148, 163, 184, 0.2)' : 'none')
+                    background: 'transparent',
+                    border: 'none'
                 }}
             >
                 <CalendarGrid

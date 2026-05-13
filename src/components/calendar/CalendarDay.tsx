@@ -101,15 +101,15 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       onClick={handleClick}
       className={cn(
         "relative w-full h-full flex items-center justify-center",
-        "rounded-[8px] md:rounded-[10px]",
+        "rounded-[8px] md:rounded-[12px]",
         viewMode === 'anual' 
           ? cn("text-[11px] md:text-[13px]", mode === 'adm' ? "font-bold md:font-semibold" : "font-bold")
-          : "text-sm md:text-base font-semibold",
-        "bg-clip-padding saturate-[1.05]",
+          : "text-sm md:text-base font-bold",
+        "bg-clip-padding saturate-[1.05] antialiased",
         "transition-all duration-200 ease-out",
         "will-change-[background-color,border-color,transform]",
         "border-[0.5px] border-slate-300/60 shadow-none",
-        isSelected && "bg-[#FFFDDF] border-orange-400/60 z-10",
+        isSelected && "bg-gradient-to-b from-[#fffef0] to-[#fffdf5] border-orange-400/50 z-10 md:shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_4px_rgba(0,0,0,0.02)]",
 
         mode === "adm"
           ? cn(
@@ -121,31 +121,31 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
 
         !isSelected && (
           dayData.colors.bg === "bg-calendar-blue"
-            ? "bg-gradient-to-br from-[#3b82f6] to-[#1d4ed8] border-blue-400/30"
+            ? "bg-gradient-to-b from-[#3b82f6] to-[#1d4ed8] border-blue-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_4px_rgba(0,0,0,0.05)]"
             : dayData.colors.bg === "bg-calendar-green"
-              ? "bg-gradient-to-br from-[#2ecc71] to-[#27ae60] border-green-400/30"
+              ? "bg-gradient-to-b from-[#2ecc71] to-[#27ae60] border-green-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_4px_rgba(0,0,0,0.05)]"
               : dayData.colors.bg === "bg-calendar-yellow"
-                ? "bg-gradient-to-br from-[#fde047] to-[#f59e0b] border-yellow-400/30"
+                ? "bg-gradient-to-b from-[#fde047] to-[#f59e0b] border-yellow-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_2px_4px_rgba(0,0,0,0.05)]"
                 : (dayData.colors.bg === "bg-white" 
                    ? cn(
                        "bg-white",
                        mode === 'adm' 
                          ? cn(
-                             "bg-white max-md:bg-white",
-                             viewMode === 'anual' ? "md:bg-[#F9FAFB] md:border-[0.5px] md:border-slate-300/60 md:shadow-none" : "border-[0.1px] border-slate-400/60 shadow-[inset_0_1px_3px_rgba(0,0,0,0.07)]"
+                             "bg-gradient-to-b from-[#ffffff] to-[#fcfdfe]",
+                             viewMode === 'anual' ? "md:bg-[#F9FAFB] md:border-[0.5px] md:border-slate-300/60 md:shadow-none" : "border-[0.1px] border-slate-400/60 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.02)]"
                            )
-                         : "max-md:bg-[#ffffff] max-md:border-slate-400/45"
+                         : "max-md:bg-[#ffffff] max-md:border-slate-400/45 md:bg-gradient-to-b md:from-[#ffffff] md:to-[#f8fafc] md:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.02)]"
                      )
                    : dayData.colors.bg)
         ),
         isSelected ? "text-black drop-shadow-none" : dayData.colors.text,
         dayData.isToday && cn(
-          "ring-2 ring-inset ring-[#C62828] z-10",
+          "ring-[2.5px] ring-inset ring-[#C62828]/90 z-10",
           "shadow-none",
           "md:font-black"
         ),
         isClicked && "opacity-90",
-        !isClicked && isSpecialDay && "hover:scale-[1.02] hover:brightness-[1.05] cursor-pointer"
+        !isClicked && isSpecialDay && "hover:translate-y-[-1px] hover:brightness-[1.02] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] cursor-pointer"
       )}
       style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
     >
@@ -154,17 +154,17 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
           <span
             className={cn(
               "absolute left-1/2 -translate-x-1/2 leading-none animate-in zoom-in-50 duration-300 emoji-desktop-colorful",
-              viewMode === 'anual' ? "text-[7px] md:text-[9px]" : "text-[9px] md:text-[11px]",
+              viewMode === 'anual' ? "text-[8px] md:text-[10px]" : "text-[10px] md:text-[12px]",
               viewMode === 'anual'
-                ? (isDoubleBirthday ? "md:-top-[10px] -top-[10px]" : "md:-top-3 -top-[12px]")
-                : (isDoubleBirthday ? "md:-top-[13px] -top-[12px]" : "md:-top-[16px] -top-[14px]")
+                ? (isDoubleBirthday ? "md:-top-[11px] -top-[11px]" : "md:-top-3.5 -top-[14px]")
+                : (isDoubleBirthday ? "md:-top-[14px] -top-[13px]" : "md:-top-[18px] -top-[16px]")
             )}
             title={rawTipo || ""}
           >
             {dynamicEmoji}
           </span>
         )}
-        <span className="tracking-[0.3px]">
+        <span className="tracking-[0.4px] drop-shadow-sm">
           {String(dayData.day).padStart(2, "0")}
         </span>
       </div>

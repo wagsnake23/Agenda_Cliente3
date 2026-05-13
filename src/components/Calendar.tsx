@@ -663,6 +663,7 @@ const Calendar = ({
                             opacity: 1,
                             backfaceVisibility: 'hidden',
                             WebkitBackfaceVisibility: 'hidden',
+                            transform: 'translate3d(0, 0, 0)',
                           }}
                         >
                           <CalendarCard
@@ -755,7 +756,7 @@ const Calendar = ({
             />
 
             {/* Indicadores de bolinhas */}
-            <div className="hidden lg:flex justify-center gap-3 mt-6 lg:mt-6 mb-4">
+            <div className="hidden lg:flex justify-center gap-3 mt-8 lg:mt-10 mb-6">
               {[-1, 0, 1].map((offset) => {
                 const date = addMonths(new Date(year, month, 1), offset);
                 return (
@@ -766,10 +767,10 @@ const Calendar = ({
                       onYearChange(date.getFullYear());
                     }}
                     className={cn(
-                      "h-2.5 rounded-full transition-all duration-300",
+                      "h-3 rounded-full transition-all duration-500 ease-out",
                       offset === 0
-                        ? "w-12 bg-[#C62828] shadow-[0_4px_12px_rgba(198,40,40,0.3)]"
-                        : "w-2.5 bg-gray-300 hover:bg-gray-400"
+                        ? "w-14 bg-gradient-to-r from-[#C62828] to-[#D32F2F] shadow-[0_4px_12px_rgba(198,40,40,0.4)]"
+                        : "w-3 bg-gray-300/80 hover:bg-gray-400/80 hover:scale-110 shadow-sm"
                     )}
                   />
                 );
