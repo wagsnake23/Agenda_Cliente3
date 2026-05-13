@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { X, SquarePen, Trash2, User, Calendar as CalendarIcon, Clock, CalendarDays, ClipboardList } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -218,22 +218,39 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
         }
     }, [dataInicio, dataFim]);
 
-    // Efeito para scrollar até o agendamento selecionado
+    // Filtragem de agendamentos vigentes do mês
+    const agendamentosExibidos = useMemo(() => {
+        if (mode === 'view') {
+            return todosAgendamentos
+                .filter(a => {
+                    const status = a.status?.toLowerCase();
+                    return status !== 'cancelado' && status !== 'recusado';
+                })
+                .sort((a, b) => new Date(a.dataInicio + 'T12:00:00').getTime() - new Date(b.dataInicio + 'T12:00:00').getTime());
+        }
+        return agendamentosNoDia;
+    }, [mode, todosAgendamentos, agendamentosNoDia]);
+
+    // Efeito para scrollar até o agendamento selecionado ou o primeiro do dia
     useEffect(() => {
-        if (isOpen && selectedAgendamentoId) {
-            const element = document.getElementById(`agendamento-${selectedAgendamentoId}`);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (isOpen && mode === 'view') {
+            if (selectedAgendamentoId) {
+                const element = document.getElementById(`agendamento-${selectedAgendamentoId}`);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else if (initialDate) {
+                // Se não houver um agendamento específico, tenta scrollar para o primeiro do dia selecionado
+                const firstOfToday = agendamentosExibidos.find(a => a.dataInicio === initialDate);
+                if (firstOfToday) {
+                    const element = document.getElementById(`agendamento-${firstOfToday.id}`);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
             }
         }
-    }, [isOpen, selectedAgendamentoId]);
-
-    // Efeito para fechar o drawer automaticamente se não houver agendamentos em modo de visualização
-    useEffect(() => {
-        if (isOpen && mode === 'view' && (!agendamentosNoDia || agendamentosNoDia.length === 0)) {
-            onClose();
-        }
-    }, [isOpen, mode, agendamentosNoDia, onClose]);
+    }, [isOpen, mode, selectedAgendamentoId, initialDate, agendamentosExibidos]);
 
     if (!isOpen) return null;
 
@@ -369,16 +386,15 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     <span>Novo Agendamento</span>
                                 ) : (
                                     <div className="flex flex-col">
-                                        <span className="block">Agendamentos do dia</span>
+                                        <span className="block">Agendamentos do mês</span>
                                         {initialDate && (() => {
                                             const d = new Date(initialDate + 'T12:00:00');
-                                            const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
-                                            const dia = String(d.getDate()).padStart(2, '0');
-                                            const mes = monthsAbbr[d.getMonth()];
+                                            const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
+                                            const mes = months[d.getMonth()];
                                             const ano = d.getFullYear();
                                             return (
                                                 <span className="text-[11px] md:text-[13px] font-normal text-white/90 mt-0.5 tracking-[0.5px]">
-                                                    {dia} {mes} {ano}
+                                                    {mes} {ano}
                                                 </span>
                                             );
                                         })()}
@@ -680,12 +696,12 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                         </div>
                     ) : (
                         <div className="space-y-4">
-                            {(!agendamentosNoDia || agendamentosNoDia.length === 0) ? (
+                            {(!agendamentosExibidos || agendamentosExibidos.length === 0) ? (
                                 <div className="py-12 text-center">
-                                    <p className="text-slate-400 font-medium italic text-[14px]">Nenhum agendamento para este dia.</p>
+                                    <p className="text-slate-400 font-medium italic text-[14px]">Nenhum agendamento vigente para este mês.</p>
                                 </div>
                             ) : (
-                                agendamentosNoDia.map((agenda) => {
+                                agendamentosExibidos.map((agenda) => {
                                     const emoji = agenda.tipo.split(' ')[0];
                                     let tipoNome = agenda.tipo.replace(emoji, '').trim();
                                     const isEventSpecial = agenda.userName === '_SPECIAL_EVENT_';
