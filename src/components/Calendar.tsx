@@ -290,9 +290,9 @@ const Calendar = ({
     setDrawerOnlyDay(false);
   };
 
-  // Sincronizar modo do drawer ao navegar pelos meses
+  // Sincronizar modo do drawer ao navegar pelos meses (apenas no modo mensal)
   useEffect(() => {
-    if (isDrawerOpen && drawerOnlyDay && selectedDrawerDate) {
+    if (viewMode === 'mensal' && isDrawerOpen && drawerOnlyDay && selectedDrawerDate) {
       const dateParts = selectedDrawerDate.split('-');
       const dYear = parseInt(dateParts[0]);
       const dMonth = parseInt(dateParts[1]) - 1; // 0-indexed
@@ -301,7 +301,7 @@ const Calendar = ({
         setDrawerOnlyDay(false);
       }
     }
-  }, [month, year, isDrawerOpen, drawerOnlyDay, selectedDrawerDate]);
+  }, [month, year, isDrawerOpen, drawerOnlyDay, selectedDrawerDate, viewMode]);
 
   useEffect(() => {
     if (selectedAgendamentoId) {

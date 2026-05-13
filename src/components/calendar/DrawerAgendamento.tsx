@@ -230,7 +230,10 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
         
         if (mode === 'view') {
             let source = [];
-            if (showOnlyDay) {
+            // No modo anual, forçamos sempre a exibição apenas do dia selecionado
+            const isDayMode = viewMode === 'anual' || showOnlyDay;
+
+            if (isDayMode) {
                 source = agendamentosNoDia;
             } else {
                 // Se tivermos month e year (contexto do calendário), usamos eles
@@ -265,7 +268,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                 .sort((a, b) => new Date(a.dataInicio + 'T12:00:00').getTime() - new Date(b.dataInicio + 'T12:00:00').getTime());
         }
         return agendamentosNoDia;
-    }, [mode, todosAgendamentos, agendamentosNoDia, showOnlyDay, initialDate, isOpen, month, year]);
+    }, [mode, todosAgendamentos, agendamentosNoDia, showOnlyDay, initialDate, isOpen, month, year, viewMode]);
 
     // Efeito para scrollar até o agendamento selecionado ou o primeiro do dia
     useEffect(() => {
@@ -422,10 +425,12 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                     <span>Novo Agendamento</span>
                                 ) : (
                                     <div className="flex flex-col">
-                                        <span className="block">{showOnlyDay ? "Agendamentos do dia" : "Agendamentos do mês"}</span>
+                                        <span className="block">
+                                            {(viewMode === 'anual' || showOnlyDay) ? "Agendamentos do dia" : "Agendamentos do mês"}
+                                        </span>
                                         {initialDate && (() => {
                                             const d = new Date(initialDate + 'T12:00:00');
-                                            if (showOnlyDay) {
+                                            if (viewMode === 'anual' || showOnlyDay) {
                                                 const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
                                                 const dia = String(d.getDate()).padStart(2, '0');
                                                 const mes = monthsAbbr[d.getMonth()];
@@ -437,7 +442,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 );
                                             }
                                             
-                                            // Priorizar mês/ano do contexto do calendário para o título
+                                            // Priorizar mês/ano do contexto do calendário para o título (Modo Mensal)
                                             if (month !== undefined && year !== undefined) {
                                                 const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
                                                 return (
