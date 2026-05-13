@@ -72,7 +72,7 @@ const AuthPage: React.FC = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-[#1e3a8a] via-[#111827] to-[#0b1221] md:bg-[url('/background1.webp')] md:bg-cover md:bg-center flex items-center justify-center">
+            <div className="min-h-screen bg-white md:bg-[url('/background1.webp')] md:bg-cover md:bg-center flex items-center justify-center">
                 <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin" />
             </div>
         );
@@ -96,13 +96,13 @@ const AuthPage: React.FC = () => {
 
             <div className="w-full max-w-[390px] relative z-10">
                 {/* Card de Login - No Mobile fundo branco direto, no Desktop com Card */}
-                <div className="bg-white md:bg-[#F8FAFC] md:rounded-[28px] md:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,1),inset_0_2px_10px_rgba(0,0,0,0.05)] overflow-hidden px-4 md:px-8 pt-3 md:pt-4 pb-6 md:pb-1 flex flex-col items-center md:border-[4px] md:border-white/60">
+                <div className="bg-white md:bg-white md:rounded-[28px] md:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,1),inset_0_2px_10px_rgba(0,0,0,0.05)] overflow-hidden px-4 md:px-8 pt-3 md:pt-4 pb-6 md:pb-1 flex flex-col items-center md:border-[4px] md:border-white/60">
 
                     {/* Logo Original */}
                     <img
                         src="/logo.png"
                         alt="Calendário"
-                        className="w-20 md:w-20 h-20 md:h-20 drop-shadow-[0_10px_30px_rgba(37,99,235,0.3)] object-contain filter brightness-[1.1] mb-2 md:mb-1"
+                        className="w-20 md:w-20 h-20 md:h-20 drop-shadow-[0_8px_20px_rgba(37,99,235,0.2)] object-contain filter brightness-[1.1] mb-2 md:mb-1"
                     />
 
                     {/* Títulos com Gradiente Premium */}
@@ -130,7 +130,7 @@ const AuthPage: React.FC = () => {
                                     {...loginForm.register('email')}
                                     type="email"
                                     placeholder="seu@email.com"
-                                    className="w-full h-12 md:h-12 pl-12 pr-4 rounded-2xl bg-[#E8F0FE] border border-slate-300 md:border-slate-300/50 text-slate-800 placeholder-slate-400 font-bold text-sm md:text-[15.5px] focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:bg-white transition-all shadow-sm"
+                                    className="w-full h-12 md:h-12 pl-12 pr-4 rounded-2xl bg-[#F1F5F9] border border-slate-200 text-slate-800 placeholder-slate-400 font-bold text-sm md:text-[15.5px] focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:bg-white transition-all shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.08)]"
                                 />
                             </div>
                             {loginForm.formState.errors.email && (
@@ -148,8 +148,8 @@ const AuthPage: React.FC = () => {
                                 <input
                                     {...loginForm.register('password')}
                                     type={showPassword ? 'text' : 'password'}
-                                    placeholder="••••••••"
-                                    className="w-full h-12 md:h-12 pl-12 pr-12 rounded-2xl bg-[#E8F0FE] border border-slate-300 md:border-slate-300/50 text-slate-800 placeholder-slate-400 font-bold text-sm md:text-[15.5px] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white transition-all shadow-sm"
+                                    placeholder=""
+                                    className="w-full h-12 md:h-12 pl-12 pr-12 rounded-2xl bg-[#F1F5F9] border border-slate-200 text-slate-800 placeholder-slate-400 font-bold text-sm md:text-[15.5px] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white transition-all shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.08)]"
                                 />
                                 <button
                                     type="button"
@@ -171,7 +171,7 @@ const AuthPage: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={loginForm.formState.isSubmitting}
-                                className="w-full h-12 md:h-12 rounded-2xl bg-gradient-to-b from-[#E53935] to-[#B71C1C] hover:from-[#EF5350] hover:to-[#C62828] text-white font-black text-[17.5px] shadow-[0_1px_0_#991B1B,0_10px_20px_rgba(183,28,28,0.25)] active:translate-y-[1px] active:shadow-none transition-all duration-150 disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-3 border border-white/10"
+                                className="w-full h-12 md:h-12 rounded-2xl bg-gradient-to-b from-[#E53935] to-[#B71C1C] hover:from-[#EF5350] hover:to-[#C62828] text-white font-black text-[17.5px] shadow-[0_1px_0_#991B1B,0_8px_16px_rgba(183,28,28,0.15)] active:translate-y-[1px] active:shadow-none transition-all duration-150 disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-3 border border-white/10"
                             >
                                 {loginForm.formState.isSubmitting ? (
                                     <><Loader2 size={24} className="animate-spin" /> Entrando...</>
@@ -185,7 +185,7 @@ const AuthPage: React.FC = () => {
                     {/* Esqueci a Senha */}
                     <button
                         type="button"
-                        className="mt-8 md:mt-4 mb-4 md:mb-0 text-blue-900 font-black text-[14.5px] hover:text-blue-700 transition-all decoration-blue-900/30 underline-offset-4"
+                        className="mt-[27px] md:mt-4 mb-4 md:mb-0 text-blue-900 font-black text-[14.5px] hover:text-blue-700 transition-all decoration-blue-900/30 underline-offset-4"
                         onClick={() => setShowResetModal(true)}
                     >
                         Esqueceu sua senha?
@@ -199,7 +199,7 @@ const AuthPage: React.FC = () => {
             </div>
 
             {/* Footer Mobile específico pinado embaixo fora do card */}
-            <div className="md:hidden fixed bottom-0 left-0 w-full text-center text-slate-400 text-[10px] font-black uppercase tracking-wider z-50 bg-gradient-to-t from-white via-white/90 to-transparent pt-6 pb-4">
+            <div className="md:hidden fixed bottom-0 left-0 w-full text-center text-slate-900 text-[10px] font-bold uppercase tracking-wider z-50 bg-gradient-to-t from-white via-white/90 to-transparent pt-6 pb-4">
                 © {new Date().getFullYear()} - Calendário Agenda - by Vagner
             </div>
 
