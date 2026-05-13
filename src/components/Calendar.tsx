@@ -286,6 +286,7 @@ const Calendar = ({
     setIsDrawerOpen(false);
     setSelectedPeriod(null);
     setSelectedAgendamentoId(null);
+    setSelectedDrawerDate(undefined);
     setDrawerOnlyDay(false);
   };
 
@@ -675,7 +676,7 @@ const Calendar = ({
                             position={position}
                             mode={mode}
                             agendamentos={agendamentosComEventosGerais}
-                            onViewAgendamento={handleOpenViewDrawer}
+                            onViewAgendamento={(date, id) => handleOpenViewDrawer(date, id, true)}
                             onOpenCreateDrawer={handleOpenCreateDrawer}
                             selectedPeriod={selectedPeriod}
                             calendarEvents={enrichedEvents}
@@ -712,7 +713,7 @@ const Calendar = ({
                   variant={(!isMobile && viewMode === 'anual') ? 'modal' : 'drawer'}
                   initialDate={selectedDrawerDate}
                   agendamentosNoDia={drawerAgendamentos}
-                  todosAgendamentos={filteredMonthAgendamentos}
+                  todosAgendamentos={agendamentosComEventosGerais}
                   onSave={salvarAgendamento}
                   onDelete={excluirAgendamento}
                   onUpdate={editarAgendamento}
@@ -738,7 +739,7 @@ const Calendar = ({
               variant="modal"
               initialDate={selectedDrawerDate}
               agendamentosNoDia={drawerAgendamentos}
-              todosAgendamentos={filteredMonthAgendamentos}
+              todosAgendamentos={agendamentosComEventosGerais}
               onSave={salvarAgendamento}
               onDelete={excluirAgendamento}
               onUpdate={editarAgendamento}

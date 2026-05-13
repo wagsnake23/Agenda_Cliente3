@@ -224,10 +224,39 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
         }
     }, [dataInicio, dataFim]);
 
-    // Filtragem de agendamentos vigentes do mês
+    // Filtragem de agendamentos vigentes (mês ou dia)
     const agendamentosExibidos = useMemo(() => {
+        if (!isOpen || !initialDate) return [];
+        
         if (mode === 'view') {
-            const source = showOnlyDay ? agendamentosNoDia : todosAgendamentos;
+            let source = [];
+            if (showOnlyDay) {
+                source = agendamentosNoDia;
+            } else {
+                // Se tivermos month e year (contexto do calendário), usamos eles
+                if (month !== undefined && year !== undefined) {
+                    const firstDay = new Date(year, month, 1);
+                    const lastDay = new Date(year, month + 1, 0);
+                    const firstStr = `${year}-${String(month + 1).padStart(2, '0')}-01`;
+                    const lastStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(lastDay.getDate()).padStart(2, '0')}`;
+
+                    source = todosAgendamentos.filter(ag => 
+                        ag.dataInicio <= lastStr && ag.dataFim >= firstStr
+                    );
+                } else {
+                    // Fallback para o mês da initialDate
+                    const d = new Date(initialDate + 'T12:00:00');
+                    const firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
+                    const lastDay = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+                    const firstStr = `${firstDay.getFullYear()}-${String(firstDay.getMonth() + 1).padStart(2, '0')}-01`;
+                    const lastStr = `${lastDay.getFullYear()}-${String(lastDay.getMonth() + 1).padStart(2, '0')}-${String(lastDay.getDate()).padStart(2, '0')}`;
+
+                    source = todosAgendamentos.filter(ag => 
+                        ag.dataInicio <= lastStr && ag.dataFim >= firstStr
+                    );
+                }
+            }
+
             return source
                 .filter(a => {
                     const status = a.status?.toLowerCase();
@@ -236,7 +265,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                 .sort((a, b) => new Date(a.dataInicio + 'T12:00:00').getTime() - new Date(b.dataInicio + 'T12:00:00').getTime());
         }
         return agendamentosNoDia;
-    }, [mode, todosAgendamentos, agendamentosNoDia, showOnlyDay]);
+    }, [mode, todosAgendamentos, agendamentosNoDia, showOnlyDay, initialDate, isOpen, month, year]);
 
     // Efeito para scrollar até o agendamento selecionado ou o primeiro do dia
     useEffect(() => {
@@ -394,9 +423,9 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                 ) : (
                                     <div className="flex flex-col">
                                         <span className="block">{showOnlyDay ? "Agendamentos do dia" : "Agendamentos do mês"}</span>
-                                        {(() => {
-                                            if (showOnlyDay && initialDate) {
-                                                const d = new Date(initialDate + 'T12:00:00');
+                                        {initialDate && (() => {
+                                            const d = new Date(initialDate + 'T12:00:00');
+                                            if (showOnlyDay) {
                                                 const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
                                                 const dia = String(d.getDate()).padStart(2, '0');
                                                 const mes = monthsAbbr[d.getMonth()];
@@ -408,7 +437,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 );
                                             }
                                             
-                                            // Se tivermos month e year explícitos, usamos eles (sincronizado com o calendário)
+                                            // Priorizar mês/ano do contexto do calendário para o título
                                             if (month !== undefined && year !== undefined) {
                                                 const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
                                                 return (
@@ -418,18 +447,12 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                 );
                                             }
 
-                                            // Fallback para o initialDate se month/year não vierem
-                                            if (initialDate) {
-                                                const d = new Date(initialDate + 'T12:00:00');
-                                                const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
-                                                return (
-                                                    <span className="text-[11px] md:text-[13px] font-normal text-white/90 mt-0.5 tracking-[0.5px]">
-                                                        {months[d.getMonth()]} {d.getFullYear()}
-                                                    </span>
-                                                );
-                                            }
-
-                                            return null;
+                                            const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
+                                            return (
+                                                <span className="text-[11px] md:text-[13px] font-normal text-white/90 mt-0.5 tracking-[0.5px]">
+                                                    {months[d.getMonth()]} {d.getFullYear()}
+                                                </span>
+                                            );
                                         })()}
                                     </div>
                                 )}
