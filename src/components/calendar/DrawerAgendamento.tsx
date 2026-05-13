@@ -124,6 +124,8 @@ interface DrawerAgendamentoProps {
     onEditRequest?: (ag: Agendamento) => void;
     viewMode?: 'mensal' | 'anual';
     showOnlyDay?: boolean;
+    month?: number;
+    year?: number;
 }
 
 const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
@@ -146,6 +148,8 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
     onEditRequest,
     viewMode = 'mensal',
     showOnlyDay = false,
+    month,
+    year,
 }) => {
     const { profile } = useAuth();
     const [dataInicio, setDataInicio] = useState(initialDate || '');
@@ -390,9 +394,9 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                 ) : (
                                     <div className="flex flex-col">
                                         <span className="block">{showOnlyDay ? "Agendamentos do dia" : "Agendamentos do mês"}</span>
-                                        {initialDate && (() => {
-                                            const d = new Date(initialDate + 'T12:00:00');
-                                            if (showOnlyDay) {
+                                        {(() => {
+                                            if (showOnlyDay && initialDate) {
+                                                const d = new Date(initialDate + 'T12:00:00');
                                                 const monthsAbbr = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
                                                 const dia = String(d.getDate()).padStart(2, '0');
                                                 const mes = monthsAbbr[d.getMonth()];
@@ -403,14 +407,29 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                                     </span>
                                                 );
                                             }
-                                            const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
-                                            const mes = months[d.getMonth()];
-                                            const ano = d.getFullYear();
-                                            return (
-                                                <span className="text-[11px] md:text-[13px] font-normal text-white/90 mt-0.5 tracking-[0.5px]">
-                                                    {mes} {ano}
-                                                </span>
-                                            );
+                                            
+                                            // Se tivermos month e year explícitos, usamos eles (sincronizado com o calendário)
+                                            if (month !== undefined && year !== undefined) {
+                                                const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
+                                                return (
+                                                    <span className="text-[11px] md:text-[13px] font-normal text-white/90 mt-0.5 tracking-[0.5px]">
+                                                        {months[month]} {year}
+                                                    </span>
+                                                );
+                                            }
+
+                                            // Fallback para o initialDate se month/year não vierem
+                                            if (initialDate) {
+                                                const d = new Date(initialDate + 'T12:00:00');
+                                                const months = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
+                                                return (
+                                                    <span className="text-[11px] md:text-[13px] font-normal text-white/90 mt-0.5 tracking-[0.5px]">
+                                                        {months[d.getMonth()]} {d.getFullYear()}
+                                                    </span>
+                                                );
+                                            }
+
+                                            return null;
                                         })()}
                                     </div>
                                 )}
@@ -735,19 +754,19 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                                         const month = months[d.getMonth()];
                                         // Mês inicial minúsculo, final maiúsculo (cap)
                                         const monthFormatted = isStart ? month : month.charAt(0).toUpperCase() + month.slice(1);
-                                        return `${day}${monthFormatted}`;
+                                        return `${day} ${monthFormatted}`;
                                     };
 
                                     const renderPeriod = () => {
                                         if (agenda.dataInicio === agenda.dataFim) {
                                             const d = new Date(agenda.dataInicio + 'T12:00:00');
                                             const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-                                            return `${d.getDate()}${months[d.getMonth()]}${d.getFullYear()}`;
+                                            return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
                                         }
                                         const start = formatDateAbbr(agenda.dataInicio, true);
                                         const end = formatDateAbbr(agenda.dataFim, false);
                                         const year = new Date(agenda.dataFim + 'T12:00:00').getFullYear();
-                                        return `${start} - ${end}${year}`;
+                                        return `${start} - ${end} ${year}`;
                                     };
 
                                     const isSelected = (selectedPeriod?.start === agenda.dataInicio && selectedPeriod?.end === agenda.dataFim) ||

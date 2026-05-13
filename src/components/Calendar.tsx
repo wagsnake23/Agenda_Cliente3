@@ -289,6 +289,19 @@ const Calendar = ({
     setDrawerOnlyDay(false);
   };
 
+  // Sincronizar modo do drawer ao navegar pelos meses
+  useEffect(() => {
+    if (isDrawerOpen && drawerOnlyDay && selectedDrawerDate) {
+      const dateParts = selectedDrawerDate.split('-');
+      const dYear = parseInt(dateParts[0]);
+      const dMonth = parseInt(dateParts[1]) - 1; // 0-indexed
+      
+      if (dYear !== year || dMonth !== month) {
+        setDrawerOnlyDay(false);
+      }
+    }
+  }, [month, year, isDrawerOpen, drawerOnlyDay, selectedDrawerDate]);
+
   useEffect(() => {
     if (selectedAgendamentoId) {
       const ag = agendamentosComEventosGerais.find(a => a.id === selectedAgendamentoId);
@@ -711,6 +724,8 @@ const Calendar = ({
                   onEditRequest={handleEditRequest}
                   viewMode={viewMode}
                   showOnlyDay={drawerOnlyDay}
+                  month={month}
+                  year={year}
                 />
               </div>
             </div>
@@ -734,6 +749,8 @@ const Calendar = ({
               setSelectedAgendamentoId={setSelectedAgendamentoId}
               viewMode={viewMode}
               showOnlyDay={false}
+              month={month}
+              year={year}
             />
 
             {/* Indicadores de bolinhas */}
@@ -772,7 +789,7 @@ const Calendar = ({
                     month={month}
                     year={year}
                     highlightedDay={highlightedDay}
-                    onViewAgendamento={handleOpenViewDrawer}
+                    onViewAgendamento={(date, id) => handleOpenViewDrawer(date, id, true)}
                   />
                 </div>
 
