@@ -131,8 +131,8 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
                        "bg-white",
                        mode === 'adm' 
                          ? cn(
-                             "lg:bg-[#ffffff] lg:border-slate-300/40 lg:shadow-[0_2px_4px_rgba(0,0,0,0.04)] bg-gradient-to-b from-[#ffffff] to-[#fcfdfe]",
-                             viewMode === 'anual' ? "md:bg-[#F9FAFB] md:border-[0.5px] md:border-slate-300/60 md:shadow-none" : "border-[0.1px] border-slate-400/60 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.02)]"
+                              "lg:bg-[#f1f5f9] lg:from-[#f1f5f9] lg:to-[#f1f5f9] lg:shadow-[inset_0_1px_2px_rgba(0,0,0,0.03),0_1px_1px_rgba(255,255,255,0.8)] bg-gradient-to-b from-[#ffffff] to-[#fcfdfe]",
+                              viewMode === 'anual' ? "md:bg-[#F9FAFB] md:border-[0.5px] md:border-slate-300/60 md:shadow-none" : "lg:border-[1.2px] lg:border-slate-400/45 border-[0.1px] border-slate-400/60 md:shadow-[inset_0_1px_2px_rgba(0,0,0,0.02),0_1px_2px_rgba(0,0,0,0.02)]"
                            )
                          : "max-md:bg-[#ffffff] max-md:border-slate-400/45 lg:bg-[#ffffff] lg:border-slate-300/40 lg:shadow-[0_2px_4px_rgba(0,0,0,0.04)] md:bg-gradient-to-b md:from-[#ffffff] md:to-[#f8fafc] md:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.02)]"
                      )
@@ -141,7 +141,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         isSelected ? "text-black drop-shadow-none" : cn(
           dayData.colors.text,
           viewMode === 'mensal' && !dayData.isToday && !isSelected && dayData.colors.bg === 'bg-white' && (
-            new Date(year!, month!, dayData.day).getDay() === 0 ? "lg:text-red-900" : "lg:text-[#1e3a8a]"
+            new Date(year!, month!, dayData.day).getDay() === 0 ? "lg:text-red-900" : (mode === 'adm' ? "lg:text-[#172554]" : "lg:text-[#1e3a8a]")
           )
         ),
         dayData.isToday && cn(
