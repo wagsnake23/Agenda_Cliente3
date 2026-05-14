@@ -162,7 +162,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
               viewMode === 'anual' ? "text-[8px] md:text-[10px]" : "text-[10px] md:text-[12px]",
               viewMode === 'anual'
                 ? (isDoubleBirthday ? "md:-top-[11px] -top-[11px]" : "md:-top-3.5 -top-[14px]")
-                : (isDoubleBirthday ? "md:-top-[14px] -top-[13px]" : "md:-top-[18px] -top-[16px]")
+                : (isDoubleBirthday ? "md:-top-[18px] -top-[13px]" : "md:-top-[18px] -top-[13px]")
             )}
             title={rawTipo || ""}
           >
