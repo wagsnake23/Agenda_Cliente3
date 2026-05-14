@@ -118,7 +118,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
         <div
             className={cn(
                 "w-full transition-all duration-500 ease-out flex flex-col",
-                viewMode === 'anual' ? "p-0 bg-[#F9FAFB] shadow-sm border overflow-hidden" : "px-2 py-2 md:px-5 md:pt-0 md:pb-7 md:overflow-hidden",
+                viewMode === 'anual' ? "p-0 bg-[#F9FAFB] shadow-sm border overflow-hidden" : "px-2 py-2 md:px-5 md:pt-0 md:pb-5 md:overflow-hidden",
                 viewMode === 'anual' ? "" : "md:bg-white backdrop-blur-sm md:backdrop-blur-none",
                 "antialiased [font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] [contain:paint]",
                 viewMode === 'anual' ? "rounded-t-[18px] rounded-b-[14px]" : "border border-slate-300/35 shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)]",
@@ -252,7 +252,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                     "relative opacity-100 transition-colors duration-500",
                     viewMode === 'anual' 
                         ? "p-2 md:p-3 mt-0" 
-                        : "p-0 md:px-0 md:pt-1 md:pb-2 md:mt-0 md:rounded-none md:shadow-none",
+                        : "p-0 md:px-0 md:pt-1 md:pb-0 md:mt-0 md:rounded-none md:shadow-none",
                 )}
                 style={{
                     background: 'transparent',

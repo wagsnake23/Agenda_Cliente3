@@ -105,10 +105,10 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         viewMode === 'anual' 
           ? cn("text-[11px] md:text-[13px]", mode === 'adm' ? "font-bold md:font-semibold" : "font-bold")
           : "text-sm md:text-base font-bold",
-        "bg-clip-padding saturate-[1.05] antialiased",
+        "bg-clip-padding saturate-[1.05] antialiased lg:[text-rendering:geometricPrecision]",
         "transition-all duration-200 ease-out",
         "will-change-[background-color,border-color,transform]",
-        "border-[0.5px] border-slate-300/60 shadow-none",
+        "lg:border-[1px] lg:border-blue-400/20 border-[0.5px] border-slate-300/60 shadow-none",
         isSelected && "bg-gradient-to-b from-[#fffef0] to-[#fffdf5] border-orange-400/50 z-10 md:shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_4px_rgba(0,0,0,0.02)]",
 
         mode === "adm"
@@ -121,24 +121,29 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
 
         !isSelected && (
           dayData.colors.bg === "bg-calendar-blue"
-            ? "bg-gradient-to-b from-[#3b82f6] to-[#1d4ed8] border-blue-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_4px_rgba(0,0,0,0.05)]"
+            ? "lg:bg-gradient-to-b lg:from-[#3b82f6] lg:to-[#1d4ed8] lg:border-blue-500/20 lg:shadow-[0_2px_4px_rgba(0,0,0,0.06)] bg-gradient-to-b from-[#3b82f6] to-[#1d4ed8] border-blue-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_4px_rgba(0,0,0,0.05)]"
             : dayData.colors.bg === "bg-calendar-green"
-              ? "bg-gradient-to-b from-[#2ecc71] to-[#27ae60] border-green-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_4px_rgba(0,0,0,0.05)]"
+              ? "lg:bg-gradient-to-b lg:from-[#2ecc71] lg:to-[#27ae60] lg:border-green-500/20 lg:shadow-[0_2px_4px_rgba(0,0,0,0.06)] bg-gradient-to-b from-[#2ecc71] to-[#27ae60] border-green-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_4px_rgba(0,0,0,0.05)]"
               : dayData.colors.bg === "bg-calendar-yellow"
-                ? "bg-gradient-to-b from-[#fde047] to-[#f59e0b] border-yellow-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_2px_4px_rgba(0,0,0,0.05)]"
+                ? "lg:bg-gradient-to-b lg:from-[#fde047] lg:to-[#f59e0b] lg:border-yellow-500/20 lg:shadow-[0_2px_4px_rgba(0,0,0,0.06)] bg-gradient-to-b from-[#fde047] to-[#f59e0b] border-yellow-500/40 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_2px_4px_rgba(0,0,0,0.05)]"
                 : (dayData.colors.bg === "bg-white" 
                    ? cn(
                        "bg-white",
                        mode === 'adm' 
                          ? cn(
-                             "bg-gradient-to-b from-[#ffffff] to-[#fcfdfe]",
+                             "lg:bg-[#ffffff] lg:border-slate-300/40 lg:shadow-[0_2px_4px_rgba(0,0,0,0.04)] bg-gradient-to-b from-[#ffffff] to-[#fcfdfe]",
                              viewMode === 'anual' ? "md:bg-[#F9FAFB] md:border-[0.5px] md:border-slate-300/60 md:shadow-none" : "border-[0.1px] border-slate-400/60 md:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.02)]"
                            )
-                         : "max-md:bg-[#ffffff] max-md:border-slate-400/45 md:bg-gradient-to-b md:from-[#ffffff] md:to-[#f8fafc] md:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.02)]"
+                         : "max-md:bg-[#ffffff] max-md:border-slate-400/45 lg:bg-[#ffffff] lg:border-slate-300/40 lg:shadow-[0_2px_4px_rgba(0,0,0,0.04)] md:bg-gradient-to-b md:from-[#ffffff] md:to-[#f8fafc] md:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.02)]"
                      )
                    : dayData.colors.bg)
         ),
-        isSelected ? "text-black drop-shadow-none" : dayData.colors.text,
+        isSelected ? "text-black drop-shadow-none" : cn(
+          dayData.colors.text,
+          viewMode === 'mensal' && !dayData.isToday && !isSelected && dayData.colors.bg === 'bg-white' && (
+            new Date(year!, month!, dayData.day).getDay() === 0 ? "lg:text-red-900" : "lg:text-[#1e3a8a]"
+          )
+        ),
         dayData.isToday && cn(
           "ring-[2.5px] ring-inset ring-[#C62828]/90 z-10",
           "shadow-none",
@@ -164,7 +169,10 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
             {dynamicEmoji}
           </span>
         )}
-        <span className="tracking-[0.4px] drop-shadow-sm">
+        <span className={cn(
+          "tracking-[0.4px] transition-all duration-200",
+          viewMode === 'mensal' ? "lg:font-bold lg:tracking-[0.4px] lg:antialiased lg:drop-shadow-none" : "drop-shadow-sm"
+        )}>
           {String(dayData.day).padStart(2, "0")}
         </span>
       </div>
