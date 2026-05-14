@@ -50,6 +50,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
   }
 
   const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(dayData.day).padStart(2, '0')}`;
+  const dayOfWeek = new Date(year, month, dayData.day).getDay();
 
   const temAgendamentoNesteDia = agendamentos.some(a => a.dataInicio <= dateStr && a.dataFim >= dateStr);
   const temAgendamentoHoje = agendamentos.some(a => a.dataInicio === dateStr);
@@ -115,6 +116,15 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
           ? cn(
             "border-[0.5px]",
             viewMode === 'anual' && "md:border-[0.5px] md:border-slate-300/60",
+            viewMode === 'mensal' && (
+              dayData.colors.bg === "bg-calendar-blue" ? "lg:border-[1.2px] lg:border-blue-500/60" :
+              dayData.colors.bg === "bg-calendar-green" ? "lg:border-[1.2px] lg:border-green-600/50" :
+              dayData.colors.bg === "bg-calendar-yellow" ? "lg:border-[1.2px] lg:border-yellow-600/50" :
+              dayData.isHoliday ? "lg:border-[1.2px] lg:border-red-500/55" :
+              dayData.isBirthday ? "lg:border-[1.2px] lg:border-orange-400/45" :
+              dayOfWeek === 0 || dayOfWeek === 6 ? "lg:border-[1.2px] lg:border-red-500/55" :
+              "lg:border-[1.2px] lg:border-slate-400/45"
+            ),
             !isSelected && dayData.colors.border ? dayData.colors.border : "border-slate-300/80"
           )
           : !isSelected && "border-slate-300/50",
