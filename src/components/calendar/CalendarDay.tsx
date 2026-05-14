@@ -161,7 +161,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
               "absolute left-1/2 -translate-x-1/2 leading-none animate-in zoom-in-50 duration-300 emoji-desktop-colorful",
               viewMode === 'anual' ? "text-[8px] md:text-[10px]" : "text-[10px] md:text-[12px]",
               viewMode === 'anual'
-                ? (isDoubleBirthday ? "md:-top-[11px] -top-[11px]" : "md:-top-3.5 -top-[14px]")
+                ? (isDoubleBirthday ? "md:-top-[9px] -top-[11px]" : "md:-top-[9px] -top-[14px]")
                 : (isDoubleBirthday ? "md:-top-[18px] -top-[13px]" : "md:-top-[18px] -top-[13px]")
             )}
             title={rawTipo || ""}
