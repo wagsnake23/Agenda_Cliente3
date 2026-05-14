@@ -359,7 +359,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
         <div
             className={cn(
                 variant === 'modal' ? "fixed inset-0 z-[200] flex items-center justify-center p-1 sm:p-4" : "w-full z-[60] flex flex-col items-center justify-start p-0",
-                variant === 'drawer' && "md:absolute md:top-0 md:left-[0.5px] md:h-full md:pointer-events-none md:animate-in md:fade-in md:zoom-in-95 md:duration-300",
+                variant === 'drawer' && "md:absolute md:top-0 md:left-0 md:h-full md:pointer-events-none md:animate-in md:fade-in md:zoom-in-95 md:duration-300",
                 !isOpen && "hidden"
             )}
         >
@@ -377,7 +377,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                     "bg-white flex flex-col overflow-hidden",
                     variant === 'modal' 
                         ? "rounded-[24px] shadow-2xl border-2 border-blue-200 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_2px_1px_white] w-[99%] md:max-w-[515px] relative z-10 animate-in zoom-in-95 duration-200" 
-                        : "md:bg-white rounded-2xl md:rounded-[29px] w-full h-full md:pointer-events-auto border border-blue-800/20 md:shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(0,0,0,0.06)]"
+                        : "md:bg-white rounded-2xl md:rounded-[24px] w-full h-full md:pointer-events-auto border border-blue-800/20 md:shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(0,0,0,0.06)]"
                 )}
                 style={variant === 'modal' ? { maxHeight: '95vh' } : {}}
             >
@@ -386,7 +386,7 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                     "relative w-full flex items-center justify-between overflow-hidden shrink-0",
                     variant === 'modal'
                         ? "px-4 md:px-3 py-4 bg-gradient-to-b from-[#0078d7] to-[#005a9e] h-auto"
-                        : "h-[54px] md:h-[72px] rounded-t-2xl md:rounded-t-[26px]"
+                        : "h-[54px] md:h-[72px] rounded-t-2xl md:rounded-t-[24px]"
                 )}>
                     {variant !== 'modal' && (
                         <div className="absolute inset-0 bg-[#3b82f6]" />
