@@ -114,16 +114,16 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
 
         mode === "adm"
           ? cn(
-            "border-[0.5px]",
+            "lg:border-[1px] lg:shadow-[0_2px_4px_rgba(0,0,0,0.02),inset_0_1px_0_rgba(255,255,255,0.8)]",
             viewMode === 'anual' && "md:border-[0.5px] md:border-slate-300/60",
             viewMode === 'mensal' && (
-              dayData.colors.bg === "bg-calendar-blue" ? "lg:border-[1.2px] lg:border-blue-500/60" :
-              dayData.colors.bg === "bg-calendar-green" ? "lg:border-[1.2px] lg:border-green-600/50" :
-              dayData.colors.bg === "bg-calendar-yellow" ? "lg:border-[1.2px] lg:border-yellow-600/50" :
-              dayData.isHoliday ? "lg:border-[1.2px] lg:border-red-500/55" :
-              dayData.isBirthday ? "lg:border-[1.2px] lg:border-orange-400/45" :
-              dayOfWeek === 0 || dayOfWeek === 6 ? "lg:border-[1.2px] lg:border-red-500/55" :
-              "lg:border-[1.2px] lg:border-slate-400/45"
+              dayData.colors.bg === "bg-calendar-blue" ? "lg:border-blue-500/35" :
+              dayData.colors.bg === "bg-calendar-green" ? "lg:border-green-600/30" :
+              dayData.colors.bg === "bg-calendar-yellow" ? "lg:border-yellow-600/30" :
+              dayData.isHoliday ? "lg:border-red-500/40" :
+              dayData.isBirthday ? "lg:border-orange-400/40" :
+              dayOfWeek === 0 || dayOfWeek === 6 ? "lg:border-red-500/40" :
+              "lg:border-blue-400/20"
             ),
             !isSelected && dayData.colors.border ? dayData.colors.border : "border-slate-300/80"
           )
@@ -139,11 +139,11 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
                 : (dayData.colors.bg === "bg-white" 
                    ? cn(
                        "bg-white",
-                       mode === 'adm' 
-                         ? cn(
-                              "lg:bg-[#f1f5f9] lg:from-[#f1f5f9] lg:to-[#f1f5f9] lg:shadow-[inset_0_1px_2px_rgba(0,0,0,0.03),0_1px_1px_rgba(255,255,255,0.8)] bg-gradient-to-b from-[#ffffff] to-[#fcfdfe]",
-                              viewMode === 'anual' ? "md:bg-[#F9FAFB] md:border-[0.5px] md:border-slate-300/60 md:shadow-none" : "lg:border-[1.2px] lg:border-slate-400/45 border-[0.1px] border-slate-400/60 md:shadow-[inset_0_1px_2px_rgba(0,0,0,0.02),0_1px_2px_rgba(0,0,0,0.02)]"
-                           )
+                        mode === 'adm' 
+                          ? cn(
+                               "lg:bg-gradient-to-b lg:from-[#fcfdfe] lg:to-[#f1f5f9] lg:shadow-[0_2px_4px_rgba(0,0,0,0.02),inset_0_1px_0_rgba(255,255,255,0.8)]",
+                               viewMode === 'anual' ? "md:bg-[#F9FAFB] md:border-[0.5px] md:border-slate-300/60 md:shadow-none" : "lg:border-blue-400/20 border-[0.1px] border-slate-400/60"
+                            )
                          : "max-md:bg-[#ffffff] max-md:border-slate-400/45 lg:bg-[#ffffff] lg:border-slate-300/40 lg:shadow-[0_2px_4px_rgba(0,0,0,0.04)] md:bg-gradient-to-b md:from-[#ffffff] md:to-[#f8fafc] md:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.02)]"
                      )
                    : dayData.colors.bg)
@@ -151,7 +151,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         isSelected ? "text-black drop-shadow-none" : cn(
           dayData.colors.text,
           viewMode === 'mensal' && !dayData.isToday && !isSelected && dayData.colors.bg === 'bg-white' && (
-            new Date(year!, month!, dayData.day).getDay() === 0 ? "lg:text-red-900" : (mode === 'adm' ? "lg:text-[#172554]" : "lg:text-[#1e3a8a]")
+            new Date(year!, month!, dayData.day).getDay() === 0 ? "lg:text-red-900" : (mode === 'adm' ? "lg:text-[#1e3a8a]" : "lg:text-[#1e3a8a]")
           )
         ),
         dayData.isToday && cn(
