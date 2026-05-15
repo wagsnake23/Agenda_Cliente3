@@ -124,7 +124,7 @@ const AuthPage: React.FC = () => {
 
             <div className="w-full max-w-[390px] relative z-10">
                 {/* Card de Login - No Mobile fundo branco direto, no Desktop com Card */}
-                <div className="bg-white md:bg-white md:rounded-[17px] md:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,1),inset_0_2px_10px_rgba(0,0,0,0.05)] overflow-hidden px-4 md:px-8 pt-3 md:pt-3 pb-6 md:pb-1 flex flex-col items-center md:border-[4px] md:border-white/60">
+                <div className="bg-white md:bg-white md:rounded-[21px] md:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,1),inset_0_2px_10px_rgba(0,0,0,0.05)] overflow-hidden px-4 md:px-8 pt-3 md:pt-3 pb-6 md:pb-1 flex flex-col items-center md:border-[4px] md:border-white/60">
 
                     {/* Ícone de Segurança */}
                     <img
