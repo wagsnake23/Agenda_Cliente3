@@ -129,7 +129,9 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                               "w-[38px] h-[38px] md:w-[48px] md:h-[48px] md:bg-[rgba(148,163,184,0.08)] rounded-full flex items-center justify-center shrink-0",
                               isInfoEvent ? "bg-slate-500/10" : "bg-red-500/10"
                           )}>
-                              {emoji ? (
+                              {name.includes('Independência do Brasil') ? (
+                                <BrasilFlagIcon size={20} className="saturate-[1.1] drop-shadow-sm md:w-[24px] md:h-[24px]" />
+                              ) : emoji ? (
                                 <span className="text-[20px] md:text-[24px] md:filter-none filter saturate-[1.3] brightness-[1.1] leading-none">{emoji}</span>
                               ) : (
                                 <CalendarIcon className="w-5 h-5 md:w-7 md:h-7 text-gray-400 opacity-60" />
@@ -141,9 +143,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
                                    <span className="text-[14px] md:text-[16px] font-bold md:font-[700] leading-[1.2] text-[#1e293b] md:text-[#1e293b] truncate uppercase">
                                        {name}
                                    </span>
-                                   {name.includes('Independência do Brasil') && (
-                                       <span className="text-[14px] md:text-[16px] shrink-0 saturate-150 drop-shadow-sm emoji-desktop-colorful" style={{transform: 'translateY(-1px)'}}>🇧🇷</span>
-                                   )}
+                                   {/* Flag removed from here as it's now in the badge */}
                               </div>
                               
                               <span className="text-[13px] md:text-[18px] font-medium md:font-[500] text-[#64748b] md:text-[#64748b] mt-[1px] md:mt-[4px] truncate lowercase first-letter:uppercase">
