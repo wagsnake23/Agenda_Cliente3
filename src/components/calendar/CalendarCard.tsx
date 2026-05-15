@@ -171,14 +171,15 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                     {/* Badge Única: Mês e Ano */}
                     <div
                         className={cn(
-                            "flex items-center justify-center transition-all duration-300 gap-2.5 antialiased rounded-[14px] md:rounded-full cursor-pointer",
-                            "active:scale-95 active:translate-y-0 active:brightness-[0.98]"
+                            "flex items-center justify-center transition-all duration-300 gap-2.5 antialiased cursor-pointer",
+                            "active:scale-95 active:translate-y-0 active:brightness-[0.98]",
+                            viewMode === 'anual' ? "rounded-[14px]" : "rounded-[14px] md:rounded-[12px]"
                         )}
                         style={{ 
                             background: 'linear-gradient(135deg, rgba(255,255,255,0.98), rgba(241,245,249,0.95))',
                             border: '1px solid rgba(59,130,246,0.18)',
                             boxShadow: '0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9)',
-                            padding: viewMode === 'anual' ? '4px 8px' : '8px 18px',
+                            padding: viewMode === 'anual' ? '4px 8px' : (isDesktopState ? '6px 13px' : '8px 18px'),
                             lineHeight: '1.3',
                             textShadow: 'none'
                         }}
@@ -201,22 +202,21 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
 
                     {/* Badge da Estação (Desktop) */}
                     <div className="flex items-center">
-                        <Tooltip delayDuration={viewMode === 'anual' ? 999999 : 300}>
+                        <Tooltip delayDuration={999999}>
                             <TooltipTrigger asChild>
                                 <div
                                     className={cn(
-                                        "transition-all duration-500 cursor-pointer select-none group/season shadow-[0_4px_10px_rgba(0,0,0,0.12)] flex items-center justify-center overflow-hidden",
-                                        viewMode === 'anual' ? "hover:pr-3" : "hover:scale-[1.10]"
+                                        "transition-all duration-500 cursor-pointer select-none group/season shadow-[0_4px_10px_rgba(0,0,0,0.12)] flex items-center justify-center overflow-hidden hover:pr-3"
                                     )}
                                     style={{
-                                        padding: '4px',
+                                        padding: viewMode === 'anual' ? '4px' : (isDesktopState ? '6px 9px' : '4px'),
                                         borderRadius: '12px',
                                         background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(226,232,240,0.9))',
                                         color: season.style.text,
                                         fontWeight: '800',
                                         border: `1px solid rgba(59,130,246,0.15)`,
-                                        height: viewMode === 'anual' ? '25px' : '40px',
-                                        minWidth: viewMode === 'anual' ? '25px' : '40px',
+                                        height: viewMode === 'anual' ? '25px' : (isDesktopState ? 'auto' : '40px'),
+                                        minWidth: viewMode === 'anual' ? '25px' : (isDesktopState ? 'auto' : '40px'),
                                         width: 'fit-content'
                                     }}
                                 >
@@ -225,18 +225,16 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                                         viewMode === 'anual' ? "text-sm w-[17px]" : "text-xl"
                                     )}>{season.emoji}</span>
                                     
-                                    {viewMode === 'anual' && (
-                                        <span className="max-w-0 opacity-0 group-hover/season:max-w-[100px] group-hover/season:opacity-100 group-hover/season:ml-2 transition-all duration-500 whitespace-nowrap text-[10px] uppercase tracking-widest overflow-hidden">
-                                            {season.name}
-                                        </span>
-                                    )}
+                                    <span className="max-w-0 opacity-0 group-hover/season:max-w-[100px] group-hover/season:opacity-100 group-hover/season:ml-2 transition-all duration-500 whitespace-nowrap text-[14px] uppercase tracking-widest overflow-hidden">
+                                        {season.name}
+                                    </span>
                                 </div>
                             </TooltipTrigger>
                             <TooltipContent
                                 side="left"
                                 className={cn(
                                     "bg-white/95 backdrop-blur-md border border-gray-100 shadow-xl font-bold text-[#334155] uppercase tracking-wider py-2 px-3 text-[11px] rounded-[10px]",
-                                    viewMode === 'anual' && "hidden"
+                                    "hidden"
                                 )}
                                 sideOffset={8}
                             >
