@@ -372,7 +372,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
 
       {/* DESKTOP FASES CONTAINER */}
       <div 
-        className="hidden md:flex flex-col rounded-b-[24px] z-10"
+        className="hidden md:flex flex-col z-10 border-l border-r border-b border-slate-300/45 rounded-b-[16px]"
         style={{ background: 'linear-gradient(180deg, #FAF8FF 0%, #FFFFFF 100%)' }}
       >
         <div className="relative flex flex-row items-stretch justify-between gap-[20px] p-[34px_34px_34px_34px]">
