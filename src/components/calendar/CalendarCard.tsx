@@ -118,7 +118,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
         <div
             className={cn(
                 "w-full transition-all duration-500 ease-out flex flex-col",
-                viewMode === 'anual' ? "p-0 bg-[#F9FAFB] shadow-sm border overflow-hidden" : "px-2 py-2 md:px-5 md:pt-0 md:pb-5 md:overflow-hidden",
+                viewMode === 'anual' ? "p-0 shadow-sm border overflow-hidden" : "px-2 py-2 md:px-5 md:pt-0 md:pb-5 md:overflow-hidden",
                 viewMode === 'anual' ? "" : "md:bg-white backdrop-blur-sm md:backdrop-blur-none",
                 "antialiased [font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] [contain:paint]",
                 viewMode === 'anual' ? "rounded-t-[18px] rounded-b-[14px]" : "border border-slate-300/35 shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)]",
@@ -127,7 +127,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                 "relative group/card"
             )}
             style={{
-                background: viewMode === 'anual' ? '#F9FAFB' : (!isDesktopState ? '#ffffff' : 'linear-gradient(180deg, #F6F8FC 0%, #EEF3FA 100%)'),
+                background: (!isDesktopState && viewMode !== 'anual') ? '#ffffff' : 'linear-gradient(180deg, #F6F8FC 0%, #EEF3FA 100%)',
                 borderColor: viewMode === 'anual' ? 'rgba(170, 180, 195, 0.75)' : undefined
             }}
         >
@@ -140,7 +140,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                     viewMode === 'anual' ? "h-[50px] md:h-[65px]" : "md:-mx-5 md:mt-0 md:px-5 md:pt-4 md:h-[99px] md:rounded-t-[24px]",
                     viewMode === 'anual' && !isDesktopState ? "hidden" : "md:flex",
                     "mb-0 relative overflow-hidden border-none outline-none shadow-none",
-                    viewMode === 'anual' ? "bg-[#F9FAFB]" : "bg-transparent"
+                    viewMode === 'anual' ? "bg-transparent" : "bg-transparent"
                 )}
             >
                 {/* Background da Estação */}
@@ -157,7 +157,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                         className="absolute inset-0 pointer-events-none z-10"
                         style={{
                             background: viewMode === 'anual' 
-                                ? 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.05) 100%)' 
+                                ? 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(246,248,252,0.6) 80%, #F6F8FC 100%)' 
                                 : 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 80%, rgba(246,248,252,0.6) 92%, #F6F8FC 100%), radial-gradient(circle at top left, rgba(0,0,0,0.15) 0%, transparent 50%)'
                         }}
                     />
