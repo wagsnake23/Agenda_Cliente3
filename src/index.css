@@ -76,6 +76,12 @@ All colors MUST be HSL.
     background-attachment: fixed;
   }
 
+  @media (min-width: 1024px) {
+    body {
+      background: #FFFFFF !important;
+    }
+  }
+
   /* Utilitário para forçar o fundo se necessário */
   .premium-aurora-bg {
     background:
@@ -124,7 +130,7 @@ All colors MUST be HSL.
   }
 
   .premium-subheader-bg {
-    background: #F9FAFB;
+    background: #FFFFFF;
   }
 
   /* Utility to ensure original colorful emojis on desktop */
