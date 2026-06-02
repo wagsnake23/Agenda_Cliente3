@@ -41,12 +41,9 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
       <div
         className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[22px] overflow-hidden"
       >
-        {/* Gradient overlay for Mobile */}
-        <div className="absolute inset-0 bg-[#f59e0b] md:hidden" />
-
-        {/* Gradient overlay for Desktop */}
+        {/* Premium Gradient Overlay */}
         <div
-            className="absolute inset-0 hidden md:block"
+            className="absolute inset-0"
             style={{
                 background: `radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18), transparent 35%), linear-gradient(135deg, #D97706 0%, #F59E0B 45%, #FBBF24 100%)`
             }}
@@ -57,10 +54,21 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
           <div className="flex items-center">
             {/* Mobile Header Modernizado */}
             <div className="flex md:hidden items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
-                <Cake className="w-[18px] h-[18px] text-[#f59e0b]" />
+              <div 
+                className="w-8 h-8 rounded-full flex items-center justify-center shadow-sm"
+                style={{
+                  background: 'rgba(255,255,255,0.12)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.10)'
+                }}
+              >
+                <Cake className="w-[18px] h-[18px] text-white" />
               </div>
-              <h4 className="font-bold text-white text-[14px] uppercase tracking-[0.8px]">
+              <h4 
+                className="font-bold text-white text-[14px] uppercase tracking-[0.8px]"
+                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.15)' }}
+              >
                 ANIVERSARIANTES
               </h4>
             </div>
@@ -90,22 +98,10 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
             </div>
           </div>
 
-          {/* Mobile Month Badge */}
+          {/* Premium Month Badge */}
           <div
             className={cn(
-              "flex md:hidden flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
-              "rounded-[16px] px-[16px] py-[8px] backdrop-blur-[10px] bg-[rgba(255,255,255,0.16)] text-[#ffffff] border border-[rgba(255,255,255,0.14)]",
-              "active:scale-95 active:translate-y-0"
-            )}
-            style={{ lineHeight: '1.2' }}
-          >
-            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
-          </div>
-
-          {/* Desktop Premium Month Badge */}
-          <div
-            className={cn(
-              "hidden md:flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
+              "flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
               "rounded-[16px] px-[16px] py-[8px] text-[#ffffff]",
               "active:scale-95 active:translate-y-0"
             )}
@@ -117,7 +113,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
               boxShadow: '0 0 12px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.05)'
             }}
           >
-            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
+            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
           </div>
         </div>
       </div>

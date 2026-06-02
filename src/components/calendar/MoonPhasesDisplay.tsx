@@ -269,17 +269,35 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       <div 
         className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-none md:px-[34px] overflow-hidden md:justify-between z-10"
       >
-        {/* Mobile gradient overlay */}
-        <div className="absolute inset-0 bg-[#6366f1] md:bg-transparent" />
+        {/* Mobile premium gradient overlay */}
+        <div 
+          className="absolute inset-0 md:hidden" 
+          style={{
+            background: 'linear-gradient(135deg, #2E2A8F 0%, #4F46E5 45%, #6D5BFF 100%)'
+          }}
+        />
+        {/* Desktop gradient overlay */}
+        <div className="absolute inset-0 hidden md:block md:bg-transparent" />
 
         <div className="relative flex items-center justify-between px-[16px] md:px-0 z-20 w-full h-full md:flex-row">
           <div className="flex items-center gap-2 md:gap-0">
             {/* Mobile Header */}
             <div className="flex md:hidden items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
-                <Moon className="w-[18px] h-[18px] text-[#6366f1]" />
+              <div 
+                className="w-8 h-8 rounded-full flex items-center justify-center shadow-sm"
+                style={{
+                  background: 'rgba(255,255,255,0.12)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.10)'
+                }}
+              >
+                <Moon className="w-[18px] h-[18px] text-white" />
               </div>
-              <h4 className="font-bold text-white text-[14px] uppercase tracking-[0.8px]">
+              <h4 
+                className="font-bold text-white text-[14px] uppercase tracking-[0.8px]"
+                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.15)' }}
+              >
                 FASES DA LUA
               </h4>
             </div>
@@ -296,7 +314,12 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
                 <Moon className="w-[26px] h-[26px] text-white" />
               </div>
               <div className="flex flex-col ml-4">
-                <span className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase">FASES DA LUA</span>
+                <span 
+                  className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase"
+                  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.15)' }}
+                >
+                  FASES DA LUA
+                </span>
                 <span className="text-[14px] font-[500] text-[#ffffff] mt-[6px] leading-none opacity-80">Calendário lunar do mês</span>
               </div>
             </div>
@@ -313,7 +336,8 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
               lineHeight: '1.2',
               background: 'rgba(255,255,255,0.12)',
               backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.15)'
+              border: '1px solid rgba(255,255,255,0.15)',
+              boxShadow: '0 0 12px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.05)'
             }}
           >
             <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
