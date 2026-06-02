@@ -184,18 +184,27 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                             textShadow: 'none'
                         }}
                     >
-                        <CalendarDays size={viewMode === 'anual' ? 14 : 20} className="text-[#1e3a8a] opacity-90 transform translate-y-[0.5px]" />
+                        <CalendarDays size={viewMode === 'anual' ? 14 : 20} 
+                            className={cn("opacity-90 transform translate-y-[0.5px]", !(viewMode === 'anual' && isDesktopState) && "text-[#1e3a8a]")} 
+                            style={viewMode === 'anual' && isDesktopState ? { color: season.style.text } : undefined}
+                        />
                         <span className={cn(
-                            "text-[#1e3a8a] font-bold select-none tracking-[0.2px]",
-                            viewMode === 'anual' ? "text-[13px]" : "text-base md:text-[18px]"
-                        )}>
+                            "select-none",
+                            viewMode === 'anual' 
+                                ? (isDesktopState ? "text-[14px] font-[800] uppercase tracking-widest" : "text-[#1e3a8a] font-bold tracking-[0.2px] text-[13px]") 
+                                : "text-[#1e3a8a] font-bold tracking-[0.2px] text-base md:text-[18px]"
+                        )}
+                        style={viewMode === 'anual' && isDesktopState ? { color: season.style.text } : undefined}>
                             {MONTHS[month]}
                         </span>
-                        <span className="text-[#1e3a8a] opacity-20 font-bold select-none">•</span>
+                        <span className={cn("opacity-20 font-bold select-none", !(viewMode === 'anual' && isDesktopState) && "text-[#1e3a8a]")}
+                        style={viewMode === 'anual' && isDesktopState ? { color: season.style.text } : undefined}>•</span>
                         <span className={cn(
-                            "font-bold select-none tracking-[0.2px]",
-                            viewMode === 'anual' ? "text-[14px]" : "text-base md:text-[19px]"
-                        )} style={{ color: 'rgba(185, 28, 28, 0.95)' }}>
+                            "select-none",
+                            viewMode === 'anual' 
+                                ? (isDesktopState ? "text-[14px] font-[800] uppercase tracking-widest" : "font-bold tracking-[0.2px] text-[14px]") 
+                                : "font-bold tracking-[0.2px] text-base md:text-[19px]"
+                        )} style={viewMode === 'anual' && isDesktopState ? { color: season.style.text } : { color: 'rgba(185, 28, 28, 0.95)' }}>
                             {year}
                         </span>
                     </div>
