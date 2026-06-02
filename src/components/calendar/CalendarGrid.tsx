@@ -81,15 +81,13 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                 // Pseudo brilho fixo
                 "after:absolute after:inset-0 after:rounded-[8px] md:after:rounded-[12px] after:bg-gradient-to-b after:from-white/30 after:to-transparent after:pointer-events-none",
 
-                // Estilos Base Mobile
-                "bg-gradient-to-b from-[#f8faff] to-[#eff6ff] shadow-[0_4px_12px_rgba(15,23,42,0.04)]",
-
                 // =====================
-                // ESTILO PREMIUM 3D DESKTOP (Todas as Escalas e Todos os Dias)
+                // ESTILO PREMIUM 3D (Mobile e Desktop)
                 // =====================
                 "md:shadow-[0_4px_8px_-2px_rgba(0,0,0,0.05),inset_0_2px_3px_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(30,58,138,0.04)]",
-                "md:bg-gradient-to-b md:from-[#f0f5fa] md:to-[#e6eff7]",
-                "md:border-blue-500/30",
+                "max-md:shadow-[inset_0_3px_6px_rgba(23,37,84,0.06),inset_0_-1px_1px_rgba(255,255,255,0.7),0_1px_3px_rgba(0,0,0,0.03)]",
+                "bg-gradient-to-b from-[#f0f5fa] to-[#e6eff7]",
+                "md:border-blue-500/30 max-md:border-blue-900/15 max-md:border-[0.5px]",
                 index === 0 ? "text-red-900" : "text-[#172554]",
 
                 // =====================
