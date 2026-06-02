@@ -34,7 +34,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         <div
             className="absolute inset-0"
             style={{
-                background: `radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18), transparent 35%), linear-gradient(135deg, #C62828 0%, #DC2626 45%, #EF4444 100%)`
+                background: `radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18), transparent 35%), linear-gradient(135deg, #CC4747 0%, #DC2626 45%, #EF4444 100%)`
             }}
         />
 
