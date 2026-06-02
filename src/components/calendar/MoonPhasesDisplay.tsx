@@ -362,7 +362,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
                 </span>
                 <div className="flex flex-row mt-1 items-center justify-center bg-transparent text-[#6366f1] text-[11px] leading-none shrink-0 border-none shadow-none">
                   <span className="font-bold uppercase tracking-tight">{String(phase.date).padStart(2, '0')}</span>
-                  <span className="font-bold opacity-80 ml-[1px] uppercase">/ {formattedMonth}</span>
+                  <span className="font-bold opacity-80 ml-[1px] uppercase">{formattedMonth}</span>
                 </div>
               </div>
             );
