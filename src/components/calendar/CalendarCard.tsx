@@ -157,7 +157,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                         className="absolute inset-0 pointer-events-none z-10"
                         style={{
                             background: viewMode === 'anual' 
-                                ? 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(246,248,252,0.6) 80%, #F6F8FC 100%)' 
+                                ? 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 75%, rgba(246,248,252,0.8) 95%, #F6F8FC 100%)' 
                                 : 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 80%, rgba(246,248,252,0.6) 92%, #F6F8FC 100%), radial-gradient(circle at top left, rgba(0,0,0,0.15) 0%, transparent 50%)'
                         }}
                     />
