@@ -153,7 +153,7 @@ const RealisticMoon: React.FC<{ phaseName: string; className?: string }> = ({ ph
 
 const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month, year }) => {
   const currentDay = new Date().getDate();
-  const currentMonth = new Date().getMonth() + 1;
+  const currentMonth = new Date().getMonth(); // 0-indexed to match 'month' prop
   const currentYear = new Date().getFullYear();
   const isCurrentMonthView = currentMonth === month && currentYear === year;
   
@@ -316,7 +316,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
               border: '1px solid rgba(255,255,255,0.15)'
             }}
           >
-            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month - 1]?.substring(0, 3)} {year}</span>
+            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
           </div>
         </div>
       </div>
@@ -325,7 +325,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       <div className="md:hidden px-0.5 pt-[20px] pb-[20px] flex flex-col justify-center items-center flex-1 w-full bg-transparent rounded-b-2xl z-10">
         <div className="flex flex-row justify-between items-center w-full gap-0.5">
           {moonPhases.map((phase, index) => {
-            const monthAbbr = (MONTHS[month - 1] || 'Mês').substring(0, 3);
+            const monthAbbr = (MONTHS[month] || 'Mês').substring(0, 3);
             const formattedMonth = monthAbbr.charAt(0).toUpperCase() + monthAbbr.slice(1).toLowerCase();
 
             return (
@@ -356,7 +356,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
             const isNextPhase = isCurrentMonthView ? index === nextPhaseIndex : false;
             const fullPhaseName = getFullPhaseName(phase.phaseName);
             const phaseSubtitle = getPhaseSubtitle(phase.phaseName);
-            const monthAbbr = (MONTHS[month - 1] || 'Mês').substring(0, 3).toUpperCase();
+            const monthAbbr = (MONTHS[month] || 'Mês').substring(0, 3).toUpperCase();
             
             const mockTimes = ['18:45', '22:30', '03:15', '11:20'];
             const mockTime = mockTimes[index % 4];
@@ -387,7 +387,9 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
                 
                 <div className="flex flex-col items-center w-full mt-[12px]">
                   <div className="w-[110px] h-[110px] flex items-center justify-center">
-                    <RealisticMoon phaseName={phase.phaseName} className="w-[104px] h-[104px] object-contain" />
+                    <span className="text-[90px] leading-none drop-shadow-[0_4px_16px_rgba(255,255,255,0.2)]">
+                      {phase.phaseIcon}
+                    </span>
                   </div>
                   <span className="text-[17px] font-[700] text-white mt-[16px] text-center leading-tight">{fullPhaseName}</span>
                   <span className="text-[13px] font-[500] text-white/70 leading-[1.4] text-center mt-[6px]">{phaseSubtitle}</span>
