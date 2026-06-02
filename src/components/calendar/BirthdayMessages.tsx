@@ -107,10 +107,10 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
             )}
             style={{
               lineHeight: '1.2',
-              background: 'rgba(255,255,255,0.12)',
+              background: 'rgba(255,255,255,0.18)',
               backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.15)',
-              boxShadow: '0 0 12px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.05)'
+              border: '1px solid rgba(255,255,255,0.4)',
+              boxShadow: '0 0 12px rgba(255,255,255,0.12), 0 4px 12px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15)'
             }}
           >
             <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>

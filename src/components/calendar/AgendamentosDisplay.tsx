@@ -67,10 +67,10 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                             <div 
                                 className="w-8 h-8 rounded-full flex items-center justify-center shadow-sm"
                                 style={{
-                                    background: 'rgba(255,255,255,0.12)',
+                                    background: 'rgba(255,255,255,0.15)',
                                     backdropFilter: 'blur(12px)',
-                                    border: '1px solid rgba(255,255,255,0.15)',
-                                    boxShadow: '0 4px 12px rgba(0,0,0,0.10)'
+                                    border: '1px solid rgba(255,255,255,0.4)',
+                                    boxShadow: '0 4px 12px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255,255,255,0.2)'
                                 }}
                             >
                                 <ClipboardList className="w-[18px] h-[18px] text-white" />
@@ -88,10 +88,10 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                             <div 
                                 className="w-[54px] h-[54px] rounded-full flex items-center justify-center text-[26px] shrink-0"
                                 style={{
-                                    background: 'rgba(255,255,255,0.12)',
+                                    background: 'rgba(255,255,255,0.15)',
                                     backdropFilter: 'blur(12px)',
-                                    border: '1px solid rgba(255,255,255,0.15)',
-                                    boxShadow: '0 4px 12px rgba(0,0,0,0.10)'
+                                    border: '1px solid rgba(255,255,255,0.4)',
+                                    boxShadow: '0 4px 12px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255,255,255,0.2)'
                                 }}
                             >
                                 <ClipboardList className="w-[26px] h-[26px] text-white" />
@@ -117,10 +117,10 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                         )}
                         style={{
                             lineHeight: '1.2',
-                            background: 'rgba(255,255,255,0.12)',
+                            background: 'rgba(255,255,255,0.18)',
                             backdropFilter: 'blur(12px)',
-                            border: '1px solid rgba(255,255,255,0.15)',
-                            boxShadow: '0 0 12px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.05)'
+                            border: '1px solid rgba(255,255,255,0.4)',
+                            boxShadow: '0 0 12px rgba(255,255,255,0.12), 0 4px 12px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15)'
                         }}
                     >
                         <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
