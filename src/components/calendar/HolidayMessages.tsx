@@ -30,8 +30,16 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
       <div 
         className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[24px] overflow-hidden"
       >
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-[#CC4747]" />
+        {/* Gradient overlay for Mobile */}
+        <div className="absolute inset-0 bg-[#CC4747] md:hidden" />
+
+        {/* Gradient overlay for Desktop */}
+        <div
+            className="absolute inset-0 hidden md:block"
+            style={{
+                background: `radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18), transparent 35%), linear-gradient(135deg, #C62828 0%, #DC2626 45%, #EF4444 100%)`
+            }}
+        />
 
         {/* Conteúdo do Header */}
         <div className="relative flex items-center justify-between px-[16px] md:px-[34px] z-20 w-full h-full">
@@ -48,26 +56,57 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
 
             {/* Desktop Header Premium */}
             <div className="hidden md:flex items-center">
-              <div className="w-[54px] h-[54px] rounded-full bg-white flex items-center justify-center text-[26px] shrink-0 shadow-sm">
-                <PartyPopper className="w-[26px] h-[26px] text-[#CC4747]" />
+              <div 
+                className="w-[54px] h-[54px] rounded-full flex items-center justify-center text-[26px] shrink-0"
+                style={{
+                  background: 'rgba(255,255,255,0.12)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.10)'
+                }}
+              >
+                <PartyPopper className="w-[26px] h-[26px] text-white" />
               </div>
               <div className="flex flex-col ml-4">
-                <span className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase">Feriados e Datas</span>
+                <span 
+                  className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase"
+                  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.15)' }}
+                >
+                  Feriados e Datas
+                </span>
                 <span className="text-[14px] font-[500] text-[rgba(255,255,255,0.85)] mt-[6px] leading-none">Datas importantes e feriados</span>
               </div>
             </div>
           </div>
 
+          {/* Mobile Month Badge */}
           <div 
             className={cn(
-              "flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
+              "flex md:hidden flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
               "rounded-[16px] px-[16px] py-[8px] backdrop-blur-[10px] bg-[rgba(255,255,255,0.16)] text-[#ffffff] border border-[rgba(255,255,255,0.14)]",
               "active:scale-95 active:translate-y-0"
             )}
             style={{ lineHeight: '1.2' }}
           >
-            <CalendarIcon className="w-[16px] h-[16px] text-white hidden" />
-            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
+            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
+          </div>
+
+          {/* Desktop Premium Month Badge */}
+          <div 
+            className={cn(
+              "hidden md:flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
+              "rounded-[16px] px-[16px] py-[8px] text-[#ffffff]",
+              "active:scale-95 active:translate-y-0"
+            )}
+            style={{
+              lineHeight: '1.2',
+              background: 'rgba(255,255,255,0.12)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              boxShadow: '0 0 12px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.05)'
+            }}
+          >
+            <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
           </div>
         </div>
       </div>
