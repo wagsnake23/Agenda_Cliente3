@@ -146,11 +146,22 @@ All colors MUST be HSL.
   /* Layout de Header Fixo Mobile - App Nativo Style */
   .mobile-fixed-header-bg {
     background-color: #f8faff !important;
+    border-top: none !important;
+    outline: none !important;
+    /* Adiciona uma sombra interna neutra muito suave no topo para transição premium com a status bar vermelha */
+    box-shadow: inset 0 3px 6px -3px rgba(0, 0, 0, 0.04) !important;
   }
 
   .mobile-fixed-header-shadow {
     box-shadow: none !important;
     border-bottom: none !important;
+  }
+  
+  /* Remove possíveis pseudo-elementos residuais no header */
+  .mobile-fixed-header-bg::before,
+  .mobile-fixed-header-bg::after {
+    display: none !important;
+    content: none !important;
   }
 }
 
