@@ -90,33 +90,32 @@ const AuthPage: React.FC = () => {
                     <img
                         src="/logo.png"
                         alt="Logo Calendário"
-                        className="w-[42px] md:w-[48px] h-[42px] md:h-[48px] object-contain opacity-90 drop-shadow-md"
+                        className="w-[44px] md:w-[48px] h-[44px] md:h-[48px] object-contain transition-transform duration-300 hover:scale-105 shrink-0"
+                        style={{ filter: 'none' }}
                     />
-                    <div className="flex flex-col justify-center text-left antialiased md:drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                    <div className="flex flex-col justify-between h-[44px] md:h-auto py-[2px] md:py-0 text-left antialiased md:drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] md:justify-center" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                         <h1
                             style={{
-                                fontSize: '22px',
-                                fontWeight: 700,
-                                letterSpacing: '-0.6px',
+                                fontSize: '24px',
+                                fontWeight: 800,
+                                letterSpacing: '-1px',
                                 lineHeight: 1,
                                 textShadow: '0 1px 2px rgba(0,0,0,0.1)'
                             }}
-                            className="text-blue-900 md:text-white md:[font-size:25px]"
+                            className="text-[#CC4747] md:text-white md:[font-size:25px] md:[font-weight:700] md:[letter-spacing:-0.6px]"
                         >
                             Agenda
                         </h1>
                         <span 
                             style={{
-                                fontSize: '10px',
-                                fontWeight: 600,
-                                textTransform: 'uppercase',
-                                letterSpacing: '1.5px',
-                                marginTop: '4px',
+                                fontSize: '13px',
+                                fontWeight: 700,
+                                letterSpacing: '1.4px',
                                 lineHeight: 1
                             }}
-                            className="text-slate-500 md:text-[#BFD3EA] md:[font-size:11px] md:[letter-spacing:2px]"
+                            className="text-[#6B7280] md:text-[#BFD3EA] md:[font-size:11px] md:[letter-spacing:2px] md:uppercase md:mt-[4px] md:[font-weight:600]"
                         >
-                            CALENDÁRIO INTELIGENTE
+                            Calendário Inteligente
                         </span>
                     </div>
                 </button>
