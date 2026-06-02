@@ -249,17 +249,17 @@ const Header = () => {
             {/* Header Mobile/Tablet */}
             <header className="relative w-full flex flex-row items-center justify-between mt-0 md:mt-0 pt-[12px] pb-[4px] select-none lg:hidden md:relative md:z-auto md:h-auto">
                 <div className="flex items-center cursor-pointer relative -top-[1px]" onClick={() => navigate('/')}>
-                    <div className="flex items-center gap-2 w-full max-w-[320px]">
+                    <div className="flex items-center gap-2.5 w-full max-w-[320px]">
                         <img
                             src="/logo.png"
                             alt="Logo Calendário"
-                            className="w-[38px] h-[38px] object-contain transition-transform duration-300 hover:scale-105 shrink-0"
+                            className="w-[44px] h-[44px] object-contain transition-transform duration-300 hover:scale-105 shrink-0"
                             style={{ filter: 'none' }}
                         />
-                        <div className="flex flex-col justify-center select-none antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                        <div className="flex flex-col justify-between h-[44px] py-[2px] select-none antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                             <h1
                                 style={{
-                                    fontSize: '22px',
+                                    fontSize: '24px',
                                     fontWeight: 800,
                                     color: '#2447A5',
                                     letterSpacing: '-1px',
@@ -270,16 +270,14 @@ const Header = () => {
                             </h1>
                             <span 
                                 style={{
-                                    fontSize: '10px',
-                                    fontWeight: 700,
-                                    textTransform: 'uppercase',
+                                    fontSize: '13px',
+                                    fontWeight: 500,
                                     letterSpacing: '1.4px',
                                     color: '#64748B',
-                                    marginTop: '5px',
                                     lineHeight: 1
                                 }}
                             >
-                                CALENDÁRIO INTELIGENTE
+                                Calendário Inteligente
                             </span>
                         </div>
                     </div>
