@@ -16,38 +16,38 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 {/* ---------- MOBILE FOOTER ---------- */}
                 <div className="flex flex-col items-center justify-center w-full md:hidden px-4">
                     {/* Bloco Principal Centralizado */}
-                    <div className="flex items-center justify-center gap-[16px] w-full max-w-[340px]">
-                        {/* Logo Maior */}
-                        <img 
-                            src="/logo.png" 
-                            alt="Logo" 
-                            className="w-[64px] h-[64px] object-contain opacity-90 drop-shadow-xl shrink-0" 
+                    <div className="flex items-center justify-center gap-[10px] w-full max-w-[340px]">
+                        <img
+                            src="/logo.png"
+                            alt="Logo Calendário"
+                            className="w-[38px] h-[38px] object-contain opacity-90 drop-shadow-md shrink-0"
                         />
-                        
-                        {/* Bloco de Texto ao Lado */}
-                        <div className="flex flex-col items-start justify-center text-left">
+                        <div className="flex flex-col justify-center text-left select-none antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                             <h3
                                 style={{
-                                    fontFamily: "'Montserrat', sans-serif",
-                                    fontSize: '24px',
+                                    fontSize: '22px',
                                     fontWeight: 700,
-                                    letterSpacing: '-0.8px',
-                                    lineHeight: 1,
                                     color: '#F8FAFC',
-                                    marginBottom: '8px'
+                                    letterSpacing: '-1px',
+                                    lineHeight: 1,
+                                    textShadow: '0 1px 1px rgba(0,0,0,0.35)'
                                 }}
                             >
                                 Agenda
                             </h3>
-                            <p style={{
-                                fontSize: '15px',
-                                fontWeight: 500,
-                                lineHeight: 1.5,
-                                color: '#94A3B8',
-                                maxWidth: '220px'
-                            }}>
-                                Calendário inteligente para organização operacional
-                            </p>
+                            <span 
+                                style={{
+                                    fontSize: '10px',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1.4px',
+                                    color: '#BFD3EA',
+                                    marginTop: '5px',
+                                    lineHeight: 1
+                                }}
+                            >
+                                CALENDÁRIO INTELIGENTE
+                            </span>
                         </div>
                     </div>
                     
