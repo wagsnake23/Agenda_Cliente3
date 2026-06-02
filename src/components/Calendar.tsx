@@ -779,8 +779,8 @@ const Calendar = ({
           </div>
 
           {viewMode === 'mensal' && (
-            <div className="max-w-[1647px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 pb-2 lg:pb-16">
-              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 lg:gap-[24px] items-stretch">
+            <div className="max-w-[1647px] mx-auto w-full mt-0 lg:mt-[-20px] flex flex-col gap-3 lg:gap-0 pb-2 lg:pb-12">
+              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 lg:gap-[34px] items-stretch">
                 {/* 1º - Agendamentos */}
                 <div className={cn(
                   "w-full lg:flex-1 lg:min-w-[30%] order-1 flex flex-col",
@@ -806,7 +806,7 @@ const Calendar = ({
                 </div>
 
                 {/* 4º - Fases da Lua */}
-                <div className="w-full order-4 lg:mt-2 flex flex-col">
+                <div className="w-full order-4 lg:mt-[18px] flex flex-col">
                   <MoonPhasesDisplay moonPhases={moonPhases} month={month} year={year} />
                 </div>
               </div>
