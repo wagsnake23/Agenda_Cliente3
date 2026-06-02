@@ -313,14 +313,14 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
               >
                 <Moon className="w-[26px] h-[26px] text-white" />
               </div>
-              <div className="flex flex-col ml-4">
+              <div className="flex flex-col ml-4 gap-[2px]">
                 <span 
-                  className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase"
+                  className="text-[20px] font-[700] tracking-[0.2px] text-[#ffffff] leading-none uppercase"
                   style={{ textShadow: '0 1px 2px rgba(0,0,0,0.15)' }}
                 >
                   FASES DA LUA
                 </span>
-                <span className="text-[14px] font-[500] text-[#ffffff] mt-[6px] leading-none opacity-80">Calendário lunar do mês</span>
+                <span className="text-[13px] font-[400] text-[#ffffff] leading-none opacity-80">Calendário lunar do mês</span>
               </div>
             </div>
           </div>

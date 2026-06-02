@@ -42,14 +42,14 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
         <div
             className={cn(
                 "relative z-10 min-h-[100px] h-full flex flex-col transition-all duration-300",
-                "bg-[#f8fafc] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/35 overflow-hidden",
-                "md:bg-[#f8fafc] md:rounded-[24px] md:border md:border-[rgba(226,232,240,0.92)] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:overflow-hidden md:transition-all md:duration-[200ms] md:ease-out",
+                "bg-[#f8fafc] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/45 overflow-hidden",
+                "md:bg-[#f8fafc] md:rounded-[24px] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:transition-all md:duration-[200ms] md:ease-out",
                 isEmpty ? "hidden md:flex" : "flex"
             )}
         >
             {/* HEADER */}
             <div
-                className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[24px] overflow-hidden"
+                className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-none overflow-hidden"
             >
                 {/* Premium Gradient Overlay */}
                 <div
@@ -96,14 +96,14 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                             >
                                 <ClipboardList className="w-[26px] h-[26px] text-white" />
                             </div>
-                            <div className="flex flex-col ml-4">
+                            <div className="flex flex-col ml-4 gap-[2px]">
                                 <span 
-                                    className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase"
+                                    className="text-[20px] font-[700] tracking-[0.2px] text-[#ffffff] leading-none uppercase"
                                     style={{ textShadow: '0 1px 2px rgba(0,0,0,0.15)' }}
                                 >
                                     Agendamentos
                                 </span>
-                                <span className="text-[14px] font-[500] text-[rgba(255,255,255,0.85)] mt-[6px] leading-none">Lista de compromissos do mês</span>
+                                <span className="text-[13px] font-[400] text-[rgba(255,255,255,0.85)] leading-none">Lista de compromissos do mês</span>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 </div>
             </div>
 
-            <div className="pt-[11px] pb-[14px] px-[13px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-[24px]">
+            <div className="pt-[11px] pb-[14px] px-[13px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-none">
                 {isEmpty ? (
                     <>
                         {/* Mobile Empty State (Inalterado) */}
