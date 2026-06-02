@@ -261,7 +261,7 @@ const Header = () => {
                                 style={{
                                     fontSize: '24px',
                                     fontWeight: 800,
-                                    color: '#2447A5',
+                                    color: 'rgba(210, 40, 40, 0.9)',
                                     letterSpacing: '-1px',
                                     lineHeight: 1
                                 }}
@@ -271,9 +271,9 @@ const Header = () => {
                             <span 
                                 style={{
                                     fontSize: '13px',
-                                    fontWeight: 500,
+                                    fontWeight: 700,
                                     letterSpacing: '1.4px',
-                                    color: '#64748B',
+                                    color: '#6B7280',
                                     lineHeight: 1
                                 }}
                             >

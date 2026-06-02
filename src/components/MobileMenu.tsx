@@ -42,13 +42,14 @@ const MobileMenu = () => {
         <>
             <button
                 onClick={() => setIsOpen(true)}
-                className="w-10 h-10 flex flex-col items-center justify-center gap-1.5 md:hidden text-[#2447A5] hover:bg-blue-50 rounded-lg transition-colors relative -top-[1px]"
+                className="w-9 h-9 flex flex-col items-center justify-center md:hidden text-white rounded-md shadow-md active:scale-95 transition-all relative -top-[1px]"
+                style={{ backgroundColor: 'rgba(210, 40, 40, 0.9)' }}
                 aria-label="Abrir menu"
             >
-                <div className="flex flex-col gap-[4.5px]">
-                    <span className="w-6 h-[3px] bg-current rounded-full" />
-                    <span className="w-6 h-[3px] bg-current rounded-full" />
-                    <span className="w-6 h-[3px] bg-current rounded-full" />
+                <div className="flex flex-col gap-[4px]">
+                    <span className="w-[20px] h-[3px] bg-current rounded-full" />
+                    <span className="w-[20px] h-[3px] bg-current rounded-full" />
+                    <span className="w-[20px] h-[3px] bg-current rounded-full" />
                 </div>
             </button>
 
