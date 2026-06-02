@@ -33,7 +33,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
     <div className={cn(
       "relative z-10 min-h-[100px] h-full flex flex-col transition-all duration-300",
       "bg-[#f8fafc] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/45 overflow-hidden",
-      "md:bg-[#f8fafc] md:rounded-[24px] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:transition-all md:duration-[200ms] md:ease-out",
+      "md:bg-[#F4F7FB] md:rounded-[24px] md:shadow-[0_10px_30px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(255,255,255,1),inset_0_-1px_4px_rgba(0,0,0,0.02)] md:transition-all md:duration-[200ms] md:ease-out",
       isEmpty ? "hidden lg:flex" : "flex"
     )}>
       {/* Highlight de topo sutil */}
@@ -139,9 +139,9 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
                   <div
                     className={cn(
                       "cursor-transition-all duration-150 ease-in-out group w-full",
-                      "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px_6px_8px] rounded-[14px] bg-[#ffffff] border border-slate-200/60 shadow-[0_2px_10px_rgba(15,23,42,0.04),inset_0_1.5px_3px_rgba(0,0,0,0.03)]", // Mobile
+                      "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px_6px_8px] rounded-[14px] bg-[#FCFCFE] border border-slate-300/50 shadow-[0_3px_8px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(0,0,0,0.02),inset_0_1px_0_rgba(255,255,255,0.8)]", // Mobile
                       "active:scale-[0.98] active:shadow-sm hover:-translate-y-[1px] md:hover:-translate-y-[1px]",
-                      "md:min-h-[78px] md:p-[12px_18px_12px_13px] md:rounded-[18px] md:border md:border-slate-300/50 md:bg-[#ffffff] md:shadow-[0_2px_10px_rgba(15,23,42,0.035)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.06)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
+                      "md:min-h-[78px] md:p-[12px_18px_12px_13px] md:rounded-[18px] md:border md:border-slate-300/70 md:bg-[#FCFCFE] md:shadow-[0_3px_8px_rgba(15,23,42,0.04),inset_0_2px_4px_rgba(0,0,0,0.02),inset_0_1px_0_rgba(255,255,255,0.8)] md:hover:bg-[#FFFFFF] md:hover:border-slate-300 md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.06),inset_0_2px_4px_rgba(0,0,0,0.01),inset_0_1px_0_rgba(255,255,255,1)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
                       isHighlighted && "bg-yellow-100 md:bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-[16px] md:rounded-[18px] z-20 animate-bounce-twice font-semibold",
                       !isHighlighted && "text-[#1F2937]"
                     )}
