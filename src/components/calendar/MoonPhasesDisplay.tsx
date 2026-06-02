@@ -371,10 +371,13 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
       </div>
 
       {/* DESKTOP FASES CONTAINER */}
-      <div className="hidden md:flex flex-col bg-transparent rounded-b-[24px] z-10">
+      <div 
+        className="hidden md:flex flex-col rounded-b-[24px] z-10"
+        style={{ background: 'linear-gradient(180deg, #FAF8FF 0%, #FFFFFF 100%)' }}
+      >
         <div className="relative flex flex-row items-stretch justify-between gap-[20px] p-[34px_34px_34px_34px]">
           {/* Timeline connecting moon phases */}
-          <div className="absolute top-[50%] left-[34px] right-[34px] h-[1px] z-0 -translate-y-1/2" style={{ background: 'linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.16), rgba(255,255,255,.04))' }} />
+          <div className="absolute top-[50%] left-[34px] right-[34px] h-[1px] z-0 -translate-y-1/2" style={{ background: 'linear-gradient(90deg, rgba(139,92,246,.05), rgba(139,92,246,.15), rgba(139,92,246,.05))' }} />
           
           {moonPhases.map((phase, index) => {
             const isNextPhase = isCurrentMonthView ? index === nextPhaseIndex : false;
@@ -389,18 +392,17 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
               <div 
                 key={index} 
                 className={cn(
-                  "flex-1 min-h-[290px] rounded-[24px] p-[24px_16px_20px_16px] flex flex-col items-center justify-between relative transition-all duration-[250ms] ease-out cursor-pointer",
+                  "flex-1 min-h-[290px] rounded-[16px] p-[24px_16px_20px_16px] flex flex-col items-center justify-between relative transition-all duration-[250ms] ease-out cursor-pointer",
                   isNextPhase 
                     ? "-translate-y-[4px] z-20 hover:-translate-y-[6px]" 
                     : "z-10 hover:-translate-y-[4px]"
                 )}
                 style={{
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  backdropFilter: 'blur(12px)',
+                  background: '#FFFFFF',
+                  border: isNextPhase ? '1px solid rgba(139,92,246,0.45)' : '1px solid #ECEAF8',
                   boxShadow: isNextPhase 
-                    ? '0 0 0 1px rgba(168,85,247,0.5), 0 0 40px rgba(168,85,247,0.35)' 
-                    : '0 10px 30px rgba(0,0,0,0.25)'
+                    ? '0 0 0 2px rgba(139,92,246,0.12), 0 12px 28px rgba(139,92,246,0.18)' 
+                    : '0 4px 12px rgba(15,23,42,0.04), 0 12px 32px rgba(15,23,42,0.06)'
                 }}
               >
                 {isNextPhase && (
@@ -411,24 +413,30 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
                 
                 <div className="flex flex-col items-center w-full mt-[12px]">
                   <div className="w-[110px] h-[110px] flex items-center justify-center">
-                    <span className="text-[90px] leading-none drop-shadow-[0_4px_16px_rgba(255,255,255,0.2)]">
+                    <span className="text-[90px] leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.05)]">
                       {phase.phaseIcon}
                     </span>
                   </div>
-                  <span className="text-[17px] font-[700] text-white mt-[16px] text-center leading-tight">{fullPhaseName}</span>
-                  <span className="text-[13px] font-[500] text-white/70 leading-[1.4] text-center mt-[6px]">{phaseSubtitle}</span>
+                  <span className="text-[17px] font-[700] text-[#1E293B] mt-[16px] text-center leading-tight">{fullPhaseName}</span>
+                  <span className="text-[13px] font-[500] text-[#64748B] leading-[1.4] text-center mt-[6px]">{phaseSubtitle}</span>
                 </div>
                 
                 <div className="flex items-center justify-center gap-[8px] mt-[20px] w-full">
                   {/* Date Badge */}
-                  <div className="flex items-center gap-[5px] p-[6px_10px] rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.10)] text-white/90">
-                    <CalendarDays className="w-[12px] h-[12px] text-white/60" />
+                  <div 
+                    className="flex items-center gap-[5px] p-[6px_10px] rounded-[999px]"
+                    style={{ background: '#F3F0FF', border: '1px solid #E4DCF9', color: '#5B4FCF' }}
+                  >
+                    <CalendarDays className="w-[12px] h-[12px] text-[#5B4FCF]" />
                     <span className="text-[12px] font-[700] leading-none">{String(phase.date).padStart(2, '0')} {monthAbbr}</span>
                   </div>
 
                   {/* Time Badge */}
-                  <div className="flex items-center gap-[5px] p-[6px_10px] rounded-full bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white/70">
-                    <Clock3 className="w-[12px] h-[12px] text-white/50" />
+                  <div 
+                    className="flex items-center gap-[5px] p-[6px_10px] rounded-[10px]"
+                    style={{ background: '#F8F9FC', border: '1px solid #EEF1F6', color: '#334155' }}
+                  >
+                    <Clock3 className="w-[12px] h-[12px] text-[#64748B]" />
                     <span className="text-[12px] font-[600] leading-none">{mockTime}</span>
                   </div>
                 </div>
