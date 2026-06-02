@@ -102,7 +102,7 @@ const BirthdayMessages: React.FC<BirthdayMessagesProps> = ({ month, year, highli
           <div
             className={cn(
               "flex flex-row items-center justify-center transition-all duration-300 ml-auto cursor-pointer gap-2",
-              "rounded-[16px] px-[16px] py-[8px] text-[#ffffff]",
+              "rounded-[16px] px-[10px] md:px-[16px] py-[8px] text-[#ffffff]",
               "active:scale-95 active:translate-y-0"
             )}
             style={{
