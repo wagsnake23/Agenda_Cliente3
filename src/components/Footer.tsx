@@ -8,7 +8,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ className }) => {
     return (
         <footer className={cn(
-            "w-screen md:w-full relative left-1/2 right-1/2 md:left-auto md:right-auto -ml-[50vw] md:ml-0 -mr-[50vw] md:mr-0 mt-auto bg-gradient-to-b from-[#0B1220] to-[#111827] md:bg-none md:bg-[#0F172A] pt-[32px] pb-[32px] md:pt-[27px] md:pb-[43px] border-t border-white/[0.08] md:border-gray-800 shadow-2xl z-10",
+            "w-screen md:w-full relative left-1/2 right-1/2 md:left-auto md:right-auto -ml-[50vw] md:ml-0 -mr-[50vw] md:mr-0 mt-auto bg-gradient-to-b from-[#0B1220] to-[#111827] md:bg-none md:bg-[#0F172A] pt-[24px] pb-[24px] md:pt-[27px] md:pb-[43px] border-t border-white/[0.08] md:border-gray-800 shadow-2xl z-10",
             className
         )}>
             <div className="w-full max-w-[1400px] mx-auto px-0 md:px-8">
@@ -19,9 +19,9 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         <img
                             src="/logo.png"
                             alt="Logo Calendário"
-                            className="w-[40px] h-[40px] object-contain opacity-90 drop-shadow-md shrink-0"
+                            className="w-[48px] h-[48px] object-contain opacity-90 drop-shadow-md shrink-0"
                         />
-                        <div className="flex flex-col justify-center text-left select-none antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                        <div className="flex flex-col justify-between h-[48px] py-[2px] text-left select-none antialiased" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                             <h3
                                 style={{
                                     fontSize: '28px',
@@ -41,7 +41,6 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                                     textTransform: 'uppercase',
                                     letterSpacing: '3px',
                                     color: '#BFD3EA',
-                                    marginTop: '6px',
                                     lineHeight: 1
                                 }}
                             >
