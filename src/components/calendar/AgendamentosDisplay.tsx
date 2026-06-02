@@ -4,7 +4,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { MONTHS } from '@/utils/calendar-utils';
 import { Agendamento } from './DrawerAgendamento';
-import { CalendarDays, ChevronRight, ClipboardList } from 'lucide-react';
+import { CalendarDays, ClipboardList } from 'lucide-react';
 
 interface AgendamentosDisplayProps {
     agendamentos: Agendamento[];
@@ -21,9 +21,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
     highlightedDay,
     onViewAgendamento
 }) => {
-    // Sem lógica de deduplicação ou filtragem pesada: o componente pai (Calendar.tsx) 
-    // já entrega a lista filtrada para o mês visível (filteredMonthAgendamentos).
-    // Este componente apenas ordena para garantir exibição cronológica.
+    // Deduplication or sorting: parent (Calendar.tsx) hands us the pre-filtered list
     const currentMonthAgendamentos = [...agendamentos].sort((a, b) => {
         return new Date(a.dataInicio + 'T12:00:00').getTime() - new Date(b.dataInicio + 'T12:00:00').getTime();
     });
@@ -37,6 +35,9 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
         return { dia, mes };
     };
 
+    const monthName = MONTHS[month] || '';
+    const formattedMonthName = monthName ? monthName.charAt(0).toUpperCase() + monthName.slice(1).toLowerCase() : '';
+
     return (
         <div
             className={cn(
@@ -46,8 +47,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                 isEmpty ? "hidden md:flex" : "flex"
             )}
         >
-            {/* Highlight de topo sutil */}
-
+            {/* HEADER */}
             <div
                 className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[24px] overflow-hidden"
             >
@@ -87,7 +87,6 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                         )}
                         style={{ lineHeight: '1.2' }}
                     >
-                        <CalendarDays className="w-[16px] h-[16px] text-white hidden" />
                         <span className="font-bold uppercase tracking-[0.2px] text-[#ffffff] text-[12px] md:text-[15px]">{MONTHS[month]?.substring(0, 3)} {year}</span>
                     </div>
                 </div>
@@ -95,14 +94,90 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
 
             <div className="pt-[11px] pb-[14px] px-[13px] md:px-[22px] md:pt-[24px] md:pb-[24px] flex flex-col justify-start flex-1 bg-transparent md:bg-transparent rounded-b-2xl md:rounded-b-[24px]">
                 {isEmpty ? (
-                    <div className="flex flex-col items-start justify-start pt-3 pb-4 gap-1 px-1">
-                        <div className="flex items-center gap-2.5 opacity-60">
-                            <ClipboardList className="w-5 h-5 md:w-6 md:h-6 text-gray-400 opacity-60" />
-                            <span className="text-[11px] md:text-[14px] font-bold md:font-[500] text-gray-400 uppercase md:normal-case tracking-[1px] md:tracking-normal leading-tight">
-                                Nenhum agendamento para este mês
-                            </span>
+                    <>
+                        {/* Mobile Empty State (Inalterado) */}
+                        <div className="flex md:hidden flex-col items-start justify-start pt-3 pb-4 gap-1 px-1">
+                            <div className="flex items-center gap-2.5 opacity-60">
+                                <ClipboardList className="w-5 h-5 text-gray-400 opacity-60" />
+                                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-[1px] leading-tight">
+                                    Nenhum agendamento para este mês
+                                </span>
+                            </div>
                         </div>
-                    </div>
+
+                        {/* Desktop Premium Empty State */}
+                        <div className="hidden md:flex flex-col items-center justify-center py-[28px] px-[20px] w-full text-center">
+                            {/* Illustration central (flat premium, azul suave, institucional, minimalista) */}
+                            <svg width="180" height="130" viewBox="0 0 180 130" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
+                                <defs>
+                                    <filter id="illustShadow" x="-10%" y="-10%" width="130%" height="130%">
+                                        <feGaussianBlur stdDeviation="3.5" result="blur" />
+                                        <feOffset dx="0" dy="3" />
+                                        <feFlood floodColor="#0F172A" floodOpacity="0.04" />
+                                        <feComposite in2="blur" operator="in" />
+                                        <feMerge>
+                                            <feMergeNode />
+                                            <feMergeNode in="SourceGraphic" />
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                
+                                {/* Background soft clouds and circular accents */}
+                                <circle cx="45" cy="55" r="22" fill="#E0F2FE" opacity="0.35" />
+                                <circle cx="135" cy="45" r="18" fill="#E0F2FE" opacity="0.45" />
+                                <ellipse cx="90" cy="98" rx="72" ry="16" fill="#F1F5F9" />
+                                
+                                {/* Calendar Checklist Base Sheet */}
+                                <rect x="58" y="24" width="64" height="78" rx="10" fill="#FFFFFF" filter="url(#illustShadow)" />
+                                
+                                {/* Calendar Blue Header Binder */}
+                                <rect x="58" y="24" width="64" height="14" rx="4" fill="#3B82F6" />
+                                <rect x="58" y="34" width="64" height="4" fill="#3B82F6" />
+                                
+                                {/* Binder rings */}
+                                <circle cx="72" cy="31" r="2" fill="#FFFFFF" />
+                                <circle cx="90" cy="31" r="2" fill="#FFFFFF" />
+                                <circle cx="108" cy="31" r="2" fill="#FFFFFF" />
+                                
+                                {/* Checklist lines and bullet boxes */}
+                                <g className="opacity-80">
+                                    <rect x="68" y="48" width="6" height="6" rx="1.5" fill="#93C5FD" />
+                                    <rect x="78" y="49" width="34" height="4" rx="2" fill="#E2E8F0" />
+                                    
+                                    <rect x="68" y="60" width="6" height="6" rx="1.5" fill="#93C5FD" />
+                                    <rect x="78" y="61" width="28" height="4" rx="2" fill="#E2E8F0" />
+                                    
+                                    <rect x="68" y="72" width="6" height="6" rx="1.5" fill="#E2E8F0" />
+                                    <rect x="78" y="73" width="32" height="4" rx="2" fill="#F1F5F9" />
+                                    
+                                    <rect x="68" y="84" width="6" height="6" rx="1.5" fill="#E2E8F0" />
+                                    <rect x="78" y="85" width="20" height="4" rx="2" fill="#F1F5F9" />
+                                </g>
+                                
+                                {/* Circular Premium Checkmark Badge */}
+                                <circle cx="114" cy="94" r="14" fill="#2563EB" stroke="#FFFFFF" strokeWidth="3" />
+                                <path d="M109 94.5 L112.2 97.7 L119 91" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                            </svg>
+                            
+                            {/* Centered Labels */}
+                            <h5 className="text-[17px] font-[700] text-slate-800 tracking-[-0.2px] mt-4 mb-1">
+                                Nenhum compromisso em {formattedMonthName}
+                            </h5>
+                            <p className="text-[13px] font-[500] text-slate-400 max-w-[260px] mx-auto leading-relaxed">
+                                Aproveite para planejar seus próximos eventos.
+                            </p>
+                            
+                            {/* Elegant + Novo compromisso 3D Blue Button */}
+                            <button
+                                onClick={() => {
+                                    window.dispatchEvent(new CustomEvent('open-agendamento-drawer'));
+                                }}
+                                className="mt-5 px-[20px] py-[10px] bg-[#548cf5] text-white text-[14.5px] font-[600] rounded-[12px] hover:bg-[#437de6] hover:-translate-y-[1px] active:scale-[0.98] active:translate-y-[1px] transition-all duration-200 border border-[#447de5] shadow-[0_6px_14px_rgba(84,140,245,0.25),inset_0_1px_1px_rgba(255,255,255,0.3),inset_0_-2px_2px_rgba(0,0,0,0.08)]"
+                            >
+                                + Novo compromisso
+                            </button>
+                        </div>
+                    </>
                 ) : (
                     <div className="flex flex-col gap-[10px] md:gap-[14px] relative md:before:hidden w-full pt-1 md:pt-0">
                         {currentMonthAgendamentos.map((agendamento, index) => {
@@ -136,7 +211,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                             "cursor-pointer transition-all duration-150 ease-in-out w-full origin-left group",
                                             "flex flex-row items-center justify-between min-h-[56px] p-[6px_10px_6px_8px] rounded-[14px] bg-[#ffffff] border border-slate-200/60 shadow-[0_2px_10px_rgba(15,23,42,0.04),inset_0_1.5px_3px_rgba(0,0,0,0.03)]", // Mobile
                                             "active:scale-[0.98] active:shadow-sm hover:-translate-y-[1px] md:hover:-translate-y-[1px]",
-                                            "md:min-h-[78px] md:p-[12px_18px_12px_13px] md:rounded-[18px] md:border md:border-slate-300/50 md:bg-[#ffffff] md:shadow-[0_2px_10px_rgba(15,23,42,0.035)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.06)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop
+                                            "md:min-h-[78px] md:p-[12px_18px_12px_13px] md:rounded-[18px] md:border md:border-slate-300/50 md:bg-[#ffffff] md:shadow-[0_4px_12px_rgba(0,0,0,0.05)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.06)] md:active:shadow-sm md:active:scale-[0.98]", // Desktop Shadow Refined to 0 4px 12px rgba(0,0,0,0.05)
                                             isHighlighted && "bg-yellow-100 md:bg-yellow-100 text-yellow-800 ring-2 ring-yellow-400 rounded-[16px] md:rounded-[18px] z-20 animate-bounce-twice font-semibold"
                                         )}
                                     >
@@ -188,15 +263,12 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                                             </div>
                                         </div>
 
-
-
                                         {hasContinuation && (
                                             <div className="hidden w-full mt-1.5">
                                                 <div className="border-b border-dashed border-blue-400/30 flex-1 ml-[10px]" />
                                             </div>
                                         )}
                                     </div>
-                                    {/* Separator removed for desktop as we use gap-[16px] now */}
                                 </React.Fragment>
                             );
                         })}

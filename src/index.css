@@ -190,4 +190,23 @@ All colors MUST be HSL.
     font-size: 28px !important;
     letter-spacing: -0.03em !important;
   }
-}
+}
+
+/* Premium Astronomy (Moon Phases) styling for desktop */
+@media (min-width: 768px) {
+  .premium-astronomy-card {
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(109,91,255,0.35) 0%,
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #050A2B 0%,
+      #071245 35%,
+      #131D6B 70%,
+      #3B2BB3 100%
+    ) !important;
+  }
+}
+
