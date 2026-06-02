@@ -127,7 +127,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                 "relative group/card"
             )}
             style={{
-                background: viewMode === 'anual' ? '#F9FAFB' : (!isDesktopState ? '#ffffff' : 'linear-gradient(180deg, #ffffff 0%, #fcfdfe 100%)'),
+                background: viewMode === 'anual' ? '#F9FAFB' : (!isDesktopState ? '#ffffff' : 'linear-gradient(180deg, #F6F8FC 0%, #EEF3FA 100%)'),
                 borderColor: viewMode === 'anual' ? 'rgba(170, 180, 195, 0.75)' : undefined
             }}
         >
@@ -158,7 +158,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
                         style={{
                             background: viewMode === 'anual' 
                                 ? 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.05) 100%)' 
-                                : 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.6) 92%, #ffffff 100%), radial-gradient(circle at top left, rgba(0,0,0,0.15) 0%, transparent 50%)'
+                                : 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 80%, rgba(246,248,252,0.6) 92%, #F6F8FC 100%), radial-gradient(circle at top left, rgba(0,0,0,0.15) 0%, transparent 50%)'
                         }}
                     />
                 </div>
