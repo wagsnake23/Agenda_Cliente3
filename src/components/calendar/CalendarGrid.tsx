@@ -85,41 +85,23 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                 "bg-gradient-to-b from-[#f8faff] to-[#eff6ff] shadow-[0_4px_12px_rgba(15,23,42,0.04)]",
 
                 // =====================
-                // MODO ADM
+                // ESTILO PREMIUM 3D DESKTOP (Todas as Escalas e Todos os Dias)
                 // =====================
-                mode === 'adm'
-                  ? cn(
-                    "md:shadow-[0_2px_4px_rgba(0,0,0,0.02),inset_0_1px_0_rgba(255,255,255,0.8)]",
-                    "md:bg-gradient-to-b md:from-[#fcfdfe] md:to-[#f1f5f9]",
-                    index === 0 ? "text-red-900" : "text-[#1e3a8a]",
-                    isToday && "z-20"
-                  )
+                "md:shadow-[0_4px_8px_-2px_rgba(0,0,0,0.05),inset_0_2px_3px_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(30,58,138,0.04)]",
+                "md:bg-gradient-to-b md:from-[#f0f5fa] md:to-[#e6eff7]",
+                "md:border-blue-500/30",
+                index === 0 ? "text-red-900" : "text-[#172554]",
 
-                  // =====================
-                  // MODO NORMAL
-                  // =====================
-                  : cn(
-                    "md:shadow-[0_2px_4px_rgba(0,0,0,0.02),inset_0_1px_0_rgba(255,255,255,0.8)]",
-
-                    isToday
-                      ? cn(
-                        "z-10",
-                        "shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05),0_8px_16px_rgba(0,0,0,0.1)]",
-
-                        todayColors.bg === 'bg-calendar-blue' &&
-                        "bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] text-white",
-
-                        todayColors.bg === 'bg-calendar-green' &&
-                        "bg-gradient-to-br from-[#22c55e] to-[#15803d] text-white",
-
-                        todayColors.bg === 'bg-calendar-yellow' &&
-                        "bg-gradient-to-br from-[#facc15] to-[#eab308] text-[#1A1A1A]"
-                      )
-                      : cn(
-                        index === 0 ? 'text-red-900' : 'text-[#1e3a8a]',
-                        "md:bg-gradient-to-b md:from-[#fcfdfe] md:to-[#f1f5f9]"
-                      )
-                  )
+                // =====================
+                // SE FOR HOJE (Sobrepõe o fundo se houver cor de escala ativa)
+                // =====================
+                isToday && cn(
+                  "z-20",
+                  "shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05),0_8px_16px_rgba(0,0,0,0.1)] md:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05),0_8px_16px_rgba(0,0,0,0.1)]",
+                  todayColors.bg === 'bg-calendar-blue' && "bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] md:bg-gradient-to-br md:from-[#2563eb] md:to-[#1d4ed8] text-white",
+                  todayColors.bg === 'bg-calendar-green' && "bg-gradient-to-br from-[#22c55e] to-[#15803d] md:bg-gradient-to-br md:from-[#22c55e] md:to-[#15803d] text-white",
+                  todayColors.bg === 'bg-calendar-yellow' && "bg-gradient-to-br from-[#facc15] to-[#eab308] md:bg-gradient-to-br md:from-[#facc15] md:to-[#eab308] text-[#1A1A1A]"
+                )
               )}
             >
               {day}
