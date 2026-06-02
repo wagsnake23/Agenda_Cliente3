@@ -206,7 +206,7 @@ const AgendamentosDisplay: React.FC<AgendamentosDisplayProps> = ({
                             {/* Elegant + Novo compromisso 3D Blue Button */}
                             <button
                                 onClick={() => {
-                                    window.dispatchEvent(new CustomEvent('open-agendamento-drawer'));
+                                    window.dispatchEvent(new CustomEvent('open-global-agendamento-modal'));
                                 }}
                                 className="mt-5 px-[20px] py-[10px] bg-[#548cf5] text-white text-[14.5px] font-[600] rounded-[12px] hover:bg-[#437de6] hover:-translate-y-[1px] active:scale-[0.98] active:translate-y-[1px] transition-all duration-200 border border-[#447de5] shadow-[0_6px_14px_rgba(84,140,245,0.25),inset_0_1px_1px_rgba(255,255,255,0.3),inset_0_-2px_2px_rgba(0,0,0,0.08)]"
                             >
