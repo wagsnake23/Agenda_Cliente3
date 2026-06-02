@@ -31,7 +31,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
         className="relative w-full h-[54px] md:h-[92px] flex items-center rounded-t-2xl md:rounded-t-[24px] overflow-hidden"
       >
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-[#ef5350]" />
+        <div className="absolute inset-0 bg-[#CC4747]" />
 
         {/* Conteúdo do Header */}
         <div className="relative flex items-center justify-between px-[16px] md:px-[34px] z-20 w-full h-full">
@@ -39,7 +39,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
             {/* Mobile Header Modernizado */}
             <div className="flex md:hidden items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
-                <PartyPopper className="w-[18px] h-[18px] text-[#ef5350]" />
+                <PartyPopper className="w-[18px] h-[18px] text-[#CC4747]" />
               </div>
               <h4 className="font-bold text-white text-[14px] uppercase tracking-[0.8px]">
                 FERIADOS E DATAS
@@ -49,7 +49,7 @@ const HolidayMessages: React.FC<HolidayMessagesProps> = ({ messages, highlighted
             {/* Desktop Header Premium */}
             <div className="hidden md:flex items-center">
               <div className="w-[54px] h-[54px] rounded-full bg-white flex items-center justify-center text-[26px] shrink-0 shadow-sm">
-                <PartyPopper className="w-[26px] h-[26px] text-[#ef5350]" />
+                <PartyPopper className="w-[26px] h-[26px] text-[#CC4747]" />
               </div>
               <div className="flex flex-col ml-4">
                 <span className="text-[20px] font-[800] tracking-[0.2px] text-[#ffffff] leading-none uppercase">Feriados e Datas</span>
