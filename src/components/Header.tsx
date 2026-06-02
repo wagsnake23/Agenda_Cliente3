@@ -261,7 +261,7 @@ const Header = () => {
                                 style={{
                                     fontSize: '24px',
                                     fontWeight: 800,
-                                    color: 'rgba(210, 40, 40, 0.9)',
+                                    color: '#CC4747',
                                     letterSpacing: '-1px',
                                     lineHeight: 1
                                 }}
