@@ -389,7 +389,12 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                         : "h-[54px] md:h-[72px] rounded-t-2xl md:rounded-t-[24px]"
                 )}>
                     {variant !== 'modal' && (
-                        <div className="absolute inset-0 bg-[#3b82f6]" />
+                        <div 
+                            className="absolute inset-0" 
+                            style={{
+                                background: `radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18), transparent 35%), linear-gradient(135deg, #2563EB 0%, #3B82F6 45%, #60A5FA 100%)`
+                            }}
+                        />
                     )}
                     
                     <div className={cn(
@@ -397,28 +402,47 @@ const DrawerAgendamento: React.FC<DrawerAgendamentoProps> = ({
                         variant === 'modal' ? "px-0" : "px-3.5 md:px-6"
                     )}>
                         {(!modoEdicao && mode !== 'create' && variant !== 'modal') ? (
-                            <div className="w-8 h-8 md:w-[44px] md:h-[44px] bg-white rounded-full md:rounded-xl flex items-center justify-center shrink-0 shadow-sm md:shadow-lg">
-                                <ClipboardList className="w-[18px] h-[18px] md:w-7 md:h-7 text-[#3b82f6] drop-shadow-sm" />
+                            <div 
+                                className="w-8 h-8 md:w-[44px] md:h-[44px] rounded-full md:rounded-xl flex items-center justify-center shrink-0"
+                                style={{
+                                    background: 'rgba(255,255,255,0.12)',
+                                    backdropFilter: 'blur(12px)',
+                                    border: '1px solid rgba(255,255,255,0.15)',
+                                    boxShadow: '0 4px 12px rgba(0,0,0,0.10)'
+                                }}
+                            >
+                                <ClipboardList className="w-[18px] h-[18px] md:w-7 md:h-7 text-white drop-shadow-sm" />
                             </div>
                         ) : (
-                            <div className={cn(
-                                "flex items-center justify-center rounded-full md:rounded-xl shrink-0 transition-all duration-300 shadow-sm md:shadow-lg",
-                                variant === 'modal'
-                                    ? "w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-50 to-blue-200 border-2 border-blue-200/80"
-                                    : "w-8 h-8 md:w-[44px] md:h-[44px] bg-white"
-                            )}>
+                            <div 
+                                className={cn(
+                                    "flex items-center justify-center rounded-full md:rounded-xl shrink-0 transition-all duration-300",
+                                    variant === 'modal'
+                                        ? "w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-50 to-blue-200 border-2 border-blue-200/80 shadow-sm md:shadow-lg"
+                                        : "w-8 h-8 md:w-[44px] md:h-[44px]"
+                                )}
+                                style={variant !== 'modal' ? {
+                                    background: 'rgba(255,255,255,0.12)',
+                                    backdropFilter: 'blur(12px)',
+                                    border: '1px solid rgba(255,255,255,0.15)',
+                                    boxShadow: '0 4px 12px rgba(0,0,0,0.10)'
+                                } : {}}
+                            >
                                 <SquarePen className={cn(
-                                    "w-[18px] h-[18px] md:w-7 md:h-7 text-[#3b82f6] drop-shadow-sm",
-                                    variant === 'modal' ? "text-blue-600" : ""
+                                    "w-[18px] h-[18px] md:w-7 md:h-7 drop-shadow-sm",
+                                    variant === 'modal' ? "text-blue-600" : "text-white"
                                 )} />
                             </div>
                         )}
 
                         <div className="flex flex-col justify-center min-w-0">
-                            <h2 className={cn(
-                                "leading-tight transition-all font-bold uppercase tracking-[0.8px] text-white",
-                                variant === 'modal' ? "text-[14px] md:text-[17px]" : "text-[14px] md:text-[18px]"
-                            )}>
+                            <h2 
+                                className={cn(
+                                    "leading-tight transition-all font-bold uppercase tracking-[0.8px] text-white",
+                                    variant === 'modal' ? "text-[14px] md:text-[17px]" : "text-[14px] md:text-[18px]"
+                                )}
+                                style={variant !== 'modal' ? { textShadow: '0 1px 2px rgba(0,0,0,0.15)' } : {}}
+                            >
                                 {modoEdicao ? (
                                     <span>Editar Agendamento</span>
                                 ) : mode === 'create' ? (
