@@ -192,7 +192,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
     <div className={cn(
       "relative z-10 h-full flex flex-col transition-all duration-300",
       "min-h-[54px] bg-[#f8fafc] rounded-2xl shadow-[0_4px_12px_rgba(15,23,42,0.03),inset_0_1px_2px_rgba(0,0,0,0.02)] border border-slate-300/45 overflow-hidden",
-      "md:min-h-0 md:rounded-[24px] md:border-none md:shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:overflow-hidden md:transition-none premium-astronomy-card"
+      "md:min-h-0 md:rounded-[24px] md:shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:transition-none premium-astronomy-card"
     )}>
       
       {/* Starry space texture overlay - Desktop only */}
@@ -372,7 +372,7 @@ const MoonPhasesDisplay: React.FC<MoonPhasesDisplayProps> = ({ moonPhases, month
 
       {/* DESKTOP FASES CONTAINER */}
       <div 
-        className="hidden md:flex flex-col z-10 border-l border-r border-b border-slate-300/45 rounded-b-[16px]"
+        className="hidden md:flex flex-col z-10"
         style={{ background: 'linear-gradient(180deg, #FAF8FF 0%, #FFFFFF 100%)' }}
       >
         <div className="relative flex flex-row items-stretch justify-between gap-[20px] p-[34px_34px_34px_34px]">
